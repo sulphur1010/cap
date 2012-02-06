@@ -1,0 +1,91 @@
+/* reset.css */
+html {margin:0;padding:0;border:0;}
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure, dialog, footer, header, hgroup, menu, nav, section {display:block;}
+body {line-height:1.5;background:white;}
+table {border-collapse:separate;border-spacing:0;}
+caption, th, td {text-align:left;font-weight:normal;float:none !important;}
+table, th, td {vertical-align:top;}
+blockquote:before, blockquote:after, q:before, q:after {content:'';}
+blockquote, q {quotes:"" "";}
+a img {border:none;}
+:focus {outline:0;}
+
+/*Background and Structure*/
+html {font-size:100.01%;}
+body {font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
+
+/*Typography definition*/
+h1 {font-size:24px;font-weight:bold;line-height:140%;margin:0;font-family:arial;color:#232323;}
+h2 {font-size:18px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
+h3 {font-size:15px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
+h4 {font-size:14px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
+h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0;font-family:arial;color:#232323;}/*left bar title CAP*/
+
+/*---General Define P TAG*/
+.arial{font-family:arial;}
+.cblack{color:#3C3D3D;}
+.cgrey{color:#676767;}
+.cblue{color:#268BB3;}
+.size11{font-size:11px; line-height:130%;}
+.size12{font-size:12px; line-height:130%;}
+.size13{font-size:13px; line-height:140%;}
+.size14{font-size:14px; line-height:150%;}
+.size15{font-size:15px; line-height:150%;}
+.bold{font-weight:bold;}
+
+/*---Special Group*/
+p.italyGeogia{font-style:italic; font-family:Geogia;}
+
+/*Basic Structure*/
+body{background:#E7E9EB;}
+#content{width:1001px;height:auto;margin:auto;background:#E7E9EB;}
+
+
+/*--Header*/
+#header{width:1001px;clear:both;}
+/*----logo*/
+
+/*----Top Navigation & Search Box*/
+#top_nav_bar{display:block;width:1001px;height:40px;background:url(../images/top_nav_bg.gif);}
+
+table.nav_main{display:inline;border:none;border-collapse:collapse;}
+table.nav_main tr{margin:0 5px;line-height:40px;border:none;border-collapse:collapse;}
+table.nav_main tr td{border:none;border-collapse:collapse;}
+
+a.top_nav{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:40px;padding:0 16px;display:block;}
+a.top_nav:hover{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:40px;padding:0 16px;display:block;background:url(../images/top_nav_bg_hover.gif) repeat-x center;}
+
+.search_form{width:250px;height:24px;background:#fff;border:1px #ccc solid;margin:6px 10px;padding:0;}
+.search_box{width:214px;height:24px;border:none;padding:0 3px;vertical-align:top;color:#676767;}
+.search_btn{background:url(../images/search_btn.png);vertical-align:top; width:26px;height:23px;border:none;}
+
+/*Main Part*/
+#main{background:#fff;border:none;width:1000px;height:auto;margin:20px 0 0 0;}
+.left_column{width:180px;}
+.left_content{width:760px; padding:20px;}
+.right_content{width:820px;}
+.right_column{width:240px;}
+.middle_content{width:580px;}
+
+/*right_column*/
+table.right_col{display:inline;border:none;border-collapse:collapse;}
+table.right_col tr{margin:0 5px;border:none;border-collapse:collapse;}
+table.right_col tr td{border:1px solid #ccc;border-collapse:collapse;width:240px}
+.yellow_bg{background:#F7FBDC;}
+.padding_in10{padding:10px;}
+
+.email_box{width:219px;height:37px;border:1px solid #ccc;margin:5px 0;padding:0 3px;vertical-align:top;color:#676767;}
+.submit_btn{float:right;margin-top:10px;}
+
+/*navigations*/
+.blue_link{font-size:15px;font-weight:normal;color:#268BB3;text-decoration:none;font-family:arial;}
+.blue_link:hover{font-size:15px;font-weight:normal;color:#268BB3;text-decoration:underline;font-family:arial;}
+
+/*footer*/
+#footer{margin:20px 0 0 0;}
+.copyright{font-size:13px;font-weight:bold;color:#404040;text-decoration:none;font-family:arial;line-height:1.4em;padding:0;text-align:center;}	
+.footer_link{font-size:13px;font-weight:normal;color:#606060;text-decoration:none;font-family:arial;line-height:27px;height:27px;padding:0;display:block;}	
+.footer_link:hover{font-size:13px;font-weight:normal;color:#000;text-decoration:underline;font-family:arial;line-height:27px;height:27px;padding:0;display:block;}	
+.footer_title{font-size:13px;font-weight:bold;line-height:1.3;margin:0;font-family:arial;color:#404040;}
+hr.single_line{color: #F3E3B4;background:transparent; border: 1px solid #ccc; border-style: none none solid; margin:5px 0;padding:0;}
