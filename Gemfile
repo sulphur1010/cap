@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
-gem 'devise', '~> 1.5.3'
+gem 'devise', '2.0'
 gem 'haml', '3.0.24'
 gem 'formtastic', '~> 1.1.0'
 
@@ -9,7 +9,7 @@ gem 'formtastic', '~> 1.1.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'mysql2', '0.2.6'
-gem 'mysql'
+gem 'mysql2', '0.3.11'
 gem 'less', '~> 2.0.8'
 
 
@@ -32,4 +32,7 @@ gem 'unicorn'
 group :development, :test do
 	# Deploy with Capistrano
 	gem 'capistrano'
+	gem 'rspec', '2.8.0'
+	gem 'machinist', '2.0'
+	gem 'faker', '1.0.1'
 end
