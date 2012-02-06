@@ -8,9 +8,112 @@
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
-
+<div id='content'>
+	<div id='header'>
+		<div id='logo'><img src='/images/capp-logo.png'></div>
+		<div id='top_nav_bar'>
+			<table class='nav_main'><tr>
+					<td width='52px'><a href="/" class='top_nav'><img src='/images/home_btn.png' /></a></td>
+				<!--	<td><a href="#" class='top_nav'>What is CST?</a></td>
+					<td><a href="#" class='top_nav'>Contemporary Issues</a></td>	
+					<td><a href="#" class='top_nav'>Study Center</a></td>
+					<td><a href="#" class='top_nav'>Events</a></td>
+					<td><a href="#" class='top_nav'>News</a></td>
+					<td><a href="#" class='top_nav'>About CAPP</a></td>
+					<td><form name='search' class='search_form'>
+							<input type='text' name='email' class='search_box' value='Search' >
+							<input type='submit' class='search_btn' value='' />
+						</form>
+					</td> -->
+			</tr></table>
+		</div>
+	</div>
+	
+	<div id='main'>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+		<table><tr>
+			<td class='left_content'>
+			<h1>We are busy making some great improvements!</h1>
+			<div class='arial size15 cgrey'>Please pardon our appearance while our site is under construction. <a href='#' class='blue_link'>What's going on?</a></div>
+			<br><br>
+			<h1>Upcoming Events</h1>
+			<br>
+			<p class='arial size14 cgrey bold'>Sun Oct 30, 2011 @ 9:00AM</p>
+			<p class='arial size14 cblue'>6th Annual Bishop's Mass for Business Leaders and Professionals</p>
+			<br>
+			<p class='arial size14 cgrey bold'>Wed Nov 9, 2011 @ 7:00PM @ 8:30PM</p>
+			<p class='arial size14 cblue'>Catholic Social Teaching Study Group @ 11th Class<br>Topic: Current Issues</p>
+			<br>
+			<p class='arial size14 cgrey bold'>Wed Dec 14, 2011 @ 7:00PM @ 8:30PM</p>
+			<p class='arial size14 cblue'>Catholic Social Teaching Study Group @ 11th Class<br>Topic: Current Issues</p>
+			<br>
+			</td>
+			<td class='right_column'>
+				<table class='right_col'>
+					<tr><td class='yellow_bg padding_in10'>
+					<h5>Be the first to know</h5>
+					<form name='newsletter' class=''>
+							<input type='text' name='email' class='email_box' value='Add email' >
+							<p class='arial size11 cgrey'>submit your email to receive details on our site improvements, as well as hear about upcoming events and courses.</p>
+							<input type='submit' class='submit_btn' value='Submit' />
+					</form>	
+					</td></tr>
+				</table>
+			</td>
+		</tr></table>
+	</div>
+	<div id='footer'>
+		<table><tr>
+		<td width='226px'>
+			<p class='footer_title'>About CAPP</p>
+			<hr class='single_line'>
+			<a href='#' class='footer_link'>History of CAPP</a>
+			<a href='#' class='footer_link'>History of Our logo</a>
+			<a href='#' class='footer_link'>Membership</a>
+			<a href='#' class='footer_link'>Prayer</a>
+			<a href='#' class='footer_link'>CAPP Bylaws</a>
+			<a href='#' class='footer_link'>Contact Us</a>
+		</td>
+		<td width='32px'></td>
+		<td width='226px'>
+			<p class='footer_title'>News</p>
+			<hr class='single_line'>
+			<a href='#' class='footer_link'>National News</a>
+			<a href='#' class='footer_link'>Regional News</a>
+			<a href='#' class='footer_link'>La Fondazione</a>
+			<a href='#' class='footer_link'>The Vatican</a>
+			<br><br>
+			<p class='footer_title'>Articles</p>
+			<hr class='single_line'>
+			<a href='#' class='footer_link'>Do Not Be Afraid!</a>
+			<a href='#' class='footer_link'>FCAPP Audience with Benedict XVI</a>
+			<a href='#' class='footer_link'>Urgent Need to Educate Laity</a>
+		</td>
+		<td width='32px'></td>
+		<td width='226px'>
+			<p class='footer_title'>Catholic Social Teaching</p>
+			<hr class='single_line'>
+			<a href='#' class='footer_link'>CST Program</a>
+			<a href='#' class='footer_link'>Program Overview</a>
+			<a href='#' class='footer_link'>Registration Information</a>
+		</td>
+		<td width='32px'></td>
+		<td width='226px'>
+		<p class='footer_title'>Financial Support</p>
+			<hr class='single_line'>
+			<a href='#' class='footer_link'>Download Contribuction Form</a>
+			<a href='#' class='footer_link'>Contact Us</a>
+		</td>
+		</tr>
+		<tr><td colspan='7' class='copyright'>
+			<br><hr class='single_line'>
+			Centesimus Annus Pro Pontifice, Inc (CAPP) is the United States national affiliate of Fondazione Centesimus Annus-Pro Pontifice of the Vatican
+To Contact a CAPP representative, call 1 (203) 342-3211</td></tr>
+		
+		</table>
+	</div>
+</div>
 </body>
 </html>
