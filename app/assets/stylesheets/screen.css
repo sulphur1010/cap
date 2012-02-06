@@ -47,18 +47,18 @@ body{background:#E7E9EB;}
 /*----logo*/
 
 /*----Top Navigation & Search Box*/
-#top_nav_bar{display:block;width:1001px;height:40px;background:url(../images/top_nav_bg.gif);}
+#top_nav_bar{display:block;width:1001px;height:40px;background:url(/images/top_nav_bg.gif);}
 
 table.nav_main{display:inline;border:none;border-collapse:collapse;}
 table.nav_main tr{margin:0 5px;line-height:40px;border:none;border-collapse:collapse;}
 table.nav_main tr td{border:none;border-collapse:collapse;}
 
 a.top_nav{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:40px;padding:0 16px;display:block;}
-a.top_nav:hover{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:40px;padding:0 16px;display:block;background:url(../images/top_nav_bg_hover.gif) repeat-x center;}
+a.top_nav:hover{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:40px;padding:0 16px;display:block;background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 
 .search_form{width:250px;height:24px;background:#fff;border:1px #ccc solid;margin:6px 10px;padding:0;}
 .search_box{width:214px;height:24px;border:none;padding:0 3px;vertical-align:top;color:#676767;}
-.search_btn{background:url(../images/search_btn.png);vertical-align:top; width:26px;height:23px;border:none;}
+.search_btn{background:url(/images/search_btn.png);vertical-align:top; width:26px;height:23px;border:none;}
 
 /*Main Part*/
 #main{background:#fff;border:none;width:1000px;height:auto;margin:20px 0 0 0;}
