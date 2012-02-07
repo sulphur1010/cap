@@ -188,3 +188,7 @@ table.data_table tbody tr td {
 table.data_table tbody tr.even {
   background-color: #f5f5f5;
 }
+
+table.data_table tr td.controls a {
+  margin-right: 5px;
+}
