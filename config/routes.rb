@@ -2,6 +2,7 @@ CappUsa::Application.routes.draw do
   devise_for :users
 
   resources :content_fragments
+  resources :pages
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -42,7 +43,7 @@ CappUsa::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-  match '*url' => 'content_fragments#page'
+  match '*url' => 'pages#view'
 
   # Sample resource route within a namespace:
   #   namespace :admin do

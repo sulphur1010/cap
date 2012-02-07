@@ -8,7 +8,6 @@
 </head>
 <body>
 
-<%= render :partial => 'shared/debug_nav' %>
 <div id='content'>
 	<div id='header'>
 		<div id='logo'><img src='/images/capp-logo.png'></div>
@@ -33,25 +32,12 @@
 	<div id='main'>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
 		<table><tr>
 			<td class='left_content'>
-			<h1>We are busy making some great improvements!</h1>
-			<div class='arial size15 cgrey'>Please pardon our appearance while our site is under construction. <a href='#' class='blue_link'>What's going on?</a></div>
-			<br><br>
-			<h1>Upcoming Events</h1>
-			<br>
-			<p class='arial size14 cgrey bold'>Sun Oct 30, 2011 @ 9:00AM</p>
-			<p class='arial size14 cblue'>6th Annual Bishop's Mass for Business Leaders and Professionals</p>
-			<br>
-			<p class='arial size14 cgrey bold'>Wed Nov 9, 2011 @ 7:00PM @ 8:30PM</p>
-			<p class='arial size14 cblue'>Catholic Social Teaching Study Group @ 11th Class<br>Topic: Current Issues</p>
-			<br>
-			<p class='arial size14 cgrey bold'>Wed Dec 14, 2011 @ 7:00PM @ 8:30PM</p>
-			<p class='arial size14 cblue'>Catholic Social Teaching Study Group @ 11th Class<br>Topic: Current Issues</p>
-			<br>
+        <%= yield %>
 			</td>
 			<td class='right_column'>
+        <%= render :partial => 'shared/user_menu' %>
 				<table class='right_col'>
 					<tr><td class='yellow_bg padding_in10'>
 					<h5>Be the first to know</h5>

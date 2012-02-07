@@ -6,16 +6,6 @@ class ContentFragmentsController < ApplicationController
     respond_with(@content_fragments = ContentFragment.all)
   end
 
-  def page
-    url = params[:url]
-    @content_fragment = ContentFragment.where(:url => url).first
-    if !@content_fragment
-      render :file => 'public/404.html', :status => 404, :layout => false
-    else
-      respond_with(@content_fragment)
-    end
-  end
-
   def show
     respond_with(@content_fragment = ContentFragment.find(params[:id]))
   end
