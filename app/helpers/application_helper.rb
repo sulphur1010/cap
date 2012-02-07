@@ -41,4 +41,17 @@ module ApplicationHelper
   def placeholder_unless(condition, *args, &proc)
     condition ? proc.call : concat(placeholder(args))
   end
+
+  def content_fragment_edit_url(content_fragment)
+    self.send("edit_#{content_fragment.type.to_s.underscore}_url", content_fragment)
+  end
+
+  def active_link_to(name, url)
+    path = request.path
+    options = {}
+    if url == path
+      options[:class] = "active"
+    end
+    link_to name, url, options
+  end
 end

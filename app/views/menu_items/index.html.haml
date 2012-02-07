@@ -1,19 +1,22 @@
-%h2 Menu Items
-- table(@menu_items, ['', 'name', 'url', '']) do |menu_item, klass|
-  %tr{:class => klass}
-    %td{:colspan => 2}= menu_item.name
-    %td= menu_item.url
-    %td.controls
-      = link_to 'Edit', edit_menu_item_path(menu_item)
-      = link_to 'Delete', menu_item_path(menu_item), :method => :delete, :confirm => "Are you sure?"
-  - menu_item.children.each do |sub_menu_item|
+.page
+  %h2 Menu Items
+  - table(@menu_items, ['', 'name', 'weight', 'url', '']) do |menu_item, klass|
     %tr{:class => klass}
-      %td.blank &nbsp;
-      %td= sub_menu_item.name
-      %td= sub_menu_item.url
+      %td{:colspan => 2}= menu_item.name
+      %td= menu_item.weight
+      %td= menu_item.url
       %td.controls
-        = link_to 'Edit', edit_menu_item_path(sub_menu_item)
-        = link_to 'Delete', menu_item_path(sub_menu_item), :method => :delete, :confirm => "Are you sure?"
-      
-.link
-  = link_to 'New Menu Item', new_menu_item_url
+        = link_to 'Edit', edit_menu_item_path(menu_item)
+        = link_to 'Delete', menu_item_path(menu_item), :method => :delete, :confirm => "Are you sure?"
+    - menu_item.children.each do |sub_menu_item|
+      %tr{:class => klass}
+        %td.blank &nbsp;
+        %td= sub_menu_item.name
+        %td= sub_menu_item.weight
+        %td= sub_menu_item.url
+        %td.controls
+          = link_to 'Edit', edit_menu_item_path(sub_menu_item)
+          = link_to 'Delete', menu_item_path(sub_menu_item), :method => :delete, :confirm => "Are you sure?"
+        
+  .link
+    = link_to 'New Menu Item', new_menu_item_url

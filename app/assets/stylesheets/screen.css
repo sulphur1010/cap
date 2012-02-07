@@ -216,6 +216,10 @@ table.left_menu_container .left_menu_item span {
   font-weight: bold;
 }
 
+table.left_menu_container .left_menu_item a.active {
+  background-color: #caf0fe;
+}
+
 table.left_menu_container .left_menu_sub_item a {
   font-weight: normal;
   padding-left: 20px;

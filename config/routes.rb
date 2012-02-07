@@ -11,6 +11,8 @@ CappUsa::Application.routes.draw do
   end
   resources :person_types
 
+  match 'what_is_cst' => 'home#what_is_cst'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,5 +1,2 @@
 .page
-  %h2= @page.title
-  - if user_signed_in?
-    = link_to 'Edit', edit_page_url(@page)
-  = @page.body.html_safe
+  = render :partial => 'content_fragments/page', :object => @page

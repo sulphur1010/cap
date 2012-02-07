@@ -1,0 +1,12 @@
+#left_menu
+  .left_menu_item
+    = active_link_to "Overview", what_is_cst_path
+  .left_menu_item
+    %span I AM A:
+  - PersonType.where(:published => true).order(:weight).each do |person_type|
+    .left_menu_item.left_menu_sub_item
+      = active_link_to person_type.name, person_type_path(person_type)
+  .left_menu_item
+    %span I AM INTERESTED IN:
+  .left_menu_item
+    %span ROLES IN CST:
