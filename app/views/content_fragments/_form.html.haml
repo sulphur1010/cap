@@ -1,9 +1,0 @@
-= semantic_form_for @content_fragment do |f|
-  = f.inputs :name => 'Basic' do
-    = f.input :title
-    = f.input :url
-    = f.input :body, :input_html => { :class => 'editor' }
-  = f.inputs :name => 'Advanced' do
-    = f.input :published
-    = f.input :teaser, :input_html => { :class => 'editor' }
-  = f.buttons
