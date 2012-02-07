@@ -1,4 +1,4 @@
-- MenuItem.where(:parent_id => nil).each do |menu_item|
+- MenuItem.where(:parent_id => nil).order(:weight).each do |menu_item|
   %td.top_nav_container
     %a.top_nav{:href => menu_item.url}= menu_item.name
     - if !menu_item.children.empty?

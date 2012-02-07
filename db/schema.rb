@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120207050709) do
+ActiveRecord::Schema.define(:version => 20120207183649) do
 
   create_table "content_fragments", :force => true do |t|
     t.string   "title"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20120207050709) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "weight"
   end
 
   add_index "menu_items", ["parent_id"], :name => "index_menu_items_on_parent_id"
