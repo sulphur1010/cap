@@ -8,6 +8,11 @@ require 'machinist/active_record'
 #     body  { "Lorem ipsum..." }
 #   end
 
+ContentFragment.blueprint do
+	title { "test content fragment" }
+	url { "/some/other/url" }
+end
+
 Page.blueprint do
 	title { "test page" }
 	url { "/some/url" }
