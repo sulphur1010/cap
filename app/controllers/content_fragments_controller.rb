@@ -26,7 +26,10 @@ class ContentFragmentsController < ApplicationController
   end
 
   def create
-    respond_with(@content_fragment = ContentFragment.create(params[:content_fragment]), :location => content_fragments_url)
+		@content_fragment = ContentFragment.new(params[:content_fragment])
+		@content_fragment.user = current_user
+		@content_fragment.save
+    respond_with(@content_fragment, :location => content_fragments_url)
   end
 
   def edit
