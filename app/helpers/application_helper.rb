@@ -1,7 +1,7 @@
 module ApplicationHelper
   def table(collection, headers, options = {}, &proc)
     options.reverse_merge!({
-      :placeholder  => 'Nothing to display',
+      :placeholder  => 'No results found',
       :caption      => nil,
       :summary      => nil,
       :footer       => ''
@@ -22,7 +22,7 @@ module ApplicationHelper
     end
   end
 
-  def placeholder(message = 'Nothing to display', options = {}, &proc)
+  def placeholder(message = 'No results found', options = {}, &proc)
     # set default options
     o = { :class => 'placeholder', :tag => 'p' }.merge(options)
 
