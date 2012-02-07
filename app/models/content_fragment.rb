@@ -5,7 +5,6 @@ class ContentFragment < ActiveRecord::Base
 
 	before_save :set_type
 	before_save :set_published_at
-	before_save :remove_initial_slash_from_url
 
   validates :title, :presence => true
   validates :url, :uniqueness => true
@@ -19,12 +18,6 @@ class ContentFragment < ActiveRecord::Base
 	def set_published_at
 		self.published_at = DateTime.now if self.published? and !self.published_at
 		self.published_at = nil if !self.published?
-	end
-
-	def remove_initial_slash_from_url
-		if self.url && self.url =~ /^\//
-			self.url = self.url.sub(/^\//, '')
-		end
 	end
 
 end

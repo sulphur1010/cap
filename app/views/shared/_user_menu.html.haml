@@ -9,6 +9,8 @@
           %li
             = link_to 'Pages', pages_url
           %li
+            = link_to 'Menu', menu_items_url
+          %li
             = link_to 'logout', destroy_user_session_url, :method => :delete
         - else
           %li

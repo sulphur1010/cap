@@ -1,0 +1,5 @@
+- @menu_items.each do |menu_item|
+	= link_to menu_item.name, edit_menu_item_url(menu_item)
+	%br
+.link
+	= link_to 'New Menu Item', new_menu_item_url

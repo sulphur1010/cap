@@ -3,11 +3,10 @@ class PagesController < ApplicationController
   respond_to :html
 
   def view
-    url = params[:url]
-    url = "/#{url}" unless url[0] == '/'
-    @page = Page.where(:url => url).first
+    url = request.path
+    @page = Page.where(:url => request.path).first
     if !@page
-      render :file => 'public/404.html', :status => 404, :layout => false
+      render :text => "<h2>Page not found</h2>", :status => 404, :layout => true
     else
       respond_with(@page)
     end
