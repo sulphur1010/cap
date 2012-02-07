@@ -8,10 +8,11 @@ require 'machinist/active_record'
 #     body  { "Lorem ipsum..." }
 #   end
 
-ContentFragment.blueprint do
-	title { "Test ContentFragment" }
-	body { "Some body." }
-	url { "/test/content/fragment" }
-	published { true }
+Page.blueprint do
+	title { "test page" }
+	url { "/some/url" }
 end
 
+Page.blueprint(:no_slash) do
+	url { "no/initial/slash" }
+end
