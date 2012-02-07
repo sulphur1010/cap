@@ -1,0 +1,20 @@
+
+#debug_nav {
+	background: orange;
+	color: white;
+}
+
+#debug_nav .nav_link {
+	color: white;
+	padding: 5px;
+}
+
+#debug_nav .nav_link a {
+	color: white;
+	text-decoration: none;
+}
+
+.user_nav,
+.nav_link {
+	display: inline-block;
+}

@@ -1,4 +1,5 @@
 - specific_partial_name = "#{content_fragment.type.underscore}"
 - partial = "content_fragments/#{specific_partial_name}"
+-	partial = "content_fragments/generic_content_fragment" if partial == "content_fragments/content_fragment"
 - partial = "content_fragments/generic_content_fragment" unless File.exists?(File.join(Rails.root, "app", "views", "content_fragments", "_#{specific_partial_name}.html.haml"))
 = render :partial => partial, :locals => { :content_fragment => content_fragment }

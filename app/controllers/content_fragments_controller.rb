@@ -14,4 +14,8 @@ class ContentFragmentsController < ApplicationController
     respond_with(@content_fragment = ContentFragment.new)
   end
 
+	def create
+		respond_with(@content_fragment = ContentFragment.create(params[:content_fragment]))
+	end
+
 end

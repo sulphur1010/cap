@@ -1,0 +1,10 @@
+#debug_nav
+	.nav_link
+		= link_to 'Fragments', content_fragments_url
+	.user_nav
+		- if user_signed_in?
+			.nav_link
+				= link_to 'logout', destroy_user_session_url, :method => :delete
+		- else
+			.nav_link
+				= link_to 'login', new_user_session_url
