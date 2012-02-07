@@ -3,4 +3,7 @@ class ContentFragment < ActiveRecord::Base
 
 	alias :author :user
 
+  validates :title, :presence => true
+  validates :url, :uniqueness => true
+
 end
