@@ -4,6 +4,7 @@ CappUsa::Application.routes.draw do
   resources :content_fragments
   resources :pages
   resources :menu_items
+  resources :contemporary_issues
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -3,7 +3,7 @@ class MenuItemsController < ApplicationController
   respond_to :html
 
   def index
-    respond_with(@menu_items = MenuItem.all)
+    respond_with(@menu_items = MenuItem.where(:parent_id => nil).order(:weight))
   end
 
   def show
