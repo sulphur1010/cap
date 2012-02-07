@@ -1,6 +1,10 @@
 class ContemporaryIssuesController < ApplicationController
   respond_to :html
 
+  def view
+    @page = Page.where(:url => "/contemporary_issues/view").first
+  end
+
   def index
     respond_with(@contemporary_issues = ContemporaryIssue.all)
   end

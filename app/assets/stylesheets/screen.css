@@ -61,9 +61,10 @@ a.top_nav:hover{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;
 .search_btn{background:url(/images/search_btn.png);vertical-align:top; width:26px;height:23px;border:none;}
 
 /*Main Part*/
-#main{background:#fff;border:none;width:1000px;height:auto;margin:20px 0 0 0;padding: 3px;}
+#main{background:#fff;border:none;width:1000px;height:auto;margin:20px 0 0 0}
 .left_column{width:180px;}
-.left_content{width:760px; padding:20px;}
+.left_content{width:760px; border:1px solid #ccc}
+.left_content .page {padding:20px}
 .right_content{width:820px;}
 .right_column{width:240px;}
 .middle_content{width:580px;}
@@ -191,4 +192,36 @@ table.data_table tbody tr.even {
 
 table.data_table tr td.controls a {
   margin-right: 5px;
+}
+
+table.left_menu_container {
+  width: 100%;
+}
+
+table.left_menu_container td.left_menu {
+  width: 170px;
+  border-right: 1px solid #ccc;
+}
+
+table.left_menu_container .left_menu_item {
+  border-bottom: 1px solid #ccc;
+}
+
+table.left_menu_container .left_menu_item a,
+table.left_menu_container .left_menu_item span {
+  display: block;
+  color: black;
+  text-decoration: none;
+  padding: 7px 10px;
+  font-weight: bold;
+}
+
+table.left_menu_container .left_menu_sub_item a {
+  font-weight: normal;
+  padding-left: 20px;
+}
+
+table.left_menu_container .content_with_left_menu {
+  padding: 20px;
+  background-color: #e7f5f5;
 }

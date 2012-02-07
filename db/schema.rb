@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120207183649) do
+ActiveRecord::Schema.define(:version => 20120207202542) do
+
+  create_table "contemporary_issues_content_fragments", :id => false, :force => true do |t|
+    t.integer "contemporary_issue_id"
+    t.integer "content_fragment_id"
+  end
 
   create_table "content_fragments", :force => true do |t|
     t.string   "title"
@@ -24,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20120207183649) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url"
+    t.integer  "weight"
+    t.string   "name"
   end
 
   add_index "content_fragments", ["url"], :name => "index_content_fragments_on_url", :unique => true
