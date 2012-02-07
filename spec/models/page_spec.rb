@@ -1,5 +1,5 @@
 
-describe "Page" do
+describe Page do
 
 	it "should be valid" do
 		p = Page.make

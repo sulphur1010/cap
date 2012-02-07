@@ -1,5 +1,5 @@
 
-describe "ContentFragment" do
+describe ContentFragment do
 
 	it "should be valid" do
 		cf = ContentFragment.make
