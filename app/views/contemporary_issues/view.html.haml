@@ -1,0 +1,4 @@
+%h2= @contemporary_issue.title
+- if user_signed_in?
+  = link_to 'Edit', edit_contemporary_issue_url(@contemporary_issue)
+= @contemporary_issue.body.html_safe
