@@ -2,7 +2,7 @@ class PersonTypesController < ApplicationController
   respond_to :html
 
   def index
-    respond_with(@person_types = PersonType.all)
+    respond_with(@person_types = PersonType.order(:weight))
   end
 
   def show
