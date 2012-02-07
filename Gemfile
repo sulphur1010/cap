@@ -34,7 +34,7 @@ gem 'jquery-rails', '>= 1.0.12'
 group :development, :test do
 	# Deploy with Capistrano
 	gem 'capistrano'
-	gem 'rspec', '2.8.0'
+	gem 'rspec-rails', '~> 2.6'
 	gem 'machinist', '2.0'
 	gem 'faker', '1.0.1'
 end

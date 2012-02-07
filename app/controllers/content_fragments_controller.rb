@@ -8,7 +8,6 @@ class ContentFragmentsController < ApplicationController
 
   def page
     url = params[:url]
-    url = "/#{url}" unless url[0] == '/'
     @content_fragment = ContentFragment.where(:url => url).first
     if !@content_fragment
       render :file => 'public/404.html', :status => 404, :layout => false
