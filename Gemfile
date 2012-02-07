@@ -11,6 +11,7 @@ gem 'formtastic', '2.0.2'
 #gem 'mysql2', '0.2.6'
 gem 'mysql2', '0.3.11'
 gem 'less', '~> 2.0.8'
+gem 'tinymce-rails', '3.4.8'
 
 
 # Use unicorn as the web server

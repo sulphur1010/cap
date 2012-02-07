@@ -5,6 +5,9 @@ class ContentFragment < ActiveRecord::Base
 
 	before_save :set_type
 
+  validates :title, :presence => true
+  validates :url, :uniqueness => true
+
 	private
 
 	def set_type
