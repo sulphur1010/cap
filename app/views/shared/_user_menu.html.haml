@@ -5,13 +5,15 @@
       %ul#user_menu
         - if user_signed_in?
           %li
-            = link_to 'Content', content_fragments_url
-          %li
-            = link_to 'Pages', pages_url
-          %li
-            = link_to 'Contemporary Issues', contemporary_issues_url
+            Content
+            %ul
+              %li
+                = link_to 'Pages', pages_url
+              %li
+                = link_to 'Contemporary Issues', contemporary_issues_url
           %li
             = link_to 'Menu', menu_items_url
+          %li &nbsp;
           %li
             = link_to 'logout', destroy_user_session_url, :method => :delete
         - else
