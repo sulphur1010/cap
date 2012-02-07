@@ -1,7 +1,9 @@
-- table(@pages, ['url', 'title', '']) do |page, klass|
+%h2 All Pages
+- table(@pages, ['url', 'title', 'published', '']) do |page, klass|
   %tr{:class => klass}
     %td= link_to page.url, page.url
     %td= page.title
+    %td= page.published?
     %td.controls
       = link_to 'Edit', edit_page_path(page)
       = link_to 'Delete', page_path(page), :method => :delete, :confirm => "Are you sure?"
