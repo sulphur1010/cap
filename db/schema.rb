@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120207202542) do
+ActiveRecord::Schema.define(:version => 20120208191041) do
 
   create_table "contemporary_issues_content_fragments", :id => false, :force => true do |t|
     t.integer "contemporary_issue_id"
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(:version => 20120207202542) do
 
   add_index "content_fragments", ["url"], :name => "index_content_fragments_on_url", :unique => true
   add_index "content_fragments", ["user_id"], :name => "index_content_fragments_on_user_id"
+
+  create_table "content_fragments_person_types", :id => false, :force => true do |t|
+    t.integer "content_fragment_id"
+    t.integer "person_type_id"
+  end
 
   create_table "menu_items", :force => true do |t|
     t.integer  "parent_id"

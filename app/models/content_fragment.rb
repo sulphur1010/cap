@@ -1,6 +1,7 @@
 class ContentFragment < ActiveRecord::Base
 	belongs_to :user
 	has_and_belongs_to_many :contemporary_issues
+	has_and_belongs_to_many :person_types
 
 	alias :author :user
 
