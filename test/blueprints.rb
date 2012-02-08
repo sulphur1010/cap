@@ -46,4 +46,6 @@ end
 
 # Users
 User.blueprint do
+	email { "test@test.com" }
+	password { "testtest" }
 end
