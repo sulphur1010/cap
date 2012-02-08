@@ -87,10 +87,10 @@ table.right_col tr td{border:1px solid #ccc;border-bottom: 0;border-collapse:col
 /*footer*/
 #footer{margin:20px 0 0 0;}
 .copyright{font-size:13px;font-weight:bold;color:#404040;text-decoration:none;font-family:arial;line-height:1.4em;padding:0;text-align:center;}	
-.footer_link{font-size:13px;font-weight:normal;color:#606060;text-decoration:none;font-family:arial;line-height:27px;height:27px;padding:0;display:block;}	
-.footer_link:hover{font-size:13px;font-weight:normal;color:#000;text-decoration:underline;font-family:arial;line-height:27px;height:27px;padding:0;display:block;}	
-.footer_title{font-size:13px;font-weight:bold;line-height:1.3;margin:0;font-family:arial;color:#404040;}
-hr.single_line{color: #F3E3B4;background:transparent; border: 1px solid #ccc; border-style: none none solid; margin:5px 0;padding:0;}
+#footer a{font-size:13px;font-weight:normal;color:#606060;text-decoration:none;font-family:arial;line-height:27px;height:27px;padding:0;display:block;}	
+#footer a:hover{font-size:13px;font-weight:normal;color:#000;text-decoration:underline;font-family:arial;line-height:27px;height:27px;padding:0;display:block;}	
+#footer h5, .footer_title{font-size:13px;font-weight:bold;line-height:1.3;margin:0;font-family:arial;color:#404040;}
+#footer hr, hr.single_line{color: #F3E3B4;background:transparent; border: 1px solid #ccc; border-style: none none solid; margin:5px 0;padding:0;}
 
 fieldset.inputs li,
 fieldset.buttons li {

@@ -1,0 +1,10 @@
+.page
+  %h2 All Blocks
+  - table(@blocks, ['name', '']) do |block, klass|
+    %tr{:class => klass}
+      %td= block.name
+      %td.controls
+        = link_to 'Edit', edit_block_path(block)
+        = link_to 'Delete', block_path(block), :method => :delete, :confirm => "Are you sure?"
+  .link
+    = link_to 'New Block', new_block_url

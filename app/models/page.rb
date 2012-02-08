@@ -1,4 +1,5 @@
 class Page < ContentFragment
+	validates :title, :presence => true
   validates :url, :presence => true, :uniqueness => true
 
 	before_save :add_initial_slash_from_url

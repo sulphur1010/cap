@@ -13,6 +13,7 @@ CappUsa::Application.routes.draw do
   resources :prism_types
   resources :role_types
   resources :thoughts
+  resources :blocks
 
   match 'what_is_cst' => 'home#what_is_cst'
 

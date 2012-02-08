@@ -8,7 +8,6 @@ class ContentFragment < ActiveRecord::Base
 	before_save :set_type
 	before_save :set_published_at
 
-	validates :title, :presence => true
 	validates :url, :uniqueness => true
 
 	private
