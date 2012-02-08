@@ -1,0 +1,15 @@
+.page
+  %h2
+    Contemporary Issue:
+    %span.contemporary_issue_title= @contemporary_issue.title
+  = @contemporary_issue.body.html_safe
+%hr
+.page
+  %h2= "If You Like #{@contemporary_issue.title}"
+  quote
+%hr
+.page
+  %h2= "Courses & Events Related to #{@contemporary_issue.title}"
+%hr
+.page
+  %h2= "Speakers who talk about #{@contemporary_issue.title}"

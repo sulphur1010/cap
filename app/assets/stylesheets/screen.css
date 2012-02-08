@@ -229,3 +229,21 @@ table.left_menu_container .content_with_left_menu {
   padding: 20px;
   background-color: #e7f5f5;
 }
+
+.contemporary_issues_list_header {
+  padding: 10px 2px;
+}
+
+.contemporary_issues_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contemporary_issues_list li a {
+  display: block;
+  float: left;
+  width: 180px;
+  padding: 8px 8px;
+  text-decoration: none;
+}
