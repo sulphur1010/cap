@@ -63,7 +63,7 @@ a.top_nav:hover{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;
 /*Main Part*/
 #main{background:#fff;border:none;width:1000px;height:auto;margin:20px 0 0 0}
 .left_column{width:180px;}
-.left_content{width:760px; border:1px solid #ccc}
+.left_content{width:760px; border:1px solid #ccc; border-right: 0;}
 .left_content .page {padding:20px}
 .right_content{width:820px;}
 .right_column{width:240px;}
@@ -71,8 +71,9 @@ a.top_nav:hover{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;
 
 /*right_column*/
 table.right_col{display:inline;border:none;border-collapse:collapse;}
+td.right_column{border-bottom: 1px solid #ccc;}
 table.right_col tr{margin:0 5px;border:none;border-collapse:collapse;}
-table.right_col tr td{border:1px solid #ccc;border-collapse:collapse;width:240px}
+table.right_col tr td{border:1px solid #ccc;border-bottom: 0;border-collapse:collapse;width:240px}
 .yellow_bg{background:#F7FBDC;}
 .padding_in10{padding:10px;}
 
