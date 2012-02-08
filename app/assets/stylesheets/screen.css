@@ -247,3 +247,18 @@ table.left_menu_container .content_with_left_menu {
   padding: 8px 8px;
   text-decoration: none;
 }
+
+.thought_quote {
+  font-style: italic;
+}
+
+.thought_author_container {
+  text-align: right;
+  padding-top: 5px;
+  color: #777;
+  font-style: italic;
+}
+
+.thought_block .contemporary_issue {
+  color: blue;
+}

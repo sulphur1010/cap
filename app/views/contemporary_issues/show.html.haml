@@ -6,7 +6,9 @@
 %hr
 .page
   %h2= "If You Like #{@contemporary_issue.title}"
-  quote
+  - thought = @contemporary_issue.random_thought
+  - if thought
+    .thought_quote= thought.body.html_safe
 %hr
 .page
   %h2= "Courses & Events Related to #{@contemporary_issue.title}"

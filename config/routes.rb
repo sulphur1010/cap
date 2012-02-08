@@ -10,6 +10,9 @@ CappUsa::Application.routes.draw do
     end
   end
   resources :person_types
+  resources :prism_types
+  resources :role_types
+  resources :thoughts
 
   match 'what_is_cst' => 'home#what_is_cst'
 

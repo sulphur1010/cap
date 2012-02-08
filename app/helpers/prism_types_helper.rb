@@ -1,0 +1,2 @@
+module PrismTypesHelper
+end

@@ -1,0 +1,12 @@
+.page
+  %h2 All Prism Types
+  - table(@prism_types, ['name', 'title', 'weight', '']) do |prism_type, klass|
+    %tr{:class => klass}
+      %td= prism_type.name
+      %td= prism_type.title
+      %td= prism_type.weight
+      %td.controls
+        = link_to 'Edit', edit_prism_type_path(prism_type)
+        = link_to 'Delete', prism_type_path(prism_type), :method => :delete, :confirm => "Are you sure?"
+  .link
+    = link_to 'New Prism Type', new_prism_type_url

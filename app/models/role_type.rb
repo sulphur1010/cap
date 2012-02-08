@@ -1,0 +1,2 @@
+class RoleType < ContentFragment
+end

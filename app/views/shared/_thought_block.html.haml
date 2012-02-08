@@ -1,0 +1,12 @@
+- thought = Thought.random
+%table.right_col.thought_block
+  %tr
+    %td.padding_in10
+      %h5 Just a Thought
+      Related to:
+      - thought.contemporary_issues.each do |issue|
+        %span.contemporary_issue= issue.title
+      .thought_quote= thought.body.html_safe
+      .thought_author_container
+        by:
+        .thought_author= thought.user.name rescue nil

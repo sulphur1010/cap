@@ -1,0 +1,2 @@
+class PrismType < ContentFragment
+end
