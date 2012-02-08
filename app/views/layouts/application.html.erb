@@ -56,18 +56,12 @@
 		</td>
 		<td width='32px'></td>
 		<td width='226px'>
-			<p class='footer_title'>News</p>
+			<p class='footer_title'>Contemporary Issues</p>
 			<hr class='single_line'>
-			<a href='#' class='footer_link'>National News</a>
-			<a href='#' class='footer_link'>Regional News</a>
-			<a href='#' class='footer_link'>La Fondazione</a>
-			<a href='#' class='footer_link'>The Vatican</a>
-			<br><br>
-			<p class='footer_title'>Articles</p>
-			<hr class='single_line'>
-			<a href='#' class='footer_link'>Do Not Be Afraid!</a>
-			<a href='#' class='footer_link'>FCAPP Audience with Benedict XVI</a>
-			<a href='#' class='footer_link'>Urgent Need to Educate Laity</a>
+      <% contemporary_issues = ContemporaryIssue.where(:published => true).order(:title) %>
+      <% contemporary_issues.each do |issue| %>
+        <%= link_to issue.title, contemporary_issue_path(issue), :class => 'footer_link' %>
+      <% end %>
 		</td>
 		<td width='32px'></td>
 		<td width='226px'>
