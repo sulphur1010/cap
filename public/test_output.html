@@ -284,89 +284,103 @@ a {
 <div class="results">
 <div id="div_group_1" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_1" class="passed">User</dt>
-    <script type="text/javascript">moveProgressBar('9.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.13105s</span></dd>
+  <dt id="example_group_1" class="passed">Page requests</dt>
   </dl>
 </div>
 <div id="div_group_2" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_2" class="passed">RoleType</dt>
-    <script type="text/javascript">moveProgressBar('18.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01405s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_2" class="passed">GET unpublished /some/url</dt>
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('div_group_2');</script>
+    <script type="text/javascript">makeRed('example_group_2');</script>
+    <script type="text/javascript">moveProgressBar('8.3');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">should return a 404</span>
+      <span class="duration">0.51860s</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>Expected response to be a &lt;:missing&gt;, but was &lt;200&gt;</pre></div>
+        <div class="backtrace"><pre>(eval):2:in `flunk'
+./spec/requests/page_request_spec.rb:7:in `block (3 levels) in <top (required)>'</pre></div>
+    <pre class="ruby"><code><span class="linenum">0</span># Couldn't get snippet for (eval)
+<span class="linenum">1</span><span class="comment"># gem install syntax to get syntax highlighting</span></code></pre>
+      </div>
+    </dd>
   </dl>
 </div>
 <div id="div_group_3" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_3" class="passed">Page</dt>
-    <script type="text/javascript">moveProgressBar('27.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.05273s</span></dd>
-    <script type="text/javascript">moveProgressBar('36.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should prepend an initial / to url</span><span class='duration'>0.02034s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_3" class="passed">GET published /some/url</dt>
+    <script type="text/javascript">moveProgressBar('16.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.01785s</span></dd>
   </dl>
 </div>
 <div id="div_group_4" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_4" class="passed">PersonType</dt>
-    <script type="text/javascript">moveProgressBar('45.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01307s</span></dd>
+  <dt id="example_group_4" class="passed">Block</dt>
+    <script type="text/javascript">moveProgressBar('25.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01291s</span></dd>
   </dl>
 </div>
 <div id="div_group_5" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_5" class="passed">Thought</dt>
-    <script type="text/javascript">moveProgressBar('54.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01278s</span></dd>
+  <dt id="example_group_5" class="passed">User</dt>
+    <script type="text/javascript">moveProgressBar('33.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01935s</span></dd>
   </dl>
 </div>
 <div id="div_group_6" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_6" class="passed">ContemporaryIssue</dt>
-    <script type="text/javascript">moveProgressBar('63.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01278s</span></dd>
+  <dt id="example_group_6" class="passed">RoleType</dt>
+    <script type="text/javascript">moveProgressBar('41.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01289s</span></dd>
   </dl>
 </div>
 <div id="div_group_7" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_7" class="passed">ContentFragment</dt>
-    <script type="text/javascript">moveProgressBar('72.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01256s</span></dd>
+  <dt id="example_group_7" class="passed">Page</dt>
+    <script type="text/javascript">moveProgressBar('50.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.00810s</span></dd>
+    <script type="text/javascript">moveProgressBar('58.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should prepend an initial / to url</span><span class='duration'>0.00640s</span></dd>
   </dl>
 </div>
 <div id="div_group_8" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_8" class="passed">PrismType</dt>
-    <script type="text/javascript">moveProgressBar('81.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.00315s</span></dd>
+  <dt id="example_group_8" class="passed">PersonType</dt>
+    <script type="text/javascript">moveProgressBar('66.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01283s</span></dd>
   </dl>
 </div>
 <div id="div_group_9" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_9" class="passed">PagesController</dt>
+  <dt id="example_group_9" class="passed">Thought</dt>
+    <script type="text/javascript">moveProgressBar('75.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.05548s</span></dd>
   </dl>
 </div>
 <div id="div_group_10" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_10" class="passed">GET /some/url</dt>
-    <script type="text/javascript">makeYellow('rspec-header');</script>
-    <script type="text/javascript">makeYellow('div_group_10');</script>
-    <script type="text/javascript">makeYellow('example_group_10');</script>
-    <script type="text/javascript">moveProgressBar('90.9');</script>
-    <dd class="example not_implemented"><span class="not_implemented_spec_name">should find a matching page (PENDING: Not yet implemented)</span></dd>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_10" class="passed">ContemporaryIssue</dt>
+    <script type="text/javascript">moveProgressBar('83.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01273s</span></dd>
   </dl>
 </div>
 <div id="div_group_11" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_11" class="passed">GET /not/a/real/url</dt>
-    <script type="text/javascript">makeYellow('rspec-header');</script>
-    <script type="text/javascript">makeYellow('div_group_11');</script>
-    <script type="text/javascript">makeYellow('example_group_11');</script>
-    <script type="text/javascript">moveProgressBar('100.0');</script>
-    <dd class="example not_implemented"><span class="not_implemented_spec_name">should return a 404 (PENDING: Not yet implemented)</span></dd>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_11" class="passed">ContentFragment</dt>
+    <script type="text/javascript">moveProgressBar('91.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01239s</span></dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.27685 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "11 examples, 0 failures, 2 pending";</script>
+<div id="div_group_12" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_12" class="passed">PrismType</dt>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.00320s</span></dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.71212 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "12 examples, 1 failure";</script>
 </div>
 </div>
 </body>

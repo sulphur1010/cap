@@ -8,6 +8,11 @@ require 'machinist/active_record'
 #     body  { "Lorem ipsum..." }
 #   end
 
+# Blocks
+Block.blueprint do
+	name { "Random Block" }
+end
+
 # Contemporary Issues
 ContemporaryIssue.blueprint do
 end
@@ -22,6 +27,7 @@ end
 Page.blueprint do
 	title { "test page" }
 	url { "/some/url" }
+	body { "Lorem ipsum..." }
 end
 
 Page.blueprint(:no_slash) do
