@@ -37,4 +37,5 @@ group :development, :test do
 	gem 'rspec-rails', '~> 2.6'
 	gem 'machinist', '2.0'
 	gem 'faker', '1.0.1'
+	gem 'syntax', '1.0.0'
 end
