@@ -1,3 +1,4 @@
+require 'spec_helper'
 
 describe "Page requests" do
 	describe "GET unpublished /some/url" do
