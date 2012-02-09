@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def view
     url = request.path
-    @page = Page.where(:url => request.path).first
+    @page = Page.where(:url => request.path).where(:published => true).first
     if !@page
       render :text => "<div class='page'><h2>Page not found</h2></div>", :status => 404, :layout => true
     else
