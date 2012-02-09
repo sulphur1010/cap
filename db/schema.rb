@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208191041) do
+ActiveRecord::Schema.define(:version => 20120209175739) do
+
+  create_table "chapters", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contemporary_issues_content_fragments", :id => false, :force => true do |t|
     t.integer "contemporary_issue_id"
@@ -65,6 +71,13 @@ ActiveRecord::Schema.define(:version => 20120208191041) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "title"
+    t.integer  "person_type_id"
+    t.boolean  "speaker"
+    t.string   "role_list"
+    t.integer  "chapter_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

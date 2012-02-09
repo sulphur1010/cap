@@ -59,3 +59,7 @@ User.blueprint do
 	email { "test@test.com" }
 	password { "testtest" }
 end
+
+Chapter.blueprint do
+  name { "test chapter" }
+end
