@@ -13,6 +13,10 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def self.types
+    ["Social Event", "Course", "Private Audience"]
+  end
+
   belongs_to :speaker, :class_name => "User"
   belongs_to :location
   belongs_to :director, :class_name => "User"
@@ -21,6 +25,6 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :contemporary_issues
   has_and_belongs_to_many :person_types
 
-	validates :type, :inclusion => { :in => ["Social Event", "Course", "Private Audience"] }
+	validates :type, :inclusion => { :in => Event.types }
   validates :end_date, :end_date => true
 end

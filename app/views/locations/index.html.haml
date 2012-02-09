@@ -1,0 +1,12 @@
+.page
+  %h2 All Locations
+  - table(@locations, ['name', 'address', '']) do |location, klass|
+    %tr{:class => klass}
+      %td= location.name
+      %td= location.address
+      %td.controls
+        = link_to 'Edit', edit_location_path(location)
+        - if location.events.count == 0
+          = link_to 'Delete', location_path(location), :method => :delete, :confirm => "Are you sure?"
+  .link
+    = link_to 'New Location', new_location_url
