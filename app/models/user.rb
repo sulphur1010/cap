@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
 
   has_many :content_fragments
 	belongs_to :chapter
+
 end
