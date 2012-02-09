@@ -1,3 +1,4 @@
+require 'spec_helper'
 
 describe Block do
 	it "should be valid" do
