@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-	before_filter :require_admin!
+	before_filter :require_admin!, :except => [ :view ]
 
   respond_to :html
 
