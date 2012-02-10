@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120209181033) do
+ActiveRecord::Schema.define(:version => 20120210234525) do
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20120209181033) do
     t.integer  "chapter_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "teaser"
   end
 
   add_index "events", ["chapter_id"], :name => "index_events_on_chapter_id"

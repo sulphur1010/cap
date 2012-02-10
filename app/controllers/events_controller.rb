@@ -1,10 +1,14 @@
 class EventsController < ApplicationController
 
-	before_filter :require_admin!, :except => [ :show ]
+	before_filter :require_admin!, :except => [ :show, :list ]
 
   respond_to :html
 
   def index
+    respond_with(@events = Event.order(:start_date))
+  end
+
+  def list
     respond_with(@events = Event.order(:start_date))
   end
 

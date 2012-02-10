@@ -2,6 +2,7 @@
   = f.input :type, :collection => Event.types
   = f.input :title
   = f.input :body, :input_html => { :class => 'js_editor' }
+  = f.input :teaser, :input_html => { :class => 'js_editor' }
   = f.input :chapter, :collection => Chapter.all.collect { |c| [c.name, c.id] }
   = f.input :location, :collection => Location.all.collect { |c| [c.name, c.id] }
   = f.input :speaker, :collection => User.all.collect { |c| [c.email, c.id] }

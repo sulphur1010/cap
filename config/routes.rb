@@ -14,7 +14,11 @@ CappUsa::Application.routes.draw do
   resources :thoughts
   resources :blocks
   resources :locations
-  resources :events
+  resources :events do
+    collection do
+      get 'list'
+    end
+  end
   resources :stories
   resources :chapters
 
