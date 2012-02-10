@@ -1,0 +1,9 @@
+- events = Event.upcoming(3)
+- if !events.empty?
+  %table.right_col.events_block
+    %tr
+      %td.padding_in10
+        = Block.display("events_block_header")
+        - events.each do |event|
+          .event
+            = link_to event.title, event_path(event)

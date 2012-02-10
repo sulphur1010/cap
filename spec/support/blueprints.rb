@@ -72,4 +72,5 @@ end
 
 Event.blueprint do
   type { "Social Event" }
+  title { "Event Title" }
 end

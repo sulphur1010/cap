@@ -11,6 +11,11 @@ describe Event do
     e.should have(1).errors_on(:type)
 	end
 
+  it "should be invalid without a title" do
+    e = Event.make(:title => nil)
+    e.should have(1).errors_on(:title)
+  end
+
   it "shouldn't be valid with a start_date and no end_date" do
     e = Event.make(:start_date => Time.now)
     e.should have(1).errors_on(:end_date)

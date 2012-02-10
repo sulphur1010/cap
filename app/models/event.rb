@@ -26,5 +26,10 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :person_types
 
 	validates :type, :inclusion => { :in => Event.types }
+  validates :title, :presence => true
   validates :end_date, :end_date => true
+
+  def self.upcoming(num = 3)
+    Event.where("start_date > ?", Time.now).order(:start_date).limit(3)
+  end
 end
