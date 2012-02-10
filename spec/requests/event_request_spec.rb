@@ -1,9 +1,5 @@
 require 'spec_helper'
 
-def sign_in(user)
-	post_via_redirect user_session_path, 'user[email]' => user.email, 'user[password]' => 'password'
-end
-
 describe "Event requests" do
 
 	describe "GET /event" do

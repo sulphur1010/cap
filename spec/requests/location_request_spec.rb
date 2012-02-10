@@ -1,9 +1,5 @@
 require 'spec_helper'
 
-def sign_in(user)
-	post_via_redirect user_session_path, 'user[email]' => user.email, 'user[password]' => 'password'
-end
-
 describe "Location requests" do
 	describe "GET /location" do
 		it "should return a valid page" do

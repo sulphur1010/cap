@@ -1,9 +1,5 @@
 require 'spec_helper'
 
-def sign_in(user)
-	post_via_redirect user_session_path, 'user[email]' => user.email, 'user[password]' => 'password'
-end
-
 describe "Page requests" do
 	describe "GET unpublished /some/url" do
 		it "should return a 404" do
