@@ -1,4 +1,16 @@
 module ApplicationHelper
+	def has_role?(r, &block)
+		if block_given?
+			yield if current_user && current_user.has_role?(r)
+		else
+			if current_user && current_user.has_role?(r)
+				return true
+			else
+				return false
+			end
+		end
+	end
+
   def table(collection, headers, options = {}, &proc)
     options.reverse_merge!({
       :placeholder  => 'No results found',
