@@ -9,7 +9,7 @@ require 'machinist/active_record'
 #   end
 
 MenuItem.blueprint do
-  # Attributes here
+	# Attributes here
 end
 
 # Blocks
@@ -36,6 +36,12 @@ end
 
 Page.blueprint(:no_slash) do
 	url { "no/initial/slash" }
+end
+
+# Story
+Story.blueprint do
+	title { "test story" }
+	body { "Lorem ipsum..." }
 end
 
 # Person Types
@@ -70,16 +76,16 @@ User.blueprint(:speaker) do
 end
 
 Chapter.blueprint do
-  name { "test chapter" }
+	name { "test chapter" }
 end
 
 Location.blueprint do
-  name { Faker::Address.city }
-  address { Faker::Address.street_address }
-  # Attributes here
+	name { Faker::Address.city }
+	address { Faker::Address.street_address }
+	# Attributes here
 end
 
 Event.blueprint do
-  type { "Social Event" }
-  title { "Event Title" }
+	type { "Social Event" }
+	title { "Event Title" }
 end
