@@ -3,12 +3,13 @@
     %td.padding_in10
       %h5 User Menu
       %ul#user_menu
-        = is_user? do
+        - is_user? do
           %li
             Content
             %ul
-              %li
-                = link_to 'Pages', pages_url
+              - is_admin? do
+                %li
+                  = link_to 'Pages', pages_url
               %li
                 = link_to 'Contemporary Issues', contemporary_issues_url
               %li
@@ -33,7 +34,7 @@
           %li &nbsp;
           %li
             = link_to 'logout', destroy_user_session_url, :method => :delete
-        = unless is_user?
+        - unless is_user?
           %li
             = link_to 'login', new_user_session_url
 
