@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
 	after_initialize :load_roles
 	before_save :convert_roles
+	before_create :add_user_role
 
 	def has_role?(r)
 		normalize_roles
@@ -49,6 +50,10 @@ class User < ActiveRecord::Base
 	end
 
 	private
+
+	def add_user_role
+		@roles = [ "user" ]
+	end
 
 	def normalize_roles
 		@roles = @roles.map { |r| r.to_s }
