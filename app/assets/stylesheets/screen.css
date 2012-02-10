@@ -263,3 +263,19 @@ table.left_menu_container .content_with_left_menu {
 .thought_block .contemporary_issue {
   color: blue;
 }
+
+.events_block tr {
+  background-color: #111;
+  color: #ddd;
+}
+
+.events_block tr a {
+  display: block;
+  padding: 5px 0;
+  color: #ddd;
+  text-decoration: none;
+}
+
+.events_block tr a:hover {
+  text-decoration: underline;
+}

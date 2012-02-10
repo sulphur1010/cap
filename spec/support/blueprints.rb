@@ -63,3 +63,14 @@ end
 Chapter.blueprint do
   name { "test chapter" }
 end
+
+Location.blueprint do
+  name { Faker::Address.city }
+  address { Faker::Address.street_address }
+  # Attributes here
+end
+
+Event.blueprint do
+  type { "Social Event" }
+  title { "Event Title" }
+end

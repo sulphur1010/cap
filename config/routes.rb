@@ -14,6 +14,8 @@ CappUsa::Application.routes.draw do
   resources :role_types
   resources :thoughts
   resources :blocks
+  resources :locations
+  resources :events
 
   match 'what_is_cst' => 'home#what_is_cst'
 

@@ -1,0 +1,12 @@
+.page
+  %h2 All Events
+  - table(@events, ['title', 'type', 'location', '']) do |event, klass|
+    %tr{:class => klass}
+      %td= event.title
+      %td= event.type
+      %td= event.location.name rescue nil
+      %td.controls
+        = link_to 'Edit', edit_event_path(event)
+        = link_to 'Delete', event_path(event), :method => :delete, :confirm => "Are you sure?"
+  .link
+    = link_to 'New Event', new_event_url

@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(:version => 20120209181033) do
     t.integer "content_fragment_id"
   end
 
+  create_table "contemporary_issues_events", :id => false, :force => true do |t|
+    t.integer "contemporary_issue_id"
+    t.integer "event_id"
+  end
+
   create_table "content_fragments", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -45,6 +50,39 @@ ActiveRecord::Schema.define(:version => 20120209181033) do
   create_table "content_fragments_person_types", :id => false, :force => true do |t|
     t.integer "content_fragment_id"
     t.integer "person_type_id"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "type"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "speaker_id"
+    t.string   "title"
+    t.integer  "location_id"
+    t.text     "body"
+    t.integer  "director_id"
+    t.integer  "spots_available"
+    t.integer  "cost"
+    t.integer  "chapter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["chapter_id"], :name => "index_events_on_chapter_id"
+  add_index "events", ["director_id"], :name => "index_events_on_director_id"
+  add_index "events", ["location_id"], :name => "index_events_on_location_id"
+  add_index "events", ["speaker_id"], :name => "index_events_on_speaker_id"
+
+  create_table "events_person_types", :id => false, :force => true do |t|
+    t.integer "event_id"
+    t.integer "person_type_id"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "address"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "menu_items", :force => true do |t|
