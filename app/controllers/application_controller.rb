@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	def check_role?(r)
+		unless current_user && current_user.has_role?(r)
+      render :text => "<div class='page'><h2>Page not found</h2></div>", :status => 404, :layout => true
+		end
+	end
 end
