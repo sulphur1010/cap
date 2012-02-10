@@ -49,6 +49,10 @@ class User < ActiveRecord::Base
 		@roles
 	end
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
 	private
 
 	def add_user_role

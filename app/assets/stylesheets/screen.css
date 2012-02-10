@@ -279,3 +279,84 @@ table.left_menu_container .content_with_left_menu {
 .events_block tr a:hover {
   text-decoration: underline;
 }
+
+.event_teaser {
+  padding: 5px 0px;
+}
+
+.event_teaser .event_location {
+  font-weight: bold;
+  float: left;
+  padding-right: 10px;
+}
+
+.event_teaser .event_speaker {
+  font-weight: bold;
+}
+
+.event_teaser .event_spots {
+  color: #555;
+  text-align: center;
+}
+
+.event_teaser .event_time {
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}
+
+.event_teaser .event_spots .event_spots_available {
+  color: #ff4444;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.event_header .event_time_info {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.event_header .event_time_info .event_start,
+.event_header .event_time_info .event_end {
+  color: #666;
+  padding-left: 20px;
+}
+
+.event_page {
+  background: url('/images/blue_background.png') top left repeat-x;
+  min-height: 550px;
+}
+
+.event_page .event_body {
+  padding: 10px 0;
+}
+
+.event_page h2 {
+  padding: 5px 0;
+}
+
+.event_page .event_location,
+.event_page .event_director {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+a.contemporary_issue_link {
+  padding: 1px 8px;
+  background-color: #e0edd4;
+  border: 1px solid #88c358;
+  color: #4f7a28;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+a.reference_link {
+  padding: 1px 8px;
+  background-color: #fefcdd;
+  border: 1px solid #f5ec00;
+  color: #8d8600;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+

@@ -30,6 +30,22 @@ class Event < ActiveRecord::Base
   validates :end_date, :end_date => true
 
   def self.upcoming(num = 3)
-    Event.where("start_date > ?", Time.now).order(:start_date).limit(3)
+    Event.where("start_date > ?", Time.now).order(:start_date).limit(num)
+  end
+
+  def short_start
+    self.start_date.strftime("%h %d, %Y")
+  end
+
+  def formatted_start
+    self.start_date.strftime("%H%P - %h %d %Y")
+  end
+
+  def formatted_end
+    self.end_date.strftime("%H%P - %h %d %Y")
+  end
+
+  def duration
+    self.end_date - self.start_date
   end
 end

@@ -12,6 +12,30 @@
 %hr
 .page
   %h2= "Courses & Events Related to #{@contemporary_issue.title}"
+  - Event.upcoming(100).each do |event|
+    %table.event_teaser
+      %tr
+        %td{:style => 'width: 450px'}
+          %h5.event_title= event.title
+          .event.teaser= event.body.html_safe
+          - if event.location
+            .event_location
+              Location: 
+              = link_to event.location.name, location_path(event.location)
+          - if event.speaker
+            .event_speaker
+              Speaker:
+              = event.speaker.full_name
+              /= link_to event.speaker.full_name, user_path(event.speaker)
+        %td.event_time{:style => 'width: 90px'}
+          = event.short_start
+          %br
+          = distance_of_time_in_words(event.duration)
+        %td.event_spots{:style => 'width: 90px'}
+          %span.event_spots_available= event.spots_available
+          spots left
+        %td.rsvp
+          = link_to "RSVP", event_path(event)
 %hr
 .page
   %h2= "Speakers who talk about #{@contemporary_issue.title}"
