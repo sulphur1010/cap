@@ -31,10 +31,11 @@
                 = link_to 'Events', events_url
           %li
             = link_to 'Menu', menu_items_url
+        - if user_signed_in?
           %li &nbsp;
           %li
             = link_to 'logout', destroy_user_session_url, :method => :delete
-        - unless is_user?
+        - else
           %li
             = link_to 'login', new_user_session_url
 

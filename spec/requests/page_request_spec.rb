@@ -28,7 +28,7 @@ describe "Page requests" do
 		end
 	end
 
-	describe "GET authenticated /pages" do
+	describe "Admin GET authenticated /pages" do
 		it "should return a valid page" do
 			u = User.make!(:admin)
 			sign_in(u)
@@ -37,7 +37,7 @@ describe "Page requests" do
 		end
 	end
 
-	describe "GET authenticated /pages" do
+	describe "User GET authenticated /pages" do
 		it "should return a 404" do
 			u = User.make!
 			sign_in(u)
