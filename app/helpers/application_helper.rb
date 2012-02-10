@@ -1,4 +1,40 @@
 module ApplicationHelper
+	def is_admin?(&block)
+		if block_given?
+			yield if current_user && current_user.has_role?("admin")
+		else
+			if current_user && current_user.has_role?("admin")
+				return true
+			else
+				return false
+			end
+		end
+	end
+
+	def is_speaker?(&block)
+		if block_given?
+			yield if current_user && (current_user.has_role?("speaker") || current_user.has_role?("admin"))
+		else
+			if current_user && (current_user.has_role?("speaker") || current_user.has_role?("admin"))
+				return true
+			else
+				return false
+			end
+		end
+	end
+
+	def is_user?(&block)
+		if block_given?
+			yield if current_user && (current_user.has_role?("user") || current_user.has_role?("speaker") || current_user.has_role?("admin"))
+		else
+			if current_user && (current_user.has_role?("user") || current_user.has_role?("speaker") || current_user.has_role?("admin"))
+				return true
+			else
+				return false
+			end
+		end
+	end
+
 	def has_role?(r, &block)
 		if block_given?
 			yield if current_user && current_user.has_role?(r)

@@ -3,7 +3,7 @@
     %td.padding_in10
       %h5 User Menu
       %ul#user_menu
-        - if user_signed_in?
+        = is_user? do
           %li
             Content
             %ul
@@ -33,7 +33,7 @@
           %li &nbsp;
           %li
             = link_to 'logout', destroy_user_session_url, :method => :delete
-        - else
+        = unless is_user?
           %li
             = link_to 'login', new_user_session_url
 
