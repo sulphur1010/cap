@@ -3,13 +3,12 @@
     %td.padding_in10
       %h5 User Menu
       %ul#user_menu
-        - is_user? do
+        - is_admin? do
           %li
             Content
             %ul
-              - is_admin? do
-                %li
-                  = link_to 'Pages', pages_url
+              %li
+                = link_to 'Pages', pages_url
               %li
                 = link_to 'Contemporary Issues', contemporary_issues_url
               %li
