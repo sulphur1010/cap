@@ -2,7 +2,7 @@
   %h2
     Contemporary Issue:
     %span.contemporary_issue_title= @contemporary_issue.title
-  = @contemporary_issue.body.html_safe
+  = @contemporary_issue.body.html_safe rescue ""
 %hr
 .page
   %h2= "If You Like #{@contemporary_issue.title}"
@@ -17,7 +17,7 @@
       %tr
         %td{:style => 'width: 450px'}
           %h5.event_title= event.title
-          .event.teaser= event.body.html_safe
+          .event.teaser= event.body.html_safe rescue ""
           - if event.location
             .event_location
               Location: 

@@ -1,4 +1,7 @@
 class LocationsController < ApplicationController
+
+	before_filter :require_admin!, :except => [ :show ]
+
   respond_to :html
 
   def index

@@ -1,4 +1,4 @@
 %h2= page.title
 - if is_admin?
   = link_to 'Edit', content_fragment_edit_url(page)
-= page.body.html_safe
+= page.body.html_safe rescue ""

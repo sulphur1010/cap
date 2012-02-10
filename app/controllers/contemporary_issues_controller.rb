@@ -1,8 +1,16 @@
 class ContemporaryIssuesController < ApplicationController
+
+	before_filter :require_admin!, :except => [ :show ]
+
   respond_to :html
 
   def view
     @page = Page.where(:url => "/contemporary_issues/view").first
+    unless @page.published
+      render :text => "<div class='page'><h2>Page not found</h2></div>", :status => 404, :layout => true
+    else
+      respond_with(@page)
+    end
   end
 
   def index
@@ -10,7 +18,12 @@ class ContemporaryIssuesController < ApplicationController
   end
 
   def show
-    respond_with(@contemporary_issue = ContemporaryIssue.find(params[:id]))
+    @contemporary_issue = ContemporaryIssue.find(params[:id])
+    unless @contemporary_issue.published
+      not_found
+    else
+      respond_with(@contemporary_issue)
+    end
   end
 
   def new

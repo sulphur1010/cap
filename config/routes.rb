@@ -1,7 +1,6 @@
 CappUsa::Application.routes.draw do
   devise_for :users
 
-  resources :content_fragments
   resources :pages
   resources :menu_items
   resources :contemporary_issues do

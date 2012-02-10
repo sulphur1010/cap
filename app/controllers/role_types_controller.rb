@@ -1,4 +1,7 @@
 class RoleTypesController < ApplicationController
+
+	before_filter :require_admin!, :except => [ :show ]
+
   respond_to :html
 
   def index
@@ -6,7 +9,12 @@ class RoleTypesController < ApplicationController
   end
 
   def show
-    respond_with(@role_type = RoleType.find(params[:id]))
+    @role_type = RoleType.find(params[:id])
+    unless @role_type.published
+      not_found
+    else
+      respond_with(@role_type)
+    end
   end
 
   def new

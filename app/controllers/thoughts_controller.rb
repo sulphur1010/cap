@@ -1,4 +1,7 @@
 class ThoughtsController < ApplicationController
+
+	before_filter :require_admin!, :except => [ :show ]
+
   respond_to :html
 
   def index
@@ -6,7 +9,12 @@ class ThoughtsController < ApplicationController
   end
 
   def show
-    respond_with(@thought = Thought.find(params[:id]))
+    @thought = Thought.find(params[:id])
+    unless @thought.published
+      not_found
+    else
+      respond_with(@thought)
+    end
   end
 
   def new

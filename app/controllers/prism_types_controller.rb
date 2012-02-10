@@ -1,4 +1,7 @@
 class PrismTypesController < ApplicationController
+
+	before_filter :require_admin!, :except => [ :show ]
+
   respond_to :html
 
   def index
@@ -6,7 +9,12 @@ class PrismTypesController < ApplicationController
   end
 
   def show
-    respond_with(@prism_type = PrismType.find(params[:id]))
+    @prism_type = PrismType.find(params[:id])
+    unless @prism_type.published
+      not_found
+    else
+      respond_with(@prism_type)
+    end
   end
 
   def new

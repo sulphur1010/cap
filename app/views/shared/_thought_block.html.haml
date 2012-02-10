@@ -7,7 +7,7 @@
         Related to:
         - thought.contemporary_issues.each do |issue|
           %span.contemporary_issue= issue.title
-        .thought_quote= thought.body.html_safe
+        .thought_quote= thought.body.html_safe rescue ""
         .thought_author_container
           by:
           .thought_author= thought.user.name rescue nil

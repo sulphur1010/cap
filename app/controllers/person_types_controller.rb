@@ -1,4 +1,7 @@
 class PersonTypesController < ApplicationController
+
+	before_filter :require_admin!, :except => [ :show ]
+
   respond_to :html
 
   def index
@@ -6,7 +9,12 @@ class PersonTypesController < ApplicationController
   end
 
   def show
-    respond_with(@person_type = PersonType.find(params[:id]))
+    @person_type = PersonType.find(params[:id])
+    unless @person_type.published
+      not_found
+    else
+      respond_with(@person_type)
+    end
   end
 
   def new

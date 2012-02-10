@@ -4,13 +4,9 @@ class ApplicationController < ActionController::Base
 	private
 
 	def is_admin?(&block)
-		puts "is_admin?"
 		if block_given?
 			yield if current_user && current_user.has_role?("admin")
 		else
-			unless current_user
-				puts "NO CURRENT USER"
-			end
 			if current_user && current_user.has_role?("admin")
 				return true
 			else
@@ -57,26 +53,29 @@ class ApplicationController < ActionController::Base
 
 	def check_role?(r)
 		unless current_user && current_user.has_role?(r)
-      render :text => "<div class='page'><h2>Page not found</h2></div>", :status => 404, :layout => true
+      not_found
 		end
 	end
 
 	def require_admin!
-		puts "require_admin"
 		unless is_admin?
-      render :text => "<div class='page'><h2>Page not found</h2></div>", :status => 404, :layout => true
+      not_found
 		end
 	end
 
 	def require_user!
 		unless is_user?
-      render :text => "<div class='page'><h2>Page not found</h2></div>", :status => 404, :layout => true
+      not_found
 		end
 	end
 
 	def require_speaker!
 		unless is_speaker?
-      render :text => "<div class='page'><h2>Page not found</h2></div>", :status => 404, :layout => true
+      not_found
 		end
 	end
+
+  def not_found
+    render :text => "<div class='page'><h2>Page not found</h2></div>", :status => 404, :layout => true
+  end
 end
