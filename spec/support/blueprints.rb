@@ -58,15 +58,15 @@ end
 User.blueprint do
 	email { "test@test.com" }
 	password { "password" }
-	role_list { "user" }
+	roles { "user" }
 end
 
 User.blueprint(:admin) do
-	role_list { "admin" }
+	roles { "admin" }
 end
 
 User.blueprint(:speaker) do
-	role_list { "speaker" }
+	roles { "speaker" }
 end
 
 Chapter.blueprint do

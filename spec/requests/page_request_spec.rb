@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 def sign_in(user)
-	get new_user_session_path
-	assert_response :success
-	post user_session_path, :email => user.email, :password => 'password'
-	assert_response :success
+	post_via_redirect user_session_path, 'user[email]' => user.email, 'user[password]' => 'password'
 end
 
 describe "Page requests" do
@@ -40,4 +37,12 @@ describe "Page requests" do
 		end
 	end
 
+	describe "GET authenticated /pages" do
+		it "should return a 404" do
+			u = User.make!
+			sign_in(u)
+			get "/pages"
+			assert_response :missing
+		end
+	end
 end
