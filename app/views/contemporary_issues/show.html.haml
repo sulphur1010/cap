@@ -1,18 +1,22 @@
 .page
-  %h2
-    Contemporary Issue:
-    %span.contemporary_issue_title= @contemporary_issue.title
-  = @contemporary_issue.body.html_safe rescue ""
+	%h2
+		Contemporary Issue:
+		%span.contemporary_issue_title= @contemporary_issue.title
+	= @contemporary_issue.body.html_safe rescue ""
+- if !@contemporary_issue.encyclicals.empty?
+	.page
+		= render :partial => 'encyclicals/list', :object => @contemporary_issue
+		%div{:style => 'clear: both'}
 %hr
 .page
-  %h2= "If You Like #{@contemporary_issue.title}"
-  - thought = @contemporary_issue.random_thought
-  - if thought
-    .thought_quote= thought.body.html_safe
+	%h2= "If You Like #{@contemporary_issue.title}"
+	- thought = @contemporary_issue.random_thought
+	- if thought
+		.thought_quote= thought.body.html_safe
 %hr
 .page
-  %h2= "Courses & Events Related to #{@contemporary_issue.title}"
-  = render :partial => 'events/teaser', :collection => Event.upcoming(100)
+	%h2= "Courses & Events Related to #{@contemporary_issue.title}"
+	= render :partial => 'events/teaser', :collection => Event.upcoming(100)
 %hr
 .page
-  %h2= "Speakers who talk about #{@contemporary_issue.title}"
+	%h2= "Speakers who talk about #{@contemporary_issue.title}"

@@ -21,6 +21,7 @@ CappUsa::Application.routes.draw do
   end
   resources :stories
   resources :chapters
+  resources :encyclicals
 
   match 'what_is_cst' => 'home#what_is_cst'
 

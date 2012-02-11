@@ -238,13 +238,15 @@ table.left_menu_container .content_with_left_menu {
 	padding: 10px 2px;
 }
 
-.contemporary_issues_list {
+.contemporary_issues_list,
+.encyclical_list {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-.contemporary_issues_list li a {
+.contemporary_issues_list li a,
+.encyclical_list li a {
 	display: block;
 	float: left;
 	width: 180px;
@@ -345,41 +347,41 @@ table.left_menu_container .content_with_left_menu {
 }
 
 .event_left_menu_container {
-  border-top: 1px solid #ccc;
+	border-top: 1px solid #ccc;
 }
 
 .event_left_menu_container .content_with_left_menu {
-  background-color: transparent !important;
-  padding: 10px !important;
+	background-color: transparent !important;
+	padding: 10px !important;
 }
 
 .event_left_menu {
-  border-right: 0 !important;
+	border-right: 0 !important;
 }
 
 .event_left_menu strong {
-  display: block;
-  padding: 8px;
+	display: block;
+	padding: 8px;
 }
 
 .event_left_menu .element {
-  padding-left: 8px;
-  padding-bottom: 3px;
+	padding-left: 8px;
+	padding-bottom: 3px;
 }
 
 .event_left_menu .left_menu_item {
-  border-right: 1px solid #ccc;
-  padding-bottom: 5px;
+	border-right: 1px solid #ccc;
+	padding-bottom: 5px;
 }
 
 .event_teaser_list {
-  border: 1px solid #ccc;
-  border-bottom: 0;
+	border: 1px solid #ccc;
+	border-bottom: 0;
 }
 
 .event_teaser_list_item {
-  padding: 8px;
-  border-bottom: 1px solid #ccc;
+	padding: 8px;
+	border-bottom: 1px solid #ccc;
 }
 
 a.contemporary_issue_link {
@@ -391,7 +393,7 @@ a.contemporary_issue_link {
 	font-size: 0.8em;
 }
 
-a.reference_link {
+a.encyclical_link {
 	padding: 1px 8px;
 	background-color: #fefcdd;
 	border: 1px solid #f5ec00;

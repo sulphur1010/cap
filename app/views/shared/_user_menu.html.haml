@@ -8,7 +8,18 @@
             Content
             %ul
               %li
+                = link_to 'Blocks', blocks_url
+              %li
+                = link_to 'Encyclicals', encyclicals_url
+              %li
                 = link_to 'Pages', pages_url
+              %li
+                = link_to 'Stories', stories_url
+              %li
+                = link_to 'Thoughts', thoughts_url
+          %li
+            Taxonomy
+            %ul
               %li
                 = link_to 'Contemporary Issues', contemporary_issues_url
               %li
@@ -17,21 +28,15 @@
                 = link_to 'Prism Types', prism_types_url
               %li
                 = link_to 'Role Types', role_types_url
-              %li
-                = link_to 'Thoughts', thoughts_url
-              %li
-                = link_to 'Blocks', blocks_url
-              %li
-                = link_to 'Stories', stories_url
           %li
             Events
             %ul
               %li
-                = link_to 'Locations', locations_url
+                = link_to 'Chapters', chapters_url
               %li
                 = link_to 'Events', events_url
               %li
-                = link_to 'Chapters', chapters_url
+                = link_to 'Locations', locations_url
           %li
             = link_to 'Menu', menu_items_url
         - if user_signed_in?

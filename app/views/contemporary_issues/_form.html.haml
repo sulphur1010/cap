@@ -5,4 +5,5 @@
 	= f.inputs :name => 'Advanced' do
 		= f.input :published
 		= f.input :teaser, :input_html => { :class => 'js_editor' }
+		= f.input :encyclicals, :collection => Encyclical.where(:published => true).collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
 	= f.buttons

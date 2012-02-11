@@ -89,3 +89,7 @@ Event.blueprint do
 	type { "Social Event" }
 	title { "Event Title" }
 end
+
+References.blueprint do
+  # Attributes here
+end

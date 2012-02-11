@@ -1,8 +1,9 @@
 = semantic_form_for @thought do |f|
-  = f.input :name
-  = f.input :title
-  = f.input :body, :input_html => { :class => 'js_editor' }
-  = f.input :published
-  = f.input :contemporary_issues, :collection => ContemporaryIssue.where(:published => true).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
-  = f.input :person_types, :collection => PersonType.where(:published => true).collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
-  = f.buttons
+	= f.input :name
+	= f.input :title
+	= f.input :body, :input_html => { :class => 'js_editor' }
+	= f.input :published
+	= f.input :contemporary_issues, :collection => ContemporaryIssue.where(:published => true).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
+	= f.input :person_types, :collection => PersonType.where(:published => true).collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
+	= f.input :encyclicals, :collection => Encyclical.where(:published => true).collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
+	= f.buttons
