@@ -1,14 +1,15 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+	# Include default devise modules. Others available are:
+	# :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+	devise :database_authenticatable, :registerable,
+				 :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :title, :phone, :chapter_id
+	# Setup accessible (or protected) attributes for your model
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :title, :phone, :chapter_id, :roles
 
-  has_many :content_fragments
+	has_many :content_fragments
 	belongs_to :chapter
+	belongs_to :person_type
 
 	after_initialize :load_roles
 	before_save :convert_roles
@@ -49,9 +50,9 @@ class User < ActiveRecord::Base
 		@roles
 	end
 
-  def full_name
-    "#{self.first_name} #{self.last_name}"
-  end
+	def full_name
+		"#{self.first_name} #{self.last_name}"
+	end
 
 	private
 
@@ -60,7 +61,7 @@ class User < ActiveRecord::Base
 	end
 
 	def normalize_roles
-		@roles = @roles.map { |r| r.to_s }
+		@roles = @roles.map { |r| r.to_s }.delete_if { |c| c == "" }.compact
 	end
 
 	def load_roles

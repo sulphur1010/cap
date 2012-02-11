@@ -1,0 +1,13 @@
+.page
+	%h2 All Users
+	- table(@users, ['name', 'email', 'roles', '']) do |user, klass|
+		%tr{:class => klass}
+			%td= user.full_name
+			%td= user.email
+			%td= user.roles.join(", ")
+			%td.controls
+				= link_to 'Edit', edit_user_path(user)
+				- if user != current_user
+					= link_to 'Delete', user_path(user), :method => :delete, :confirm => "Are you sure?"
+	.link
+		= link_to 'New User', new_user_url

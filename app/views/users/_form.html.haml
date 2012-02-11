@@ -1,0 +1,10 @@
+= semantic_form_for @user do |f|
+	= f.input :first_name
+	= f.input :last_name
+	= f.input :email
+	= f.input :title
+	= f.input :phone
+	= f.input :roles, :as => :check_boxes, :collection => [ "admin", "speaker", "user" ]
+	= f.input :person_type, :collection => PersonType.order(:published => true).order(:weight).collect { |c| [c.name, c.id] }
+	= f.input :chapter, :collection => Chapter.order(:name).collect { |c| [c.name, c.id] }
+	= f.buttons

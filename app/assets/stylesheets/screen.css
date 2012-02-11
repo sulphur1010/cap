@@ -108,8 +108,16 @@ table.right_col tr td{border:1px solid #ccc;border-bottom: 0;border-collapse:col
 	float: left;
 }
 
+.formtastic .choices-group label {
+	float: none;
+}
+
 .formtastic li.boolean label {
 	float: none;
+	margin-left: 120px;
+}
+
+.formtastic .choices-group {
 	margin-left: 120px;
 }
 

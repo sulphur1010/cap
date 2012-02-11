@@ -7,11 +7,11 @@
 	.page
 		= render :partial => 'encyclicals/list', :object => @contemporary_issue
 		%div{:style => 'clear: both'}
-%hr
-.page
-	%h2= "If You Like #{@contemporary_issue.title}"
-	- thought = @contemporary_issue.random_thought
-	- if thought
+- thought = @contemporary_issue.random_thought
+- if thought
+	%hr
+	.page
+		%h2= "If You Like #{@contemporary_issue.title}"
 		.thought_quote= thought.body.html_safe
 %hr
 .page
