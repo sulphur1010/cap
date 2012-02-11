@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211155004) do
+ActiveRecord::Schema.define(:version => 20120211173453) do
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(:version => 20120211155004) do
   create_table "contemporary_issues_events", :id => false, :force => true do |t|
     t.integer "contemporary_issue_id"
     t.integer "event_id"
+  end
+
+  create_table "contemporary_issues_users", :id => false, :force => true do |t|
+    t.integer "contemporary_issue_id"
+    t.integer "user_id"
   end
 
   create_table "content_fragments", :force => true do |t|
@@ -110,12 +115,12 @@ ActiveRecord::Schema.define(:version => 20120211155004) do
   add_index "menu_items", ["parent_id"], :name => "index_menu_items_on_parent_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                      :default => "", :null => false
+    t.string   "encrypted_password",         :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",              :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -130,6 +135,10 @@ ActiveRecord::Schema.define(:version => 20120211155004) do
     t.string   "role_list"
     t.integer  "chapter_id"
     t.string   "phone"
+    t.string   "profile_image_file_name"
+    t.string   "profile_image_content_type"
+    t.integer  "profile_image_file_size"
+    t.datetime "profile_image_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

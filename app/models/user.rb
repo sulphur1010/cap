@@ -5,14 +5,16 @@ class User < ActiveRecord::Base
 				 :recoverable, :rememberable, :trackable, :validatable
 
 	# Setup accessible (or protected) attributes for your model
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :title, :phone, :chapter_id, :roles
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :title, :phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image
 
-	has_many :content_fragments
 	belongs_to :chapter
 	belongs_to :person_type
+	has_and_belongs_to_many :contemporary_issues
+	has_attached_file :profile_image, :styles => { :small => "80x80>" }
 
 	after_initialize :load_roles
 	before_save :convert_roles
+	before_save :set_speaker
 	before_create :add_user_role
 
 	def has_role?(r)
@@ -75,4 +77,7 @@ class User < ActiveRecord::Base
 		self.role_list = @roles.map { |r| r.to_s }.join(',')
 	end
 
+	def set_speaker
+		self.speaker = @roles.include?("speaker")
+	end
 end

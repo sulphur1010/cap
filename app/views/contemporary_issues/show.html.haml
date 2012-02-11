@@ -17,6 +17,9 @@
 .page
 	%h2= "Courses & Events Related to #{@contemporary_issue.title}"
 	= render :partial => 'events/teaser', :collection => Event.upcoming(100)
-%hr
-.page
-	%h2= "Speakers who talk about #{@contemporary_issue.title}"
+- speakers = @contemporary_issue.speakers
+- if !speakers.empty?
+	%hr
+	.page
+		%h2= "Speakers who talk about #{@contemporary_issue.title}"
+		= render :partial => 'users/list', :object => speakers

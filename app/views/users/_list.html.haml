@@ -1,0 +1,7 @@
+%ul.user_list
+	- list.each do |user|
+		%li
+			= image_tag user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'
+			.user_info
+				= user.full_name
+%div{:style => 'clear:both'}

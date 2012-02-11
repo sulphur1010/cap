@@ -247,19 +247,44 @@ table.left_menu_container .content_with_left_menu {
 }
 
 .contemporary_issues_list,
-.encyclical_list {
+.encyclical_list,
+.user_list {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
 .contemporary_issues_list li a,
-.encyclical_list li a {
+.encyclical_list li a,
+.user_list li {
 	display: block;
 	float: left;
 	width: 180px;
 	padding: 8px 8px;
 	text-decoration: none;
+}
+
+.user_list {
+	padding-top: 30px;
+}
+
+.user_list li {
+	width: 240px;
+	padding: 0;
+	border: 1px solid #ccc;
+}
+
+.user_list li .user_info {
+	font-weight: bold;
+	font-size: 1.1em;
+	padding: 8px;
+	color: #555;
+}
+
+.user_list li img {
+	border: 0;
+	float: left;
+	padding-right: 8px;
 }
 
 .thought_quote {
@@ -410,4 +435,7 @@ a.encyclical_link {
 	font-size: 0.8em;
 }
 
-
+.formtastic .profile_image {
+	padding-top: 10px;
+	padding-left: 125px;
+}
