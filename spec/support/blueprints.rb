@@ -76,6 +76,10 @@ User.blueprint(:speaker) do
 	roles { "speaker" }
 end
 
+User.blueprint(:thought_creator) do
+	roles { "thought_creator" }
+end
+
 Chapter.blueprint do
 	name { "test chapter" }
 end

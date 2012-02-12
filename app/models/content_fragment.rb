@@ -13,6 +13,9 @@ class ContentFragment < ActiveRecord::Base
 
 	validates :url, :uniqueness => true
 
+	scope :of_type, lambda {|t| where("type = ?", t) }
+	scope :thoughts, of_type('Thought')
+
 	private
 
 	def set_type

@@ -41,13 +41,19 @@ GUEST_SHOULD_PASS = [
 
 USER_SHOULD_PASS = GUEST_SHOULD_PASS + []
 SPEAKER_SHOULD_PASS = USER_SHOULD_PASS + []
+THOUGHT_CREATOR_SHOULD_PASS = USER_SHOULD_PASS + [
+	[:thoughts, :index],
+	[:thoughts, :new],
+	[:thoughts, :create],
+	[:thoughts, :destroy]
+]
 
 describe "Authentication Requests" do
 	
 	describe "authenticated admin" do
 		CONTROLLERS.each do |c|
 			ACTIONS.each do |a|
-				it "should have access to #{c}:#{a}" do
+				it "should #{ADMIN_SHOULD_FAIL.include?([c,a]) ? 'NOT ' : ''}have access to #{c}:#{a}" do
 					u = User.make!(:admin)
 					sign_in(u)
 					send("test_#{a}",c)
@@ -64,7 +70,7 @@ describe "Authentication Requests" do
 	describe "authenticated speaker" do
 		CONTROLLERS.each do |c|
 			ACTIONS.each do |a|
-				it "should have access to #{c}:#{a}" do
+				it "should #{SPEAKER_SHOULD_PASS.include?([c,a]) ? '' : 'NOT '}have access to #{c}:#{a}" do
 					u = User.make!(:speaker)
 					sign_in(u)
 					send("test_#{a}",c)
@@ -78,10 +84,68 @@ describe "Authentication Requests" do
 		end
 	end
 
+	describe "authenticated thought creator" do
+		CONTROLLERS.each do |c|
+			ACTIONS.each do |a|
+				it "should #{THOUGHT_CREATOR_SHOULD_PASS.include?([c,a]) ? '' : 'NOT '}have access to #{c}:#{a}" do
+					u = User.make!(:thought_creator)
+					sign_in(u)
+					send("test_#{a}",c)
+					if THOUGHT_CREATOR_SHOULD_PASS.include?([c,a])
+						send("success_#{a}")
+					else
+						send("failure_#{a}")
+					end
+				end
+			end
+		end
+		
+		it "should NOT have access to edit another user's thought" do
+			u = User.make!(:thought_creator)
+			sign_in(u)
+			ou = User.make!(:email => 'someotheremail@test.com')
+			t = Thought.make
+			t.user = ou
+			t.save!
+			get url_for([:edit, t])
+			assert_response :missing
+		end
+
+		it "should have access to edit own thoughts" do
+			u = User.make!(:thought_creator)
+			sign_in(u)
+			t = Thought.make!(:user_id => u.id)
+			get url_for([:edit, t])
+			assert_response :success
+		end
+
+		it "should NOT have access to update another user's thought" do
+			u = User.make!(:thought_creator)
+			sign_in(u)
+			ou = User.make!(:email => 'someotheremail@test.com')
+			t = Thought.make
+			t.user = ou
+			t.save!
+			t.updated_at = t.updated_at + 3.hours
+			put url_for(t), t.class.to_s.downcase.to_sym => t.attributes
+			assert_response :missing
+		end
+
+		it "should have access to update own thoughts" do
+			u = User.make!(:thought_creator)
+			sign_in(u)
+			t = Thought.make!(:user_id => u.id)
+			t.updated_at = t.updated_at + 3.hours
+			put url_for(t), t.class.to_s.downcase.to_sym => t.attributes
+			assert_response 302
+		end
+
+	end
+
 	describe "authenticated user" do
 		CONTROLLERS.each do |c|
 			ACTIONS.each do |a|
-				it "should have access to #{c}:#{a}" do
+				it "should #{USER_SHOULD_PASS.include?([c,a]) ? '' : 'NOT '}have access to #{c}:#{a}" do
 					u = User.make!
 					sign_in(u)
 					send("test_#{a}",c)
@@ -98,7 +162,7 @@ describe "Authentication Requests" do
 	describe "guest" do
 		CONTROLLERS.each do |c|
 			ACTIONS.each do |a|
-				it "should have access to #{c}:#{a}" do
+				it "should #{GUEST_SHOULD_PASS.include?([c,a]) ? '' : 'NOT '}have access to #{c}:#{a}" do
 					send("test_#{a}", c)
 					if GUEST_SHOULD_PASS.include?([c,a])
 						send("success_#{a}")

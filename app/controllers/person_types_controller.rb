@@ -22,7 +22,10 @@ class PersonTypesController < ApplicationController
   end
 
   def create
-    respond_with(@person_type = PersonType.create(params[:person_type]), :location => person_types_url)
+		@person_type = PersonType.new(params[:person_type])
+		@person_type.user = current_user
+		@person_type.save!
+    respond_with(@person_type, :location => person_types_url)
   end
 
   def edit

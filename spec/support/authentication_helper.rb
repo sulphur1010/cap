@@ -64,7 +64,7 @@ end
 def test_update(c)
 	obj = c.to_s.singularize.camelcase.constantize.make!
 	obj.updated_at = obj.updated_at + 3.hours
-	put url_for(obj)
+	put url_for(obj), obj.class.to_s.downcase.to_sym => obj.attributes
 end
 
 def success_update

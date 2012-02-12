@@ -17,7 +17,10 @@ class BlocksController < ApplicationController
 	end
 
 	def create
-		respond_with(@block = Block.create(params[:block]), :location => blocks_url)
+		@block = Block.new(params[:block])
+		@block.user = current_user
+		@block.save!
+		respond_with(@block, :location => blocks_url)
 	end
 
 	def edit

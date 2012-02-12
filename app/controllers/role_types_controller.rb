@@ -22,7 +22,10 @@ class RoleTypesController < ApplicationController
 	end
 
 	def create
-		respond_with(@role_type = RoleType.create(params[:role_type]), :location => role_types_url)
+		@role_type = RoleType.new(params[:role_type])
+		@role_type.user = current_user
+		@role_type.save!
+		respond_with(@role_type, :location => role_types_url)
 	end
 
 	def edit

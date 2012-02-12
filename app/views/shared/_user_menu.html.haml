@@ -3,20 +3,23 @@
 		%td.padding_in10
 			%h5 User Menu
 			%ul#user_menu
-				- is_admin? do
-					%li
+				%li
+					- is_user? do
 						Content
 						%ul
-							%li
-								= link_to 'Blocks', blocks_url
-							%li
-								= link_to 'Encyclicals', encyclicals_url
-							%li
-								= link_to 'Pages', pages_url
-							%li
-								= link_to 'Stories', stories_url
-							%li
-								= link_to 'Thoughts', thoughts_url
+							- is_admin? do
+								%li
+									= link_to 'Blocks', blocks_url
+								%li
+									= link_to 'Encyclicals', encyclicals_url
+								%li
+									= link_to 'Pages', pages_url
+								%li
+									= link_to 'Stories', stories_url
+							- is_thought_creator? do
+								%li
+									= link_to 'Thoughts', thoughts_url
+				- is_admin? do
 					%li
 						Taxonomy
 						%ul

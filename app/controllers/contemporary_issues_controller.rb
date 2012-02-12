@@ -31,7 +31,10 @@ class ContemporaryIssuesController < ApplicationController
   end
 
   def create
-    respond_with(@contemporary_issue = ContemporaryIssue.create(params[:contemporary_issue]), :location => contemporary_issues_url)
+		@contemporary_issue = ContemporaryIssue.new(params[:contemporary_issue])
+		@contemporary_issue.user = current_user
+		@contemporary_issue.save!
+    respond_with(@contemporary_issue, :location => contemporary_issues_url)
   end
 
   def edit

@@ -27,7 +27,10 @@ class PagesController < ApplicationController
   end
 
   def create
-    respond_with(@page = Page.create(params[:page]), :location => pages_url)
+		@page = Page.new(params[:page])
+		@page.user = current_user
+		@page.save!
+    respond_with(@page, :location => pages_url)
   end
 
   def edit

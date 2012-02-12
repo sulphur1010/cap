@@ -10,12 +10,17 @@ class User < ActiveRecord::Base
 	belongs_to :chapter
 	belongs_to :person_type
 	has_and_belongs_to_many :contemporary_issues
+	has_many :content_fragments
 	has_attached_file :profile_image, :styles => { :small => "80x80>" }
 
 	after_initialize :load_roles
 	before_save :convert_roles
 	before_save :set_speaker
 	before_create :add_user_role
+
+	def thoughts
+		self.content_fragments.thoughts
+	end
 
 	def has_role?(r)
 		normalize_roles

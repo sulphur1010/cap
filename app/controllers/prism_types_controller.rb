@@ -22,7 +22,10 @@ class PrismTypesController < ApplicationController
   end
 
   def create
-    respond_with(@prism_type = PrismType.create(params[:prism_type]), :location => prism_types_url)
+		@prism_type = PrismType.new(params[:prism_type])
+		@prism_type.user = current_user
+		@prism_type.save!
+    respond_with(@prism_type, :location => prism_types_url)
   end
 
   def edit

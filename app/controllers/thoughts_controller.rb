@@ -1,11 +1,16 @@
 class ThoughtsController < ApplicationController
 
-	before_filter :require_admin!, :except => [ :show ]
+	before_filter :require_thought_creator!, :except => [ :show ]
 
 	respond_to :html
 
 	def index
-		respond_with(@thoughts = Thought.order(:weight))
+		if is_admin?
+			@thoughts = Thought.order(:weight)
+		else
+			@thoughts = current_user.thoughts.order(:weight)
+		end
+		respond_with(@thoughts)
 	end
 
 	def show
@@ -22,15 +27,28 @@ class ThoughtsController < ApplicationController
 	end
 
 	def create
-		respond_with(@thought = Thought.create(params[:thought]), :location => thoughts_url)
+		@thought = Thought.new(params[:thought])
+		@thought.user = current_user
+		@thought.save!
+		respond_with(@thought, :location => thoughts_url)
 	end
 
 	def edit
-		respond_with(@thought = Thought.find(params[:id]))
+		@thought = Thought.find(params[:id])
+		if @thought.user == current_user || is_admin?
+			respond_with(@thought)
+		else
+			not_found
+		end
 	end
 
 	def update
-		respond_with(@thought = Thought.update(params[:id], params[:thought]), :location => thoughts_url)
+		@thought = Thought.find(params[:id])
+		if @thought.user == current_user || is_admin?
+			respond_with(@thought = Thought.update(params[:id], params[:thought]), :location => thoughts_url)
+		else
+			not_found
+		end
 	end
 
 	def destroy

@@ -21,7 +21,10 @@ class StoriesController < ApplicationController
 	end
 
 	def create
-		respond_with(@story = Story.create(params[:story]), :location => stories_url)
+		@story = Story.new(params[:story])
+		@story.user = current_user
+		@story.save
+		respond_with(@story, :location => stories_url)
 	end
 
 	def edit
