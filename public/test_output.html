@@ -284,119 +284,1117 @@ a {
 <div class="results">
 <div id="div_group_1" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_1" class="passed">Page requests</dt>
+  <dt id="example_group_1" class="passed">Person Type requests</dt>
   </dl>
 </div>
 <div id="div_group_2" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_2" class="passed">GET unpublished /some/url</dt>
-    <script type="text/javascript">moveProgressBar('5.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.68645s</span></dd>
+  <dt id="example_group_2" class="passed">GET unpublished /person_type</dt>
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('div_group_2');</script>
+    <script type="text/javascript">makeRed('example_group_2');</script>
+    <script type="text/javascript">moveProgressBar('0.2');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">should return a 404</span>
+      <span class="duration">0.77790s</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>Expected response to be a &lt;:missing&gt;, but was &lt;200&gt;</pre></div>
+        <div class="backtrace"><pre>(eval):2:in `flunk'
+./spec/requests/person_type_request_spec.rb:8:in `block (3 levels) in <top (required)>'</pre></div>
+    <pre class="ruby"><code><span class="linenum">0</span><span class="comment"># Couldn't get snippet for (eval)</span></code></pre>
+      </div>
+    </dd>
   </dl>
 </div>
 <div id="div_group_3" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_3" class="passed">GET published /some/url</dt>
-    <script type="text/javascript">moveProgressBar('10.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.18119s</span></dd>
+  <dt id="example_group_3" class="passed">GET published /person_type</dt>
+    <script type="text/javascript">moveProgressBar('0.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.04974s</span></dd>
   </dl>
 </div>
 <div id="div_group_4" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_4" class="passed">Block</dt>
-    <script type="text/javascript">moveProgressBar('15.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.16490s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_4" class="passed">GET unauthenticated /person_types</dt>
+    <script type="text/javascript">moveProgressBar('0.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.05192s</span></dd>
   </dl>
 </div>
 <div id="div_group_5" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_5" class="passed">User</dt>
-    <script type="text/javascript">moveProgressBar('21.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.15817s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_5" class="passed">Admin GET authenticated /person_types</dt>
+    <script type="text/javascript">moveProgressBar('1.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.13605s</span></dd>
   </dl>
 </div>
 <div id="div_group_6" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_6" class="passed">RoleType</dt>
-    <script type="text/javascript">moveProgressBar('26.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.10873s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_6" class="passed">User GET authenticated /person_types</dt>
+    <script type="text/javascript">moveProgressBar('1.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.11673s</span></dd>
   </dl>
 </div>
 <div id="div_group_7" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_7" class="passed">Page</dt>
-    <script type="text/javascript">moveProgressBar('31.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.12933s</span></dd>
-    <script type="text/javascript">moveProgressBar('36.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should prepend an initial / to url</span><span class='duration'>0.12653s</span></dd>
+  <dt id="example_group_7" class="passed">User requests</dt>
+    <script type="text/javascript">moveProgressBar('1.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">failed sign in should not create a current_user</span><span class='duration'>0.06612s</span></dd>
   </dl>
 </div>
 <div id="div_group_8" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_8" class="passed">PersonType</dt>
-    <script type="text/javascript">moveProgressBar('42.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.11203s</span></dd>
+  <dt id="example_group_8" class="passed">Contemporary Issue requests</dt>
   </dl>
 </div>
 <div id="div_group_9" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_9" class="passed">Thought</dt>
-    <script type="text/javascript">moveProgressBar('47.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.11108s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_9" class="passed">GET unpublished /contemporary_issue</dt>
+    <script type="text/javascript">makeRed('div_group_9');</script>
+    <script type="text/javascript">makeRed('example_group_9');</script>
+    <script type="text/javascript">moveProgressBar('2.0');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">should return a 404</span>
+      <span class="duration">0.07265s</span>
+      <div class="failure" id="failure_2">
+        <div class="message"><pre>Expected response to be a &lt;:missing&gt;, but was &lt;200&gt;</pre></div>
+        <div class="backtrace"><pre>(eval):2:in `flunk'
+./spec/requests/contemporary_issue_request_spec.rb:8:in `block (3 levels) in <top (required)>'</pre></div>
+    <pre class="ruby"><code><span class="linenum">0</span><span class="comment"># Couldn't get snippet for (eval)</span></code></pre>
+      </div>
+    </dd>
   </dl>
 </div>
 <div id="div_group_10" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_10" class="passed">Event</dt>
-    <script type="text/javascript">moveProgressBar('52.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.15606s</span></dd>
-    <script type="text/javascript">moveProgressBar('57.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be invalid without a type</span><span class='duration'>0.12268s</span></dd>
-    <script type="text/javascript">moveProgressBar('63.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be invalid without a title</span><span class='duration'>0.11155s</span></dd>
-    <script type="text/javascript">moveProgressBar('68.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">shouldn't be valid with a start_date and no end_date</span><span class='duration'>0.11185s</span></dd>
-    <script type="text/javascript">moveProgressBar('73.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">shouldn'tbe valid with a start_date less than end_date</span><span class='duration'>0.13405s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_10" class="passed">GET published /contemporary_issue</dt>
+    <script type="text/javascript">moveProgressBar('2.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.04427s</span></dd>
   </dl>
 </div>
 <div id="div_group_11" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_11" class="passed">Location</dt>
-    <script type="text/javascript">moveProgressBar('78.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.11645s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_11" class="passed">GET unauthenticated /contemporary_issues</dt>
+    <script type="text/javascript">moveProgressBar('2.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.03107s</span></dd>
   </dl>
 </div>
 <div id="div_group_12" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_12" class="passed">ContemporaryIssue</dt>
-    <script type="text/javascript">moveProgressBar('84.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.11655s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_12" class="passed">Admin GET authenticated /contemporary_issues</dt>
+    <script type="text/javascript">moveProgressBar('2.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.06934s</span></dd>
   </dl>
 </div>
 <div id="div_group_13" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_13" class="passed">Chapter</dt>
-    <script type="text/javascript">moveProgressBar('89.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.13474s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_13" class="passed">User GET authenticated /contemporary_issues</dt>
+    <script type="text/javascript">moveProgressBar('3.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.10402s</span></dd>
   </dl>
 </div>
 <div id="div_group_14" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_14" class="passed">ContentFragment</dt>
-    <script type="text/javascript">moveProgressBar('94.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.11091s</span></dd>
+  <dt id="example_group_14" class="passed">Authentication Requests</dt>
   </dl>
 </div>
 <div id="div_group_15" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_15" class="passed">PrismType</dt>
-    <script type="text/javascript">moveProgressBar('100.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.16885s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_15" class="passed">authenticated admin</dt>
+    <script type="text/javascript">moveProgressBar('3.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:index</span><span class='duration'>0.08059s</span></dd>
+    <script type="text/javascript">moveProgressBar('3.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:show</span><span class='duration'>0.09449s</span></dd>
+    <script type="text/javascript">moveProgressBar('4.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:new</span><span class='duration'>0.51964s</span></dd>
+    <script type="text/javascript">moveProgressBar('4.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:create</span><span class='duration'>0.06196s</span></dd>
+    <script type="text/javascript">moveProgressBar('4.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:edit</span><span class='duration'>0.15286s</span></dd>
+    <script type="text/javascript">moveProgressBar('4.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:update</span><span class='duration'>0.07396s</span></dd>
+    <script type="text/javascript">moveProgressBar('5.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:destroy</span><span class='duration'>0.08097s</span></dd>
+    <script type="text/javascript">moveProgressBar('5.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:index</span><span class='duration'>0.13205s</span></dd>
+    <script type="text/javascript">moveProgressBar('5.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:show</span><span class='duration'>0.07654s</span></dd>
+    <script type="text/javascript">moveProgressBar('6.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:new</span><span class='duration'>0.20147s</span></dd>
+    <script type="text/javascript">moveProgressBar('6.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:create</span><span class='duration'>0.06388s</span></dd>
+    <script type="text/javascript">moveProgressBar('6.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:edit</span><span class='duration'>0.16972s</span></dd>
+    <script type="text/javascript">moveProgressBar('7.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:update</span><span class='duration'>0.05916s</span></dd>
+    <script type="text/javascript">moveProgressBar('7.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:destroy</span><span class='duration'>0.06724s</span></dd>
+    <script type="text/javascript">moveProgressBar('7.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:index</span><span class='duration'>0.13634s</span></dd>
+    <script type="text/javascript">moveProgressBar('7.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:show</span><span class='duration'>0.15322s</span></dd>
+    <script type="text/javascript">moveProgressBar('8.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:new</span><span class='duration'>0.38112s</span></dd>
+    <script type="text/javascript">moveProgressBar('8.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:create</span><span class='duration'>0.07023s</span></dd>
+    <script type="text/javascript">moveProgressBar('8.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:edit</span><span class='duration'>0.28734s</span></dd>
+    <script type="text/javascript">moveProgressBar('9.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:update</span><span class='duration'>0.06999s</span></dd>
+    <script type="text/javascript">moveProgressBar('9.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:destroy</span><span class='duration'>0.06085s</span></dd>
+    <script type="text/javascript">moveProgressBar('9.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:index</span><span class='duration'>0.15225s</span></dd>
+    <script type="text/javascript">moveProgressBar('9.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:show</span><span class='duration'>0.10343s</span></dd>
+    <script type="text/javascript">moveProgressBar('10.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:new</span><span class='duration'>0.15267s</span></dd>
+    <script type="text/javascript">moveProgressBar('10.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:create</span><span class='duration'>0.07735s</span></dd>
+    <script type="text/javascript">moveProgressBar('10.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:edit</span><span class='duration'>0.08885s</span></dd>
+    <script type="text/javascript">moveProgressBar('11.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:update</span><span class='duration'>0.12003s</span></dd>
+    <script type="text/javascript">moveProgressBar('11.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:destroy</span><span class='duration'>0.06547s</span></dd>
+    <script type="text/javascript">moveProgressBar('11.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:index</span><span class='duration'>0.09048s</span></dd>
+    <script type="text/javascript">moveProgressBar('11.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:show</span><span class='duration'>0.12592s</span></dd>
+    <script type="text/javascript">moveProgressBar('12.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:new</span><span class='duration'>0.16516s</span></dd>
+    <script type="text/javascript">moveProgressBar('12.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:create</span><span class='duration'>0.13159s</span></dd>
+    <script type="text/javascript">moveProgressBar('12.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:edit</span><span class='duration'>0.20428s</span></dd>
+    <script type="text/javascript">moveProgressBar('13.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:update</span><span class='duration'>0.06924s</span></dd>
+    <script type="text/javascript">moveProgressBar('13.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:destroy</span><span class='duration'>0.07258s</span></dd>
+    <script type="text/javascript">moveProgressBar('13.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:index</span><span class='duration'>0.07571s</span></dd>
+    <script type="text/javascript">moveProgressBar('14.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:show</span><span class='duration'>0.13950s</span></dd>
+    <script type="text/javascript">moveProgressBar('14.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:new</span><span class='duration'>0.18035s</span></dd>
+    <script type="text/javascript">moveProgressBar('14.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:create</span><span class='duration'>0.09265s</span></dd>
+    <script type="text/javascript">moveProgressBar('14.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:edit</span><span class='duration'>0.19167s</span></dd>
+    <script type="text/javascript">moveProgressBar('15.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:update</span><span class='duration'>0.06769s</span></dd>
+    <script type="text/javascript">moveProgressBar('15.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:destroy</span><span class='duration'>0.06815s</span></dd>
+    <script type="text/javascript">moveProgressBar('15.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:index</span><span class='duration'>0.11845s</span></dd>
+    <script type="text/javascript">moveProgressBar('16.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:show</span><span class='duration'>0.09201s</span></dd>
+    <script type="text/javascript">moveProgressBar('16.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:new</span><span class='duration'>0.19701s</span></dd>
+    <script type="text/javascript">moveProgressBar('16.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:create</span><span class='duration'>0.07754s</span></dd>
+    <script type="text/javascript">moveProgressBar('16.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:edit</span><span class='duration'>0.23834s</span></dd>
+    <script type="text/javascript">moveProgressBar('17.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:update</span><span class='duration'>0.08818s</span></dd>
+    <script type="text/javascript">moveProgressBar('17.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:destroy</span><span class='duration'>0.11664s</span></dd>
+    <script type="text/javascript">moveProgressBar('17.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:index</span><span class='duration'>0.07585s</span></dd>
+    <script type="text/javascript">moveProgressBar('18.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:show</span><span class='duration'>0.15330s</span></dd>
+    <script type="text/javascript">moveProgressBar('18.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:new</span><span class='duration'>0.19958s</span></dd>
+    <script type="text/javascript">moveProgressBar('18.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:create</span><span class='duration'>0.07659s</span></dd>
+    <script type="text/javascript">moveProgressBar('19.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:edit</span><span class='duration'>0.23566s</span></dd>
+    <script type="text/javascript">moveProgressBar('19.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:update</span><span class='duration'>0.09070s</span></dd>
+    <script type="text/javascript">moveProgressBar('19.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:destroy</span><span class='duration'>0.06974s</span></dd>
+    <script type="text/javascript">moveProgressBar('19.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:index</span><span class='duration'>0.13871s</span></dd>
+    <script type="text/javascript">moveProgressBar('20.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:show</span><span class='duration'>0.09810s</span></dd>
+    <script type="text/javascript">moveProgressBar('20.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:new</span><span class='duration'>0.23467s</span></dd>
+    <script type="text/javascript">moveProgressBar('20.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:create</span><span class='duration'>0.07030s</span></dd>
+    <script type="text/javascript">moveProgressBar('21.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:edit</span><span class='duration'>0.19865s</span></dd>
+    <script type="text/javascript">moveProgressBar('21.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:update</span><span class='duration'>0.13024s</span></dd>
+    <script type="text/javascript">moveProgressBar('21.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:destroy</span><span class='duration'>0.07834s</span></dd>
+    <script type="text/javascript">moveProgressBar('21.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:index</span><span class='duration'>0.09177s</span></dd>
+    <script type="text/javascript">moveProgressBar('22.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:show</span><span class='duration'>0.17513s</span></dd>
+    <script type="text/javascript">moveProgressBar('22.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:new</span><span class='duration'>0.26985s</span></dd>
+    <script type="text/javascript">moveProgressBar('22.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:create</span><span class='duration'>0.07660s</span></dd>
+    <script type="text/javascript">moveProgressBar('23.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:edit</span><span class='duration'>0.19676s</span></dd>
+    <script type="text/javascript">moveProgressBar('23.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:update</span><span class='duration'>0.08942s</span></dd>
+    <script type="text/javascript">moveProgressBar('23.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:destroy</span><span class='duration'>0.13199s</span></dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>3.06851 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "19 examples, 0 failures";</script>
+<div id="div_group_16" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_16" class="passed">authenticated speaker</dt>
+    <script type="text/javascript">moveProgressBar('23.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:index</span><span class='duration'>0.06115s</span></dd>
+    <script type="text/javascript">moveProgressBar('24.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:show</span><span class='duration'>0.06817s</span></dd>
+    <script type="text/javascript">moveProgressBar('24.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:new</span><span class='duration'>0.05175s</span></dd>
+    <script type="text/javascript">moveProgressBar('24.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:create</span><span class='duration'>0.06695s</span></dd>
+    <script type="text/javascript">moveProgressBar('25.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:edit</span><span class='duration'>0.05949s</span></dd>
+    <script type="text/javascript">moveProgressBar('25.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:update</span><span class='duration'>0.06962s</span></dd>
+    <script type="text/javascript">moveProgressBar('25.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:destroy</span><span class='duration'>0.07577s</span></dd>
+    <script type="text/javascript">moveProgressBar('26.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:index</span><span class='duration'>0.13730s</span></dd>
+    <script type="text/javascript">moveProgressBar('26.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:show</span><span class='duration'>0.07980s</span></dd>
+    <script type="text/javascript">moveProgressBar('26.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:new</span><span class='duration'>0.06828s</span></dd>
+    <script type="text/javascript">moveProgressBar('26.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:create</span><span class='duration'>0.06026s</span></dd>
+    <script type="text/javascript">moveProgressBar('27.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:edit</span><span class='duration'>0.07954s</span></dd>
+    <script type="text/javascript">moveProgressBar('27.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:update</span><span class='duration'>0.07950s</span></dd>
+    <script type="text/javascript">moveProgressBar('27.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:destroy</span><span class='duration'>0.06698s</span></dd>
+    <script type="text/javascript">moveProgressBar('28.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:index</span><span class='duration'>0.12426s</span></dd>
+    <script type="text/javascript">moveProgressBar('28.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:show</span><span class='duration'>0.07200s</span></dd>
+    <script type="text/javascript">moveProgressBar('28.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:new</span><span class='duration'>0.05764s</span></dd>
+    <script type="text/javascript">moveProgressBar('28.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:create</span><span class='duration'>0.06714s</span></dd>
+    <script type="text/javascript">moveProgressBar('29.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:edit</span><span class='duration'>0.06923s</span></dd>
+    <script type="text/javascript">moveProgressBar('29.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:update</span><span class='duration'>0.07745s</span></dd>
+    <script type="text/javascript">moveProgressBar('29.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:destroy</span><span class='duration'>0.07001s</span></dd>
+    <script type="text/javascript">moveProgressBar('30.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:index</span><span class='duration'>0.12662s</span></dd>
+    <script type="text/javascript">moveProgressBar('30.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:show</span><span class='duration'>0.07304s</span></dd>
+    <script type="text/javascript">moveProgressBar('30.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:new</span><span class='duration'>0.06867s</span></dd>
+    <script type="text/javascript">moveProgressBar('30.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:create</span><span class='duration'>0.06734s</span></dd>
+    <script type="text/javascript">moveProgressBar('31.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:edit</span><span class='duration'>0.06537s</span></dd>
+    <script type="text/javascript">moveProgressBar('31.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:update</span><span class='duration'>0.06772s</span></dd>
+    <script type="text/javascript">moveProgressBar('31.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:destroy</span><span class='duration'>0.06637s</span></dd>
+    <script type="text/javascript">moveProgressBar('32.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:index</span><span class='duration'>0.06733s</span></dd>
+    <script type="text/javascript">moveProgressBar('32.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:show</span><span class='duration'>0.21708s</span></dd>
+    <script type="text/javascript">moveProgressBar('32.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:new</span><span class='duration'>0.05226s</span></dd>
+    <script type="text/javascript">moveProgressBar('33.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:create</span><span class='duration'>0.05412s</span></dd>
+    <script type="text/javascript">moveProgressBar('33.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:edit</span><span class='duration'>0.07560s</span></dd>
+    <script type="text/javascript">moveProgressBar('33.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:update</span><span class='duration'>0.05551s</span></dd>
+    <script type="text/javascript">moveProgressBar('33.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:destroy</span><span class='duration'>0.07190s</span></dd>
+    <script type="text/javascript">moveProgressBar('34.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:index</span><span class='duration'>0.06611s</span></dd>
+    <script type="text/javascript">moveProgressBar('34.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:show</span><span class='duration'>0.14910s</span></dd>
+    <script type="text/javascript">moveProgressBar('34.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:new</span><span class='duration'>0.08195s</span></dd>
+    <script type="text/javascript">moveProgressBar('35.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:create</span><span class='duration'>0.05716s</span></dd>
+    <script type="text/javascript">moveProgressBar('35.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:edit</span><span class='duration'>0.06052s</span></dd>
+    <script type="text/javascript">moveProgressBar('35.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:update</span><span class='duration'>0.06787s</span></dd>
+    <script type="text/javascript">moveProgressBar('35.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:destroy</span><span class='duration'>0.06705s</span></dd>
+    <script type="text/javascript">moveProgressBar('36.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:index</span><span class='duration'>0.09323s</span></dd>
+    <script type="text/javascript">moveProgressBar('36.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:show</span><span class='duration'>0.14293s</span></dd>
+    <script type="text/javascript">moveProgressBar('36.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:new</span><span class='duration'>0.06026s</span></dd>
+    <script type="text/javascript">moveProgressBar('37.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:create</span><span class='duration'>0.07025s</span></dd>
+    <script type="text/javascript">moveProgressBar('37.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:edit</span><span class='duration'>0.06963s</span></dd>
+    <script type="text/javascript">moveProgressBar('37.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:update</span><span class='duration'>0.06826s</span></dd>
+    <script type="text/javascript">moveProgressBar('38.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:destroy</span><span class='duration'>0.06416s</span></dd>
+    <script type="text/javascript">moveProgressBar('38.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:index</span><span class='duration'>0.07699s</span></dd>
+    <script type="text/javascript">moveProgressBar('38.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:show</span><span class='duration'>0.13525s</span></dd>
+    <script type="text/javascript">moveProgressBar('38.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:new</span><span class='duration'>0.06790s</span></dd>
+    <script type="text/javascript">moveProgressBar('39.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:create</span><span class='duration'>0.06370s</span></dd>
+    <script type="text/javascript">moveProgressBar('39.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:edit</span><span class='duration'>0.07077s</span></dd>
+    <script type="text/javascript">moveProgressBar('39.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:update</span><span class='duration'>0.06746s</span></dd>
+    <script type="text/javascript">moveProgressBar('40.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:destroy</span><span class='duration'>0.06688s</span></dd>
+    <script type="text/javascript">moveProgressBar('40.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:index</span><span class='duration'>0.06606s</span></dd>
+    <script type="text/javascript">moveProgressBar('40.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:show</span><span class='duration'>0.15079s</span></dd>
+    <script type="text/javascript">moveProgressBar('40.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:new</span><span class='duration'>0.06204s</span></dd>
+    <script type="text/javascript">moveProgressBar('41.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:create</span><span class='duration'>0.06355s</span></dd>
+    <script type="text/javascript">moveProgressBar('41.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:edit</span><span class='duration'>0.07052s</span></dd>
+    <script type="text/javascript">moveProgressBar('41.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:update</span><span class='duration'>0.06856s</span></dd>
+    <script type="text/javascript">moveProgressBar('42.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:destroy</span><span class='duration'>0.08197s</span></dd>
+    <script type="text/javascript">moveProgressBar('42.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:index</span><span class='duration'>0.07256s</span></dd>
+    <script type="text/javascript">moveProgressBar('42.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:show</span><span class='duration'>0.07577s</span></dd>
+    <script type="text/javascript">moveProgressBar('42.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:new</span><span class='duration'>0.11446s</span></dd>
+    <script type="text/javascript">moveProgressBar('43.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:create</span><span class='duration'>0.06474s</span></dd>
+    <script type="text/javascript">moveProgressBar('43.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:edit</span><span class='duration'>0.07744s</span></dd>
+    <script type="text/javascript">moveProgressBar('43.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:update</span><span class='duration'>0.07529s</span></dd>
+    <script type="text/javascript">moveProgressBar('44.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:destroy</span><span class='duration'>0.08092s</span></dd>
+  </dl>
+</div>
+<div id="div_group_17" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_17" class="passed">authenticated user</dt>
+    <script type="text/javascript">moveProgressBar('44.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:index</span><span class='duration'>0.05703s</span></dd>
+    <script type="text/javascript">moveProgressBar('44.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:show</span><span class='duration'>0.06146s</span></dd>
+    <script type="text/javascript">moveProgressBar('45.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:new</span><span class='duration'>0.12824s</span></dd>
+    <script type="text/javascript">moveProgressBar('45.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:create</span><span class='duration'>0.07120s</span></dd>
+    <script type="text/javascript">moveProgressBar('45.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:edit</span><span class='duration'>0.07737s</span></dd>
+    <script type="text/javascript">moveProgressBar('45.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:update</span><span class='duration'>0.06950s</span></dd>
+    <script type="text/javascript">moveProgressBar('46.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:destroy</span><span class='duration'>0.06686s</span></dd>
+    <script type="text/javascript">moveProgressBar('46.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:index</span><span class='duration'>0.06193s</span></dd>
+    <script type="text/javascript">moveProgressBar('46.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:show</span><span class='duration'>0.07182s</span></dd>
+    <script type="text/javascript">moveProgressBar('47.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:new</span><span class='duration'>0.12300s</span></dd>
+    <script type="text/javascript">moveProgressBar('47.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:create</span><span class='duration'>0.06540s</span></dd>
+    <script type="text/javascript">moveProgressBar('47.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:edit</span><span class='duration'>0.07072s</span></dd>
+    <script type="text/javascript">moveProgressBar('47.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:update</span><span class='duration'>0.08285s</span></dd>
+    <script type="text/javascript">moveProgressBar('48.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:destroy</span><span class='duration'>0.06292s</span></dd>
+    <script type="text/javascript">moveProgressBar('48.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:index</span><span class='duration'>0.06990s</span></dd>
+    <script type="text/javascript">moveProgressBar('48.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:show</span><span class='duration'>0.08192s</span></dd>
+    <script type="text/javascript">moveProgressBar('49.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:new</span><span class='duration'>0.13487s</span></dd>
+    <script type="text/javascript">moveProgressBar('49.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:create</span><span class='duration'>0.08935s</span></dd>
+    <script type="text/javascript">moveProgressBar('49.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:edit</span><span class='duration'>0.07115s</span></dd>
+    <script type="text/javascript">moveProgressBar('50.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:update</span><span class='duration'>0.07780s</span></dd>
+    <script type="text/javascript">moveProgressBar('50.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:destroy</span><span class='duration'>0.06430s</span></dd>
+    <script type="text/javascript">moveProgressBar('50.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:index</span><span class='duration'>0.06598s</span></dd>
+    <script type="text/javascript">moveProgressBar('50.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:show</span><span class='duration'>0.06942s</span></dd>
+    <script type="text/javascript">moveProgressBar('51.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:new</span><span class='duration'>0.06387s</span></dd>
+    <script type="text/javascript">moveProgressBar('51.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:create</span><span class='duration'>0.13250s</span></dd>
+    <script type="text/javascript">moveProgressBar('51.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:edit</span><span class='duration'>0.07111s</span></dd>
+    <script type="text/javascript">moveProgressBar('52.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:update</span><span class='duration'>0.06693s</span></dd>
+    <script type="text/javascript">moveProgressBar('52.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:destroy</span><span class='duration'>0.07107s</span></dd>
+    <script type="text/javascript">moveProgressBar('52.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:index</span><span class='duration'>0.06157s</span></dd>
+    <script type="text/javascript">moveProgressBar('52.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:show</span><span class='duration'>0.07344s</span></dd>
+    <script type="text/javascript">moveProgressBar('53.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:new</span><span class='duration'>0.08094s</span></dd>
+    <script type="text/javascript">moveProgressBar('53.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:create</span><span class='duration'>0.05742s</span></dd>
+    <script type="text/javascript">moveProgressBar('53.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:edit</span><span class='duration'>0.12184s</span></dd>
+    <script type="text/javascript">moveProgressBar('54.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:update</span><span class='duration'>0.06437s</span></dd>
+    <script type="text/javascript">moveProgressBar('54.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:destroy</span><span class='duration'>0.07404s</span></dd>
+    <script type="text/javascript">moveProgressBar('54.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:index</span><span class='duration'>0.07469s</span></dd>
+    <script type="text/javascript">moveProgressBar('54.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:show</span><span class='duration'>0.16275s</span></dd>
+    <script type="text/javascript">moveProgressBar('55.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:new</span><span class='duration'>0.13812s</span></dd>
+    <script type="text/javascript">moveProgressBar('55.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:create</span><span class='duration'>0.13660s</span></dd>
+    <script type="text/javascript">moveProgressBar('55.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:edit</span><span class='duration'>0.22048s</span></dd>
+    <script type="text/javascript">moveProgressBar('56.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:update</span><span class='duration'>0.15135s</span></dd>
+    <script type="text/javascript">moveProgressBar('56.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:destroy</span><span class='duration'>0.08904s</span></dd>
+    <script type="text/javascript">moveProgressBar('56.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:index</span><span class='duration'>0.06132s</span></dd>
+    <script type="text/javascript">moveProgressBar('57.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:show</span><span class='duration'>0.06757s</span></dd>
+    <script type="text/javascript">moveProgressBar('57.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:new</span><span class='duration'>0.05582s</span></dd>
+    <script type="text/javascript">moveProgressBar('57.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:create</span><span class='duration'>0.07843s</span></dd>
+    <script type="text/javascript">moveProgressBar('57.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:edit</span><span class='duration'>0.15782s</span></dd>
+    <script type="text/javascript">moveProgressBar('58.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:update</span><span class='duration'>0.06580s</span></dd>
+    <script type="text/javascript">moveProgressBar('58.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:destroy</span><span class='duration'>0.07505s</span></dd>
+    <script type="text/javascript">moveProgressBar('58.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:index</span><span class='duration'>0.07633s</span></dd>
+    <script type="text/javascript">moveProgressBar('59.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:show</span><span class='duration'>0.10555s</span></dd>
+    <script type="text/javascript">moveProgressBar('59.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:new</span><span class='duration'>0.05468s</span></dd>
+    <script type="text/javascript">moveProgressBar('59.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:create</span><span class='duration'>0.06905s</span></dd>
+    <script type="text/javascript">moveProgressBar('59.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:edit</span><span class='duration'>0.05727s</span></dd>
+    <script type="text/javascript">moveProgressBar('60.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:update</span><span class='duration'>0.12478s</span></dd>
+    <script type="text/javascript">moveProgressBar('60.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:destroy</span><span class='duration'>0.07834s</span></dd>
+    <script type="text/javascript">moveProgressBar('60.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:index</span><span class='duration'>0.05952s</span></dd>
+    <script type="text/javascript">moveProgressBar('61.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:show</span><span class='duration'>0.06707s</span></dd>
+    <script type="text/javascript">moveProgressBar('61.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:new</span><span class='duration'>0.05686s</span></dd>
+    <script type="text/javascript">moveProgressBar('61.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:create</span><span class='duration'>0.06923s</span></dd>
+    <script type="text/javascript">moveProgressBar('61.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:edit</span><span class='duration'>0.07347s</span></dd>
+    <script type="text/javascript">moveProgressBar('62.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:update</span><span class='duration'>0.12649s</span></dd>
+    <script type="text/javascript">moveProgressBar('62.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:destroy</span><span class='duration'>0.08095s</span></dd>
+    <script type="text/javascript">moveProgressBar('62.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:index</span><span class='duration'>0.06378s</span></dd>
+    <script type="text/javascript">moveProgressBar('63.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:show</span><span class='duration'>0.06885s</span></dd>
+    <script type="text/javascript">moveProgressBar('63.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:new</span><span class='duration'>0.06595s</span></dd>
+    <script type="text/javascript">moveProgressBar('63.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:create</span><span class='duration'>0.05673s</span></dd>
+    <script type="text/javascript">moveProgressBar('64.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:edit</span><span class='duration'>0.11486s</span></dd>
+    <script type="text/javascript">moveProgressBar('64.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:update</span><span class='duration'>0.17963s</span></dd>
+    <script type="text/javascript">moveProgressBar('64.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:destroy</span><span class='duration'>0.06049s</span></dd>
+  </dl>
+</div>
+<div id="div_group_18" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_18" class="passed">guest</dt>
+    <script type="text/javascript">moveProgressBar('64.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:index</span><span class='duration'>0.03419s</span></dd>
+    <script type="text/javascript">moveProgressBar('65.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:show</span><span class='duration'>0.04345s</span></dd>
+    <script type="text/javascript">moveProgressBar('65.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:new</span><span class='duration'>0.02338s</span></dd>
+    <script type="text/javascript">moveProgressBar('65.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:create</span><span class='duration'>0.03326s</span></dd>
+    <script type="text/javascript">moveProgressBar('66.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:edit</span><span class='duration'>0.03801s</span></dd>
+    <script type="text/javascript">moveProgressBar('66.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:update</span><span class='duration'>0.03376s</span></dd>
+    <script type="text/javascript">moveProgressBar('66.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to blocks:destroy</span><span class='duration'>0.02941s</span></dd>
+    <script type="text/javascript">moveProgressBar('66.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:index</span><span class='duration'>0.03488s</span></dd>
+    <script type="text/javascript">moveProgressBar('67.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:show</span><span class='duration'>0.04305s</span></dd>
+    <script type="text/javascript">moveProgressBar('67.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:new</span><span class='duration'>0.03458s</span></dd>
+    <script type="text/javascript">moveProgressBar('67.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:create</span><span class='duration'>0.04309s</span></dd>
+    <script type="text/javascript">moveProgressBar('68.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:edit</span><span class='duration'>0.02736s</span></dd>
+    <script type="text/javascript">moveProgressBar('68.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:update</span><span class='duration'>0.04449s</span></dd>
+    <script type="text/javascript">moveProgressBar('68.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to contemporary_issues:destroy</span><span class='duration'>0.04554s</span></dd>
+    <script type="text/javascript">moveProgressBar('69.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:index</span><span class='duration'>0.03378s</span></dd>
+    <script type="text/javascript">moveProgressBar('69.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:show</span><span class='duration'>0.10172s</span></dd>
+    <script type="text/javascript">moveProgressBar('69.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:new</span><span class='duration'>0.02352s</span></dd>
+    <script type="text/javascript">moveProgressBar('69.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:create</span><span class='duration'>0.02375s</span></dd>
+    <script type="text/javascript">moveProgressBar('70.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:edit</span><span class='duration'>0.03199s</span></dd>
+    <script type="text/javascript">moveProgressBar('70.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:update</span><span class='duration'>0.03116s</span></dd>
+    <script type="text/javascript">moveProgressBar('70.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to events:destroy</span><span class='duration'>0.03646s</span></dd>
+    <script type="text/javascript">moveProgressBar('71.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:index</span><span class='duration'>0.02120s</span></dd>
+    <script type="text/javascript">moveProgressBar('71.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:show</span><span class='duration'>0.03734s</span></dd>
+    <script type="text/javascript">moveProgressBar('71.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:new</span><span class='duration'>0.02964s</span></dd>
+    <script type="text/javascript">moveProgressBar('71.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:create</span><span class='duration'>0.03381s</span></dd>
+    <script type="text/javascript">moveProgressBar('72.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:edit</span><span class='duration'>0.07884s</span></dd>
+    <script type="text/javascript">moveProgressBar('72.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:update</span><span class='duration'>0.02528s</span></dd>
+    <script type="text/javascript">moveProgressBar('72.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to locations:destroy</span><span class='duration'>0.03091s</span></dd>
+    <script type="text/javascript">moveProgressBar('73.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:index</span><span class='duration'>0.03298s</span></dd>
+    <script type="text/javascript">moveProgressBar('73.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:show</span><span class='duration'>0.04175s</span></dd>
+    <script type="text/javascript">moveProgressBar('73.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:new</span><span class='duration'>0.02852s</span></dd>
+    <script type="text/javascript">moveProgressBar('73.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:create</span><span class='duration'>0.02473s</span></dd>
+    <script type="text/javascript">moveProgressBar('74.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:edit</span><span class='duration'>0.03165s</span></dd>
+    <script type="text/javascript">moveProgressBar('74.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:update</span><span class='duration'>0.04749s</span></dd>
+    <script type="text/javascript">moveProgressBar('74.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to menu_items:destroy</span><span class='duration'>0.04260s</span></dd>
+    <script type="text/javascript">moveProgressBar('75.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:index</span><span class='duration'>0.09724s</span></dd>
+    <script type="text/javascript">moveProgressBar('75.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:show</span><span class='duration'>0.04419s</span></dd>
+    <script type="text/javascript">moveProgressBar('75.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:new</span><span class='duration'>0.03797s</span></dd>
+    <script type="text/javascript">moveProgressBar('76.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:create</span><span class='duration'>0.03570s</span></dd>
+    <script type="text/javascript">moveProgressBar('76.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:edit</span><span class='duration'>0.03071s</span></dd>
+    <script type="text/javascript">moveProgressBar('76.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:update</span><span class='duration'>0.04515s</span></dd>
+    <script type="text/javascript">moveProgressBar('76.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to pages:destroy</span><span class='duration'>0.04472s</span></dd>
+    <script type="text/javascript">moveProgressBar('77.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:index</span><span class='duration'>0.03353s</span></dd>
+    <script type="text/javascript">moveProgressBar('77.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:show</span><span class='duration'>0.04251s</span></dd>
+    <script type="text/javascript">moveProgressBar('77.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:new</span><span class='duration'>0.02912s</span></dd>
+    <script type="text/javascript">moveProgressBar('78.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:create</span><span class='duration'>0.02146s</span></dd>
+    <script type="text/javascript">moveProgressBar('78.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:edit</span><span class='duration'>0.04341s</span></dd>
+    <script type="text/javascript">moveProgressBar('78.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:update</span><span class='duration'>0.02700s</span></dd>
+    <script type="text/javascript">moveProgressBar('78.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to person_types:destroy</span><span class='duration'>0.03025s</span></dd>
+    <script type="text/javascript">moveProgressBar('79.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:index</span><span class='duration'>0.03186s</span></dd>
+    <script type="text/javascript">moveProgressBar('79.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:show</span><span class='duration'>0.04160s</span></dd>
+    <script type="text/javascript">moveProgressBar('79.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:new</span><span class='duration'>0.03834s</span></dd>
+    <script type="text/javascript">moveProgressBar('80.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:create</span><span class='duration'>0.03427s</span></dd>
+    <script type="text/javascript">moveProgressBar('80.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:edit</span><span class='duration'>0.04495s</span></dd>
+    <script type="text/javascript">moveProgressBar('80.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:update</span><span class='duration'>0.04485s</span></dd>
+    <script type="text/javascript">moveProgressBar('80.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to prism_types:destroy</span><span class='duration'>0.10576s</span></dd>
+    <script type="text/javascript">moveProgressBar('81.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:index</span><span class='duration'>0.02892s</span></dd>
+    <script type="text/javascript">moveProgressBar('81.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:show</span><span class='duration'>0.04430s</span></dd>
+    <script type="text/javascript">moveProgressBar('81.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:new</span><span class='duration'>0.03397s</span></dd>
+    <script type="text/javascript">moveProgressBar('82.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:create</span><span class='duration'>0.03420s</span></dd>
+    <script type="text/javascript">moveProgressBar('82.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:edit</span><span class='duration'>0.04760s</span></dd>
+    <script type="text/javascript">moveProgressBar('82.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:update</span><span class='duration'>0.05434s</span></dd>
+    <script type="text/javascript">moveProgressBar('83.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to role_types:destroy</span><span class='duration'>0.03777s</span></dd>
+    <script type="text/javascript">moveProgressBar('83.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:index</span><span class='duration'>0.02041s</span></dd>
+    <script type="text/javascript">moveProgressBar('83.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:show</span><span class='duration'>0.04993s</span></dd>
+    <script type="text/javascript">moveProgressBar('83.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:new</span><span class='duration'>0.02681s</span></dd>
+    <script type="text/javascript">moveProgressBar('84.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:create</span><span class='duration'>0.02719s</span></dd>
+    <script type="text/javascript">moveProgressBar('84.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:edit</span><span class='duration'>0.03178s</span></dd>
+    <script type="text/javascript">moveProgressBar('84.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:update</span><span class='duration'>0.03486s</span></dd>
+    <script type="text/javascript">moveProgressBar('85.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have access to thoughts:destroy</span><span class='duration'>0.03262s</span></dd>
+  </dl>
+</div>
+<div id="div_group_19" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_19" class="passed">Event requests</dt>
+  </dl>
+</div>
+<div id="div_group_20" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_20" class="passed">GET /event</dt>
+    <script type="text/javascript">moveProgressBar('85.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.03521s</span></dd>
+  </dl>
+</div>
+<div id="div_group_21" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_21" class="passed">GET unauthenticated /events</dt>
+    <script type="text/javascript">moveProgressBar('85.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.02103s</span></dd>
+  </dl>
+</div>
+<div id="div_group_22" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_22" class="passed">Admin GET authenticated /events</dt>
+    <script type="text/javascript">moveProgressBar('85.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.12447s</span></dd>
+  </dl>
+</div>
+<div id="div_group_23" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_23" class="passed">User GET authenticated /events</dt>
+    <script type="text/javascript">moveProgressBar('86.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.06528s</span></dd>
+  </dl>
+</div>
+<div id="div_group_24" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_24" class="passed">Location requests</dt>
+  </dl>
+</div>
+<div id="div_group_25" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_25" class="passed">GET /location</dt>
+    <script type="text/javascript">moveProgressBar('86.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.03145s</span></dd>
+  </dl>
+</div>
+<div id="div_group_26" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_26" class="passed">GET unauthenticated /locations</dt>
+    <script type="text/javascript">moveProgressBar('86.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.03284s</span></dd>
+  </dl>
+</div>
+<div id="div_group_27" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_27" class="passed">Admin GET authenticated /locations</dt>
+    <script type="text/javascript">moveProgressBar('87.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.06733s</span></dd>
+  </dl>
+</div>
+<div id="div_group_28" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_28" class="passed">User GET authenticated /locations</dt>
+    <script type="text/javascript">moveProgressBar('87.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.07777s</span></dd>
+  </dl>
+</div>
+<div id="div_group_29" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_29" class="passed">Block requests</dt>
+  </dl>
+</div>
+<div id="div_group_30" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_30" class="passed">GET unauthenticated /blocks</dt>
+    <script type="text/javascript">moveProgressBar('87.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.04594s</span></dd>
+  </dl>
+</div>
+<div id="div_group_31" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_31" class="passed">Admin GET authenticated /blocks</dt>
+    <script type="text/javascript">moveProgressBar('88.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.18200s</span></dd>
+  </dl>
+</div>
+<div id="div_group_32" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_32" class="passed">User GET authenticated /blocks</dt>
+    <script type="text/javascript">moveProgressBar('88.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.09431s</span></dd>
+  </dl>
+</div>
+<div id="div_group_33" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_33" class="passed">Thought requests</dt>
+  </dl>
+</div>
+<div id="div_group_34" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_34" class="passed">GET unpublished /thought</dt>
+    <script type="text/javascript">makeRed('div_group_34');</script>
+    <script type="text/javascript">makeRed('example_group_34');</script>
+    <script type="text/javascript">moveProgressBar('88.5');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">should return a 404</span>
+      <span class="duration">0.06087s</span>
+      <div class="failure" id="failure_3">
+        <div class="message"><pre>Expected response to be a &lt;:missing&gt;, but was &lt;200&gt;</pre></div>
+        <div class="backtrace"><pre>(eval):2:in `flunk'
+./spec/requests/thought_request_spec.rb:8:in `block (3 levels) in <top (required)>'</pre></div>
+    <pre class="ruby"><code><span class="linenum">0</span><span class="comment"># Couldn't get snippet for (eval)</span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_35" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_35" class="passed">GET published /thought</dt>
+    <script type="text/javascript">moveProgressBar('88.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.03975s</span></dd>
+  </dl>
+</div>
+<div id="div_group_36" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_36" class="passed">GET unauthenticated /thoughts</dt>
+    <script type="text/javascript">moveProgressBar('89.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.02130s</span></dd>
+  </dl>
+</div>
+<div id="div_group_37" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_37" class="passed">Admin GET authenticated /thoughts</dt>
+    <script type="text/javascript">moveProgressBar('89.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.07464s</span></dd>
+  </dl>
+</div>
+<div id="div_group_38" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_38" class="passed">User GET authenticated /thoughts</dt>
+    <script type="text/javascript">moveProgressBar('89.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.12919s</span></dd>
+  </dl>
+</div>
+<div id="div_group_39" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_39" class="passed">Page requests</dt>
+  </dl>
+</div>
+<div id="div_group_40" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_40" class="passed">GET unpublished /some/url</dt>
+    <script type="text/javascript">makeRed('div_group_40');</script>
+    <script type="text/javascript">makeRed('example_group_40');</script>
+    <script type="text/javascript">moveProgressBar('90.0');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">should return a 404</span>
+      <span class="duration">0.04029s</span>
+      <div class="failure" id="failure_4">
+        <div class="message"><pre>Expected response to be a &lt;:missing&gt;, but was &lt;200&gt;</pre></div>
+        <div class="backtrace"><pre>(eval):2:in `flunk'
+./spec/requests/page_request_spec.rb:8:in `block (3 levels) in <top (required)>'</pre></div>
+    <pre class="ruby"><code><span class="linenum">0</span><span class="comment"># Couldn't get snippet for (eval)</span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_41" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_41" class="passed">GET published /some/url</dt>
+    <script type="text/javascript">moveProgressBar('90.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.04895s</span></dd>
+  </dl>
+</div>
+<div id="div_group_42" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_42" class="passed">GET unauthenticated /pages</dt>
+    <script type="text/javascript">moveProgressBar('90.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.02010s</span></dd>
+  </dl>
+</div>
+<div id="div_group_43" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_43" class="passed">Admin GET authenticated /pages</dt>
+    <script type="text/javascript">moveProgressBar('90.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.07802s</span></dd>
+  </dl>
+</div>
+<div id="div_group_44" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_44" class="passed">User GET authenticated /pages</dt>
+    <script type="text/javascript">moveProgressBar('91.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.05752s</span></dd>
+  </dl>
+</div>
+<div id="div_group_45" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_45" class="passed">Prism Type requests</dt>
+  </dl>
+</div>
+<div id="div_group_46" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_46" class="passed">GET unpublished /prism_type</dt>
+    <script type="text/javascript">makeRed('div_group_46');</script>
+    <script type="text/javascript">makeRed('example_group_46');</script>
+    <script type="text/javascript">moveProgressBar('91.5');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">should return a 404</span>
+      <span class="duration">0.03736s</span>
+      <div class="failure" id="failure_5">
+        <div class="message"><pre>Expected response to be a &lt;:missing&gt;, but was &lt;200&gt;</pre></div>
+        <div class="backtrace"><pre>(eval):2:in `flunk'
+./spec/requests/prism_type_request_spec.rb:8:in `block (3 levels) in <top (required)>'</pre></div>
+    <pre class="ruby"><code><span class="linenum">0</span><span class="comment"># Couldn't get snippet for (eval)</span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_47" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_47" class="passed">GET published /prism_type</dt>
+    <script type="text/javascript">moveProgressBar('91.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.03655s</span></dd>
+  </dl>
+</div>
+<div id="div_group_48" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_48" class="passed">GET unauthenticated /prism_types</dt>
+    <script type="text/javascript">moveProgressBar('92.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.02824s</span></dd>
+  </dl>
+</div>
+<div id="div_group_49" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_49" class="passed">Admin GET authenticated /prism_types</dt>
+    <script type="text/javascript">moveProgressBar('92.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.15568s</span></dd>
+  </dl>
+</div>
+<div id="div_group_50" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_50" class="passed">User GET authenticated /prism_types</dt>
+    <script type="text/javascript">moveProgressBar('92.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.07422s</span></dd>
+  </dl>
+</div>
+<div id="div_group_51" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_51" class="passed">Role Type requests</dt>
+  </dl>
+</div>
+<div id="div_group_52" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_52" class="passed">GET unpublished /role_type</dt>
+    <script type="text/javascript">makeRed('div_group_52');</script>
+    <script type="text/javascript">makeRed('example_group_52');</script>
+    <script type="text/javascript">moveProgressBar('92.9');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">should return a 404</span>
+      <span class="duration">0.04617s</span>
+      <div class="failure" id="failure_6">
+        <div class="message"><pre>Expected response to be a &lt;:missing&gt;, but was &lt;200&gt;</pre></div>
+        <div class="backtrace"><pre>(eval):2:in `flunk'
+./spec/requests/role_type_request_spec.rb:8:in `block (3 levels) in <top (required)>'</pre></div>
+    <pre class="ruby"><code><span class="linenum">0</span><span class="comment"># Couldn't get snippet for (eval)</span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_53" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_53" class="passed">GET published /role_type</dt>
+    <script type="text/javascript">moveProgressBar('93.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.03699s</span></dd>
+  </dl>
+</div>
+<div id="div_group_54" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_54" class="passed">GET unauthenticated /role_types</dt>
+    <script type="text/javascript">moveProgressBar('93.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.02828s</span></dd>
+  </dl>
+</div>
+<div id="div_group_55" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_55" class="passed">Admin GET authenticated /role_types</dt>
+    <script type="text/javascript">moveProgressBar('93.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.07798s</span></dd>
+  </dl>
+</div>
+<div id="div_group_56" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_56" class="passed">User GET authenticated /role_types</dt>
+    <script type="text/javascript">moveProgressBar('94.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.07075s</span></dd>
+  </dl>
+</div>
+<div id="div_group_57" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_57" class="passed">Menu Item requests</dt>
+  </dl>
+</div>
+<div id="div_group_58" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_58" class="passed">GET unauthenticated /menu_items</dt>
+    <script type="text/javascript">moveProgressBar('94.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.09470s</span></dd>
+  </dl>
+</div>
+<div id="div_group_59" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_59" class="passed">Admin GET authenticated /menu_items</dt>
+    <script type="text/javascript">moveProgressBar('94.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a valid page</span><span class='duration'>0.08641s</span></dd>
+  </dl>
+</div>
+<div id="div_group_60" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_60" class="passed">User GET authenticated /menu_items</dt>
+    <script type="text/javascript">moveProgressBar('95.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a 404</span><span class='duration'>0.06241s</span></dd>
+  </dl>
+</div>
+<div id="div_group_61" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_61" class="passed">Block</dt>
+    <script type="text/javascript">moveProgressBar('95.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01363s</span></dd>
+  </dl>
+</div>
+<div id="div_group_62" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_62" class="passed">User</dt>
+    <script type="text/javascript">moveProgressBar('95.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.02474s</span></dd>
+  </dl>
+</div>
+<div id="div_group_63" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_63" class="passed">RoleType</dt>
+    <script type="text/javascript">moveProgressBar('95.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01957s</span></dd>
+  </dl>
+</div>
+<div id="div_group_64" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_64" class="passed">Page</dt>
+    <script type="text/javascript">moveProgressBar('96.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.03271s</span></dd>
+    <script type="text/javascript">moveProgressBar('96.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should prepend an initial / to url</span><span class='duration'>0.03182s</span></dd>
+  </dl>
+</div>
+<div id="div_group_65" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_65" class="passed">PersonType</dt>
+    <script type="text/javascript">moveProgressBar('96.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.02416s</span></dd>
+  </dl>
+</div>
+<div id="div_group_66" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_66" class="passed">Thought</dt>
+    <script type="text/javascript">moveProgressBar('97.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.02336s</span></dd>
+  </dl>
+</div>
+<div id="div_group_67" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_67" class="passed">Event</dt>
+    <script type="text/javascript">moveProgressBar('97.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.03148s</span></dd>
+    <script type="text/javascript">moveProgressBar('97.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be invalid without a type</span><span class='duration'>0.02274s</span></dd>
+    <script type="text/javascript">moveProgressBar('97.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be invalid without a title</span><span class='duration'>0.02368s</span></dd>
+    <script type="text/javascript">moveProgressBar('98.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">shouldn't be valid with a start_date and no end_date</span><span class='duration'>0.02213s</span></dd>
+    <script type="text/javascript">moveProgressBar('98.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">shouldn'tbe valid with a start_date less than end_date</span><span class='duration'>0.02388s</span></dd>
+  </dl>
+</div>
+<div id="div_group_68" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_68" class="passed">Location</dt>
+    <script type="text/javascript">moveProgressBar('98.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01639s</span></dd>
+  </dl>
+</div>
+<div id="div_group_69" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_69" class="passed">ContemporaryIssue</dt>
+    <script type="text/javascript">moveProgressBar('99.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.01936s</span></dd>
+  </dl>
+</div>
+<div id="div_group_70" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_70" class="passed">Chapter</dt>
+    <script type="text/javascript">moveProgressBar('99.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.03196s</span></dd>
+  </dl>
+</div>
+<div id="div_group_71" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_71" class="passed">ContentFragment</dt>
+    <script type="text/javascript">moveProgressBar('99.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.10146s</span></dd>
+  </dl>
+</div>
+<div id="div_group_72" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_72" class="passed">PrismType</dt>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be valid</span><span class='duration'>0.02882s</span></dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>27.82269 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "342 examples, 6 failures";</script>
 </div>
 </div>
 </body>

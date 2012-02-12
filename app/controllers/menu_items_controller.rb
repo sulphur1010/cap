@@ -9,7 +9,7 @@ class MenuItemsController < ApplicationController
   end
 
   def show
-    respond_with(@menu_item = MenuItem.find(params[:id]))
+    render :text => '', :status => 404
   end
 
   def new

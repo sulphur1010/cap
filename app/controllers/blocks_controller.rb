@@ -9,7 +9,7 @@ class BlocksController < ApplicationController
   end
 
   def show
-    respond_with(@block = Block.find(params[:id]))
+    render :text => '', :status => 404
   end
 
   def new

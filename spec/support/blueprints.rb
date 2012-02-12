@@ -25,6 +25,7 @@ end
 ContentFragment.blueprint do
 	title { "test content fragment" }
 	url { "/some/other/url" }
+	published { true }
 end
 
 # Pages

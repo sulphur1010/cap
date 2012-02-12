@@ -19,7 +19,7 @@ class PagesController < ApplicationController
   end
 
   def show
-    respond_with(@page = Page.find(params[:id]))
+		render :text => '', :status => 404
   end
 
   def new
