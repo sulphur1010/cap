@@ -1,0 +1,11 @@
+.page
+	%h2 All Stories
+	- table(@stories, ['title', 'published', '']) do |story, klass|
+		%tr{:class => klass}
+			%td= link_to story.title, story_path(story)
+			%td= story.published?
+			%td.controls
+				= link_to 'Edit', edit_story_path(story)
+				= link_to 'Delete', story_path(story), :method => :delete, :confirm => "Are you sure?"
+	.link
+		= link_to 'New Story', new_story_url

@@ -1,0 +1,12 @@
+.page
+  %h2 All Encyclicals
+  - table(@encyclicals, ['name', 'title', 'published', '']) do |encyclical, klass|
+    %tr{:class => klass}
+      %td= link_to encyclical.name, encyclical_path(encyclical)
+      %td= encyclical.title
+      %td= encyclical.published
+      %td.controls
+        = link_to 'Edit', edit_encyclical_path(encyclical)
+        = link_to 'Delete', encyclical_path(encyclical), :method => :delete, :confirm => "Are you sure?"
+  .link
+    = link_to 'New Encyclical', new_encyclical_url

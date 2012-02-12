@@ -2,7 +2,7 @@
   %h2 All Contemporary Issues
   - table(@contemporary_issues, ['title', 'published', '']) do |contemporary_issue, klass|
     %tr{:class => klass}
-      %td= contemporary_issue.title
+      %td= link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue)
       %td= contemporary_issue.published?
       %td.controls
         = link_to 'Edit', edit_contemporary_issue_path(contemporary_issue)

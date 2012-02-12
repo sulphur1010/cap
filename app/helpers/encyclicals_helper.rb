@@ -1,0 +1,2 @@
+module EncyclicalsHelper
+end

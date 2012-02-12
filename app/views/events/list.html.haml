@@ -1,0 +1,27 @@
+.page
+	%h2 Events
+	Find a Network Event or Course near you. Members have access to private audiences with the pope.
+%table.left_menu_container.event_left_menu_container
+	%tr
+		%td.left_menu.event_left_menu
+			.left_menu_item
+				%strong Event Type:
+				- Event.types.each do |type|
+					.element= type
+			.left_menu_item
+				%strong Contemporary Issues:
+				- ContemporaryIssue.where(:published => true).order(:weight).each do |issue|
+					.element= issue.title
+			.left_menu_item
+				%strong Chapter:
+				- Chapter.order(:name).each do |chapter|
+					.element= chapter.name
+			.left_menu_item
+				%strong For:
+				- PersonType.where(:published => true).order(:weight).each do |person_type|
+					.element= person_type.name
+		%td.content_with_left_menu
+			.event_teaser_list
+				- @events.each do |event|
+					.event_teaser_list_item
+						= render :partial => 'teaser', :object => event

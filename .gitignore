@@ -5,3 +5,4 @@ log/*_log
 tmp/
 .sass-cache/
 *.swp
+public/system

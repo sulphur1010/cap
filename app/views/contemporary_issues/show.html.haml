@@ -1,41 +1,25 @@
 .page
-  %h2
-    Contemporary Issue:
-    %span.contemporary_issue_title= @contemporary_issue.title
-  = @contemporary_issue.body.html_safe rescue ""
+	%h2
+		Contemporary Issue:
+		%span.contemporary_issue_title= @contemporary_issue.title
+	= @contemporary_issue.body.html_safe rescue ""
+- if !@contemporary_issue.encyclicals.empty?
+	.page
+		= render :partial => 'encyclicals/list', :object => @contemporary_issue
+		%div{:style => 'clear: both'}
+- thought = @contemporary_issue.random_thought
+- if thought
+	%hr
+	.page
+		%h2= "If You Like #{@contemporary_issue.title}"
+		.thought_quote= thought.body.html_safe
 %hr
 .page
-  %h2= "If You Like #{@contemporary_issue.title}"
-  - thought = @contemporary_issue.random_thought
-  - if thought
-    .thought_quote= thought.body.html_safe
-%hr
-.page
-  %h2= "Courses & Events Related to #{@contemporary_issue.title}"
-  - Event.upcoming(100).each do |event|
-    %table.event_teaser
-      %tr
-        %td{:style => 'width: 450px'}
-          %h5.event_title= event.title
-          .event.teaser= event.body.html_safe rescue ""
-          - if event.location
-            .event_location
-              Location: 
-              = link_to event.location.name, location_path(event.location)
-          - if event.speaker
-            .event_speaker
-              Speaker:
-              = event.speaker.full_name
-              /= link_to event.speaker.full_name, user_path(event.speaker)
-        %td.event_time{:style => 'width: 90px'}
-          = event.short_start
-          %br
-          = distance_of_time_in_words(event.duration)
-        %td.event_spots{:style => 'width: 90px'}
-          %span.event_spots_available= event.spots_available
-          spots left
-        %td.rsvp
-          = link_to "RSVP", event_path(event)
-%hr
-.page
-  %h2= "Speakers who talk about #{@contemporary_issue.title}"
+	%h2= "Courses & Events Related to #{@contemporary_issue.title}"
+	= render :partial => 'events/teaser', :collection => Event.upcoming(100)
+- speakers = @contemporary_issue.speakers
+- if !speakers.empty?
+	%hr
+	.page
+		%h2= "Speakers who talk about #{@contemporary_issue.title}"
+		= render :partial => 'users/list', :object => speakers

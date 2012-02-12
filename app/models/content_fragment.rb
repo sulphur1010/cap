@@ -3,6 +3,9 @@ class ContentFragment < ActiveRecord::Base
 	has_and_belongs_to_many :contemporary_issues
 	has_and_belongs_to_many :person_types
 
+	has_many :encyclical_references
+	has_many :encyclicals, :through => :encyclical_references
+
 	alias :author :user
 
 	before_save :set_type
