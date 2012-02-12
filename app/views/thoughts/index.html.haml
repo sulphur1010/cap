@@ -1,9 +1,10 @@
 .page
   %h2 All Thoughts
-  - table(@thoughts, ['name', 'title', '']) do |thought, klass|
+  - table(@thoughts, ['name', 'title', 'published?', '']) do |thought, klass|
     %tr{:class => klass}
       %td= thought.name
       %td= thought.title
+      %td= thought.published? ? 'Yes' : 'No'
       %td.controls
         = link_to 'Edit', edit_thought_path(thought)
         = link_to 'Delete', thought_path(thought), :method => :delete, :confirm => "Are you sure?"
