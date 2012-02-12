@@ -10,4 +10,4 @@
         .thought_quote= thought.body.html_safe rescue ""
         .thought_author_container
           by:
-          .thought_author= thought.user.name rescue nil
+          .thought_author= thought.user.full_name rescue nil
