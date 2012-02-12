@@ -15,6 +15,18 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	def is_thought_creator?(&block)
+		if block_given?
+			yield if current_user && (current_user.has_role?("thought_creator") || current_user.has_role?("admin"))
+		else
+			if current_user && (current_user.has_role?("thought_creator") || current_user.has_role?("admin"))
+				return true
+			else
+				return false
+			end
+		end
+	end
+
 	def is_speaker?(&block)
 		if block_given?
 			yield if current_user && (current_user.has_role?("speaker") || current_user.has_role?("admin"))
@@ -27,11 +39,12 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+
 	def is_user?(&block)
 		if block_given?
-			yield if current_user && (current_user.has_role?("user") || current_user.has_role?("speaker") || current_user.has_role?("admin"))
+			yield if current_user && (current_user.has_role?("user") || current_user.has_role?("speaker") || current_user.has_role?("thought_creator") || current_user.has_role?("admin"))
 		else
-			if current_user && (current_user.has_role?("user") || current_user.has_role?("speaker") || current_user.has_role?("admin"))
+			if current_user && (current_user.has_role?("user") || current_user.has_role?("speaker") || current_user.has_role?("thought_creator") || current_user.has_role?("admin"))
 				return true
 			else
 				return false
@@ -65,6 +78,12 @@ class ApplicationController < ActionController::Base
 
 	def require_user!
 		unless is_user?
+			not_found
+		end
+	end
+
+	def require_thought_creator!
+		unless is_thought_creator?
 			not_found
 		end
 	end
