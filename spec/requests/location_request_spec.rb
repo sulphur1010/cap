@@ -8,29 +8,4 @@ describe "Location requests" do
 			assert_response :success
 		end
 	end
-
-	describe "GET unauthenticated /locations" do
-		it "should return a 404" do
-			get "/locations"
-			assert_response :missing
-		end
-	end
-
-	describe "Admin GET authenticated /locations" do
-		it "should return a valid page" do
-			u = User.make!(:admin)
-			sign_in(u)
-			get "/locations"
-			assert_response :success
-		end
-	end
-
-	describe "User GET authenticated /locations" do
-		it "should return a 404" do
-			u = User.make!
-			sign_in(u)
-			get "/locations"
-			assert_response :missing
-		end
-	end
 end
