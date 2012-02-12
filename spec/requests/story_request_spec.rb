@@ -1,13 +1,9 @@
 require 'spec_helper'
 
-def sign_in(user)
-	post_via_redirect user_session_path, 'user[email]' => user.email, 'user[password]' => 'password'
-end
-
 describe "Story requests" do
 	describe "GET unpublished /some/url" do
 		it "should return a 404" do
-			p = Story.make!
+			p = Story.make!(:published => false)
 			get story_path(p)
 			assert_response :missing
 		end
@@ -15,34 +11,9 @@ describe "Story requests" do
 
 	describe "GET published /some/url" do
 		it "should return a valid story" do
-			p = Story.make!(:published => true)
+			p = Story.make!
 			get story_path(p)
 			assert_response :success
-		end
-	end
-
-	describe "GET unauthenticated /storys" do
-		it "should return a 404" do
-			get "/stories"
-			assert_response :missing
-		end
-	end
-
-	describe "Admin GET authenticated /storys" do
-		it "should return a valid story" do
-			u = User.make!(:admin)
-			sign_in(u)
-			get "/stories"
-			assert_response :success
-		end
-	end
-
-	describe "User GET authenticated /storys" do
-		it "should return a 404" do
-			u = User.make!
-			sign_in(u)
-			get "/stories"
-			assert_response :missing
 		end
 	end
 end

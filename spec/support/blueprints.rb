@@ -91,6 +91,6 @@ Event.blueprint do
 	title { "Event Title" }
 end
 
-References.blueprint do
+EncyclicalReference.blueprint do
   # Attributes here
 end

@@ -79,5 +79,6 @@ class User < ActiveRecord::Base
 
 	def set_speaker
 		self.speaker = @roles.include?("speaker")
+		true
 	end
 end
