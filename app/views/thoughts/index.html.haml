@@ -1,12 +1,15 @@
 .page
-  %h2 All Thoughts
-  - table(@thoughts, ['name', 'title', 'published?', '']) do |thought, klass|
-    %tr{:class => klass}
-      %td= thought.name
-      %td= thought.title
-      %td= thought.published? ? 'Yes' : 'No'
-      %td.controls
-        = link_to 'Edit', edit_thought_path(thought)
-        = link_to 'Delete', thought_path(thought), :method => :delete, :confirm => "Are you sure?"
-  .link
-    = link_to 'New Thought', new_thought_url
+	- if is_admin?
+		%h2 All Thoughts
+	- else
+		%h2 My Thoughts
+	- table(@thoughts, ['title', 'author', 'published?', '']) do |thought, klass|
+		%tr{:class => klass}
+			%td= thought.title
+			%td= thought.user.full_name rescue nil
+			%td= thought.published? ? 'Yes' : 'No'
+			%td.controls
+				= link_to 'Edit', edit_thought_path(thought)
+				= link_to 'Delete', thought_path(thought), :method => :delete, :confirm => "Are you sure?"
+	.link
+		= link_to 'New Thought', new_thought_url
