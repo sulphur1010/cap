@@ -51,6 +51,7 @@ class EventsController < ApplicationController
 					@events = @events.joins("JOIN events_person_types ON events_person_types.event_id = events.id").where(ptws.join(" OR "))
 				end
 			end
+			@events = @events.uniq
 			render :action => 'ajax_list', :layout => false
 			return
 		end
