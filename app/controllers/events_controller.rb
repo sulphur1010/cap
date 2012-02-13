@@ -9,6 +9,41 @@ class EventsController < ApplicationController
   end
 
   def list
+		if request.xhr?
+			@events = Event.order(:start_date)
+			if params[:event_type]
+				types = params[:event_type].split(/,/)
+				if types.count > 0
+					ews = []
+					types.each do |t|
+						ews << "type = '#{t}'"
+					end
+					@events = @events.where(ews.join(" OR "))
+				end
+			end
+			if params[:contemporary_issue]
+				ids = params[:contemporary_issue].split(/,/)
+				if ids.count > 0
+					ciws = []
+					ids.each do |id|
+						ciws << "contemporary_issues_events.contemporary_issue_id = #{id}"
+					end
+					@events = @events.joins("JOIN contemporary_issues_events ON contemporary_issues_events.event_id = events.id").where(ciws.join(" OR "))
+				end
+			end
+			if params[:chapter]
+				ids = params[:chapter].split(/,/)
+				if ids.count > 0
+					cws = []
+					ids.each do |id|
+						cws << "chapter_id = #{id}"
+					end
+					@events = @events.where(cws.join(" OR "))
+				end
+			end
+			render :action => 'ajax_list', :layout => false
+			return
+		end
     respond_with(@events = Event.order(:start_date))
   end
 

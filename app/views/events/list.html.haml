@@ -7,21 +7,57 @@
 			.left_menu_item
 				%strong Event Type:
 				- Event.types.each do |type|
-					.element= type
+					.element{:'data-category' => 'event_type', :'data-value' => type}
+						= check_box_tag :whatever
+						= type
 			.left_menu_item
 				%strong Contemporary Issues:
 				- ContemporaryIssue.where(:published => true).order(:weight).each do |issue|
-					.element= issue.title
+					.element{:'data-category' => 'contemporary_issue', :'data-value' => issue.id }
+						= check_box_tag :whatever
+						= issue.title
 			.left_menu_item
 				%strong Chapter:
 				- Chapter.order(:name).each do |chapter|
-					.element= chapter.name
+					.element{:'data-category' => 'chapter', :'data-value' => chapter.id }
+						= check_box_tag :whatever
+						= chapter.name
 			.left_menu_item
 				%strong For:
 				- PersonType.where(:published => true).order(:weight).each do |person_type|
-					.element= person_type.name
+					.element{:'data-category' => 'person_type', :'data-value' => person_type.id }
+						= check_box_tag :whatever
+						= person_type.name
 		%td.content_with_left_menu
-			.event_teaser_list
+			.event_teaser_list#js_event_list
 				- @events.each do |event|
 					.event_teaser_list_item
 						= render :partial => 'teaser', :object => event
+:javascript
+	$('.element input').click(function() {
+		var ps = collect_params();
+		$('#js_event_list').load('/events/list?' + ps);
+	});
+
+	function collect_params() {
+		var param_string = [];
+		param_string.push(collect_params_for('event_type'));
+		param_string.push(collect_params_for('contemporary_issue'));
+		param_string.push(collect_params_for('chapter'));
+		param_string.push(collect_params_for('person_type'));
+		return(param_string.join('&'));
+	}
+
+	function collect_params_for(cat) {
+		var params = [];
+		/*
+		if ($('.element[data-category="' + cat +'" input:checked').size() == 0) {
+			return('');
+		}
+		*/
+		$('.element[data-category="' + cat + '"] input:checked').each(function() {
+			var container = $(this).closest('.element');
+			params.push(escape(container.attr('data-value')));
+		});
+		return(cat + '=' + params.join(','));
+	}
