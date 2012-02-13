@@ -1,6 +1,10 @@
-- @events.each do |event|
-	.event_teaser_list_item
-		= render :partial => 'teaser', :object => event
+- if @events.empty?
+	.no_results
+		= "No results for the given filters.  Try removing some filters."
+- else
+	- @events.each do |event|
+		.event_teaser_list_item
+			= render :partial => 'teaser', :object => event
 :javascript
 	$('.element input').click(function() {
 		var ps = collect_params();
