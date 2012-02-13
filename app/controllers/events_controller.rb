@@ -41,6 +41,16 @@ class EventsController < ApplicationController
 					@events = @events.where(cws.join(" OR "))
 				end
 			end
+			if params[:person_type]
+				ids = params[:person_type].split(/,/)
+				if ids.count > 0
+					ptws = []
+					ids.each do |id|
+						ptws << "events_person_types.person_type_id = #{id}"
+					end
+					@events = @events.joins("JOIN events_person_types ON events_person_types.event_id = events.id").where(ptws.join(" OR "))
+				end
+			end
 			render :action => 'ajax_list', :layout => false
 			return
 		end
