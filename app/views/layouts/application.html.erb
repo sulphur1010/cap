@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Capp-Usa</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Capp-Usa</title>
+	<%= stylesheet_link_tag    "application" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
@@ -14,20 +14,20 @@
 		<div id='top_nav_bar'>
 			<table class='nav_main'><tr>
 					<td width='52px'><a href="/" class='top_nav'><img src='/images/home_btn.png' /></a></td>
-          <%= render :partial => 'shared/main_nav_bar' %>
+					<%= render :partial => 'shared/main_nav_bar' %>
 			</tr></table>
 		</div>
 	</div>
 	
 	<div id='main'>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
 		<table><tr>
 			<td class='left_content'>
-        <%= yield %>
+				<%= yield %>
 			</td>
 			<td class='right_column'>
-        <%= render :partial => 'shared/user_menu' %>
+				<%= render :partial => 'shared/user_menu' %>
 				<table class='right_col'>
 					<tr><td class='yellow_bg padding_in10'>
 					<h5>Be the first to know</h5>
@@ -38,25 +38,25 @@
 					</form>	
 					</td></tr>
 				</table>
-        <%= Block.display("right_side_image") %>
-        <%= render :partial => 'shared/event_block' %>
-        <%= render :partial => 'shared/thought_block' %>
+				<%= Block.display("right_side_image") %>
+				<%= render :partial => 'shared/event_block' %>
+				<%= render :partial => 'shared/thought_block' %>
 			</td>
 		</tr></table>
 	</div>
 	<div id='footer'>
 		<table><tr>
 		<td width='226px'>
-      <%= Block.display("footer_left") %>
+			<%= Block.display("footer_left") %>
 		</td>
 		<td width='32px'></td>
 		<td width='226px'>
 			<p class='footer_title'>Contemporary Issues</p>
 			<hr class='single_line'>
-      <% contemporary_issues = ContemporaryIssue.where(:published => true).order(:title) %>
-      <% contemporary_issues.each do |issue| %>
-        <%= link_to issue.title, contemporary_issue_path(issue), :class => 'footer_link' %>
-      <% end %>
+			<% contemporary_issues = ContemporaryIssue.where(:published => true).order(:title) %>
+			<% contemporary_issues.each do |issue| %>
+				<%= link_to issue.title, contemporary_issue_path(issue), :class => 'footer_link' %>
+			<% end %>
 		</td>
 		<td width='32px'></td>
 		<td width='226px'>
@@ -68,14 +68,12 @@
 		</td>
 		<td width='32px'></td>
 		<td width='226px'>
-      <%= Block.display("footer_right") %>
+			<%= Block.display("footer_right") %>
 		</td>
 		</tr>
 		<tr><td colspan='7' class='copyright'>
 			<br><hr class='single_line'>
-			Centesimus Annus Pro Pontifice, Inc (CAPP) is the United States national affiliate of Fondazione Centesimus Annus-Pro Pontifice of the Vatican
-To Contact a CAPP representative, call 1 (203) 342-3211</td></tr>
-		
+			<%= Block.display("footer") %>
 		</table>
 	</div>
 </div>

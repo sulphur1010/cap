@@ -43,6 +43,7 @@ end
 Story.blueprint do
 	title { "test story" }
 	body { "Lorem ipsum..." }
+	category { Story.categories.first }
 end
 
 # Person Types
@@ -93,6 +94,8 @@ end
 Event.blueprint do
 	type { "Social Event" }
 	title { "Event Title" }
+	event_type { Event.event_types.first }
+	event_region { Event.event_regions.first }
 end
 
 EncyclicalReference.blueprint do

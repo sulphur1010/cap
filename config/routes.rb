@@ -1,4 +1,5 @@
 CappUsa::Application.routes.draw do
+	resources :users
 	devise_for :users
 
 	resources :pages
@@ -22,7 +23,6 @@ CappUsa::Application.routes.draw do
 	resources :stories
 	resources :chapters
 	resources :encyclicals
-	resources :users
 
 	match 'what_is_cst' => 'home#what_is_cst'
 

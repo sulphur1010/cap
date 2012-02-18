@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211173453) do
+ActiveRecord::Schema.define(:version => 20120218225139) do
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120211173453) do
     t.string   "url"
     t.integer  "weight"
     t.string   "name"
+    t.string   "category"
   end
 
   add_index "content_fragments", ["url"], :name => "index_content_fragments_on_url", :unique => true
@@ -84,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20120211173453) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "teaser"
+    t.string   "event_type"
+    t.string   "event_region"
   end
 
   add_index "events", ["chapter_id"], :name => "index_events_on_chapter_id"

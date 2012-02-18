@@ -1,5 +1,5 @@
-%h5.contemporary_issues_list_header Other topics that are import to think about are:
+%h5.contemporary_issues_list_header Other topics that are important to think about are:
 %ul.contemporary_issues_list
-  - list.contemporary_issues.sort.each do |contemporary_issue|
-    %li
-      = link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue)
+	- list.contemporary_issues.sort.each do |contemporary_issue|
+		%li
+			= link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue)

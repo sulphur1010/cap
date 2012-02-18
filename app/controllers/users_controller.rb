@@ -25,7 +25,12 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		respond_with(@user = User.update(params[:id], params[:user]), :location => users_url)
+		data = params[:user]
+		if data[:password] && data[:password].empty?
+			data.delete(:password)
+			data.delete(:password_confirmation)
+		end
+		respond_with(@user = User.update(params[:id], data), :location => users_url)
 	end
 
 	def destroy
