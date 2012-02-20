@@ -15,7 +15,7 @@
 		%td.event_time{:style => 'width: 90px'}
 			= teaser.short_start
 			%br
-			= distance_of_time_in_words(teaser.duration)
+			= distance_of_time_in_words(teaser.duration) rescue ''
 		%td.event_spots{:style => 'width: 90px'}
 			%span.event_spots_available= teaser.spots_available
 			spots left
