@@ -1,0 +1,6 @@
+#left_menu
+	- MenuItem.where(:menu => 'About').where(:parent_id => nil).order(:weight).each do |menu_item|
+		.left_menu_item
+			= active_link_to menu_item.name, menu_item.url
+		- menu_item.children.each do |sub_menu_item|
+			.left_menu_item.left_menu_sub_item= active_link_to sub_menu_item.name, sub_menu_item.url

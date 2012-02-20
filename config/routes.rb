@@ -29,6 +29,7 @@ CappUsa::Application.routes.draw do
 	resources :principles
 
 	match 'what_is_cst' => 'home#what_is_cst'
+	match 'study_center' => 'home#study_center'
 
 	# The priority is based upon order of creation:
 	# first created -> highest priority.

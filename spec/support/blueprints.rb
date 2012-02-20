@@ -97,7 +97,6 @@ end
 Event.blueprint do
 	type { "Social Event" }
 	title { "Event Title" }
-	event_type { Event.event_types.first }
 	event_region { Event.event_regions.first }
 end
 

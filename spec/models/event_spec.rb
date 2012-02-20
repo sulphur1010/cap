@@ -11,11 +11,6 @@ describe Event do
 		e.should have(1).errors_on(:type)
 	end
 
-	it "should be invalid without an event type" do
-		e = Event.make(:event_type => nil)
-		e.should have(1).errors_on(:event_type)
-	end
-
 	it "should be invalid without an event region" do
 		e = Event.make(:event_region => nil)
 		e.should have(1).errors_on(:event_region)

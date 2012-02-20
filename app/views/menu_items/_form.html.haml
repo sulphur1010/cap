@@ -1,7 +1,8 @@
 = semantic_form_for @menu_item do |f|
-  = f.inputs do
-    = f.input :name
-    = f.input :url
-    = f.input :parent
-    = f.input :weight
-  = f.buttons
+	= f.inputs do
+		= f.input :name
+		= f.input :url
+		= f.input :parent
+		= f.input :weight
+		= f.input :menu, :collection => MenuItem.menus
+	= f.buttons

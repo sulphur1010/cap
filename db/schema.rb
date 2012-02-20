@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120218225139) do
+ActiveRecord::Schema.define(:version => 20120220155929) do
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20120218225139) do
   create_table "content_fragments", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.text     "body"
+    t.text     "body",         :limit => 16777215
     t.boolean  "published"
     t.datetime "published_at"
     t.text     "teaser"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20120218225139) do
     t.integer  "weight"
     t.string   "name"
     t.string   "category"
+    t.string   "menu"
   end
 
   add_index "content_fragments", ["url"], :name => "index_content_fragments_on_url", :unique => true
@@ -113,8 +114,10 @@ ActiveRecord::Schema.define(:version => 20120218225139) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "weight"
+    t.string   "menu"
   end
 
+  add_index "menu_items", ["menu"], :name => "index_menu_items_on_menu"
   add_index "menu_items", ["parent_id"], :name => "index_menu_items_on_parent_id"
 
   create_table "users", :force => true do |t|

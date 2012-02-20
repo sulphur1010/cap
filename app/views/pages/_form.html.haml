@@ -6,4 +6,5 @@
 	= f.inputs :name => 'Advanced' do
 		= f.input :published
 		= f.input :teaser, :input_html => { :class => 'js_editor' }
+		= f.input :menu, :collection => MenuItem.menus
 	= f.buttons

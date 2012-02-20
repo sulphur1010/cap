@@ -439,3 +439,23 @@ a.encyclical_link {
 	padding-top: 10px;
 	padding-left: 125px;
 }
+
+.study_center_blocks {
+	width: 100%;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin-top: 10px;
+}
+
+.study_center_blocks tr td {
+	width: 50%;
+	padding: 15px;
+}
+
+.study_center_blocks .first_row td {
+	border-bottom: 1px solid #ccc;
+}
+
+.study_center_blocks .first_block {
+	border-right: 1px solid #ccc;
+}

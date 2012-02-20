@@ -14,15 +14,11 @@ class Event < ActiveRecord::Base
 	end
 
 	def self.types
-		["Social Event", "Course", "Private Audience"]
+		["Conference", "Course", "Lecture", "Retreat"]
 	end
 
 	def self.event_regions
 		["International", "USA"]
-	end
-
-	def self.event_types
-		["Conference", "Course", "Lecture", "Retreat"]
 	end
 
 	belongs_to :speaker, :class_name => "User"
@@ -34,7 +30,6 @@ class Event < ActiveRecord::Base
 	has_and_belongs_to_many :person_types
 
 	validates :type, :inclusion => { :in => Event.types }
-	validates :event_type, :inclusion => { :in => Event.event_types }
 	validates :event_region, :inclusion => { :in => Event.event_regions }
 	validates :title, :presence => true
 	validates :end_date, :end_date => true
