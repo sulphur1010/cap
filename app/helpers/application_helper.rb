@@ -109,7 +109,8 @@ module ApplicationHelper
 	def active_link_to(name, url)
 		path = request.path
 		options = {}
-		if url == path
+		testurl = url.split("?")[0]
+		if path == testurl
 			options[:class] = "active"
 		end
 		link_to name, url, options

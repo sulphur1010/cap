@@ -2,4 +2,7 @@
 %ul.contemporary_issues_list
 	- list.contemporary_issues.sort.each do |contemporary_issue|
 		%li
-			= link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue)
+			- if list.class.to_s == "PersonType"
+				= link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue, :q => list.id)
+			- else
+				= link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue)
