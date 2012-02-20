@@ -9,7 +9,7 @@
 			%td.controls
 				= link_to 'Edit', edit_admin_menu_item_path(menu_item)
 				= link_to 'Delete', admin_menu_item_path(menu_item), :method => :delete, :confirm => "Are you sure?"
-		- menu_item.children.each do |sub_menu_item|
+		- menu_item.children.order(:weight).each do |sub_menu_item|
 			%tr{:class => klass}
 				%td.blank &nbsp;
 				%td= sub_menu_item.name
