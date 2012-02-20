@@ -482,9 +482,9 @@ a.encyclical_link {
 }
 
 .black_contemporary_issues_list .issue a {
-	width: 140px;
-	padding: 10px;
-	margin: 10px;
+	width: 165px;
+	padding: 10px 5px;
+	margin: 5px;
 	float: left;
 	text-decoration: none;
 	color: #eee;
