@@ -4,17 +4,8 @@ class Admin::ContemporaryIssuesController < ApplicationController
 
 	respond_to :html
 
-	def view
-		@page = Page.where(:url => "/contemporary_issues/view").first
-		unless @page.published
-			render :text => "<div class='page'><h2>Page not found</h2></div>", :status => 404, :layout => true
-		else
-			respond_with(@page)
-		end
-	end
-
 	def index
-		respond_with(@contemporary_issues = ContemporaryIssue.all)
+		respond_with(@contemporary_issues = ContemporaryIssue.all.order(:title))
 	end
 
 	def show
