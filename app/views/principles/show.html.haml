@@ -1,0 +1,7 @@
+%table.left_menu_container
+	%tr
+		%td.left_menu
+			= render :partial => 'home/left_menu'
+		%td.content_with_left_menu
+			= render :partial => 'content_fragments/page', :object => @principle
+			= render :partial => 'contemporary_issues/list', :object => @principle

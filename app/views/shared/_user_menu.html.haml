@@ -31,6 +31,8 @@
 								= link_to 'Prism Types', prism_types_url
 							%li
 								= link_to 'Role Types', role_types_url
+							%li
+								= link_to 'Principles', principles_url
 					%li
 						Events
 						%ul
@@ -43,7 +45,7 @@
 					%li
 						= link_to 'Menu Items', menu_items_url
 					%li
-						= link_to 'Users', users_url
+						= link_to 'Users', admin_users_url
 				- if user_signed_in?
 					%li &nbsp;
 					%li

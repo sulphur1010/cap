@@ -54,6 +54,9 @@ end
 PrismType.blueprint do
 end
 
+Principle.blueprint do
+end
+
 # Role Types
 RoleType.blueprint do
 end

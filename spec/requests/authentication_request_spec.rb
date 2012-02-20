@@ -10,7 +10,9 @@ CONTROLLERS = [
 	:person_types,
 	:prism_types,
 	:role_types,
-	:thoughts
+	:thoughts,
+	:principles,
+	:stories
 ]
 
 ACTIONS = [
@@ -36,7 +38,9 @@ GUEST_SHOULD_PASS = [
 	[:prism_types, :show],
 	[:person_types, :show],
 	[:locations, :show],
-	[:events, :show]
+	[:events, :show],
+	[:principles, :show],
+	[:stories, :show]
 ]
 
 USER_SHOULD_PASS = GUEST_SHOULD_PASS + []
