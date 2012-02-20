@@ -12,6 +12,6 @@
 	= f.input :spots_available
 	= f.input :start_date, :as => :string, :input_html => { :class => 'js_start_date' }
 	= f.input :end_date, :as => :string, :input_html => { :class => 'js_end_date' }
-	= f.input :contemporary_issues, :collection => ContemporaryIssue.where(:published => true).order(:title)collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
+	= f.input :contemporary_issues, :collection => ContemporaryIssue.where(:published => true).order(:title).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
 	= f.input :person_types, :collection => PersonType.where(:published => true).collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
 	= f.buttons
