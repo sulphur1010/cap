@@ -12,7 +12,7 @@
 						= type
 			.left_menu_item
 				%strong Contemporary Issues:
-				- ContemporaryIssue.where(:published => true).order(:weight).each do |issue|
+				- ContemporaryIssue.where(:published => true).order(:title).each do |issue|
 					.element{:'data-category' => 'contemporary_issue', :'data-value' => issue.id }
 						= check_box_tag :whatever
 						= issue.title

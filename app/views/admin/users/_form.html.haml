@@ -9,7 +9,7 @@
 	= f.input :roles, :as => :check_boxes, :collection => [ "admin", "speaker", "thought_creator", "user" ]
 	= f.input :person_type, :collection => PersonType.order(:published => true).order(:weight).collect { |c| [c.name, c.id] }
 	= f.input :chapter, :collection => Chapter.order(:name).collect { |c| [c.name, c.id] }
-	= f.input :contemporary_issues, :collection => ContemporaryIssue.where(:published => true).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
+	= f.input :contemporary_issues, :collection => ContemporaryIssue.where(:published => true).order(:title).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
 	- if @user.profile_image.url
 		= image_tag @user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80
 	= f.input :profile_image
