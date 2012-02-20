@@ -1,5 +1,1 @@
-.page
-  %h2 All Contemporary Issues
-  - table(@contemporary_issues, ['title']) do |contemporary_issue, klass|
-    %tr{:class => klass}
-      %td= link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue)
+= render :partial => 'header'

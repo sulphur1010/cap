@@ -475,3 +475,27 @@ a.encyclical_link {
 .study_center_blocks .first_block {
 	border-right: 1px solid #ccc;
 }
+
+.black_contemporary_issues_list {
+	width: 100%;
+	background: black;
+}
+
+.black_contemporary_issues_list .issue a {
+	width: 170px;
+	padding: 10px;
+	margin: 10px;
+	float: left;
+	text-decoration: none;
+	color: #eee;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+.black_contemporary_issues_list .issue a.active {
+	background-color: #96d35f;
+}
+
+.contemporary_issue_title {
+	color: #96d35f;
+}
