@@ -39,18 +39,22 @@ class Event < ActiveRecord::Base
 	end
 
 	def short_start
+		return unless self.start_date
 		self.start_date.strftime("%h %d, %Y")
 	end
 
 	def formatted_start
+		return unless self.start_date
 		self.start_date.strftime("%H%P - %h %d %Y")
 	end
 
 	def formatted_end
+		return unless self.end_date
 		self.end_date.strftime("%H%P - %h %d %Y")
 	end
 
 	def duration
+		return unless self.end_date && self.start_date
 		self.end_date - self.start_date
 	end
 end
