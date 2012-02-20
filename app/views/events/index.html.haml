@@ -1,13 +1,67 @@
 .page
-  %h2 All Events
-  - table(@events, ['title', 'type', 'location', 'chapter', '']) do |event, klass|
-    %tr{:class => klass}
-      %td= event.title
-      %td= event.type
-      %td= event.location.name rescue nil
-      %td= event.chapter.name rescue nil
-      %td.controls
-        = link_to 'Edit', edit_event_path(event)
-        = link_to 'Delete', event_path(event), :method => :delete, :confirm => "Are you sure?"
-  .link
-    = link_to 'New Event', new_event_url
+	%h2 Events
+	Find a Network Event or Course near you. Members have access to private audiences with the pope.
+%table.left_menu_container.event_left_menu_container
+	%tr
+		%td.left_menu.event_left_menu
+			.left_menu_item
+				%strong Event Type:
+				- Event.types.each do |type|
+					.element{:'data-category' => 'event_type', :'data-value' => type}
+						= check_box_tag :whatever
+						= type
+			.left_menu_item
+				%strong Contemporary Issues:
+				- ContemporaryIssue.where(:published => true).order(:weight).each do |issue|
+					.element{:'data-category' => 'contemporary_issue', :'data-value' => issue.id }
+						= check_box_tag :whatever
+						= issue.title
+			.left_menu_item
+				%strong Chapter:
+				- Chapter.order(:name).each do |chapter|
+					.element{:'data-category' => 'chapter', :'data-value' => chapter.id }
+						= check_box_tag :whatever
+						= chapter.name
+			.left_menu_item
+				%strong For:
+				- PersonType.where(:published => true).order(:weight).each do |person_type|
+					.element{:'data-category' => 'person_type', :'data-value' => person_type.id }
+						= check_box_tag :whatever
+						= person_type.name
+		%td.content_with_left_menu
+			.event_teaser_list#js_event_list
+				- if @events.empty?
+					.no_results
+						= "No results for the given filters.  Try removing some filters."
+				- else
+					- @events.each do |event|
+						.event_teaser_list_item
+							= render :partial => 'teaser', :object => event
+:javascript
+	$('.element input').click(function() {
+		var ps = collect_params();
+		$('#js_event_list').load('/events?' + ps);
+	});
+
+	function collect_params() {
+		var param_string = [];
+		param_string.push(collect_params_for('event_type'));
+		param_string.push(collect_params_for('contemporary_issue'));
+		param_string.push(collect_params_for('chapter'));
+		param_string.push(collect_params_for('person_type'));
+		return(param_string.join('&'));
+	}
+
+	function collect_params_for(cat) {
+		var params = [];
+		/*
+		if ($('.element[data-category="' + cat +'" input:checked').size() == 0) {
+			return('');
+		}
+		*/
+		$('.element[data-category="' + cat + '"] input:checked').each(function() {
+			var container = $(this).closest('.element');
+			params.push(escape(container.attr('data-value')));
+		});
+		return(cat + '=' + params.join(','));
+	}

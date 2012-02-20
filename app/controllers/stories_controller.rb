@@ -1,10 +1,25 @@
 class StoriesController < ApplicationController
-	before_filter :require_admin!, :except => [ :show ]
 
 	respond_to :html
 
 	def index
-		respond_with(@stories = Story.order(:created_at))
+		if request.xhr?
+			@stories = Story.where(:published => true).order(:created_at)
+			if params[:category]
+				types = params[:category].split(/,/)
+				if types.count > 0
+					ews = []
+					types.each do |t|
+						ews << "category = '#{t}'"
+					end
+					@stories = @stories.where(ews.join(" OR "))
+				end
+			end
+			@stories = @stories.uniq
+			render :action => 'ajax_list', :layout => false
+			return
+		end
+		respond_with(@stories = Story.where(:published => true).order(:updated_at))
 	end
 
 	def show
@@ -15,28 +30,4 @@ class StoriesController < ApplicationController
 			respond_with(@story)
 		end
 	end
-
-	def new
-		respond_with(@story = Story.new)
-	end
-
-	def create
-		@story = Story.new(params[:story])
-		@story.user = current_user
-		@story.save
-		respond_with(@story, :location => stories_url)
-	end
-
-	def edit
-		respond_with(@story = Story.find(params[:id]))
-	end
-
-	def update
-		respond_with(@story = Story.update(params[:id], params[:story]), :location => stories_url)
-	end
-
-	def destroy
-		respond_with(@story = Story.delete(params[:id]), :location => stories_url)
-	end
-
 end

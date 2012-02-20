@@ -1,18 +1,35 @@
 require 'spec_helper'
 
 CONTROLLERS = [
-	:blocks,
 	:contemporary_issues,
+	:encylicals,
+	:events,
+	:locations,
+	:pages,
+	:person_types,
+	:principles,
+	:prism_types,
+	:role_types,
+	:stories,
+	:thoughts
+]
+
+ADMIN_CONTROLLERS = [
+	:blocks,
+	:chapters,
+	:contemporary_issues,
+	:encyclicals,
 	:events,
 	:locations,
 	:menu_items,
 	:pages,
 	:person_types,
+	:principles,
 	:prism_types,
 	:role_types,
+	:stories,
 	:thoughts,
-	:principles,
-	:stories
+	:users
 ]
 
 ACTIONS = [
@@ -25,12 +42,6 @@ ACTIONS = [
 	:destroy
 ]
 
-ADMIN_SHOULD_FAIL = [
-	[:blocks, :show],
-	[:menu_items, :show],
-	[:pages, :show]
-]
-
 GUEST_SHOULD_PASS = [
 	[:contemporary_issues, :show],
 	[:thoughts, :show],
@@ -40,12 +51,16 @@ GUEST_SHOULD_PASS = [
 	[:locations, :show],
 	[:events, :show],
 	[:principles, :show],
-	[:stories, :show]
+	[:stories, :show],
+	[:encyclicals, :show],
+	[:events, :index],
+	[:thoughts, :index],
+	[:stories, :index]
 ]
 
 USER_SHOULD_PASS = GUEST_SHOULD_PASS + []
 SPEAKER_SHOULD_PASS = USER_SHOULD_PASS + []
-THOUGHT_CREATOR_SHOULD_PASS = USER_SHOULD_PASS + [
+THOUGHT_CREATOR_SHOULD_PASS = [
 	[:thoughts, :index],
 	[:thoughts, :new],
 	[:thoughts, :create],
@@ -55,52 +70,69 @@ THOUGHT_CREATOR_SHOULD_PASS = USER_SHOULD_PASS + [
 describe "Authentication Requests" do
 	
 	describe "authenticated admin" do
-		CONTROLLERS.each do |c|
+		ADMIN_CONTROLLERS.each do |c|
 			ACTIONS.each do |a|
-				it "should #{ADMIN_SHOULD_FAIL.include?([c,a]) ? 'NOT ' : ''}have access to #{c}:#{a}" do
+				it "should have access to admin #{c}:#{a}" do
 					u = User.make!(:admin)
 					sign_in(u)
-					send("test_#{a}",c)
-					if ADMIN_SHOULD_FAIL.include?([c,a])
-						send("failure_#{a}")
-					else
-						send("success_#{a}")
-					end
+					send("test_admin_#{a}",c)
+					send("success_#{a}")
+				end
+			end
+		end
+	end
+
+	describe "guest" do
+		GUEST_SHOULD_PASS.each do |c, a|
+			it "should have access to #{c}:#{a}" do
+				u = User.make!
+				sign_in(u)
+				send("test_#{a}",c)
+				send("success_#{a}")
+			end
+		end
+
+		ADMIN_CONTROLLERS.each do |c|
+			ACTIONS.each do |a|
+				it "should NOT have access to admin #{c}:#{a}" do
+					u = User.make!
+					sign_in(u)
+					send("test_admin_#{a}",c)
+					send("failure_#{a}")
 				end
 			end
 		end
 	end
 
 	describe "authenticated speaker" do
-		CONTROLLERS.each do |c|
+		ADMIN_CONTROLLERS.each do |c|
 			ACTIONS.each do |a|
-				it "should #{SPEAKER_SHOULD_PASS.include?([c,a]) ? '' : 'NOT '}have access to #{c}:#{a}" do
+				it "should NOT have access to admin #{c}:#{a}" do
 					u = User.make!(:speaker)
 					sign_in(u)
-					send("test_#{a}",c)
-					if SPEAKER_SHOULD_PASS.include?([c,a])
-						send("success_#{a}")
-					else
-						send("failure_#{a}")
-					end
+					send("test_admin_#{a}",c)
+					send("failure_#{a}")
 				end
 			end
 		end
 	end
 
 	describe "authenticated thought creator" do
-		CONTROLLERS.each do |c|
-			ACTIONS.each do |a|
-				it "should #{THOUGHT_CREATOR_SHOULD_PASS.include?([c,a]) ? '' : 'NOT '}have access to #{c}:#{a}" do
-					u = User.make!(:thought_creator)
-					sign_in(u)
-					send("test_#{a}",c)
-					if THOUGHT_CREATOR_SHOULD_PASS.include?([c,a])
-						send("success_#{a}")
-					else
-						send("failure_#{a}")
-					end
-				end
+		GUEST_SHOULD_PASS.each do |c, a|
+			it "should have access to #{c}:#{a}" do
+				u = User.make!
+				sign_in(u)
+				send("test_#{a}",c)
+				send("success_#{a}")
+			end
+		end
+
+		THOUGHT_CREATOR_SHOULD_PASS.each do |c, a|
+			it "should have access to admin #{c}:#{a}" do
+				u = User.make!(:thought_creator)
+				sign_in(u)
+				send("test_admin_#{a}",c)
+				send("success_#{a}")
 			end
 		end
 		
@@ -111,7 +143,7 @@ describe "Authentication Requests" do
 			t = Thought.make
 			t.user = ou
 			t.save!
-			get url_for([:edit, t])
+			get url_for([:edit, :admin, t])
 			assert_response :missing
 		end
 
@@ -119,7 +151,7 @@ describe "Authentication Requests" do
 			u = User.make!(:thought_creator)
 			sign_in(u)
 			t = Thought.make!(:user_id => u.id)
-			get url_for([:edit, t])
+			get url_for([:edit, :admin, t])
 			assert_response :success
 		end
 
@@ -131,7 +163,7 @@ describe "Authentication Requests" do
 			t.user = ou
 			t.save!
 			t.updated_at = t.updated_at + 3.hours
-			put url_for(t), t.class.to_s.downcase.to_sym => t.attributes
+			put url_for([:admin, t]), t.class.to_s.downcase.to_sym => t.attributes
 			assert_response :missing
 		end
 
@@ -140,39 +172,20 @@ describe "Authentication Requests" do
 			sign_in(u)
 			t = Thought.make!(:user_id => u.id)
 			t.updated_at = t.updated_at + 3.hours
-			put url_for(t), t.class.to_s.downcase.to_sym => t.attributes
+			put url_for([:admin, t]), t.class.to_s.downcase.to_sym => t.attributes
 			assert_response 302
 		end
 
 	end
 
-	describe "authenticated user" do
-		CONTROLLERS.each do |c|
-			ACTIONS.each do |a|
-				it "should #{USER_SHOULD_PASS.include?([c,a]) ? '' : 'NOT '}have access to #{c}:#{a}" do
-					u = User.make!
-					sign_in(u)
-					send("test_#{a}",c)
-					if USER_SHOULD_PASS.include?([c,a])
-						send("success_#{a}")
-					else
-						send("failure_#{a}")
-					end
-				end
-			end
-		end
-	end
-
 	describe "guest" do
-		CONTROLLERS.each do |c|
-			ACTIONS.each do |a|
-				it "should #{GUEST_SHOULD_PASS.include?([c,a]) ? '' : 'NOT '}have access to #{c}:#{a}" do
-					send("test_#{a}", c)
-					if GUEST_SHOULD_PASS.include?([c,a])
-						send("success_#{a}")
-					else
-						send("failure_#{a}")
-					end
+		GUEST_SHOULD_PASS.each do |c, a|
+			it "should #{GUEST_SHOULD_PASS.include?([c,a]) ? '' : 'NOT '}have access to #{c}:#{a}" do
+				send("test_#{a}", c)
+				if GUEST_SHOULD_PASS.include?([c,a])
+					send("success_#{a}")
+				else
+					send("failure_#{a}")
 				end
 			end
 		end

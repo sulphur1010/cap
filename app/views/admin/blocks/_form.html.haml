@@ -1,0 +1,4 @@
+= semantic_form_for [:admin, @block] do |f|
+	= f.input :name
+	= f.input :body, :input_html => { :class => 'js_editor' }
+	= f.buttons

@@ -1,1 +1,8 @@
-view story
+.page
+	%h2= @story.title
+	- if is_admin?
+		= link_to 'Edit', content_fragment_edit_url(@story)
+	.published_at= @story.formatted_published_at
+%hr
+.page
+	= @story.body.html_safe rescue ''

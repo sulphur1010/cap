@@ -6,4 +6,5 @@ class Story < ContentFragment
 	validates :title, :presence => true
 	validates :body, :presence => true
 	validates :category, :inclusion => { :in => Story.categories }
+
 end

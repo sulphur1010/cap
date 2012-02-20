@@ -1,0 +1,11 @@
+.page
+	%h2 All Chapters
+	- table(@chapters, ['name', '']) do |chapter, klass|
+		%tr{:class => klass}
+			%td= chapter.name
+			%td.controls
+				= link_to 'Edit', edit_admin_chapter_path(chapter)
+				- if chapter.users.empty? && chapter.events.empty?
+					= link_to 'Delete', chapter_admin_path(chapter), :method => :delete, :confirm => "Are you sure?"
+	.link
+		= link_to 'New Chapter', new_admin_chapter_url

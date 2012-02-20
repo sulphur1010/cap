@@ -1,11 +1,45 @@
 .page
-	%h2 All News Stories
-	- table(@stories, ['title', 'published', '']) do |story, klass|
-		%tr{:class => klass}
-			%td= link_to story.title, story_path(story)
-			%td= story.published?
-			%td.controls
-				= link_to 'Edit', edit_story_path(story)
-				= link_to 'Delete', story_path(story), :method => :delete, :confirm => "Are you sure?"
-	.link
-		= link_to 'New News Story', new_story_url
+	%h2 News
+%table.left_menu_container.story_left_menu_container
+	%tr
+		%td.left_menu.story_left_menu
+			.left_menu_item
+				%strong News Type:
+				- Story.categories.each do |type|
+					.element{:'data-category' => 'category', :'data-value' => type}
+						= check_box_tag :whatever
+						= type
+		%td.content_with_left_menu
+			.story_teaser_list#js_story_list
+				- if @stories.empty?
+					.no_results
+						= "No results for the given filters.  Try removing some filters."
+				- else
+					- @stories.each do |story|
+						.story_teaser_list_item
+							= render :partial => 'teaser', :object => story
+:javascript
+	$('.element input').click(function() {
+		var ps = collect_params();
+		$('#js_story_list').load('/stories?' + ps);
+	});
+
+	function collect_params() {
+		var param_string = [];
+		param_string.push(collect_params_for('category'));
+		return(param_string.join('&'));
+	}
+
+	function collect_params_for(cat) {
+		var params = [];
+		/*
+		if ($('.element[data-category="' + cat +'" input:checked').size() == 0) {
+			return('');
+		}
+		*/
+		$('.element[data-category="' + cat + '"] input:checked').each(function() {
+			var container = $(this).closest('.element');
+			params.push(escape(container.attr('data-value')));
+		});
+		return(cat + '=' + params.join(','));
+	}

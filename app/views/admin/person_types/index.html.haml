@@ -1,0 +1,12 @@
+.page
+	%h2 All Person Types
+	- table(@person_types, ['name', 'title', 'weight', '']) do |person_type, klass|
+		%tr{:class => klass}
+			%td= person_type.name
+			%td= person_type.title
+			%td= person_type.weight
+			%td.controls
+				= link_to 'Edit', edit_admin_person_type_path(person_type)
+				= link_to 'Delete', admin_person_type_path(person_type), :method => :delete, :confirm => "Are you sure?"
+	.link
+		= link_to 'New Person Type', new_admin_person_type_url

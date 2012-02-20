@@ -2,31 +2,37 @@ CappUsa::Application.routes.draw do
 	devise_for :users
 
 	namespace :admin do
+		resources :blocks
+		resources :chapters
+		resources :contemporary_issues
+		resources :encyclicals
+		resources :events
+		resources :locations
+		resources :menu_items
+		resources :pages
+		resources :person_types
+		resources :principles
+		resources :prism_types
+		resources :role_types
+		resources :stories
+		resources :thoughts
 		resources :users
 	end
 
-	resources :pages
-	resources :menu_items
 	resources :contemporary_issues do
-		collection do
+		member do
 			get 'view'
 		end
 	end
+	resources :encyclicals
+	resources :events
+	resources :locations
 	resources :person_types
+	resources :principles
 	resources :prism_types
 	resources :role_types
-	resources :thoughts
-	resources :blocks
-	resources :locations
-	resources :events do
-		collection do
-			get 'list'
-		end
-	end
 	resources :stories
-	resources :chapters
-	resources :encyclicals
-	resources :principles
+	resources :thoughts
 
 	match 'what_is_cst' => 'home#what_is_cst'
 	match 'study_center' => 'home#study_center'

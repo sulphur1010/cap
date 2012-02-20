@@ -1,0 +1,7 @@
+- if @stories.empty?
+	.no_results
+		= "No results for the given filters.  Try removing some filters."
+- else
+	- @stories.each do |story|
+		.story_teaser_list_item
+			= render :partial => 'teaser', :object => story

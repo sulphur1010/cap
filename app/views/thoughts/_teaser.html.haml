@@ -1,0 +1,6 @@
+%table.thought_teaser
+	%tr
+		%td
+			%h5.thought_title= link_to teaser.title, thought_path(teaser)
+			.published_at= teaser.formatted_published_at
+			.teaser= teaser.teaser.html_safe

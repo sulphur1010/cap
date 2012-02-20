@@ -1,9 +1,0 @@
-= semantic_form_for @contemporary_issue do |f|
-	= f.inputs :name => 'Basic' do
-		= f.input :title
-		= f.input :body, :input_html => { :class => 'js_editor' }
-	= f.inputs :name => 'Advanced' do
-		= f.input :published
-		= f.input :teaser, :input_html => { :class => 'js_editor' }
-		= f.input :encyclicals, :collection => Encyclical.where(:published => true).collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
-	= f.buttons

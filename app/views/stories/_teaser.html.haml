@@ -1,0 +1,6 @@
+%table.story_teaser
+	%tr
+		%td
+			%h5.story_title= link_to teaser.title, story_path(teaser)
+			.published_at= teaser.formatted_published_at
+			.teaser= teaser.teaser.html_safe

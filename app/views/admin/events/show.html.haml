@@ -1,0 +1,30 @@
+.event_page
+  .page
+    %h2= @event.title
+    .event_header
+      .event_time_info
+        - if @event.start_date && @event.end_date
+          %span.event_duration= distance_of_time_in_words(@event.end_date - @event.start_date) rescue ""
+        - if @event.start_date
+          %span.event_start= "Starts: #{@event.formatted_start}"
+        - if @event.end_date
+          %span.event_end= "Ends: #{@event.formatted_end}"
+    %strong Ideal For:
+    - @event.person_types.each do |person_type|
+      = link_to person_type.name, person_type_path(person_type)
+    .event_body= @event.body.html_safe rescue ""
+    - if @event.location
+      .event_location
+        Main Location: 
+        = link_to @event.location.name, location_path(@event.location)
+    - if @event.director
+      .event_director
+        Contact the Program Director: 
+        = @event.director.full_name
+        /= link_to @event.director.full_name, user_path(@event.director)
+  %hr
+  .page
+    %h4
+      Contemporary Issues Covered:
+      - @event.contemporary_issues.each do |issue|
+        = link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'

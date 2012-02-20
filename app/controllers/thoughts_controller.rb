@@ -1,16 +1,35 @@
 class ThoughtsController < ApplicationController
 
-	before_filter :require_thought_creator!, :except => [ :show ]
-
 	respond_to :html
 
 	def index
-		if is_admin?
-			@thoughts = Thought.order(:weight)
-		else
-			@thoughts = current_user.thoughts.order(:weight)
+		if request.xhr?
+			@thoughts = Thought.where(:published => true).order(:published_at)
+			if params[:contemporary_issue]
+				ids = params[:contemporary_issue].split(/,/)
+				if ids.count > 0
+					ciws = []
+					ids.each do |id|
+						ciws << "contemporary_issues_thoughts.contemporary_issue_id = #{id}"
+					end
+					@thoughts = @thoughts.joins("JOIN contemporary_issues_thoughts ON contemporary_issues_thoughts.thought_id = thoughts.id").where(ciws.join(" OR "))
+				end
+			end
+			if params[:person_type]
+				ids = params[:person_type].split(/,/)
+				if ids.count > 0
+					ptws = []
+					ids.each do |id|
+						ptws << "thoughts_person_types.person_type_id = #{id}"
+					end
+					@thoughts = @thoughts.joins("JOIN thoughts_person_types ON thoughts_person_types.thought_id = thoughts.id").where(ptws.join(" OR "))
+				end
+			end
+			@thoughts = @thoughts.uniq
+			render :action => 'ajax_list', :layout => false
+			return
 		end
-		respond_with(@thoughts)
+		respond_with(@thoughts = Thought.where(:published => true).order(:published_at))
 	end
 
 	def show
@@ -21,38 +40,4 @@ class ThoughtsController < ApplicationController
 			respond_with(@thought)
 		end
 	end
-
-	def new
-		respond_with(@thought = Thought.new)
-	end
-
-	def create
-		@thought = Thought.new(params[:thought])
-		@thought.user = current_user
-		@thought.save!
-		respond_with(@thought, :location => thoughts_url)
-	end
-
-	def edit
-		@thought = Thought.find(params[:id])
-		if @thought.user == current_user || is_admin?
-			respond_with(@thought)
-		else
-			not_found
-		end
-	end
-
-	def update
-		@thought = Thought.find(params[:id])
-		if @thought.user == current_user || is_admin?
-			respond_with(@thought = Thought.update(params[:id], params[:thought]), :location => thoughts_url)
-		else
-			not_found
-		end
-	end
-
-	def destroy
-		respond_with(@thought = Thought.delete(params[:id]), :location => thoughts_url)
-	end
-
 end

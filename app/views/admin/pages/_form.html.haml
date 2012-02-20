@@ -1,0 +1,10 @@
+= semantic_form_for [:admin, @page] do |f|
+	= f.inputs :name => 'Basic' do
+		= f.input :title
+		= f.input :url
+		= f.input :body, :input_html => { :class => 'js_editor' }
+	= f.inputs :name => 'Advanced' do
+		= f.input :published
+		= f.input :teaser, :input_html => { :class => 'js_editor' }
+		= f.input :menu, :collection => MenuItem.menus
+	= f.buttons

@@ -16,6 +16,11 @@ class ContentFragment < ActiveRecord::Base
 	scope :of_type, lambda {|t| where("type = ?", t) }
 	scope :thoughts, of_type('Thought')
 
+	def formatted_published_at
+		return unless self.published_at
+		self.published_at.strftime("%h %d, %Y %H:%M%P")
+	end
+
 	private
 
 	def set_type

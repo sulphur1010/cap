@@ -1,0 +1,10 @@
+- if @page.menu == "About"
+	%table.left_menu_container
+		%tr
+			%td.left_menu
+				= render :partial => 'shared/about_menu'
+			%td.content_with_left_menu.about_content
+				= render :partial => 'content_fragments/page', :object => @page
+- else
+	.page
+		= render :partial => 'content_fragments/page', :object => @page

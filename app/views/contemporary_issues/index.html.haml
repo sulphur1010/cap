@@ -1,11 +1,5 @@
 .page
   %h2 All Contemporary Issues
-  - table(@contemporary_issues, ['title', 'published', '']) do |contemporary_issue, klass|
+  - table(@contemporary_issues, ['title']) do |contemporary_issue, klass|
     %tr{:class => klass}
       %td= link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue)
-      %td= contemporary_issue.published?
-      %td.controls
-        = link_to 'Edit', edit_contemporary_issue_path(contemporary_issue)
-        = link_to 'Delete', contemporary_issue_path(contemporary_issue), :method => :delete, :confirm => "Are you sure?"
-  .link
-    = link_to 'New Contemporary Issue', new_contemporary_issue_url

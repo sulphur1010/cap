@@ -1,15 +1,52 @@
 .page
-	- if is_admin?
-		%h2 All Articles
-	- else
-		%h2 My Articles
-	- table(@thoughts, ['title', 'author', 'published?', '']) do |thought, klass|
-		%tr{:class => klass}
-			%td= thought.title
-			%td= thought.user.full_name rescue nil
-			%td= thought.published? ? 'Yes' : 'No'
-			%td.controls
-				= link_to 'Edit', edit_thought_path(thought)
-				= link_to 'Delete', thought_path(thought), :method => :delete, :confirm => "Are you sure?"
-	.link
-		= link_to 'New Articles', new_thought_url
+	%h2 Articles
+%table.left_menu_container.thought_left_menu_container
+	%tr
+		%td.left_menu.thought_left_menu
+			.left_menu_item
+				%strong Contemporary Issues:
+				- ContemporaryIssue.where(:published => true).order(:weight).each do |type|
+					.element{:'data-category' => 'contemporary_issues', :'data-value' => type}
+						= check_box_tag :whatever
+						= type.title
+			.left_menu_item
+				%strong For:
+				- PersonType.where(:published => true).order(:weight).each do |type|
+					.element{:'data-category' => 'person_type', :'data-value' => type}
+						= check_box_tag :whatever
+						= type.name
+		%td.content_with_left_menu
+			.thought_teaser_list#js_thought_list
+				- if @thoughts.empty?
+					.no_results
+						= "No results for the given filters.  Try removing some filters."
+				- else
+					- @thoughts.each do |thought|
+						.thought_teaser_list_item
+							= render :partial => 'teaser', :object => thought
+:javascript
+	$('.element input').click(function() {
+		var ps = collect_params();
+		$('#js_thought_list').load('/thoughts?' + ps);
+	});
+
+	function collect_params() {
+		var param_string = [];
+		param_string.push(collect_params_for('contemporary_issue'));
+		param_string.push(collect_params_for('person_type'));
+		return(param_string.join('&'));
+	}
+
+	function collect_params_for(cat) {
+		var params = [];
+		/*
+		if ($('.element[data-category="' + cat +'" input:checked').size() == 0) {
+			return('');
+		}
+		*/
+		$('.element[data-category="' + cat + '"] input:checked').each(function() {
+			var container = $(this).closest('.element');
+			params.push(escape(container.attr('data-value')));
+		});
+		return(cat + '=' + params.join(','));
+	}

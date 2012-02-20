@@ -1,0 +1,12 @@
+.page
+	%h2 All Role Types
+	- table(@role_types, ['name', 'title', 'weight', '']) do |role_type, klass|
+		%tr{:class => klass}
+			%td= role_type.name
+			%td= role_type.title
+			%td= role_type.weight
+			%td.controls
+				= link_to 'Edit', edit_admin_role_type_path(role_type)
+				= link_to 'Delete', admin_role_type_path(role_type), :method => :delete, :confirm => "Are you sure?"
+	.link
+		= link_to 'New Role Type', new_admin_role_type_url
