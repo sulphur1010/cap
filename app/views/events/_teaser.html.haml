@@ -2,7 +2,7 @@
 	%tr
 		%td{:style => 'width: 450px'}
 			%h5.event_title= link_to teaser.title, event_path(teaser)
-			.event.teaser= teaser.teaser.html_safe rescue ""
+			.event.teaser= strip_tags(teaser.teaser) rescue ""
 			- if teaser.location
 				.event_location
 					Location: 
