@@ -5,7 +5,7 @@ class Admin::ContemporaryIssuesController < ApplicationController
 	respond_to :html
 
 	def index
-		respond_with(@contemporary_issues = ContemporaryIssue.all.order(:title))
+		respond_with(@contemporary_issues = ContemporaryIssue.order(:title))
 	end
 
 	def show
