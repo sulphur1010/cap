@@ -1,7 +1,7 @@
 %table.event_teaser
 	%tr
 		%td{:style => 'width: 450px'}
-			%h5.event_title= teaser.title
+			%h5.event_title= link_to teaser.title, event_path(teaser)
 			.event.teaser= teaser.teaser.html_safe rescue ""
 			- if teaser.location
 				.event_location
