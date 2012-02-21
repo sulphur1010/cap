@@ -3,7 +3,7 @@ class EncyclicalsController < ApplicationController
 	respond_to :html
 
 	def index
-		respond_width(@encyclicals = Encyclical.where(:published => true))
+		respond_with(@encyclicals = Encyclical.where(:published => true))
 	end
 
 	def show
