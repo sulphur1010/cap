@@ -38,6 +38,14 @@ class Event < ActiveRecord::Base
 		Event.where("start_date > ?", Time.now).order(:start_date).limit(num)
 	end
 
+	def self.upcoming_course(num = 1)
+		Event.where("start_date > ?", Time.now).where(:type => 'Course').order(:start_date).limit(num)
+	end
+
+	def self.upcoming_event(num = 1)
+		Event.where("start_date > ?", Time.now).where("type <> ?", 'Course').order(:start_date).limit(num)
+	end
+
 	def short_start
 		return unless self.start_date
 		self.start_date.strftime("%h %d, %Y")

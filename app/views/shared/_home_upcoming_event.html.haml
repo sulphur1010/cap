@@ -1,0 +1,12 @@
+- event = Event.upcoming_event(1).first
+- if event
+	#home_upcoming_course
+		%h4
+			Upcoming Events
+			.view_all= link_to 'view all', events_path
+			.event
+				.event_title= link_to event.title, event_path(event)
+				.event_start= event.formatted_start
+				.event_teaser
+					= strip_tags(event.teaser) rescue ''
+					= link_to 'Read More', event_path(event)

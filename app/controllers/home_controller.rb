@@ -2,9 +2,6 @@ class HomeController < ApplicationController
 	def index
 		@page = Page.where(:url => "/").first
 		@show_right_side_bar = false
-		if @page
-			render 'pages/view'
-		end
 	end
 
 	def what_is_cst

@@ -1,0 +1,8 @@
+- stories = Story.order(:published_at).limit(3)
+- if stories
+	#home_news
+		%h4
+			News
+			.view_all= link_to 'view all', stories_path
+			- stories.each do |story|
+				.story_title= link_to story.title, story_path(story)
