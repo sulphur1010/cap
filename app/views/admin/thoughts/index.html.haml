@@ -3,6 +3,8 @@
 		%h2 All Articles
 	- else
 		%h2 My Articles
+	.link
+		= link_to 'New Article', new_admin_thought_url
 	- table(@thoughts, ['title', 'author', 'published?', '']) do |thought, klass|
 		%tr{:class => klass}
 			%td= link_to thought.title, thought_path(thought)
@@ -12,4 +14,4 @@
 				= link_to 'Edit', edit_admin_thought_path(thought)
 				= link_to 'Delete', admin_thought_path(thought), :method => :delete, :confirm => "Are you sure?"
 	.link
-		= link_to 'New Articles', new_admin_thought_url
+		= link_to 'New Article', new_admin_thought_url
