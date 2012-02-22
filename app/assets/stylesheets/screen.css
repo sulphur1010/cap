@@ -79,20 +79,10 @@ select {
 	margin-left: 400px; 
 	box-shadow: 0 0 1px #75BB55 inset; 
 	background: #75BB55;
-	text-shadow: 0 0 0 transparent, 0 -1px 0 #599e3a;
-	color: #fff;
-	padding: 0px 20px;
-}
-.alert {
-	position: absolute; 
-	top: 97px;
-	margin-left: 400px; 
-	box-shadow: 0 0 1px #bb7555 inset; 
-	background: #bb7555;
-	text-shadow: 0 0 0 transparent, 0 -1px 0 #9e593a;
-	color: #fff;
-	padding: 0px 20px;
-}
+    text-shadow: 0 0 0 transparent, 0 -1px 0 #599e3a;
+    color: #fff;
+    padding: 0px 20px;
+	}
 .no_results {
 	border: 0px;
 	background: #afd4d4;
@@ -156,7 +146,7 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 .padding_in10{padding:10px;}
 
 .email_box{width:219px;height:37px;border:1px solid #ccc;margin:5px 0;padding:0 3px;vertical-align:top;color:#676767;}
-.submit_btn{float:right;margin-top:10px;}
+.submit_btn{float:right; margin-top:0px;}
 
 /*Blocks */
 .block_network_learn {
@@ -345,6 +335,7 @@ table.left_menu_container .content_with_left_menu {
 	padding: 20px;
 	min-height: 400px;
 	display: block;
+	border-bottom: 1px solid #ccc;
 }
 
 .contemporary_issues_list_header {
@@ -756,8 +747,15 @@ a.encyclical_link {
 	background: url('/images/studycenter.jpg') no-repeat;
 }
 
+.study_center h2 {
+	color: #fff;
+}
+
 h2.study_center_title {
 	font-size: 14px;
 	color: #fff;
-	margin-right: 375px; 
+	margin-right: 340px;
+	padding: 10px;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.6);
 }
