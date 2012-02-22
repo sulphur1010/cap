@@ -22,7 +22,10 @@
 		- if @event.location
 			.event_location
 				Main Location: 
-				= link_to @event.location.name, location_path(@event.location)
+			.event_location_name
+				= @event.location.name
+			.event_location_address
+				= @event.location.address
 		- if @event.director
 			.event_director
 				%br
