@@ -1,7 +1,13 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery
 
+	before_filter :setup_variables
+
 	private
+
+	def setup_variables
+		@show_right_side_bar = true
+	end
 
 	def is_admin?(&block)
 		if block_given?

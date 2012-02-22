@@ -36,18 +36,20 @@
 			<p class="alert"><%= alert %></p>
 		<% end %>
 		<table><tr>
-			<td class='left_content'>
+			<td class='left_content<%= @show_right_side_bar ? ' ' : ' no_right_column' %>'>
 				<%= yield %>
 			</td>
-			<td class='right_column'>
-				<% if user_signed_in? %>
-					<%= render :partial => 'shared/user_menu' %>
-				<% end %>
-				<%= render :partial => 'shared/email_address_block' %>
-				<%= Block.display("right_side_image") %>
-				<%= render :partial => 'shared/event_block' %>
-				<%= render :partial => 'shared/thought_block' %>
-			</td>
+			<% if @show_right_side_bar %>
+				<td class='right_column'>
+					<% if user_signed_in? %>
+						<%= render :partial => 'shared/user_menu' %>
+					<% end %>
+					<%= render :partial => 'shared/email_address_block' %>
+					<%= Block.display("right_side_image") %>
+					<%= render :partial => 'shared/event_block' %>
+					<%= render :partial => 'shared/thought_block' %>
+				</td>
+			<% end %>
 		</tr></table>
 	</div>
 	<div id='footer'>
