@@ -413,7 +413,10 @@ ul.contemporary_issues_list li {
  	-moz-box-shadow:    2px 2px 2px 0px #ddd;
   	-webkit-box-shadow: 2px 2px 2px 0px #ddd;
   	box-shadow:         2px 2px 2px 0px #ddd; 
-  	margin-right: 8px;
+  	margin-right: 6px;
+  	margin-bottom: 10px;
+  	background: #fff; 
+  	display: inline-block;
 }
 
 .user_list li .user_info {
@@ -437,7 +440,7 @@ ul.contemporary_issues_list li {
 	color: #777;
 }
 
-.thought_quote p {margin: 0px; padding: 0px;}
+.thought_quote p {margin: 0px; padding: 0px; font-family: georgia !important;}
 .page .thought_author_container {margin: 0px; padding: 0px;}
 
 .thought_block {
@@ -509,7 +512,8 @@ table.thought_block tr td {
 	color: #555;
 }
 
-.event_teaser .event_location { 
+.event_teaser .event_location,
+.event_teaser .event_speakers { 
 	padding-right: 10px;
 	color: #777;
 	font-size: 11px;
@@ -534,6 +538,13 @@ table.thought_block tr td {
 	font-weight: bold;
 	text-align: center;
 	vertical-align: middle;
+	font-size: 11px;
+}
+
+.event_about_time {
+	font-weight: normal;
+	font-size: 11px;
+	color: #777;
 }
 
 .event_teaser .event_spots .event_spots_available {
@@ -579,7 +590,7 @@ table.thought_block tr td {
 .event_header .event_time_info {
 	font-size: 1.1em;
 	font-weight: bold;
-	margin: 0 0 15px 0;
+	margin: 0 0 6px 0;
 }
 
 .event_header .event_time_info .event_start,
