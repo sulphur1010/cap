@@ -11,6 +11,8 @@ blockquote, q {quotes:"" "";}
 a img {border:none;}
 :focus {outline:0;}
 
+.hidden {display: none;}
+
 /*Background and Structure*/
 html {font-size:100.01%;}
 body {font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
@@ -163,6 +165,13 @@ a.top_nav:hover{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;
 .target_block_user_type {width: 300px; min-height: 150px; border: 1px solid #aaa; margin-bottom: 10px; padding: 10px;}
 .target_block_prism_type {width: 300px; min-height: 50px; border: 1px solid #aaa; margin-top: -1px; padding: 10px; display: block;}
 .target_block_prism_type:hover {width: 300px; min-height: 50px; border: 1px solid #aaa; margin-top: -1px; padding: 10px; display: block;}
+
+table#home_bottom_blocks {width: 100%; border-top: 1px solid #aaa; }
+.upcoming_course_block, 
+.upcoming_event_block,
+.email_address_block {width: 310px;padding: 10px; margin: 5px;}
+
+#home_thoughts {padding: 10px; 620px;}
 
 /*right_column*/
 table.right_col{display:inline;border:none;border-collapse:collapse;}
@@ -373,7 +382,6 @@ table.left_menu_container .content_with_left_menu {
 	margin-top: 10px;
 }
 
-
 .contemporary_issues_list,
 .encyclical_list,
 .user_list {
@@ -424,8 +432,8 @@ ul.contemporary_issues_list li {
 
 .user_list li .user_info {
 	font-weight: bold;
-	font-size: 1em;
-	padding: 8px 0 0 4px;
+	font-size: 11px;
+	padding: 4px 0 0 0px;
 	color: #555;
 	display: inline-block;
 	vertical-align: top;
@@ -433,7 +441,7 @@ ul.contemporary_issues_list li {
 
 .user_list li img {
 	border: 0;
-	padding-right: 8px;
+	padding-right: 0px;
 }
 
 .thought_quote {

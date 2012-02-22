@@ -3,6 +3,6 @@
 	#home_news
 		%h4
 			News
-			.view_all= link_to 'view all', stories_path
-			- stories.each do |story|
-				.story_title= link_to story.title, story_path(story)
+		.view_all= link_to 'view all', stories_path
+		- stories.each do |story|
+			.story_title= link_to story.title, story_path(story)
