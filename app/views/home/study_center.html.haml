@@ -7,7 +7,7 @@
 	%tr.first_row
 		%td.first_block
 			= Block.display("study_center_courses")
-			= select_tag 'courses', options_from_collection_for_select(Event.courses, "id", "title"), :include_blank => true
+			= select_tag 'courses', options_for_select({"Choose a Course" => ""}) + options_from_collection_for_select(Event.courses, "id", "title")
 			:javascript
 				$("#courses").change(function() {
 					id = $(this).val();
@@ -17,7 +17,7 @@
 				});
 		%td
 			= Block.display("study_center_issues")
-			= select_tag 'contemporary_issues', options_from_collection_for_select(ContemporaryIssue.where(:published => true).order(:title), "id", "title"), :include_blank => true
+			= select_tag 'contemporary_issues', options_for_select({"Choose a Contemporary Issue" => ""}) + options_from_collection_for_select(ContemporaryIssue.where(:published => true).order(:title), "id", "title")
 			:javascript
 				$("#contemporary_issues").change(function() {
 					id = $(this).val();
@@ -28,7 +28,7 @@
 	%tr
 		%td.first_block
 			= Block.display("study_center_encyclicals")
-			= select_tag 'encyclicals', options_from_collection_for_select(Encyclical.where(:published => true).order(:title), "id", "title"), :include_blank => true
+			= select_tag 'encyclicals', options_for_select({"Choose an Encyclical" => ""}) + options_from_collection_for_select(Encyclical.where(:published => true).order(:title), "id", "title")
 			:javascript
 				$("#encyclicals").change(function() {
 					id = $(this).val();

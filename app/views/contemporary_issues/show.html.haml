@@ -14,7 +14,9 @@
 	.page
 		%h3
 			Related Thoughts
-		.thought_quote= thought.teaser.html_safe
+		.thought_quote
+			= strip_tags(thought.teaser)
+			= link_to 'Read more', thought_path(thought)
 		.thought_author_container
 			- if thought.user
 				by:
