@@ -1,0 +1,18 @@
+.user_page
+	.page
+		%h2= @user.full_name
+		= @user.about
+	- if !@user.events.empty?
+		%hr
+		.page
+			%h4 Speaker at Events
+			.event_teaser_list#js_event_list
+				- @user.events.each do |event|
+					.event_teaser_list_item
+						= render :partial => 'events/teaser', :object => event
+	%hr
+	.page
+		%h4 Interested In:
+		- @user.contemporary_issues.each do |issue|
+			= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'
+

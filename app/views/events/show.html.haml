@@ -2,7 +2,10 @@
 	= link_to 'Edit', edit_admin_event_url(@event), :class => 'btn_edit'
 .event_page
 	.page
-		%h2= @event.title
+		%h2
+			= @event.title
+			.event_type{ :class => "event_type_#{@event.type.downcase.gsub(" ", "_")}"}
+				= @event.type
 		.event_header
 			.event_time_info
 				- if @event.start_date && @event.end_date
