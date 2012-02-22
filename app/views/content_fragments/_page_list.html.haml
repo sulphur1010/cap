@@ -3,4 +3,4 @@
     = link_to content_fragment.title, content_fragment.url
   - if is_admin?
     .controls
-      = link_to 'Edit', edit_page_url(content_fragment)
+      = link_to 'Edit', edit_page_url(content_fragment), :class => 'btn_edit'

@@ -12,15 +12,22 @@
 - if thought
 	%hr
 	.page
-		%h2= "If You Like #{@contemporary_issue.title}"
-		.thought_quote= thought.body.html_safe
+		%h3
+			Related Thoughts
+		.thought_quote= thought.teaser.html_safe
+		.thought_author_container
+			by:
+			.thought_author= thought.user.full_name rescue nil
+
 %hr
 .page
-	%h2= "Courses & Events Related to #{@contemporary_issue.title}"
+	%h3
+		Related Events
 	= render :partial => 'events/teaser', :collection => Event.upcoming(100)
 - speakers = @contemporary_issue.speakers
 - if !speakers.empty?
 	%hr
 	.page
-		%h2= "Speakers who talk about #{@contemporary_issue.title}"
+		%h3
+			Related Speakers
 		= render :partial => 'users/list', :object => speakers

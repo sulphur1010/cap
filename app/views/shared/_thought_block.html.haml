@@ -4,10 +4,11 @@
 		%tr
 			%td.padding_in10
 				%h5 Just a Thought
-				Related to:
-				- thought.contemporary_issues.each do |issue|
-					%span.contemporary_issue= issue.title
 				.thought_quote= thought.teaser.html_safe rescue ""
 				.thought_author_container
 					by:
 					.thought_author= thought.user.full_name rescue nil
+				Related to:
+				- thought.contemporary_issues.each do |issue|
+					= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link_thought'
+					="/"

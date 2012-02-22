@@ -1,12 +1,10 @@
 .page
-	%h2 Contemporary Issues
-	.header
-		= "I AM A"
-		= select_tag 'person_type', options_from_collection_for_select(PersonType.where(:published => true).order(:weight), "id", "name", (@person_type.id rescue '')), :include_blank => true
-		:javascript
-			$("#person_type").change(function() {
-				window.location = "/contemporary_issues?q=" + $("#person_type").val();
-			});
+	%h2.inline Contemporary Issues
+	= select_tag 'person_type', options_from_collection_for_select(PersonType.where(:published => true).order(:weight), "id", "name", (@person_type.id rescue '')), :include_blank => true
+	:javascript
+		$("#person_type").change(function() {
+			window.location = "/contemporary_issues?q=" + $("#person_type").val();
+		});
 .black_contemporary_issues_list
 	- @contemporary_issues.each do |contemporary_issue|
 		.issue= active_link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue, :q => (@person_type.id rescue nil))

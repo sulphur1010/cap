@@ -1,8 +1,8 @@
-- if @page
-	= render :partial => 'content_fragments/page', :object => @page
-- else
-	Create a page with a url of "/study_center" to not see this page anymore.
-%br
+.page.study_center
+	- if @page
+		= render :partial => 'content_fragments/page', :object => @page
+	- else
+		Create a page with a url of "/study_center" to not see this page anymore.
 %table.study_center_blocks
 	%tr.first_row
 		%td.first_block

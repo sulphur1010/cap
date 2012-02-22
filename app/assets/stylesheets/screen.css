@@ -1,8 +1,8 @@
 /* reset.css */
-html {margin:0;padding:0;border:0;}
+html, hr {margin:0;padding:0;border:0;}
 body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
 article, aside, details, figcaption, figure, dialog, footer, header, hgroup, menu, nav, section {display:block;}
-body {line-height:1.5;background:white;}
+body {line-height:1.4em;background:white;}
 table {border-collapse:separate;border-spacing:0;}
 caption, th, td {text-align:left;font-weight:normal;float:none !important;}
 table, th, td {vertical-align:top;}
@@ -22,6 +22,14 @@ h3 {font-size:15px;font-weight:bold;line-height:130%;margin:0;font-family:arial;
 h4 {font-size:14px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
 h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0;font-family:arial;color:#232323;}/*left bar title CAP*/
 
+/*Special font definitions*/
+.event_page h2 {padding: 5px 0; font-size: 22px;}
+.page h2 {margin: 0 10px 10px 0;}
+.content_with_left_menu h2 {display: inline;}
+.study_center_blocks h2 {font-size: 16px;}
+.content_with_left_menu ul li {margin: 0 0 0 18px;} 
+.page h3 {text-transform: uppercase; font-size: 13px; margin-bottom: 5px;}
+ 
 /*---General Define P TAG*/
 .arial{font-family:arial;}
 .cblack{color:#3C3D3D;}
@@ -35,12 +43,50 @@ h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0;font-family:arial;
 .bold{font-weight:bold;}
 
 /*---Special Group*/
-p.italyGeogia{font-style:italic; font-family:Geogia;}
+p.italyGeogia{font-style:italic; font-family:Georgia; }
 
 /*Basic Structure*/
-body{background:#E7E9EB;}
+body{background:#E7E9EB; line-height: 1.4em;}
 #content{width:1001px;height:auto;margin:auto;background:#E7E9EB;}
 
+/*Global Items */
+hr {border-top: 1px solid #aaa;}
+a {color: #08c; text-decoration: none;}
+a:hover {text-decoration: underline;}
+p {line-height: 1.6em; color: #555;}
+.page p {margin-bottom: 15px;}
+.inline {display: inline-block;}
+
+
+select {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+	vertical-align: middle;
+    background: -moz-linear-gradient(center top , #FFFFFF, #EFEFEF) repeat scroll 0 0 #F6F6F6;
+    text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+/*alerts and notices */
+.notice {
+	position: absolute; 
+	top: 97px;
+	margin-left: 400px; 
+	box-shadow: 0 0 1px #75BB55 inset; 
+	background: #75BB55;
+    text-shadow: 0 0 0 transparent, 0 -1px 0 #599e3a;
+    color: #fff;
+    padding: 0px 20px;
+	}
+.no_results {
+	border: 0px;
+	background: #afd4d4;
+}
 
 /*--Header*/
 #header{width:1001px;clear:both;}
@@ -69,23 +115,51 @@ a.top_nav:hover{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;
 .right_column{width:240px;}
 .middle_content{width:580px;}
 
+/*Buttons*/
+.btn_edit {
+    font-size: 11px;
+    font-weight: bold;
+    color: #555555;
+	text-align: center;
+	vertical-align: middle;
+    background: -moz-linear-gradient(center top , #FFFFFF, #EFEFEF) repeat scroll 0 0 #F6F6F6;
+    text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    padding: 8px 12px;
+    display: block;
+    position: absolute;
+    top: 125px;
+    margin-left: 679px;
+    
+}
+
 /*right_column*/
 table.right_col{display:inline;border:none;border-collapse:collapse;}
 td.right_column{border-bottom: 1px solid #ccc;}
 table.right_col tr{margin:0 5px;border:none;border-collapse:collapse;}
-table.right_col tr td{border:1px solid #ccc;border-bottom: 0;border-collapse:collapse;width:240px}
+.right_column table tr td{border:1px solid #ccc;border-bottom: 0;border-collapse:collapse;width:240px}
+table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 .yellow_bg{background:#F7FBDC;}
 .padding_in10{padding:10px;}
 
 .email_box{width:219px;height:37px;border:1px solid #ccc;margin:5px 0;padding:0 3px;vertical-align:top;color:#676767;}
 .submit_btn{float:right;margin-top:10px;}
 
+/*Blocks */
+.block_network_learn {
+	height: 180px;
+	background:#000 url('/images/networkandlearn.jpg');
+}
+
 /*navigations*/
 .blue_link{font-size:15px;font-weight:normal;color:#268BB3;text-decoration:none;font-family:arial;}
 .blue_link:hover{font-size:15px;font-weight:normal;color:#268BB3;text-decoration:underline;font-family:arial;}
 
 /*footer*/
-#footer{margin:20px 0 0 0;}
+#footer{margin:20px 0 40px 0;}
 .copyright{font-size:13px;font-weight:bold;color:#404040;text-decoration:none;font-family:arial;line-height:1.4em;padding:0;text-align:center;}	
 #footer a{font-size:13px;font-weight:normal;color:#606060;text-decoration:none;font-family:arial;line-height:27px;height:27px;padding:0;display:block;}	
 #footer a:hover{font-size:13px;font-weight:normal;color:#000;text-decoration:underline;font-family:arial;line-height:27px;height:27px;padding:0;display:block;}	
@@ -143,10 +217,19 @@ table.right_col tr td{border:1px solid #ccc;border-bottom: 0;border-collapse:col
 	padding-left: 10px;
 }
 
+#user_menu li a {
+	padding: 2px;
+	display: block; 
+}
+
+#user_menu li a:hover {
+	background: #dce7ef;
+}
+
 .nav_main ul.sub_menu {
-	position: relative;
+	position: absolute;
 	display: none;
-	top: -2px;
+	top: 98px;
 	list-style-type: none;
 	margin: 0;
 	background-color: black;
@@ -180,6 +263,7 @@ table.right_col tr td{border:1px solid #ccc;border-bottom: 0;border-collapse:col
 table.data_table {
 	width: 100%;
 	padding-bottom: 5px;
+	font-size: 11px;
 }
 
 table.data_table thead {
@@ -190,8 +274,9 @@ table.data_table thead th {
 	padding: 5px 2px;
 	font-weight: bold;
 	text-transform: uppercase;
-	text-align: center;
+	text-align: left;
 	border-right: 1px solid white;
+	background: #eee;
 }
 
 table.data_table tbody tr td {
@@ -211,7 +296,7 @@ table.left_menu_container {
 }
 
 table.left_menu_container td.left_menu {
-	width: 170px;
+	width: 180px;
 	border-right: 1px solid #ccc;
 }
 
@@ -232,19 +317,32 @@ table.left_menu_container .left_menu_item a.active {
 	background-color: #caf0fe;
 }
 
+.left_menu_item .element {
+	font-size: 11px;
+	color: #777; 
+}
+
 table.left_menu_container .left_menu_sub_item a {
 	font-weight: normal;
 	padding-left: 20px;
 }
 
+table.left_menu_container .left_menu_sub_item a:hover {
+	background: #e2eff4;
+}
+
 table.left_menu_container .content_with_left_menu {
 	padding: 20px;
-	background-color: #e7f5f5;
+	min-height: 400px;
+	display: block;
 }
 
 .contemporary_issues_list_header {
 	padding: 10px 2px;
+	border-top: 1px dotted #777;
+	margin-top: 10px;
 }
+
 
 .contemporary_issues_list,
 .encyclical_list,
@@ -254,41 +352,74 @@ table.left_menu_container .content_with_left_menu {
 	padding: 0;
 }
 
+ul.contemporary_issues_list li {
+	margin: 0 0 10px 0;
+	display: inline-block;
+	width: 190px;
+} 
+
 .contemporary_issues_list li a,
 .encyclical_list li a,
 .user_list li {
-	display: block;
-	float: left;
+	display: inline-block;
 	width: 180px;
 	padding: 8px 8px;
 	text-decoration: none;
 }
 
+.encyclical_list li a {
+	width: 220px;
+}
+
+.contemporary_issues_list li a:hover {
+	background: #ffc;
+}
+
 .user_list {
-	padding-top: 30px;
 }
 
 .user_list li {
 	width: 240px;
+	height: 80px;
 	padding: 0;
 	border: 1px solid #ccc;
+ 	-moz-box-shadow:    2px 2px 2px 0px #ddd;
+  	-webkit-box-shadow: 2px 2px 2px 0px #ddd;
+  	box-shadow:         2px 2px 2px 0px #ddd; 
 }
 
 .user_list li .user_info {
 	font-weight: bold;
 	font-size: 1.1em;
-	padding: 8px;
+	padding: 8px 0 0 4px;
 	color: #555;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .user_list li img {
 	border: 0;
-	float: left;
 	padding-right: 8px;
 }
 
 .thought_quote {
 	font-style: italic;
+	font-family: georgia;
+	font-size: 14px; 
+	color: #777;
+}
+
+.thought_quote p {margin: 0px; padding: 0px;}
+.page .thought_author_container {margin: 0px; padding: 0px;}
+
+.thought_block {
+	font-size: 11px;
+	color: #777;
+}
+
+.thought_block .thought_quote {
+	font-size: 14px;
+	line-height: 1.6em;
 }
 
 .thought_author_container {
@@ -296,10 +427,19 @@ table.left_menu_container .content_with_left_menu {
 	padding-top: 5px;
 	color: #777;
 	font-style: italic;
+	font-family: georgia;
+}
+
+.thought_author {
+	display: inline;
 }
 
 .thought_block .contemporary_issue {
-	color: blue;
+	color: #08c;
+}
+
+table.thought_block tr td {
+	border-bottom: 1px solid #ccc;
 }
 
 .events_block tr {
@@ -309,8 +449,7 @@ table.left_menu_container .content_with_left_menu {
 
 .events_block tr a {
 	display: block;
-	padding: 5px 0;
-	color: #ddd;
+	color: #4f6c81;
 	text-decoration: none;
 }
 
@@ -320,38 +459,99 @@ table.left_menu_container .content_with_left_menu {
 
 .event_teaser {
 	padding: 5px 0px;
+	margin: 10px 0 0 0;
+	border-top: 1px dotted #777;
+	width: 100%;
 }
 
-.event_teaser .event_location {
-	font-weight: bold;
-	float: left;
+.event_teaser_list_item .event_teaser {
+	padding: 0px 0px;
+	margin: 0px 0 0 0;
+	border-top: 0px;
+	width: 100%;
+}
+
+.event_teaser h5 {
+	font-size: 18px;
+	line-height: 1.4em;
+}
+
+.event_teaser .event {
+	font-size: 11px;  
+	color: #555;
+}
+
+.event_teaser .event_location { 
 	padding-right: 10px;
+	color: #777;
+	font-size: 11px;
+	margin-top: 10px;
 }
 
 .event_teaser .event_speaker {
-	font-weight: bold;
+	vertical-align: middle;
+	color: #777;
+	font-size: 11px;
 }
 
 .event_teaser .event_spots {
-	color: #555;
+	color: #777;
 	text-align: center;
+	vertical-align: middle;
+	font-size: 11px;
 }
 
 .event_teaser .event_time {
 	color: #333;
 	font-weight: bold;
 	text-align: center;
+	vertical-align: middle;
 }
 
 .event_teaser .event_spots .event_spots_available {
 	color: #ff4444;
 	font-size: 1.2em;
 	font-weight: bold;
+	display: block;
+}
+
+.event_teaser .rsvp, .submit_btn, .update {
+    font-size: 11px;
+    font-weight: bold;
+    color: #555555;
+	text-align: center;
+	vertical-align: middle;
+    background: -moz-linear-gradient(center top , #FFFFFF, #EFEFEF) repeat scroll 0 0 #F6F6F6;
+    text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    padding: 8px 12px;
+    display: block;
+}
+
+.small_btn {
+    font-size: 11px;
+    font-weight: bold;
+    color: #555555;
+	text-align: center;
+    background: -moz-linear-gradient(center top , #FFFFFF, #EFEFEF) repeat scroll 0 0 #F6F6F6;
+    text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    padding: 4px 6px;
+    display: block;
+    margin: 6px 0px 4px 0px;
+    display: inline-block;
 }
 
 .event_header .event_time_info {
 	font-size: 1.1em;
 	font-weight: bold;
+	margin: 0 0 15px 0;
 }
 
 .event_header .event_time_info .event_start,
@@ -360,17 +560,13 @@ table.left_menu_container .content_with_left_menu {
 	padding-left: 20px;
 }
 
-.event_page {
+.event_page, .content_with_left_menu {
 	background: url('/images/blue_background.png') top left repeat-x;
 	min-height: 550px;
 }
 
 .event_page .event_body {
 	padding: 10px 0;
-}
-
-.event_page h2 {
-	padding: 5px 0;
 }
 
 .event_page .event_location,
@@ -431,7 +627,12 @@ table.left_menu_container .content_with_left_menu {
 .thought_teaser_list_item {
 	padding: 8px;
 	border-bottom: 1px solid #ccc;
+	background: #fff;
 }
+
+.thought_teaser {}
+.thought_title {font-size: 16px;} 
+.published_at {font-size: 11px; font-style: italic; color: #aaa;}
 
 a.contemporary_issue_link {
 	padding: 1px 8px;
@@ -440,6 +641,27 @@ a.contemporary_issue_link {
 	color: #4f7a28;
 	text-decoration: none;
 	font-size: 0.8em;
+	display: inline-block;
+	margin: 5px 0px 0px;
+}
+
+a.person_type_link {
+	padding: 1px 8px;
+	background-color: #d3e6e6;
+	border: 1px solid #87baba;
+	color: #438989;
+	text-decoration: none;
+	display: inline-block;
+	margin: 5px 0px 0px;
+	font-weight: bold;
+}
+
+a.person_type_link:hover {
+	background-color: #e7f6f6;
+}
+
+a.contemporary_issue_link:hover {
+	background-color: #ffc;
 }
 
 a.encyclical_link {
@@ -460,7 +682,6 @@ a.encyclical_link {
 	width: 100%;
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
-	margin-top: 10px;
 }
 
 .study_center_blocks tr td {
@@ -477,25 +698,56 @@ a.encyclical_link {
 }
 
 .black_contemporary_issues_list {
-	width: 100%;
+	width: 730px;
 	background: black;
+	padding: 10px;
+}
+
+.issue {
+
 }
 
 .black_contemporary_issues_list .issue a {
-	width: 165px;
-	padding: 10px 5px;
-	margin: 5px;
+	width: 230px;
+	padding: 6px 5px;
+	margin: 0px;
 	float: left;
 	text-decoration: none;
 	color: #eee;
 	font-weight: bold;
-	font-size: 1.1em;
+	font-size: 1em;
+}
+
+.black_contemporary_issues_list .issue a:hover {
+	background-color: #444;
+	color: #fff;
 }
 
 .black_contemporary_issues_list .issue a.active {
 	background-color: #96d35f;
+	color: #fff;
 }
 
 .contemporary_issue_title {
-	color: #96d35f;
+	color: #75bb55;
+}
+
+.events_block .event {
+	background: url('/images/calendar.png') no-repeat;
+	background-position: 0px 2px;
+	margin: 8px 0px;
+}
+
+.events_block .event a {
+	margin-left: 20px;
+}
+
+.study_center {
+	background: url('/images/studycenter.jpg') no-repeat;
+}
+
+h2.study_center_title {
+	font-size: 14px;
+	color: #fff;
+	margin-right: 375px; 
 }
