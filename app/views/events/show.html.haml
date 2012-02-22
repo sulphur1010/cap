@@ -17,7 +17,8 @@
 					%span.event_end= "Ends: #{@event.formatted_end}"
 		%strong Ideal For:
 		- @event.person_types.each do |person_type|
-			= link_to person_type.name, person_type_path(person_type), :class => 'person_type_link'
+			-#= link_to person_type.name, person_type_path(person_type), :class => 'person_type_link'
+			%span.person_type_link= person_type.name
 		.event_body= @event.body.html_safe rescue ""
 		- if @event.location
 			.event_location

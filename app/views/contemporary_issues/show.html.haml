@@ -3,7 +3,7 @@
 	%h2
 		Contemporary Issue:
 		%span.contemporary_issue_title= @contemporary_issue.title
-	-#= @contemporary_issue.body.html_safe rescue ""
+	= @contemporary_issue.body.html_safe rescue ""
 - if !@contemporary_issue.encyclicals.empty?
 	.page
 		= render :partial => 'encyclicals/list', :object => @contemporary_issue
