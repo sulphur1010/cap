@@ -222,7 +222,6 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 }
 
 .formtastic textarea {
-	margin-left: 120px;
 }
 
 .formtastic legend {
@@ -796,4 +795,26 @@ h2.study_center_title {
 	padding: 10px;
 	background: rgb(0, 0, 0);
 	background: rgba(0, 0, 0, 0.6);
+}
+
+.event_type {
+	font-size: 11px;
+	padding: 0px 6px;
+	display: inline-block;
+	border: 1px solid #aaa;
+}
+
+.event_type_lecture {
+	background: #fffac1;
+	border-color: #f5eb4E;
+}
+
+.event_type_course {
+	background: #caf1fd;
+	border-color: #00B8e4;
+}
+
+.event_type_conference {
+	background: #d9cafa;
+	border-color: #B28Df6;
 }
