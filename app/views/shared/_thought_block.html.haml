@@ -4,7 +4,7 @@
 		%tr
 			%td.padding_in10
 				%h5 Just a Thought
-				.thought_quote= thought.teaser.html_safe rescue ""
+				.thought_quote= strip_tags(thought.teaser) rescue ""
 				- if thought.user
 					.thought_author_container
 						by:
