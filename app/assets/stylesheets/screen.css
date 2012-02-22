@@ -79,10 +79,20 @@ select {
 	margin-left: 400px; 
 	box-shadow: 0 0 1px #75BB55 inset; 
 	background: #75BB55;
-    text-shadow: 0 0 0 transparent, 0 -1px 0 #599e3a;
-    color: #fff;
-    padding: 0px 20px;
-	}
+	text-shadow: 0 0 0 transparent, 0 -1px 0 #599e3a;
+	color: #fff;
+	padding: 0px 20px;
+}
+.alert {
+	position: absolute; 
+	top: 97px;
+	margin-left: 400px; 
+	box-shadow: 0 0 1px #bb7555 inset; 
+	background: #bb7555;
+	text-shadow: 0 0 0 transparent, 0 -1px 0 #9e593a;
+	color: #fff;
+	padding: 0px 20px;
+}
 .no_results {
 	border: 0px;
 	background: #afd4d4;
