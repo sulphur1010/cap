@@ -1,11 +1,12 @@
 .user_page
 	.page
+		= image_tag @user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'
 		%h2= @user.full_name
 		= @user.about
 	- if !@user.events.empty?
 		%hr
 		.page
-			%h4 Speaker at Events
+			%h4 Speaker at Events:
 			.event_teaser_list#js_event_list
 				- @user.events.each do |event|
 					.event_teaser_list_item
@@ -15,4 +16,12 @@
 		%h4 Interested In:
 		- @user.contemporary_issues.each do |issue|
 			= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'
+	- if !@user.thoughts.empty?
+		%hr
+		.page
+			%h4 Thoughts on CST:
+			.thought_teaser_list#js_thought_list
+				- @user.thoughts.each do |thought|
+					.thought_teaser_list_item
+						= render :partial => 'thoughts/teaser', :object => thought
 
