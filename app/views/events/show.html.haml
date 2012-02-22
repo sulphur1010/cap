@@ -1,3 +1,5 @@
+- if is_admin?
+	= link_to 'Edit', edit_admin_event_url(@event), :class => 'btn_edit'
 .event_page
 	.page
 		%h2= @event.title

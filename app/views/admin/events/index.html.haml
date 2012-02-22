@@ -2,7 +2,7 @@
 	%h2 All Events
 	- table(@events, ['title', 'type', 'location', 'chapter', '']) do |event, klass|
 		%tr{:class => klass}
-			%td= event.title
+			%td= link_to event.title, event_url(event)
 			%td= event.type
 			%td= event.location.name rescue nil
 			%td= event.chapter.name rescue nil
