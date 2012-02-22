@@ -19,7 +19,7 @@ body {font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue", Ari
 h1 {font-size:24px;font-weight:bold;line-height:140%;margin:0;font-family:arial;color:#232323;}
 h2 {font-size:18px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
 h3 {font-size:15px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
-h4 {font-size:14px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
+h4 {font-size:14px;font-weight:bold;line-height:130%;margin:0 0 6px 0;font-family:arial;color:#232323;}
 h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0;font-family:arial;color:#232323;}/*left bar title CAP*/
 
 /*Special font definitions*/
@@ -815,6 +815,6 @@ h2.study_center_title {
 }
 
 .event_type_conference {
-	background: #d9cafa;
-	border-color: #B28Df6;
+	background: #E0EDD6;
+	border-color: #95D270;
 }
