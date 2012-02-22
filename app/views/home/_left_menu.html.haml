@@ -16,8 +16,8 @@
 	- RoleType.where(:published => true).order(:weight).each do |role_type|
 		.left_menu_item.left_menu_sub_item
 			= active_link_to role_type.name, role_type_path(role_type)
-	.left_menu_item
-		%span I AM A:
-	- PersonType.where(:published => true).order(:weight).each do |person_type|
-		.left_menu_item.left_menu_sub_item
-			= active_link_to person_type.name, person_type_path(person_type)
+	-#.left_menu_item
+		-#%span I AM A:
+	- -#PersonType.where(:published => true).order(:weight).each do |person_type|
+		-#.left_menu_item.left_menu_sub_item
+			-#= active_link_to person_type.name, person_type_path(person_type)
