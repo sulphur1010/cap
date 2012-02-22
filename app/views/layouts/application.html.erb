@@ -28,16 +28,7 @@
 			</td>
 			<td class='right_column'>
 				<%= render :partial => 'shared/user_menu' %>
-				<table class='right_col'>
-					<tr><td class='yellow_bg padding_in10'>
-					<h5>Be the first to know</h5>
-					<form name='newsletter' class=''>
-							<input type='text' name='email' class='email_box' value='Add email' >
-							<p class='arial size11 cgrey'>submit your email to receive details on our site improvements, as well as hear about upcoming events and courses.</p>
-							<input type='submit' class='submit_btn' value='Submit' />
-					</form>	
-					</td></tr>
-				</table>
+				<%= render :partial => 'shared/email_address_block' %>
 				<%= Block.display("right_side_image") %>
 				<%= render :partial => 'shared/event_block' %>
 				<%= render :partial => 'shared/thought_block' %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220155929) do
+ActiveRecord::Schema.define(:version => 20120222122633) do
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(:version => 20120220155929) do
   create_table "content_fragments_person_types", :id => false, :force => true do |t|
     t.integer "content_fragment_id"
     t.integer "person_type_id"
+  end
+
+  create_table "email_addresses", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "encyclical_references", :force => true do |t|

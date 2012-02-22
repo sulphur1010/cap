@@ -101,3 +101,7 @@ end
 
 EncyclicalReference.blueprint do
 end
+
+EmailAddress.blueprint do
+  # Attributes here
+end

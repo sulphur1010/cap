@@ -1,0 +1,8 @@
+%table.right_col
+	%tr
+		%td.yellow_bg.padding_in10
+			%h5 Yes! I want to learn more...
+			= form_for EmailAddress.new do |f|
+				= f.text_field :email, { :class => 'email_box', :id => 'js_email_address', :'data-label' => 'Add Email' }
+				%p.arial.size11.cgrey Sign up for news, courses and events tailored to your interests.
+				= f.submit :class => 'submit_btn', :value=> 'Submit'

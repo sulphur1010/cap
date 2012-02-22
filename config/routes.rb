@@ -33,6 +33,7 @@ CappUsa::Application.routes.draw do
 	resources :role_types
 	resources :stories
 	resources :thoughts
+	resources :email_addresses
 
 	match 'what_is_cst' => 'home#what_is_cst'
 	match 'study_center' => 'home#study_center'
