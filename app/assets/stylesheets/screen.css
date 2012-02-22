@@ -88,6 +88,26 @@ select {
 	background: #afd4d4;
 }
 
+/*Login, Logout, Username*/
+
+#user_login {
+	width: 300px;
+	float: right; 
+	text-align: right;
+	padding-top: 5px;
+}
+
+.login_link {
+	border-left: 1px solid #aaa;
+	padding: 0 0 0 10px;
+	margin: 0 0 0 8px;
+}
+
+.user_name {
+	margin-right: 10px;
+	color: #777;
+}
+
 /*--Header*/
 #header{width:1001px;clear:both;}
 /*----logo*/
@@ -110,7 +130,10 @@ a.top_nav:hover{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;
 #main{background:#fff;border:none;width:1000px;height:auto;margin:20px 0 0 0}
 .left_column{width:180px;}
 .left_content{width:760px; border:1px solid #ccc; border-right: 0;}
+.no_right_column {width:1000px; border-right: 1px solid #ccc;}
 .left_content .page {padding:20px}
+.no_right_column .page {padding: 10px;}
+
 .right_content{width:820px;}
 .right_column{width:240px;}
 .middle_content{width:580px;}
@@ -135,6 +158,9 @@ a.top_nav:hover{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;
     margin-left: 679px;
     
 }
+
+/*Special Homepage*/
+.video_block {width: 650px; background: #eee; min-height: 320px;}
 
 /*right_column*/
 table.right_col{display:inline;border:none;border-collapse:collapse;}
@@ -387,6 +413,7 @@ ul.contemporary_issues_list li {
  	-moz-box-shadow:    2px 2px 2px 0px #ddd;
   	-webkit-box-shadow: 2px 2px 2px 0px #ddd;
   	box-shadow:         2px 2px 2px 0px #ddd; 
+  	margin-right: 8px;
 }
 
 .user_list li .user_info {
@@ -473,7 +500,7 @@ table.thought_block tr td {
 }
 
 .event_teaser h5 {
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 1.4em;
 }
 
@@ -632,7 +659,7 @@ table.thought_block tr td {
 }
 
 .thought_teaser {}
-.thought_title {font-size: 16px;} 
+.thought_title {font-size: 14px; } 
 .published_at {font-size: 11px; font-style: italic; color: #aaa;}
 
 a.contemporary_issue_link {

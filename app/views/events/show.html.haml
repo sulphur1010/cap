@@ -22,6 +22,7 @@
 				%br
 				Contact the Program Director: 
 				= @event.director.full_name
+				@
 				%span.event_director_phone
 					= @event.director.phone
 				/= link_to @event.director.full_name, user_path(@event.director)
