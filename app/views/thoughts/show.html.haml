@@ -1,3 +1,5 @@
 .page
 	= render :partial => 'content_fragments/page', :object => @thought
+	%h4 Written by:
+	= render :partial => 'users/list', :object => [@thought.user]
 	= render :partial => 'contemporary_issues/list', :object => @thought

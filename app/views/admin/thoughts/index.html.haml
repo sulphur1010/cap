@@ -5,7 +5,7 @@
 		%h2 My Articles
 	- table(@thoughts, ['title', 'author', 'published?', '']) do |thought, klass|
 		%tr{:class => klass}
-			%td= thought.title
+			%td= link_to thought.title, thought_path(thought)
 			%td= thought.user.full_name rescue nil
 			%td= thought.published? ? 'Yes' : 'No'
 			%td.controls
