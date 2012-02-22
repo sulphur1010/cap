@@ -11,11 +11,17 @@
 						= check_box_tag :whatever
 						= type
 			.left_menu_item
-				%strong Contemporary Issues:
-				- ContemporaryIssue.where(:published => true).order(:title).each do |issue|
-					.element{:'data-category' => 'contemporary_issue', :'data-value' => issue.id }
+				%strong Event Region:
+				- Event.event_regions.each do |type|
+					.element{:'data-category' => 'event_region', :'data-value' => type}
 						= check_box_tag :whatever
-						= issue.title
+						= type
+			.left_menu_item
+				%strong For:
+				- PersonType.where(:published => true).order(:weight).each do |person_type|
+					.element{:'data-category' => 'person_type', :'data-value' => person_type.id }
+						= check_box_tag :whatever
+						= person_type.name
 			.left_menu_item
 				%strong Chapter:
 				- Chapter.order(:name).each do |chapter|
@@ -23,11 +29,11 @@
 						= check_box_tag :whatever
 						= chapter.name
 			.left_menu_item
-				%strong For:
-				- PersonType.where(:published => true).order(:weight).each do |person_type|
-					.element{:'data-category' => 'person_type', :'data-value' => person_type.id }
+				%strong Contemporary Issues:
+				- ContemporaryIssue.where(:published => true).order(:title).each do |issue|
+					.element{:'data-category' => 'contemporary_issue', :'data-value' => issue.id }
 						= check_box_tag :whatever
-						= person_type.name
+						= issue.title
 		%td.content_with_left_menu
 			.event_teaser_list#js_event_list
 				- if @events.empty?
@@ -46,6 +52,7 @@
 	function collect_params() {
 		var param_string = [];
 		param_string.push(collect_params_for('event_type'));
+		param_string.push(collect_params_for('event_region'));
 		param_string.push(collect_params_for('contemporary_issue'));
 		param_string.push(collect_params_for('chapter'));
 		param_string.push(collect_params_for('person_type'));

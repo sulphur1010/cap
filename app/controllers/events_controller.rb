@@ -15,6 +15,16 @@ class EventsController < ApplicationController
 					@events = @events.where(ews.join(" OR "))
 				end
 			end
+			if params[:event_region]
+				types = params[:event_region].split(/,/)
+				if types.count > 0
+					ews = []
+					types.each do |t|
+						ews << "event_region = '#{t}'"
+					end
+					@events = @events.where(ews.join(" OR "))
+				end
+			end
 			if params[:contemporary_issue]
 				ids = params[:contemporary_issue].split(/,/)
 				if ids.count > 0

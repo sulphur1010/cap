@@ -6,13 +6,13 @@
 			.left_menu_item
 				%strong Contemporary Issues:
 				- ContemporaryIssue.where(:published => true).order(:title).each do |type|
-					.element{:'data-category' => 'contemporary_issues', :'data-value' => type}
+					.element{:'data-category' => 'contemporary_issue', :'data-value' => type.id}
 						= check_box_tag :whatever
 						= type.title
 			.left_menu_item
 				%strong For:
 				- PersonType.where(:published => true).order(:weight).each do |type|
-					.element{:'data-category' => 'person_type', :'data-value' => type}
+					.element{:'data-category' => 'person_type', :'data-value' => type.id}
 						= check_box_tag :whatever
 						= type.name
 		%td.content_with_left_menu

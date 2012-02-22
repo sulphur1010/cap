@@ -10,9 +10,9 @@ class ThoughtsController < ApplicationController
 				if ids.count > 0
 					ciws = []
 					ids.each do |id|
-						ciws << "contemporary_issues_thoughts.contemporary_issue_id = #{id}"
+						ciws << "contemporary_issues_content_fragments.contemporary_issue_id = #{id}"
 					end
-					@thoughts = @thoughts.joins("JOIN contemporary_issues_thoughts ON contemporary_issues_thoughts.thought_id = thoughts.id").where(ciws.join(" OR "))
+					@thoughts = @thoughts.joins("JOIN contemporary_issues_content_fragments ON contemporary_issues_content_fragments.content_fragment_id = content_fragments.id").where(ciws.join(" OR "))
 				end
 			end
 			if params[:person_type]
@@ -20,9 +20,9 @@ class ThoughtsController < ApplicationController
 				if ids.count > 0
 					ptws = []
 					ids.each do |id|
-						ptws << "thoughts_person_types.person_type_id = #{id}"
+						ptws << "content_fragments_person_types.person_type_id = #{id}"
 					end
-					@thoughts = @thoughts.joins("JOIN thoughts_person_types ON thoughts_person_types.thought_id = thoughts.id").where(ptws.join(" OR "))
+					@thoughts = @thoughts.joins("JOIN content_fragments_person_types ON content_fragments_person_types.content_fragment_id = content_fragments.id").where(ptws.join(" OR "))
 				end
 			end
 			@thoughts = @thoughts.uniq

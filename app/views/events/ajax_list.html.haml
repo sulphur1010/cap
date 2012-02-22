@@ -10,26 +10,3 @@
 		var ps = collect_params();
 		$('#js_events_container').load('/events/list?' + ps);
 	});
-
-	function collect_params() {
-		var param_string = [];
-		param_string.push(collect_params_for('event_type'));
-		param_string.push(collect_params_for('contemporary_issue'));
-		param_string.push(collect_params_for('chapter'));
-		param_string.push(collect_params_for('person_type'));
-		return(param_string.join('&'));
-	}
-
-	function collect_params_for(cat) {
-		var params = [];
-		/*
-		if ($('.element[data-category="' + cat +'" input:checked').size() == 0) {
-			return('');
-		}
-		*/
-		$('.element[data-category="' + cat + '"] input:checked').each(function() {
-			var container = $(this).closest('.element');
-			params.push(escape(container.attr('data-value')));
-		});
-		return(cat + '=' + params.join(','));
-	}
