@@ -2,4 +2,7 @@
 	%h2= page.title
 - if is_admin?
 	= link_to 'Edit', content_fragment_edit_url(page), :class => 'btn_edit'
+- if page.class.to_s == "Thought"
+	.thought_quote= strip_tags(@thought.teaser) rescue ''
+	%br
 = page.body.html_safe rescue ""

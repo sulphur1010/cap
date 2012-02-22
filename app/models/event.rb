@@ -34,12 +34,16 @@ class Event < ActiveRecord::Base
 	validates :title, :presence => true
 	validates :end_date, :end_date => true
 
+	def self.courses
+		Event.where("start_date > ?", Time.now).where(:type => 'Course').order(:start_date)
+	end
+
 	def self.upcoming(num = 3)
 		Event.where("start_date > ?", Time.now).order(:start_date).limit(num)
 	end
 
 	def self.upcoming_course(num = 1)
-		Event.where("start_date > ?", Time.now).where(:type => 'Course').order(:start_date).limit(num)
+		Event.courses.limit(num)
 	end
 
 	def self.upcoming_event(num = 1)

@@ -7,10 +7,34 @@
 	%tr.first_row
 		%td.first_block
 			= Block.display("study_center_courses")
+			= select_tag 'courses', options_from_collection_for_select(Event.courses, "id", "title"), :include_blank => true
+			:javascript
+				$("#courses").change(function() {
+					id = $(this).val();
+					if (id) {
+						window.location = "/events/" + id;
+					}
+				});
 		%td
 			= Block.display("study_center_issues")
+			= select_tag 'contemporary_issues', options_from_collection_for_select(ContemporaryIssue.where(:published => true).order(:title), "id", "title"), :include_blank => true
+			:javascript
+				$("#contemporary_issues").change(function() {
+					id = $(this).val();
+					if (id) {
+						window.location = "/contemporary_issues/" + id;
+					}
+				});
 	%tr
 		%td.first_block
 			= Block.display("study_center_encyclicals")
+			= select_tag 'encyclicals', options_from_collection_for_select(Encyclical.where(:published => true).order(:title), "id", "title"), :include_blank => true
+			:javascript
+				$("#encyclicals").change(function() {
+					id = $(this).val();
+					if (id) {
+						window.location = "/encyclicals/" + id;
+					}
+				});
 		%td
 			= Block.display("study_center_other")
