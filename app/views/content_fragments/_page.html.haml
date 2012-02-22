@@ -1,4 +1,5 @@
-%h2= page.title
+- if !page.hide_header
+	%h2= page.title
 - if is_admin?
 	= link_to 'Edit', content_fragment_edit_url(page), :class => 'btn_edit'
 = page.body.html_safe rescue ""
