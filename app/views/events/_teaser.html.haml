@@ -7,11 +7,10 @@
 				.event_location
 					Location: 
 					= link_to teaser.location.name, location_path(teaser.location)
-			- if teaser.speaker
-				.event_speaker
-					Speaker:
-					= teaser.speaker.full_name
-					/= link_to teaser.speaker.full_name, user_path(teaser.speaker)
+			- if teaser.users.count > 0
+				.event_speakers
+					Speakers:
+					= teaser.users.collect { |c| c.full_name }.join(", ")
 		%td.event_time{:style => 'width: 90px'}
 			= teaser.short_start
 			%br

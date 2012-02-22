@@ -31,3 +31,7 @@
 			Contemporary Issues Covered:
 			- @event.contemporary_issues.each do |issue|
 				= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'
+	%hr
+	.page
+		%h4 Speakers / Panelists:
+		= render :partial => 'users/list', :object => @event.users

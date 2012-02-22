@@ -21,13 +21,13 @@ class Event < ActiveRecord::Base
 		["International", "USA"]
 	end
 
-	belongs_to :speaker, :class_name => "User"
 	belongs_to :location
 	belongs_to :director, :class_name => "User"
 	belongs_to :chapter
 
 	has_and_belongs_to_many :contemporary_issues
 	has_and_belongs_to_many :person_types
+	has_and_belongs_to_many :users
 
 	validates :type, :inclusion => { :in => Event.types }
 	validates :event_region, :inclusion => { :in => Event.event_regions }
