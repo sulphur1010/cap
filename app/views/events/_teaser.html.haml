@@ -1,7 +1,11 @@
 %table.event_teaser
 	%tr
 		%td{:style => 'width: 450px'}
-			%h5.event_title= link_to teaser.title, event_path(teaser)
+			%h5.event_title
+				= link_to teaser.title, event_path(teaser)
+				- if teaser.type
+					%span.event_type{ :class => "event_type_#{teaser.type.downcase.gsub(" ", "_")}"}
+						= teaser.type
 			.event.teaser= strip_tags(teaser.teaser) rescue ""
 			- if teaser.location
 				.event_location

@@ -4,8 +4,9 @@
 	.page
 		%h2
 			= @event.title
-			.event_type{ :class => "event_type_#{@event.type.downcase.gsub(" ", "_")}"}
-				= @event.type
+			- if @event.type
+				%span.event_type{ :class => "event_type_#{@event.type.downcase.gsub(" ", "_")}"}
+					= @event.type
 		.event_header
 			.event_time_info
 				- if @event.start_date && @event.end_date
