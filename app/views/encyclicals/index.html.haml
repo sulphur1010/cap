@@ -1,3 +1,8 @@
+:javascript
+	$(function() {
+		$(".top_nav").removeClass("active");
+		$("#top_nav_study_center").addClass("active");
+	});
 .page
 	%h2 All Encyclicals
 	- table(@encyclicals, ['name', 'title']) do |encyclical, klass|
