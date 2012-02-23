@@ -9,7 +9,7 @@
 				%tr
 					%td
 						- if thought.user
-							.thought_image= image_tag thought.user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'
+							.thought_image= link_to image_tag(thought.user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'), user_path(thought.user)
 					%td				
 						- if thought.user
 							.thought_author_container
