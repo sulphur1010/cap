@@ -3,3 +3,8 @@
 	%h4 Written by:
 	= render :partial => 'users/list', :object => [@thought.user]
 	= render :partial => 'contemporary_issues/list', :object => @thought
+:javascript
+	$(function() {
+		$(".top_nav").removeClass("active");
+		$("#top_nav_study_center").addClass("active");
+	});
