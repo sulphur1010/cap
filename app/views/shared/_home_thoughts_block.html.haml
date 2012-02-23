@@ -1,12 +1,21 @@
 - thoughts = Thought.random(3)
 #home_thoughts
 	%h4
-		Key Thoughts
+		Thoughts on CST
 	.view_all= link_to 'view all', thoughts_path
 	- thoughts.each do |thought|
 		.thought
-			- if thought.user
-				.thought_image= image_tag thought.user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'
-			.thought_teaser
-				= strip_tags(thought.teaser) rescue ""
-				= link_to "Read more", thought_path(thought)
+			%table
+				%tr
+					%td
+						- if thought.user
+							.thought_image= image_tag thought.user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'
+					%td				
+						- if thought.user
+							.thought_author_container
+								.thought_author
+									= link_to thought.user.full_name, user_path(thought.user)
+								says:
+						.thought_teaser
+							= strip_tags(thought.teaser) rescue ""
+							= link_to "Read more", thought_path(thought)

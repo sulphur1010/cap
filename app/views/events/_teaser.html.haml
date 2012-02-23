@@ -15,14 +15,14 @@
 				.event_speakers
 					Speakers:
 					= teaser.users.collect { |c| link_to c.full_name, user_path(c) }.join(", ").html_safe
-		%td.event_time{:style => 'width: 120px'}
+		%td.event_time{:style => 'width: 100px'}
 			= teaser.short_start
 			%br
 			.event_about_time
 				= distance_of_time_in_words(teaser.duration) rescue ''
-		%td.event_spots{:style => 'width: 90px'}
+		%td.event_spots{:style => 'width: 40px'}
 			%span.event_spots_available= teaser.spots_available
 			spots left
-		%td{:style => 'width: 90px'}
+		%td{:style => 'width: 40px'}
 			.rsvp
 				= link_to "RSVP", event_path(teaser)

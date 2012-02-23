@@ -1,8 +1,10 @@
-- stories = Story.order(:published_at).limit(3)
+- stories = Story.order(:published_at).limit(5)
 - if stories
 	#home_news
 		%h4
-			News
+			News Feed
 		.view_all= link_to 'view all', stories_path
 		- stories.each do |story|
-			.story_title= link_to story.title, story_path(story)
+			.thought
+				.thought_title= link_to story.title, story_path(story)
+				
