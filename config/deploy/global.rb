@@ -79,6 +79,11 @@ namespace :deploy do
 		run "cd #{release_path}/tmp && ln -s #{deploy_to}/shared/pids"
 	end
 
+	desc "symlink system directory"
+	task :symlink_system_dir, :roles => :app do
+		run "cd #{release_path}/public && ln -s #{deploy_to}/shared/system"
+	end
+
 	desc "create tmp/cache directory"
 	task :create_cache_dir, :roles => :app do
 		run "cd #{release_path}/tmp && mkdir -p cache"
@@ -115,5 +120,6 @@ after 'deploy:create_symlink', 'deploy:update_version'
 
 after 'deploy:create_symlink', 'deploy:make_tmp_dirs'
 after 'deploy:make_tmp_dirs', 'deploy:create_cache_dir'
+before 'deploy:restart', 'deploy:symlink_system_dir'
 
 after 'deploy', 'deploy:cleanup'
