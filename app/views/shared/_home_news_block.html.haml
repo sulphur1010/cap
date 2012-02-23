@@ -1,4 +1,4 @@
-- stories = Story.order(:published_at).limit(5)
+- stories = Story.order(:published_at).limit(5).reverse()
 - if stories
 	#home_news
 		%h4
