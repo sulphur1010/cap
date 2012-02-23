@@ -27,8 +27,12 @@
 				= @event.location.name
 			.event_location_address
 				= @event.location.address
+		%br
 		- if @event.chapter
-			.event_chapter= "Hosted by: #{@event.chapter.name}"
+			.event_chapter
+				Hosted by:
+			.event_chapter_name
+				= @event.chapter.name 
 		- if @event.director
 			.event_director
 				%br

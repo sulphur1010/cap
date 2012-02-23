@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>The Catholic Social Teaching Foundation | CAPP-USA</title>
+	<title>Catholic Social Teaching in Action | CAPP-USA</title>
 	<%= stylesheet_link_tag    "application" %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
@@ -19,7 +19,9 @@
 				<%= link_to 'Login', new_user_session_url, :class => 'login_link' %>
 			<% end %>
 		</div>
-		<div id='logo'><img src='/images/capp-logo.png'></div>
+		<a href="/">
+			<div id='logo'><img src='/images/capp-logo.png'></div>
+		</a>
 		<div id='top_nav_bar'>
 			<table class='nav_main'><tr>
 					<td width='52px'><a href="/" class='top_nav <%= request.path == "/" ? "active" : '' %>'><img src='/images/home_btn.png' /></a></td>
