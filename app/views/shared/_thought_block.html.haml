@@ -13,7 +13,8 @@
 						.thought_author
 							= link_to thought.user.full_name, user_path(thought.user)
 							.thought_image= link_to image_tag(thought.user.profile_image(:small), :class => 'profile_image', :width => 24, :height => 24, :class => 'user_image'), user_path(thought.user)
-				Related to:
-				- thought.contemporary_issues.each do |issue|
-					= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link_thought'
-					="/"
+				- if !thought.contemporary_issues.empty?
+					Related to:
+					- thought.contemporary_issues.each do |issue|
+						= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link_thought'
+						="/"
