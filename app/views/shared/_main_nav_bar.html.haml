@@ -1,6 +1,6 @@
 - MenuItem.where(:menu => 'Top').where(:parent_id => nil).order(:weight).each do |menu_item|
 	%td.top_nav_container
-		%a.top_nav{:href => menu_item.url}= menu_item.name
+		= top_nav_active_link_to menu_item.name, menu_item.url, { :class => 'top_nav', :id => "top_nav_#{menu_item.name.downcase.gsub(" ", "_").gsub("?", "_")}" }
 		- if !menu_item.children.empty?
 			%ul.sub_menu
 				- menu_item.children.order(:weight).each do |sub_menu_item|

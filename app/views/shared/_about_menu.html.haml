@@ -1,3 +1,8 @@
+:javascript
+	$(function() {
+		$(".top_nav").removeClass("active");
+		$("#top_nav_about_capp").addClass("active");
+	});
 #left_menu
 	- MenuItem.where(:menu => 'About').where(:parent_id => nil).order(:weight).each do |menu_item|
 		.left_menu_item

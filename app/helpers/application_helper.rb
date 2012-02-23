@@ -106,12 +106,20 @@ module ApplicationHelper
 		self.send("edit_admin_#{content_fragment.type.to_s.underscore}_url", content_fragment)
 	end
 
-	def active_link_to(name, url)
+	def top_nav_active_link_to(name, url, options = {})
 		path = request.path
-		options = {}
+		puts "path = #{request.path} url = #{url}"
+		if path.starts_with?(url)
+			options[:class] = "#{options[:class]} active"
+		end
+		link_to name, url, options
+	end
+
+	def active_link_to(name, url, options = {})
+		path = request.path
 		testurl = url.split("?")[0]
 		if path == testurl
-			options[:class] = "active"
+			options[:class] = "#{options[:class]} active"
 		end
 		link_to name, url, options
 	end
