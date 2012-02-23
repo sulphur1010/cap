@@ -181,7 +181,7 @@ table#home_bottom_blocks {width: 100%; border-top: 1px solid #aaa; }
 #home_thoughts .view_all {display: inline;}
 #home_thoughts h4 {display: inline;}
 .view_all {float: none;}
-#home_thoughts {padding: 20px; 620px;}
+#home_thoughts {padding: 20px; }
 .news_block {padding: 20px;}
 .news_block .view_all {display: inline;}
 .news_block h4 {display: inline;}
