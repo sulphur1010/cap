@@ -6,7 +6,7 @@ set :deploy_to, "/var/www/cappwww"
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-ssh_options[:keys] = ['~/.ssh/host_capp-usa_org.id_rsa']
+ssh_options[:keys] = ['~/.ssh/client_deploy/deploy_capp-usa_org.id_rsa']
 set :scm_username, 'git'
 set :user, 'deploy'
 
