@@ -59,7 +59,7 @@ namespace :deploy do
 
 	desc "run rake:db:migrate"
 	task :migrate_db, :roles => :app do
-		run "cd #{release_path} && RAILS_ENV=production NO_PERMS=1 bundle exec rake db:migrate"
+		run "cd #{release_path} && RAILS_ENV=production bundle exec rake db:migrate"
 	end
 
 	desc "run rake roles:default_permissions"
