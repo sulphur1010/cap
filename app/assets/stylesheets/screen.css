@@ -949,7 +949,7 @@ a.encyclical_link {
 	color: #CAF0FE;
 }
 
-.sheen_black h2 {
+.sheen_black h2, sheen_white h2 {
 	color: #fff;
 	font-size: 12px; 
 	text-transform: uppercase;
@@ -975,10 +975,10 @@ a.encyclical_link {
 	background: rgba(255, 255, 255, 0.6);
 }
 
-.sheen_white h2 {
-	color: #fff;
-	font-size: 12px; 
-	text-transform: uppercase;
+.sheen_homepage_title h2 {
+	font-size: 16px;
+	text-transform: none;
+
 }
 
 .homepage_principles_prisms {
