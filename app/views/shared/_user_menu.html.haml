@@ -1,56 +1,57 @@
-%table.right_col
-	%tr
-		%td.padding_in10
-			%h5 User Menu
-			%ul#user_menu
-				%li
-					- is_thought_creator? do
-						Content
-						%ul
-							- is_admin? do
+- if is_admin? || is_speaker? || is_thought_creator?
+	%table.right_col
+		%tr
+			%td.padding_in10
+				%h5 User Menu
+				%ul#user_menu
+					%li
+						- is_thought_creator? do
+							Content
+							%ul
+								- is_admin? do
+									%li
+										= link_to 'Blocks', admin_blocks_url
+									%li
+										= link_to 'Encyclicals', admin_encyclicals_url
+									%li
+										= link_to 'Pages', admin_pages_url
+									%li
+										= link_to 'News Stories', admin_stories_url
+								- is_thought_creator? do
+									%li
+										= link_to 'Articles', admin_thoughts_url
+					- is_admin? do
+						%li
+							Taxonomy
+							%ul
 								%li
-									= link_to 'Blocks', admin_blocks_url
+									= link_to 'Contemporary Issues', admin_contemporary_issues_url
 								%li
-									= link_to 'Encyclicals', admin_encyclicals_url
+									= link_to 'Person Types', admin_person_types_url
 								%li
-									= link_to 'Pages', admin_pages_url
+									= link_to 'Prism Types', admin_prism_types_url
 								%li
-									= link_to 'News Stories', admin_stories_url
-							- is_thought_creator? do
+									= link_to 'Role Types', admin_role_types_url
 								%li
-									= link_to 'Articles', admin_thoughts_url
-				- is_admin? do
-					%li
-						Taxonomy
-						%ul
-							%li
-								= link_to 'Contemporary Issues', admin_contemporary_issues_url
-							%li
-								= link_to 'Person Types', admin_person_types_url
-							%li
-								= link_to 'Prism Types', admin_prism_types_url
-							%li
-								= link_to 'Role Types', admin_role_types_url
-							%li
-								= link_to 'Principles', admin_principles_url
-					%li
-						Events
-						%ul
-							%li
-								= link_to 'Chapters', admin_chapters_url
-							%li
-								= link_to 'Events', admin_events_url
-							%li
-								= link_to 'Locations', admin_locations_url
-					%li
-						= link_to 'Menu Items', admin_menu_items_url
-					%li
-						= link_to 'Users', admin_users_url
-				- if user_signed_in?
-					%li &nbsp;
-					%li
-						= link_to 'logout', destroy_user_session_url, :method => :delete
-				- else
-					%li
-						= link_to 'login', new_user_session_url
+									= link_to 'Principles', admin_principles_url
+						%li
+							Events
+							%ul
+								%li
+									= link_to 'Chapters', admin_chapters_url
+								%li
+									= link_to 'Events', admin_events_url
+								%li
+									= link_to 'Locations', admin_locations_url
+						%li
+							= link_to 'Menu Items', admin_menu_items_url
+						%li
+							= link_to 'Users', admin_users_url
+					- if user_signed_in?
+						%li &nbsp;
+						%li
+							= link_to 'logout', destroy_user_session_url, :method => :delete
+					- else
+						%li
+							= link_to 'login', new_user_session_url
 
