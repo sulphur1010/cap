@@ -10,7 +10,7 @@ blockquote:before, blockquote:after, q:before, q:after {content:'';}
 blockquote, q {quotes:"" "";}
 a img {border:none;}
 :focus {outline:0;}
-a:hover {text-decoration: none;}
+a:hover {text-decoration: underline;}
 
 .hidden {display: none;}
 
@@ -59,7 +59,7 @@ body{line-height: 1.4em;}
 /*Global Items */
 hr {border-top: 1px solid #aaa;}
 a {color: #08c; text-decoration: none;}
-a:hover {text-decoration: none;}
+a:hover {text-decoration: underline;}
 p {line-height: 1.6em; color: #555;}
 .page p {margin-bottom: 15px;}
 .inline {display: inline-block;}
@@ -175,10 +175,10 @@ a.top_nav.active{font-size:14px;font-weight:bold;color:#fff;text-decoration:none
 .homepage_overlay {width: 650px; position: absolute; bottom: 0px; left: 20px; bottom: -2px;}
 .three_principles {position: relative; width: 650px; margin-bottom: 0px; bottom: 0px;}
 .three_principles h5 {color: #fff;}
-.principle {width: 188px; min-height: 70px; margin-right: 5px; display: inline-block; padding: 10px;}
+.principle {width: 188px; min-height: 45px; margin-right: 5px; display: inline-block; padding: 10px;}
 .last {margin-right: 0px;}
 .three_prisms {width: 310px; min-height: 0px; margin-bottom: 10px; position: absolute; right: 0px; top: 20px;}
-.prism {width: 290px; min-height: 50px; margin-bottom: 2px; padding: 10px; display: block;}
+.prism {width: 290px; min-height: 25px; margin-bottom: 2px; padding: 10px; display: block;}
 .prism:hover {}
 
 
@@ -955,8 +955,10 @@ a.encyclical_link {
 	text-transform: uppercase;
 }
 
-.sheen_black h2, .sheen_black h4 {
-	color: #fff;
+.sheen_white h2 {
+	color: #000;
+	font-size: 12px;
+	text-transform: uppercase;
 }
 
 .sheen_black h4 {
@@ -967,17 +969,18 @@ a.encyclical_link {
 
 .sheen_white {
 	background: rgb(255, 255, 255);
-	background: rgba(255, 255, 255, 0.4);
+	background: rgba(255, 255, 255, 0.6);
 }
 
 .sheen_white:hover {
 	background: rgb(255, 255, 255);
-	background: rgba(255, 255, 255, 0.6);
+	background: rgba(255, 255, 255, 0.8);
 }
 
-.sheen_homepage_title h2 {
+.sheen_homepage_title h1 {
 	font-size: 16px;
 	text-transform: none;
+	color: #fff;
 
 }
 
