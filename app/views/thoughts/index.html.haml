@@ -1,5 +1,5 @@
 .page
-	%h2 Articles
+	%h2 Articles on Catholic Social Teaching
 %table.left_menu_container.thought_left_menu_container
 	%tr
 		%td.left_menu.thought_left_menu
@@ -16,7 +16,7 @@
 						= check_box_tag :whatever
 						= type.name
 		%td.content_with_left_menu
-			.thought_teaser_list#js_thought_list
+			#js_thought_list
 				- if @thoughts.empty?
 					.no_results
 						= "No results for the given filters.  Try removing some filters."

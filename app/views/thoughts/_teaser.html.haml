@@ -1,10 +1,13 @@
-%table.thought_teaser
+%table
 	%tr
 		%td
 			%h5.thought_title= link_to teaser.title, thought_path(teaser)
-			.published_at= teaser.formatted_published_at
-			.teaser= teaser.teaser.html_safe
+			= strip_tags(thought.teaser) rescue ""
+			.thought_teaser= teaser.teaser.html_safe
 			- if teaser.user
-				.thought_by
+				.thought_author_container
 					by:
 					= link_to teaser.user.full_name, user_path(teaser.user)
+					posted on:
+					.published_at= teaser.formatted_published_at
+

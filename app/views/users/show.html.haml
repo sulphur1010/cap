@@ -1,26 +1,41 @@
+- if is_admin?
+	= link_to 'Edit', edit_admin_user_url(@user), :class => 'btn_edit'
 .user_page
 	.page
-		= image_tag @user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'
-		%h2= @user.full_name
-		= @user.about
-	- if !@user.events.empty?
-		%hr
-		.page
-			%h4 Speaker at Events:
-			.event_teaser_list#js_event_list
-				- @user.events.each do |event|
-					.event_teaser_list_item
-						= render :partial => 'events/teaser', :object => event
+		%table.profile_table
+			%tr
+				%td
+					= image_tag @user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'
+				%td.about_td
+					%h2
+						= @user.full_name
+					%h5
+						= @user.title
+						- if @user.person_type
+							|
+							= @user.person_type.name
+						- if @user.chapter
+							|
+							= @user.chapter.name
+					= @user.about
 	%hr
 	.page
 		%h4 Interested In:
 		- @user.contemporary_issues.each do |issue|
 			= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'
+	- if !@user.events.empty?
+		%hr
+		.page
+			%h4 Speaker / Panelist at Upcoming Event(s):
+			.event_teaser_list#js_event_list
+				- @user.events.each do |event|
+					.event_teaser_list_item
+						= render :partial => 'events/teaser', :object => event
 	- if !@user.thoughts.empty?
 		%hr
 		.page
-			%h4 Thoughts on CST:
-			.thought_teaser_list#js_thought_list
+			%h4 Articles on CST:
+			#js_thought_list
 				- @user.thoughts.each do |thought|
 					.thought_teaser_list_item
 						= render :partial => 'thoughts/teaser', :object => thought
