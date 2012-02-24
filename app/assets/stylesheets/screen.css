@@ -1,6 +1,6 @@
 /* reset.css */
 html, hr {margin:0;padding:0;border:0;}
-body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-size:100%;font:inherit;}
 article, aside, details, figcaption, figure, dialog, footer, header, hgroup, menu, nav, section {display:block;}
 body {line-height:1.4em;background:white;}
 table {border-collapse:separate;border-spacing:0;}
@@ -10,6 +10,7 @@ blockquote:before, blockquote:after, q:before, q:after {content:'';}
 blockquote, q {quotes:"" "";}
 a img {border:none;}
 :focus {outline:0;}
+a:hover {text-decoration: none;}
 
 .hidden {display: none;}
 
@@ -21,16 +22,16 @@ body {font-size:75%;color:#222;background: url("/images/background.jpg");font-fa
 h1 {font-size:24px;font-weight:bold;line-height:140%;margin:0;font-family:arial;color:#232323;}
 h2 {font-size:18px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
 h3 {font-size:15px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
-h4 {font-size:14px;font-weight:bold;line-height:130%;margin:0 0 6px 0;font-family:arial;color:#232323;}
+h4 {font-size:14px;font-weight:bold;line-height:130%;margin:0 0 6px 0;font-family:arial;color:#232323; display: inline-block;}
 h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0;font-family:arial;color:#232323;}/*left bar title CAP*/
 
 /*Special font definitions*/
-.event_page h2 {padding: 5px 0; font-size: 22px;}
-.page h2 {margin: 0 10px 10px 0;}
+.event_page h2 {padding: 5px 0; font-size: 22px; display: inline-block;}
+.page h2 {margin: 0 10px 2px 0;}
 .content_with_left_menu h2 {display: inline;}
 .study_center_blocks h2 {font-size: 16px;}
 .content_with_left_menu ul li {margin: 0 0 0 18px;} 
-.page h3 {text-transform: uppercase; font-size: 13px; margin-bottom: 5px;}
+.page h3 {text-transform: uppercase; font-size: 13px; margin-bottom: 10px;}
 .events_block p {color: #aaa;}
  
 /*---General Define P TAG*/
@@ -48,6 +49,8 @@ h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0;font-family:arial;
 /*---Special Group*/
 p.italyGeogia{font-style:italic; font-family:Georgia; }
 
+.no_right_column .page table {display:}
+
 /*Basic Structure*/
 body{line-height: 1.4em;}
 #content{width:1001px;height:auto;margin:auto;}
@@ -56,7 +59,7 @@ body{line-height: 1.4em;}
 /*Global Items */
 hr {border-top: 1px solid #aaa;}
 a {color: #08c; text-decoration: none;}
-a:hover {text-decoration: underline;}
+a:hover {text-decoration: none;}
 p {line-height: 1.6em; color: #555;}
 .page p {margin-bottom: 15px;}
 .inline {display: inline-block;}
@@ -137,7 +140,13 @@ a.top_nav.active{font-size:14px;font-weight:bold;color:#fff;text-decoration:none
 .left_content{width:760px; border:1px solid #ccc; border-right: 0;}
 .no_right_column {width:1000px; border-right: 1px solid #ccc;}
 .left_content .page {padding:20px}
-.no_right_column .page {padding: 10px; position: relative;}
+.no_right_column .page {background: #000; height: 500px; background-position:; padding: 0px; position: relative;} 
+
+.slide1 {background: url("/images/h_economiccrisis.jpg"); padding: 0px; height: 500px; position: relative;}
+.slide2 {background: url("/images/h_newstructures.jpg");  padding: 0px; height: 500px; position: relative;}
+.slide3 {background: url("/images/h_politics.jpg"); padding: 0px; height: 500px; position: relative;}
+
+
 
 .right_content{width:820px;}
 .right_column{width:240px;}
@@ -162,20 +171,21 @@ a.top_nav.active{font-size:14px;font-weight:bold;color:#fff;text-decoration:none
 }
 
 /*Special Homepage*/
-.video_block {width: 650px; min-height: 320px;}
-.video_block_main {width: 650px; background: #eee; min-height: 320px; margin-bottom: 5px; background: #eee;}
-.video_block_sub {width: 211px; background: #eee; min-height: 120px; margin-right: 5px; display: inline-block; background: #eee;}
+.homepage_video {width: 640px; height: 360px; position: absolute; top: 20px; left: 20px;}
+.homepage_overlay {width: 650px; position: absolute; bottom: 0px; left: 20px; bottom: -2px;}
+.three_principles {position: relative; width: 650px; margin-bottom: 0px; bottom: 0px;}
+.three_principles h5 {color: #fff;}
+.principle {width: 188px; min-height: 70px; margin-right: 5px; display: inline-block; padding: 10px;}
 .last {margin-right: 0px;}
-.target_block {width: 320px; min-height: 320px; margin-left: 10px;}
-.target_block_user_type {width: 300px; min-height: 150px; border: 1px solid #aaa; margin-bottom: 10px; padding: 10px;}
-.target_block_prism_type {width: 300px; min-height: 50px; border: 1px solid #aaa; margin-top: -1px; padding: 10px; display: block;}
-.target_block_prism_type:hover {width: 300px; min-height: 50px; border: 1px solid #aaa; margin-top: -1px; padding: 10px; display: block;}
+.three_prisms {width: 310px; min-height: 0px; margin-bottom: 10px; position: absolute; right: 0px; top: 20px;}
+.prism {width: 290px; min-height: 50px; margin-bottom: 2px; padding: 10px; display: block;}
+.prism:hover {}
+
 
 table#home_bottom_blocks {width: 100%; border-top: 1px solid #aaa; }
 #home_bottom_blocks .padding_in10 {padding: 0px;}
 #home_bottom_blocks .address_course_event_row a {color: #427b98;}
 .upcoming_course_block, .upcoming_event_block, .email_address_block {width: 310px; padding: 10px; margin: 5px; border-right: 1px solid #aaa; border-bottom: 1px solid #aaa; background: #F7FBDC;}
-.last {border-right: 0px;}
 #home_upcoming_course .view_all {display: inline;}
 #home_upcoming_course h4 {display: inline;}
 #home_upcoming_course .event_title a{font-weight: bold;}
@@ -190,7 +200,7 @@ table#home_bottom_blocks {width: 100%; border-top: 1px solid #aaa; }
 .news_block h4 {display: inline;}
 
 /*right_column*/
-table.right_col{display:inline;border:none;border-collapse:collapse;}
+table.right_col{border:none;border-collapse:collapse;}
 td.right_column{border-bottom: 1px solid #ccc;}
 table.right_col tr{margin:0 5px;border:none;border-collapse:collapse;}
 .right_column table tr td{border:1px solid #ccc;border-bottom: 0;border-collapse:collapse;width:240px}
@@ -392,6 +402,7 @@ table.left_menu_container .content_with_left_menu {
 	min-height: 400px;
 	display: block;
 	border-bottom: 1px solid #ccc;
+	margin-bottom: -1px;
 }
 
 .contemporary_issues_list_header {
@@ -409,17 +420,18 @@ table.left_menu_container .content_with_left_menu {
 }
 
 ul.contemporary_issues_list li {
-	margin: 0 0 10px 0;
+	margin: 0 0 0px 0;
 	display: inline-block;
-	width: 175px;
+	width: 260px;
+	font-size: 11px;
 } 
 
 .contemporary_issues_list li a,
 .encyclical_list li a,
 .user_list li {
 	display: inline-block;
-	width: 165px;
-	padding: 8px 8px;
+	width: 240px;
+	padding: 4px;
 	text-decoration: none;
 }
 
@@ -436,7 +448,6 @@ ul.contemporary_issues_list li {
 
 .user_list li {
 	width: 225px;
-	height: 80px;
 	padding: 0;
 	border: 1px solid #ccc;
  	-moz-box-shadow:    2px 2px 2px 0px #ddd;
@@ -449,12 +460,12 @@ ul.contemporary_issues_list li {
 }
 
 .user_list li .user_info {
-	font-weight: bold;
-	font-size: 11px;
-	padding: 4px 0 0 0px;
+	font-size: 10px;
+	padding: 4px 0 4px 4px;
 	color: #555;
 	display: inline-block;
 	vertical-align: top;
+	width: 130px;
 }
 
 .user_list li img {
@@ -468,6 +479,7 @@ ul.contemporary_issues_list li {
 	font-size: 16px; 
 	color: #777;
 	line-height: 1.4em;
+	margin-top: 10px;
 }
 
 .thought .thought_image {
@@ -506,12 +518,23 @@ ul.contemporary_issues_list li {
 	color: #777;
 }
 
+.thought_teaser_list_item .thought_teaser {
+	display: inline-block;
+	padding: 0 0 0 0px;
+	font-family: georgia;
+	font-style: italic;
+	font-size: 14px;
+	line-height: 1.4em;
+	color: #777;
+}
+
 .thought_quote p {margin: 0px; padding: 0px; font-family: georgia !important;}
 .page .thought_author_container {margin: 0px; padding: 0px;}
 
 .thought_block {
 	font-size: 11px;
 	color: #777;
+	margin-bottom: -1px;
 }
 
 .thought_block .thought_quote {
@@ -687,7 +710,7 @@ table.thought_block tr td {
 }
 
 .event_page .event_location,
-.event_page .event_director {
+.event_page .event_director, .event_chapter {
 	font-weight: bold;
 	font-size: 1.1em;
 }
@@ -740,16 +763,27 @@ table.thought_block tr td {
 }
 
 .event_teaser_list_item,
-.story_teaser_list_item,
-.thought_teaser_list_item {
+.story_teaser_list_item {
 	padding: 8px;
 	border-bottom: 1px solid #ccc;
 	background: #fff;
+	position: relative;
+}
+
+.thought_teaser_list_item {
+	width: 40%;
+	display: inline-block;
+	vertical-align: top;
+	min-height: 260px;
+	padding: 20px;
+	background: white;
+	margin: 5px 5px 5px 5px;
+	border: 1px solid #ccc;
 }
 
 .thought_teaser {}
 .thought_title {font-size: 14px; } 
-.published_at {font-size: 11px; font-style: italic; color: #aaa;}
+.published_at {font-size: 11px; font-style: italic; color: #aaa; display: inline-block; }
 
 a.contemporary_issue_link {
 	padding: 1px 8px;
@@ -757,7 +791,6 @@ a.contemporary_issue_link {
 	border: 1px solid #88c358;
 	color: #4f7a28;
 	text-decoration: none;
-	font-size: 0.8em;
 	display: inline-block;
 	margin: 5px 0px 0px;
 }
@@ -790,6 +823,14 @@ a.encyclical_link {
 	font-size: 1em;
 }
 
+.profile_table tr td{
+}
+
+.about_td {
+	width: 600px;
+	padding-left: 10px;
+}
+
 .formtastic .profile_image {
 	padding-top: 10px;
 	padding-left: 125px;
@@ -819,13 +860,18 @@ a.encyclical_link {
 }
 
 .black_contemporary_issues_list {
-	width: 730px;
-	background: black;
+	width: 740px;
+	background: url("/images/background_image.jpg") black;
 	padding: 10px;
+	
 }
 
 .issue {
 
+}
+
+.homepage_quote {
+	padding: 0 0 0 10px;
 }
 
 .black_contemporary_issues_list .issue a {
@@ -840,8 +886,10 @@ a.encyclical_link {
 }
 
 .black_contemporary_issues_list .issue a:hover {
-	background-color: #444;
 	color: #fff;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.4);
+	text-decoration: underline;
 }
 
 .black_contemporary_issues_list .issue a.active {
@@ -871,13 +919,90 @@ a.encyclical_link {
 	color: #fff;
 }
 
-h2.study_center_title {
+.study_center_title {
 	font-size: 14px;
 	color: #fff;
-	margin-right: 340px;
-	padding: 10px;
 	background: rgb(0, 0, 0);
 	background: rgba(0, 0, 0, 0.6);
+	width: 450px;
+	padding: 10px;
+}
+
+.study_center_title h2 {
+	font-size: 14px;
+}
+
+.sheen_black {
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.sheen_homepage_title {
+	width: 550px;
+	padding: 10px;
+	position: relative;
+	top: 20px;
+	left: 20px;
+}
+
+.sheen_black a {
+	color: #CAF0FE;
+}
+
+.sheen_black h2, sheen_white h2 {
+	color: #fff;
+	font-size: 12px; 
+	text-transform: uppercase;
+}
+
+.sheen_black h2, .sheen_black h4 {
+	color: #fff;
+}
+
+.sheen_black h4 {
+	font-style: italic;
+	text-align: right;
+	font-weight: regular;
+}
+
+.sheen_white {
+	background: rgb(255, 255, 255);
+	background: rgba(255, 255, 255, 0.4);
+}
+
+.sheen_white:hover {
+	background: rgb(255, 255, 255);
+	background: rgba(255, 255, 255, 0.6);
+}
+
+.sheen_homepage_title h2 {
+	font-size: 16px;
+	text-transform: none;
+
+}
+
+.homepage_principles_prisms {
+	position: relative;
+	bottom: 0px;
+}
+
+.study_center_title a {
+	color: #fff;
+	text-decoration: underline;
+	display: inline-block;
+}
+
+.study_center_title a:hover {
+	color: yellow;
+}
+
+.video_block_main h2 {
+	font-size: 18px;
+	position: absolute;
+	display: block;
+	top: 20px;
+	width: 500px;
+	left: 20px;
 }
 
 .event_type {
@@ -885,6 +1010,7 @@ h2.study_center_title {
 	padding: 0px 6px;
 	display: inline-block;
 	border: 1px solid #aaa;
+	display: inline-block;
 }
 
 .event_type_lecture {
@@ -903,6 +1029,7 @@ h2.study_center_title {
 }
 
 .event_type_communion_breakfast {
-	background: #ffc4ae;
-	border-color: #d07e4c;
+	background: #FFDAD9;
+	border-color: #FFA483;
 }
+

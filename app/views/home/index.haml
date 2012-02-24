@@ -1,6 +1,72 @@
+.page
+	.slideshow.slide1.js_slideshow
+		.sheen_black.sheen_homepage_title
+			%table
+				%tr
+					%td
+						%img{:src => "/images/profiles/popebenedict.jpg"}
+					%td.homepage_quote
+						%h2 
+							"Without internal forms of 
+							%a{:href => "/principles/50"}
+								SOLIDARITY
+							and mutual trust, the market cannot completely fulfill its proper economic function."
+						%h4 
+							Pope Benedict XVI, 
+							%a{:href => "/encyclicals/47"}Caritas en Veritate, 35.
+	.slideshow.slide2.js_slideshow{:style => "display:none;"}
+		.sheen_black.sheen_homepage_title 
+			%table
+				%tr
+					%td
+						%img{:src => "/images/profiles/johnpaulII.jpg"}
+					%td.homepage_quote
+						%h2 
+							"To destroy such structures and replace them with more authentic forms of living in community is a task which demands courage and patience."
+						%h4 
+							The Blessed Pope John Paul II, 
+							%a{:href => "/encyclicals/45"}Centessimus Annus, 77.
+	.slideshow.slide3.js_slideshow{:style => "display:none;"}
+		.sheen_black.sheen_homepage_title
+			%table
+				%tr
+					%td
+						%img{:src => "/images/profiles/popebenedict.jpg"}
+					%td.homepage_quote
+						%h2 
+							“The State which would provide everything, absorbing everything into itself, would ultimately become a mere bureaucracy.”
+						%h4 
+							Pope Benedict XVI, 
+							%a{:href => "/encyclicals/46"}Deus Caritas Est, 28.
+			
+
+	.homepage_overlay
+		%table.homepage_principles_prisms
+			%tr
+				%td
+					.three_principles
+						%a{:href => "/principles/48"}
+							.principle.sheen_white
+								%h2 Human Dignity
+						%a{:href => "/principles/50"}
+							.principle.sheen_white 
+								%h2 Solidarity
+						%a{:href => "/principles/49"}
+							.principle.sheen_white.last 
+								%h2 Subsidarity
+	.three_prisms
+		%a{:href => "/prism_types/10"}
+			.prism.sheen_black
+				%h2 Economics
+		%a{:href => "/prism_types/9"}
+			.prism.sheen_white 
+				%h2 Government & Politics
+		%a{:href => "/prism_types/11"}
+			.prism.sheen_white 
+				%h2 Culture
+
+
 - if @page
-	.page
-		= render :partial => 'content_fragments/page', :object => @page
 	%table#home_bottom_blocks
 		%tr.address_course_event_row
 			%td.email_address_block= render :partial => 'shared/email_address_block'

@@ -4,8 +4,8 @@
 		Contemporary Issue:
 		%span.contemporary_issue_title= @contemporary_issue.title
 	= @contemporary_issue.body.html_safe rescue ""
-- if !@contemporary_issue.encyclicals.empty?
-	.page
+	- if !@contemporary_issue.encyclicals.empty?
+		Related Encyclicals:
 		= render :partial => 'encyclicals/list', :object => @contemporary_issue
 		%div{:style => 'clear: both'}
 - thought = @contemporary_issue.random_thought
@@ -13,7 +13,8 @@
 	%hr
 	.page
 		%h3
-			Related Thoughts
+			Related Thoughts on
+			%span.contemporary_issue_title= @contemporary_issue.title
 		.thought_quote
 			= strip_tags(thought.teaser)
 			= link_to 'Read more', thought_path(thought)
@@ -26,12 +27,14 @@
 %hr
 .page
 	%h3
-		Related Events
+		Related Events on
+		%span.contemporary_issue_title= @contemporary_issue.title
 	= render :partial => 'events/teaser', :collection => @contemporary_issue.events
 - speakers = @contemporary_issue.speakers
 - if !speakers.empty?
 	%hr
 	.page
 		%h3
-			Related Speakers
+			Related Speakers / Panelists / Authors on:
+			%span.contemporary_issue_title= @contemporary_issue.title
 		= render :partial => 'users/list', :object => speakers

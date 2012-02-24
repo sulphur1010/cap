@@ -4,9 +4,9 @@
 	.page
 		%h2
 			= @event.title
-			- if @event.type
-				%span.event_type{ :class => "event_type_#{@event.type.downcase.gsub(" ", "_")}"}
-					= @event.type
+		- if @event.type
+			%span.event_type{ :class => "event_type_#{@event.type.downcase.gsub(" ", "_")}"}
+				= @event.type
 		.event_header
 			.event_time_info
 				- if @event.start_date && @event.end_date
@@ -54,8 +54,8 @@
 	.page
 		%h4
 			Contemporary Issues Covered:
-			- @event.contemporary_issues.each do |issue|
-				= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'
+		- @event.contemporary_issues.each do |issue|
+			= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'
 	%hr
 	.page
 		%h4 Speakers / Panelists:

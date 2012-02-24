@@ -62,7 +62,56 @@ $(function() {
 			$(this).addClass("collapsed");
 		}
 	});
+
+	slideshow.init();
 });
+
+var slideshow = new function() {
+	var elms =  null;
+	var active = null;
+	var hover = null;
+	var timeout = null;
+	var fadeLength = null;
+	var timer = null;
+
+	this.init = function() {
+		slideshow.elms = $(".js_slideshow");
+		slideshow.elms.mouseover(slideshow.mouseover);
+		slideshow.elms.mouseout(slideshow.mouseout);
+		slideshow.active = 0;
+		slideshow.timeout = 7000;
+		slideshow.fadeLength = 500;
+		slideshow.hover = false;
+		slideshow.timer = setTimeout(slideshow.fadeOut, slideshow.timeout);
+	};
+
+	this.fadeOut = function() {
+		if (!slideshow.hover) {
+			$(slideshow.elms[slideshow.active]).fadeOut(slideshow.fadeLength, slideshow.fadeIn);
+		}
+	};
+
+	this.fadeIn = function() {
+		slideshow.active += 1;
+		if (slideshow.active >= slideshow.elms.length) {
+			slideshow.active = 0;
+		}
+		$(slideshow.elms).hide();
+		$(slideshow.elms[slideshow.active]).fadeIn(slideshow.fadeLength);
+		clearTimeout(slideshow.timer);
+		slideshow.timer = setTimeout(slideshow.fadeOut, slideshow.timeout);
+	};
+
+	this.mouseover = function() {
+		slideshow.hover = true;
+	};
+
+	this.mouseout = function() {
+		slideshow.hover = false;
+		clearTimeout(slideshow.timer);
+		slideshow.timer = setTimeout(slideshow.fadeOut, 500);
+	};
+};
 
 /**
  * jQuery Initial input value replacer
