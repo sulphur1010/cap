@@ -25,7 +25,13 @@ CappUsa::Application.routes.draw do
 		end
 	end
 	resources :encyclicals
-	resources :events
+	resources :events do
+		member do
+			post 'rsvp'
+			get 'rsvp'
+			post 'unrsvp'
+		end
+	end
 	resources :locations
 	resources :person_types
 	resources :principles

@@ -63,6 +63,7 @@ RoleType.blueprint do
 end
 
 Thought.blueprint do
+	user { User.make! }
 end
 
 User.blueprint do
@@ -97,6 +98,10 @@ Event.blueprint do
 	type { Event.types.first }
 	title { "Event Title" }
 	event_region { Event.event_regions.first }
+end
+
+Event.blueprint(:with_attendees) do
+	attendees { [User.make!, User.make!] }
 end
 
 EncyclicalReference.blueprint do

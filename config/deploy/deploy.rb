@@ -10,9 +10,9 @@ ssh_options[:keys] = ['~/.ssh/client_deploy/deploy_capp-usa_org.id_rsa']
 set :scm_username, 'git'
 set :user, 'deploy'
 
-role :web, "cappwww.darmasoft.net"                          # Your HTTP server, Apache/etc
-role :app, "cappwww.darmasoft.net"                          # This may be the same as your `Web` server
-role :db,  "cappwww.darmasoft.net", :primary => true # This is where Rails migrations will run
+role :web, "capp-usa.org"                          # Your HTTP server, Apache/etc
+role :app, "capp-usa.org"                          # This may be the same as your `Web` server
+role :db,  "capp-usa.org", :primary => true # This is where Rails migrations will run
 
 set :keep_releases, 10
 set :use_sudo, false

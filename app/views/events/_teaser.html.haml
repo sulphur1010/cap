@@ -21,8 +21,15 @@
 			.event_about_time
 				= distance_of_time_in_words(teaser.duration) rescue ''
 		%td.event_spots{:style => 'width: 40px'}
-			%span.event_spots_available= teaser.spots_available
+			%span.event_spots_available= teaser.spots_left
 			spots left
 		%td{:style => 'width: 40px'}
 			.rsvp
 				= link_to "VIEW", event_path(teaser)
+			- if teaser.attendees.include?(current_user)
+				.unrsvp
+					= link_to 'UnRSVP', unrsvp_event_url(teaser), :method => :post
+			- else
+				- if teaser.spots_left > 0
+					.rsvp
+						= link_to "RSVP", rsvp_event_url(teaser), :method => :post

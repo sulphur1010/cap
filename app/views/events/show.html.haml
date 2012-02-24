@@ -43,6 +43,14 @@
 					= @event.director.phone
 				/= link_to @event.director.full_name, user_path(@event.director)
 	%hr
+	- if is_admin?
+		.page
+			%h4 Attendees
+			- if @event.attendees.count > 0
+				= @event.attendees.map { |u| u.full_name }.join(", ")
+			- else
+				= "None"
+		%hr
 	.page
 		%h4
 			Contemporary Issues Covered:

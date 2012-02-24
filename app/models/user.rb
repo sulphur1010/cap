@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :events
 	has_many :content_fragments
 	has_attached_file :profile_image, :styles => { :small => "80x80>" }
+	has_and_belongs_to_many :attended_events, :class_name => 'Event', :join_table => 'attendees_events', :foreign_key => 'attendee_id'
 
 	after_initialize :load_roles
 	before_save :convert_roles
@@ -59,7 +60,11 @@ class User < ActiveRecord::Base
 	end
 
 	def full_name
-		"#{self.first_name} #{self.last_name}"
+		if self.first_name.blank? && self.last_name.blank?
+			self.email
+		else
+			"#{self.first_name} #{self.last_name}"
+		end
 	end
 
 	private

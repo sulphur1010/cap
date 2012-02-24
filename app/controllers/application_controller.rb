@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
 	private
 
+	def after_sign_in_path_for(resource)
+		session[:return_url] || "/"
+	end
+
 	def setup_variables
 		@show_right_side_bar = true
 	end

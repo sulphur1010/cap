@@ -108,7 +108,7 @@ module ApplicationHelper
 
 	def top_nav_active_link_to(name, url, options = {})
 		path = request.path
-		puts "path = #{request.path} url = #{url}"
+		logger.info "path = #{request.path} url = #{url}"
 		if path.starts_with?(url)
 			options[:class] = "#{options[:class]} active"
 		end

@@ -28,11 +28,16 @@ class Event < ActiveRecord::Base
 	has_and_belongs_to_many :contemporary_issues
 	has_and_belongs_to_many :person_types
 	has_and_belongs_to_many :users
+	has_and_belongs_to_many :attendees, :class_name => 'User', :join_table => 'attendees_events', :association_foreign_key => 'attendee_id'
 
 	validates :type, :inclusion => { :in => Event.types }
 	validates :event_region, :inclusion => { :in => Event.event_regions }
 	validates :title, :presence => true
 	validates :end_date, :end_date => true
+
+	def spots_left
+		[self.spots_available - self.attendees.count,0].max rescue 0
+	end
 
 	def self.courses
 		Event.where("start_date > ?", Time.now).where(:type => 'Course').order(:start_date)

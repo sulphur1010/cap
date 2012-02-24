@@ -31,4 +31,8 @@ describe Event do
 		e.should have(1).errors_on(:end_date)
 	end
 
+	it "should have attendees" do
+		e = Event.make!(:with_attendees)
+		e.attendees.count.should eq(2)
+	end
 end
