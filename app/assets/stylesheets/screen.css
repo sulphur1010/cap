@@ -647,6 +647,28 @@ table.thought_block tr td {
 	display: block;
 }
 
+.event_page .rsvp, .event_page .unrsvp {
+	margin-top: 10px;
+	width: 40px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #555555;
+	text-align: center;
+	vertical-align: middle;
+    
+    background: -moz-linear-gradient(center top , #FFFFFF, #EFEFEF) repeat scroll 0 0 #F6F6F6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#efefef));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef');
+	
+	text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    padding: 8px 12px;
+    display: block;
+}
+
 .event_teaser .rsvp, .event_teaser .unrsvp, .submit_btn, .update {
     font-size: 11px;
     font-weight: bold;
