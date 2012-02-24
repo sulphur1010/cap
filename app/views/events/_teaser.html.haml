@@ -10,7 +10,7 @@
 			- if teaser.location
 				.event_location
 					Location: 
-					= link_to teaser.location.name, location_path(teaser.location)
+					= teaser.location.name
 			- if teaser.users.count > 0
 				.event_speakers
 					Speakers:

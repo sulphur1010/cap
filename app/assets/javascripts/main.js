@@ -79,7 +79,7 @@ var slideshow = new function() {
 		slideshow.elms.mouseover(slideshow.mouseover);
 		slideshow.elms.mouseout(slideshow.mouseout);
 		slideshow.active = 0;
-		slideshow.timeout = 7000;
+		slideshow.timeout = 9000;
 		slideshow.fadeLength = 500;
 		slideshow.hover = false;
 		slideshow.timer = setTimeout(slideshow.fadeOut, slideshow.timeout);
@@ -109,7 +109,7 @@ var slideshow = new function() {
 	this.mouseout = function() {
 		slideshow.hover = false;
 		clearTimeout(slideshow.timer);
-		slideshow.timer = setTimeout(slideshow.fadeOut, 500);
+		slideshow.timer = setTimeout(slideshow.fadeOut, 2000);
 	};
 };
 
