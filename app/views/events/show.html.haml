@@ -47,7 +47,7 @@
 		.page
 			%h4 Attendees
 			- if @event.attendees.count > 0
-				= @event.attendees.map { |u| u.full_name }.join(", ")
+				= render :partial => 'users/list', :object => @event.attendees
 			- else
 				= "None"
 		%hr
