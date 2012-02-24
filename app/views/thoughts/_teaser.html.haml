@@ -2,8 +2,7 @@
 	%tr
 		%td
 			%h5.thought_title= link_to teaser.title, thought_path(teaser)
-			= strip_tags(thought.teaser) rescue ""
-			.thought_teaser= teaser.teaser.html_safe
+			.thought_teaser= strip_tags(teaser.teaser) rescue ""
 			- if teaser.user
 				.thought_author_container
 					by:

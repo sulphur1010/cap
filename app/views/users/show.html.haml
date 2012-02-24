@@ -18,11 +18,12 @@
 							|
 							= @user.chapter.name
 					= @user.about
-	%hr
-	.page
-		%h4 Interested In:
-		- @user.contemporary_issues.each do |issue|
-			= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'
+	- if !@user.contemporary_issues.empty?
+		%hr
+		.page
+			%h4 Interested In:
+			- @user.contemporary_issues.each do |issue|
+				= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'
 	- if !@user.events.empty?
 		%hr
 		.page
