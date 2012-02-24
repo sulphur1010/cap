@@ -140,9 +140,11 @@ a.top_nav.active{font-size:14px;font-weight:bold;color:#fff;text-decoration:none
 .left_content{width:760px; border:1px solid #ccc; border-right: 0;}
 .no_right_column {width:1000px; border-right: 1px solid #ccc;}
 .left_content .page {padding:20px}
-.no_right_column .page {background: url("/images/h_newstructures.jpg"); height: 500px; background-position:; padding: 0px; position: relative;} 
-.no_right_column .pageX {background: url("/images/h_economiccrisis.jpg"); height: 500px; background-position:; padding: 0px; position: relative;}
-.no_right_column .pageX {background: #000; height: 498px; background-position:; padding: 0px; position: relative;}
+.no_right_column .page {background: #000; height: 500px; background-position:; padding: 0px; position: relative;} 
+
+.slide1 {background: url("/images/h_economiccrisis.jpg"); padding: 0px; height: 500px; position: relative;}
+.slide2 {background: url("/images/h_newstructures.jpg");  padding: 0px; height: 500px; position: relative;}
+.slide3 {background: url("/images/h_politics.jpg"); padding: 0px; height: 500px; position: relative;}
 
 
 
@@ -933,6 +935,9 @@ a.encyclical_link {
 .sheen_black {
 	background: rgb(0, 0, 0);
 	background: rgba(0, 0, 0, 0.6);
+}
+
+.sheen_homepage_title {
 	width: 550px;
 	padding: 10px;
 	position: relative;
@@ -943,8 +948,11 @@ a.encyclical_link {
 .sheen_black a {
 	color: #CAF0FE;
 }
+
 .sheen_black h2 {
-	font-size: 18px;
+	color: #fff;
+	font-size: 12px; 
+	text-transform: uppercase;
 }
 
 .sheen_black h2, .sheen_black h4 {
