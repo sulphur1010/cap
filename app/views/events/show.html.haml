@@ -69,3 +69,8 @@
 		.page
 			%h4 Speakers / Panelists:
 			= render :partial => 'users/list', :object => @event.users
+	- if !@event.celebrants.empty?
+		%hr
+		.page
+			%h4 Celebrants
+			= render :partial => 'users/list', :object => @event.celebrants
