@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423170856) do
+ActiveRecord::Schema.define(:version => 20120423172917) do
 
   create_table "attendees_events", :id => false, :force => true do |t|
     t.integer  "attendee_id"
@@ -23,13 +23,13 @@ ActiveRecord::Schema.define(:version => 20120423170856) do
   add_index "attendees_events", ["attendee_id"], :name => "index_attendees_events_on_attendee_id"
   add_index "attendees_events", ["event_id"], :name => "index_attendees_events_on_event_id"
 
-  create_table "celebrant_events", :id => false, :force => true do |t|
+  create_table "celebrants_events", :id => false, :force => true do |t|
     t.integer "user_id"
     t.integer "event_id"
   end
 
-  add_index "celebrant_events", ["event_id"], :name => "index_celebrant_events_on_event_id"
-  add_index "celebrant_events", ["user_id"], :name => "index_celebrant_events_on_user_id"
+  add_index "celebrants_events", ["event_id"], :name => "index_celebrant_events_on_event_id"
+  add_index "celebrants_events", ["user_id"], :name => "index_celebrant_events_on_user_id"
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(:version => 20120423170856) do
     t.integer "person_type_id"
   end
 
-  create_table "events_users", :id => false, :force => true do |t|
+  create_table "events_speakers", :id => false, :force => true do |t|
     t.integer "event_id"
     t.integer "user_id"
   end
