@@ -14,11 +14,11 @@
 			- if teaser.celebrants.count > 0
 				.event_celebrants
 					Celebrants:
-					= teaser.celebrants.collect { |c| link_to c.full_name, user_path(c) }.join(", ").html_safe
+					= teaser.celebrants.order('last_name asc').collect { |c| link_to c.full_name, user_path(c) }.join(", ").html_safe
 			- if teaser.speakers.count > 0
 				.event_speakers
 					Speakers:
-					= teaser.speakers.collect { |c| link_to c.full_name, user_path(c) }.join(", ").html_safe
+					= teaser.speakers.order('last_name asc').collect { |c| link_to c.full_name, user_path(c) }.join(", ").html_safe
 		%td.event_time{:style => 'width: 100px'}
 			= teaser.short_start
 			%br
