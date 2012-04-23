@@ -24,9 +24,6 @@
 			%br
 			.event_about_time
 				= distance_of_time_in_words(teaser.duration) rescue ''
-		%td.event_spots{:style => 'width: 40px'}
-			%span.event_spots_available= teaser.spots_left
-			spots left
 		%td{:style => 'width: 40px'}
 			.rsvp
 				= link_to "VIEW", event_path(teaser)
