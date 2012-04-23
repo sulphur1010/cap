@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423172917) do
+ActiveRecord::Schema.define(:version => 20120423181101) do
 
   create_table "attendees_events", :id => false, :force => true do |t|
     t.integer  "attendee_id"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20120423172917) do
     t.integer  "image_file_size"
     t.string   "image_file_name"
     t.datetime "image_updaetd_at"
+    t.boolean  "feature_on_homepage"
   end
 
   add_index "content_fragments", ["url"], :name => "index_content_fragments_on_url", :unique => true
