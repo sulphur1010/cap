@@ -18,4 +18,5 @@
 								says:
 						.thought_teaser
 							= strip_tags(thought.teaser) rescue ""
-							= link_to "Read more", thought_path(thought)
+							- if !thought.body.empty?
+								= link_to "Read more", thought_path(thought)
