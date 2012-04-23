@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 	after_initialize :load_roles
 	before_save :convert_roles
 	before_save :set_speaker
+	before_save :set_celebrant
 	before_create :add_user_role
 
 	def thoughts
@@ -92,4 +93,10 @@ class User < ActiveRecord::Base
 		self.speaker = @roles.include?("speaker")
 		true
 	end
+
+	def set_celebrant
+		self.celebrant = @roles.include?("celebrant")
+		true
+	end
+
 end

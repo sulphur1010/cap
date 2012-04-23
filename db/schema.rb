@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224141523) do
+ActiveRecord::Schema.define(:version => 20120423170856) do
 
   create_table "attendees_events", :id => false, :force => true do |t|
     t.integer  "attendee_id"
@@ -21,6 +22,14 @@ ActiveRecord::Schema.define(:version => 20120224141523) do
 
   add_index "attendees_events", ["attendee_id"], :name => "index_attendees_events_on_attendee_id"
   add_index "attendees_events", ["event_id"], :name => "index_attendees_events_on_event_id"
+
+  create_table "celebrant_events", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+  end
+
+  add_index "celebrant_events", ["event_id"], :name => "index_celebrant_events_on_event_id"
+  add_index "celebrant_events", ["user_id"], :name => "index_celebrant_events_on_user_id"
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -142,8 +151,8 @@ ActiveRecord::Schema.define(:version => 20120224141523) do
   add_index "menu_items", ["parent_id"], :name => "index_menu_items_on_parent_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                      :default => "", :null => false
-    t.string   "encrypted_password",         :default => "", :null => false
+    t.string   "email",                      :default => "",    :null => false
+    t.string   "encrypted_password",         :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -167,6 +176,7 @@ ActiveRecord::Schema.define(:version => 20120224141523) do
     t.string   "profile_image_file_name"
     t.datetime "profile_image_updated_at"
     t.text     "about"
+    t.boolean  "celebrant",                  :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

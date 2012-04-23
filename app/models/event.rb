@@ -28,6 +28,7 @@ class Event < ActiveRecord::Base
 	has_and_belongs_to_many :contemporary_issues
 	has_and_belongs_to_many :person_types
 	has_and_belongs_to_many :users
+	has_and_belongs_to_many :celebrants, :class_name => 'User', :association_foreign_key => 'user_id'
 	has_and_belongs_to_many :attendees, :class_name => 'User', :join_table => 'attendees_events', :association_foreign_key => 'attendee_id'
 
 	validates :type, :inclusion => { :in => Event.types }
