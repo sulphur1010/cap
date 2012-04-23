@@ -5,4 +5,6 @@
 	= f.input :published
 	= f.input :weight
 	= f.input :contemporary_issues, :collection => ContemporaryIssue.where(:published => true).order(:title).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
+	= f.input :thumbnail
+	= f.input :image
 	= f.buttons

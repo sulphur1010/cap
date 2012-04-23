@@ -6,5 +6,7 @@
 	= f.inputs :name => 'Advanced' do
 		= f.input :published
 		= f.input :teaser, :input_html => { :class => 'js_editor' }
+		= f.input :thumbnail
+		= f.input :image
 	= f.buttons do
 		= f.submit :value => (@story.new_record? ? 'Create News Story' : 'Update News Story')

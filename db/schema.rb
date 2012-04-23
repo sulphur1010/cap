@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20120423172917) do
   create_table "content_fragments", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.text     "body",         :limit => 16777215
+    t.text     "body",                   :limit => 16777215
     t.boolean  "published"
     t.datetime "published_at"
     t.text     "teaser"
@@ -68,6 +68,14 @@ ActiveRecord::Schema.define(:version => 20120423172917) do
     t.string   "category"
     t.string   "menu"
     t.boolean  "hide_header"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.string   "thumbnail_file_name"
+    t.datetime "thumbnail_updaetd_at"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.string   "image_file_name"
+    t.datetime "image_updaetd_at"
   end
 
   add_index "content_fragments", ["url"], :name => "index_content_fragments_on_url", :unique => true
@@ -171,9 +179,9 @@ ActiveRecord::Schema.define(:version => 20120423172917) do
     t.string   "role_list"
     t.integer  "chapter_id"
     t.string   "phone"
+    t.string   "profile_image_file_name"
     t.string   "profile_image_content_type"
     t.integer  "profile_image_file_size"
-    t.string   "profile_image_file_name"
     t.datetime "profile_image_updated_at"
     t.text     "about"
     t.boolean  "celebrant",                  :default => false

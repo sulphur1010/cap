@@ -3,6 +3,9 @@
 	%h2
 		Contemporary Issue:
 		%span.contemporary_issue_title= @contemporary_issue.title
+	- if @contemporary_issue.image?
+		%br
+		= image_tag @contemporary_issue.image.url(:normal), :class => 'content_fragment_header_image'
 	= @contemporary_issue.body.html_safe rescue ""
 	- if !@contemporary_issue.encyclicals.empty?
 		Related Encyclicals:

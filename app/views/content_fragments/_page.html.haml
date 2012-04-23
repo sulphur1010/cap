@@ -5,4 +5,7 @@
 - if page.class.to_s == "Thought"
 	.thought_quote= strip_tags(@thought.teaser) rescue ''
 	%br
+- if page.image?
+	%br
+	= image_tag page.image.url(:normal), :class => 'content_fragment_header_image'
 = page.body.html_safe rescue ""
