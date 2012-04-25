@@ -44,6 +44,7 @@ CappUsa::Application.routes.draw do
 
 	match 'what_is_cst' => 'home#what_is_cst'
 	match 'study_center' => 'home#study_center'
+	match 'search' => 'search#index'
 
 	# The priority is based upon order of creation:
 	# first created -> highest priority.

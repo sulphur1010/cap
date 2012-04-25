@@ -89,6 +89,7 @@ select {
     right: 0px;
 	}
 .no_results {
+	padding: 3px;
 	border: 0px;
 	background: #afd4d4;
 }
@@ -114,7 +115,7 @@ select {
 }
 
 /*--Header*/
-#header{width:1001px;clear:both;}
+#header{width:1001px;clear:both;position:relative;}
 /*----logo*/
 
 /*----Top Navigation & Search Box*/
@@ -738,7 +739,8 @@ table.thought_block tr td {
 
 .event_left_menu_container,
 .story_left_menu_container,
-.thought_left_menu_container {
+.thought_left_menu_container,
+.search_left_menu_container {
 	border-top: 1px solid #ccc;
 }
 
@@ -1062,3 +1064,75 @@ a.encyclical_link {
 	padding-bottom: 10px;
 }
 
+.search_result_title {
+	font-weight: bold;
+	font-size: 1.1em;
+	padding-bottom: 8px;
+}
+
+.search_result_date {
+	float: left;
+	padding-right: 15px;
+	color: #666;
+	font-size: 0.8em;
+	font-weight: bold;
+}
+
+.search_result {
+	padding: 5px;
+	padding-bottom: 8px;
+	margin-bottom: 8px;
+	border-bottom: 1px dotted #aaa;
+}
+
+.search_result_type {
+	float: left;
+	padding: 1px 8px;
+	border: 1px solid;
+	font-size: 1em;
+	position: relative;
+	top: -2px;
+}
+
+.search_result_highlight {
+	font-weight: bold;
+	color: black;
+}
+
+.search_page_form {
+	padding-left: 0;
+	margin-left: 0;
+
+	.search_input {
+		padding: 4px;
+		margin-left: 0;
+		border: 1px solid #ccc;
+		color: #444;
+		font-size: 1.2em;
+	}
+}
+
+.search_left_menu {
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+	.left_menu_item {
+		padding-left: 10px;
+	}
+}
+
+table.search_left_menu_container .content_with_left_menu {
+	padding: 0;
+}
+
+#search_box {
+	position: absolute;
+	top: 70px;
+	right: 10px;
+
+	.search_input {
+		padding: 3px;
+		color: #444;
+		font-size: 0.9em;
+	}
+}

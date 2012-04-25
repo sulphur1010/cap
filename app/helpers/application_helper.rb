@@ -1,4 +1,23 @@
 module ApplicationHelper
+
+	def search_result_type_mapper(type)
+		type = "Article" if type == "Thought"
+		type = "News" if type == "Story"
+		type.underscore.humanize.titlecase
+	end
+
+	def object_url(object)
+		if object.class == Page
+			return object.url
+		end
+
+		if object.class == Block
+			return '/'
+		end
+
+		polymorphic_url(object)
+	end
+
 	def is_admin?(&block)
 		if block_given?
 			yield if current_user && current_user.has_role?("admin")

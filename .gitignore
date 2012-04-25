@@ -3,7 +3,9 @@ public/assets
 db/*.sqlite3
 log/*.log
 log/*_log
+log/*.lck
 tmp/
 .sass-cache/
 *.swp
 public/system
+solr/data

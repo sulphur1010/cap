@@ -1,0 +1,13 @@
+.search_result
+	.search_result_title
+		%a{:href => object_url(result.instance)}= result.instance.title
+	.search_result_date= result.instance.updated_at.strftime("%b %d, %Y")
+	.search_result_type{:class => "search_type_#{result.instance.type.underscore}"}= search_result_type_mapper(result.instance.type)
+	.clear{:style => "clear: both"}
+	.search_result_body
+		- highlights = result.highlights(:body)
+		- if highlights.size > 0
+			= highlights.first.format { |phrase| "<span class=\"search_result_highlight\">#{phrase}</span>" }.html_safe
+		- else
+			%p= strip_tags(result.instance.body)[0..255]
+

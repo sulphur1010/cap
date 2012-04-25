@@ -1,6 +1,12 @@
 class Event < ActiveRecord::Base
 	Event.inheritance_column = :event_type_not_used
 
+	searchable do
+		text :title, :stored => true
+		text :body, :stored => true
+		string :type do 'Event' end
+	end
+
 	class EndDateValidator < ActiveModel::EachValidator
 		def validate_each(record, attribute, value)
 			if record.start_date

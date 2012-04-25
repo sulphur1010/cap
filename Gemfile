@@ -29,6 +29,11 @@ gem 'paperclip', '2.6.0'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
+gem 'rsolr', '1.0.7'
+gem 'sunspot', '1.3.0'
+gem 'sunspot_solr', '1.3.0'
+gem 'sunspot_rails', '1.3.0'
+
 group :assets do
 	gem 'sass-rails', '~> 3.1.0'
 	gem 'uglifier'

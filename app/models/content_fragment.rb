@@ -1,4 +1,11 @@
 class ContentFragment < ActiveRecord::Base
+
+	searchable :include => [ :user ] do
+		text :title, :stored => true
+		text :body, :stored => true
+		string :type
+	end
+
 	belongs_to :user
 	has_and_belongs_to_many :contemporary_issues
 	has_and_belongs_to_many :person_types
@@ -22,6 +29,14 @@ class ContentFragment < ActiveRecord::Base
 	def formatted_published_at
 		return unless self.published_at
 		self.published_at.strftime("%h %d, %Y %H:%M%P")
+	end
+
+	def self.types
+		types = ContentFragment.group(:type).collect { |c| c.type }
+		types << "Event"
+		types = types.sort
+		types.delete("Block")
+		types
 	end
 
 	private
