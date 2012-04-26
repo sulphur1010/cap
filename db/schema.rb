@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426002430) do
+ActiveRecord::Schema.define(:version => 20120426010753) do
 
   create_table "attendees_events", :id => false, :force => true do |t|
     t.integer  "attendee_id"
@@ -71,11 +71,11 @@ ActiveRecord::Schema.define(:version => 20120426002430) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.string   "thumbnail_file_name"
-    t.datetime "thumbnail_updaetd_at"
+    t.datetime "thumbnail_updated_at"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.string   "image_file_name"
-    t.datetime "image_updaetd_at"
+    t.datetime "image_updated_at"
     t.boolean  "feature_on_homepage"
     t.string   "translated_title"
   end

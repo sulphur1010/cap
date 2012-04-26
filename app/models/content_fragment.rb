@@ -25,6 +25,8 @@ class ContentFragment < ActiveRecord::Base
 
 	scope :of_type, lambda {|t| where("type = ?", t) }
 	scope :thoughts, of_type('Thought')
+	scope :no_body, where(:body => '')
+	scope :has_body, where("body != ''")
 
 	def formatted_published_at
 		return unless self.published_at

@@ -32,12 +32,20 @@
 				- @user.events.each do |event|
 					.event_teaser_list_item
 						= render :partial => 'events/teaser', :object => event
-	- if !@user.thoughts.empty?
+	- if !@user.thoughts.has_body.empty?
 		%hr
 		.page
 			%h4 Articles on CST:
 			#js_thought_list
-				- @user.thoughts.each do |thought|
+				- @user.thoughts.has_body.each do |thought|
+					.thought_teaser_list_item
+						= render :partial => 'thoughts/teaser', :object => thought
+	- if !@user.thoughts.no_body.empty?
+		%hr
+		.page
+			%h4 Quotes:
+			#js_quotes_list
+				- @user.thoughts.no_body.each do |thought|
 					.thought_teaser_list_item
 						= render :partial => 'thoughts/teaser', :object => thought
 

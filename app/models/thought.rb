@@ -1,4 +1,5 @@
 class Thought < ContentFragment
+
 	def self.random(count = 1)
 		thoughts = Thought.where(:published => true).where(:feature_on_homepage => true)
 		ret = []
