@@ -19,7 +19,7 @@ class Admin::ContemporaryIssuesController < ApplicationController
 
 	def create
 		@contemporary_issue = ContemporaryIssue.new(params[:contemporary_issue])
-		@contemporary_issue.user = current_user
+		@contemporary_issue.users << current_user
 		@contemporary_issue.save!
 		respond_with(@contemporary_issue, :location => contemporary_issues_url)
 	end

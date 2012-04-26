@@ -27,6 +27,7 @@ class ContentFragment < ActiveRecord::Base
 	scope :thoughts, of_type('Thought')
 	scope :no_body, where(:body => '')
 	scope :has_body, where("body != ''")
+	scope :published, where(:published => true)
 
 	def formatted_published_at
 		return unless self.published_at

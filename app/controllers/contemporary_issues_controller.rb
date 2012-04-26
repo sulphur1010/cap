@@ -30,7 +30,7 @@ class ContemporaryIssuesController < ApplicationController
 
 	def load_contemporary_issues
 		@person_type = PersonType.find(params[:q]) rescue nil
-		@contemporary_issues = @person_type.contemporary_issues.sort_by(&:title) rescue ContemporaryIssue.all.sort_by(&:title)
+		@contemporary_issues = @person_type.contemporary_issues.published.sort_by(&:title) rescue ContemporaryIssue.published.sort_by(&:title)
 	end
 
 end
