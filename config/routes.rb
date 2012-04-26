@@ -17,6 +17,11 @@ CappUsa::Application.routes.draw do
 		resources :stories
 		resources :thoughts
 		resources :users
+		resources :email_addresses do
+			collection do
+				get 'raw'
+			end
+		end
 	end
 
 	resources :contemporary_issues do
