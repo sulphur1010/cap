@@ -1,0 +1,13 @@
+.board_member
+	.board_member_image
+		= link_to image_tag(board_member.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'), user_path(board_member)
+	.board_member_content
+		.user_info
+			= link_to board_member.full_name, user_path(board_member)
+			%br
+			.user_title
+				= board_member.title
+				- if board_member.chapter
+					= "- #{board_member.chapter.name}"
+			.user_about= board_member.about
+	%div{:style => 'clear:both'}

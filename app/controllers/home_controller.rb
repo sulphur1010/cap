@@ -11,4 +11,8 @@ class HomeController < ApplicationController
 	def study_center
 		@page = Page.where(:url => '/study_center').first
 	end
+
+	def about_us_national_board
+		@page = Page.where(:url => '/about_us/national_board').first
+	end
 end

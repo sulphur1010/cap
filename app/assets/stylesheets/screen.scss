@@ -1143,3 +1143,34 @@ table.search_left_menu_container .content_with_left_menu {
 	padding-bottom: 5px;
 	font-weight: bold;
 }
+
+table.left_menu_container .national_board_member_content {
+	padding: 0;
+
+	.board_member {
+		padding: 20px;
+		border-bottom: 1px solid #aaa;
+
+		.board_member_image {
+			float: left;
+			padding-right: 15px;
+		}
+
+		.user_info {
+			font-weight: bold;
+		}
+
+		.user_info a {
+			font-size: 1.3em;
+			padding-bottom: 3px;
+		}
+
+		.user_title {
+			padding-bottom: 10px;
+		}
+
+		.user_about {
+			font-weight: normal;
+		}
+	}
+}

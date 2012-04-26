@@ -1,0 +1,6 @@
+%table.left_menu_container
+	%tr
+		%td.left_menu
+			= render :partial => 'shared/about_menu'
+		%td.content_with_left_menu.national_board_member_content
+			= render :partial => 'users/board_member', :collection => User.national_board_members
