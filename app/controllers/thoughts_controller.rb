@@ -4,7 +4,7 @@ class ThoughtsController < ApplicationController
 
 	def index
 		if request.xhr?
-			@thoughts = Thought.where(:published => true).order(:published_at)
+			@thoughts = Thought.has_body.where(:published => true).order(:published_at)
 			if params[:contemporary_issue]
 				ids = params[:contemporary_issue].split(/,/)
 				if ids.count > 0
@@ -29,7 +29,7 @@ class ThoughtsController < ApplicationController
 			render :action => 'ajax_list', :layout => false
 			return
 		end
-		respond_with(@thoughts = Thought.where(:published => true).order(:published_at))
+		respond_with(@thoughts = Thought.where(:published => true).has_body.order(:published_at))
 	end
 
 	def show
