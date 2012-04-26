@@ -1,6 +1,15 @@
 .page
 	%h2 Events
 	Find a Conference, Course, Lecture or Retreat near you.
+.event_header_navigation
+	- if controller.action_name == 'past'
+		= link_to 'upcoming', events_path
+		\/
+		%span past
+	- else
+		%span upcoming
+		\/
+		= link_to 'past', past_events_path
 %table.left_menu_container.event_left_menu_container
 	%tr
 		%td.left_menu.event_left_menu

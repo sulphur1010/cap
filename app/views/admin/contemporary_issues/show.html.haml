@@ -16,7 +16,7 @@
 %hr
 .page
 	%h2= "Courses & Events Related to #{@contemporary_issue.title}"
-	= render :partial => 'events/teaser', :collection => Event.upcoming(100)
+	= render :partial => 'events/teaser', :collection => Event.upcoming.limit(100)
 - speakers = @contemporary_issue.speakers
 - if !speakers.empty?
 	%hr

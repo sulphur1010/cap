@@ -1,4 +1,4 @@
-- event = Event.upcoming_event(1).first
+- event = Event.upcoming.event_types.limit(1).first
 - if event
 	#home_upcoming_course
 		%h4

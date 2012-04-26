@@ -36,6 +36,9 @@ CappUsa::Application.routes.draw do
 			get 'rsvp'
 			post 'unrsvp'
 		end
+		collection do
+			get 'past'
+		end
 	end
 	resources :locations
 	resources :person_types

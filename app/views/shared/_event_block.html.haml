@@ -1,4 +1,4 @@
-- events = Event.upcoming(3)
+- events = Event.upcoming.limit(3)
 - if !events.empty?
   %table.right_col.events_block
     %tr

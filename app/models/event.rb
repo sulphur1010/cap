@@ -1,10 +1,15 @@
 class Event < ActiveRecord::Base
 	Event.inheritance_column = :event_type_not_used
 
+	scope :past, where("end_date < ?", (Time.now - 1.day)).order(:start_date)
+	scope :upcoming, where("end_date >= ?", (Time.now - 1.day)).order(:start_date)
+	scope :course_types, where(:type => "Course").order(:start_date)
+	scope :event_types, where("type <> 'Course'").order(:start_date)
+
 	searchable do
 		text :title, :stored => true
 		text :body, :stored => true
-		string :type do 'Event' end
+		string :type
 	end
 
 	class EndDateValidator < ActiveModel::EachValidator
@@ -44,22 +49,6 @@ class Event < ActiveRecord::Base
 
 	def spots_left
 		[self.spots_available - self.attendees.count,0].max rescue 0
-	end
-
-	def self.courses
-		Event.where("start_date > ?", Time.now).where(:type => 'Course').order(:start_date)
-	end
-
-	def self.upcoming(num = 3)
-		Event.where("start_date > ?", Time.now).order(:start_date).limit(num)
-	end
-
-	def self.upcoming_course(num = 1)
-		Event.courses.limit(num)
-	end
-
-	def self.upcoming_event(num = 1)
-		Event.where("start_date > ?", Time.now).where("type <> ?", 'Course').order(:start_date).limit(num)
 	end
 
 	def short_start
