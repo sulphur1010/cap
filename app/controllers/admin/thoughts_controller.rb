@@ -24,14 +24,14 @@ class Admin::ThoughtsController < ApplicationController
 
 	def create
 		@thought = Thought.new(params[:thought])
-		@thought.user = current_user
+		@thought.users << current_user
 		@thought.save!
 		respond_with(@thought, :location => admin_thoughts_url)
 	end
 
 	def edit
 		@thought = Thought.find(params[:id])
-		if @thought.user == current_user || is_admin?
+		if @thought.users.include?(current_user) || is_admin?
 			respond_with(@thought)
 		else
 			not_found
@@ -40,7 +40,7 @@ class Admin::ThoughtsController < ApplicationController
 
 	def update
 		@thought = Thought.find(params[:id])
-		if @thought.user == current_user || is_admin?
+		if @thought.users.include?(current_user) || is_admin?
 			respond_with(@thought = Thought.update(params[:id], params[:thought]), :location => admin_thoughts_url)
 		else
 			not_found

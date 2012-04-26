@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 	belongs_to :person_type
 	has_and_belongs_to_many :contemporary_issues
 	has_and_belongs_to_many :events, :join_table => 'events_speakers'
-	has_many :content_fragments
+	has_and_belongs_to_many :content_fragments;
 	has_attached_file :profile_image, :styles => { :small => "80x80>" }
 	has_and_belongs_to_many :attended_events, :class_name => 'Event', :join_table => 'attendees_events', :foreign_key => 'attendee_id'
 

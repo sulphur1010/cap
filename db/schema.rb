@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426010753) do
+ActiveRecord::Schema.define(:version => 20120426013145) do
 
   create_table "attendees_events", :id => false, :force => true do |t|
     t.integer  "attendee_id"
@@ -87,6 +87,16 @@ ActiveRecord::Schema.define(:version => 20120426010753) do
     t.integer "content_fragment_id"
     t.integer "person_type_id"
   end
+
+  create_table "content_fragments_users", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "content_fragment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "content_fragments_users", ["content_fragment_id"], :name => "index_content_fragments_users_on_content_fragment_id"
+  add_index "content_fragments_users", ["user_id"], :name => "index_content_fragments_users_on_user_id"
 
   create_table "email_addresses", :force => true do |t|
     t.string   "email"

@@ -1,7 +1,8 @@
 .page
 	= render :partial => 'content_fragments/page', :object => @thought
-	%h4 Written by:
-	= render :partial => 'users/list', :object => [@thought.user]
+	- if !@thought.users.empty?
+		%h4 Written by:
+		= render :partial => 'users/list', :object => @thought.users
 	= render :partial => 'contemporary_issues/list', :object => @thought
 :javascript
 	$(function() {

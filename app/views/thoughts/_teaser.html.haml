@@ -3,10 +3,11 @@
 		%td
 			%h5.thought_title= link_to teaser.title, thought_path(teaser)
 			.thought_teaser= strip_tags(teaser.teaser) rescue ""
-			- if teaser.user
-				.thought_author_container
-					by:
-					= link_to teaser.user.full_name, user_path(teaser.user)
-					posted on:
-					.published_at= teaser.formatted_published_at
+			- if !teaser.users.empty?
+				- teaser.users.each do |user|
+					.thought_author_container
+						by:
+						= link_to user.full_name, user_path(user)
+			posted on:
+			.published_at= teaser.formatted_published_at
 

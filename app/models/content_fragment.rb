@@ -6,7 +6,7 @@ class ContentFragment < ActiveRecord::Base
 		string :type
 	end
 
-	belongs_to :user
+	has_and_belongs_to_many :users
 	has_and_belongs_to_many :contemporary_issues
 	has_and_belongs_to_many :person_types
 
@@ -16,7 +16,7 @@ class ContentFragment < ActiveRecord::Base
 	has_many :encyclical_references
 	has_many :encyclicals, :through => :encyclical_references
 
-	alias :author :user
+	alias :authors :users
 
 	before_save :set_type
 	before_save :set_published_at
