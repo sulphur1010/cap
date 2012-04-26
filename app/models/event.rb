@@ -1,4 +1,9 @@
 class Event < ActiveRecord::Base
+
+	def helpers
+		ActionController::Base.helpers
+	end
+
 	Event.inheritance_column = :event_type_not_used
 
 	scope :past, where("end_date < ?", (Time.now - 1.day)).order(:start_date)
@@ -69,5 +74,12 @@ class Event < ActiveRecord::Base
 	def duration
 		return unless self.end_date && self.start_date
 		self.end_date - self.start_date
+	end
+
+	def duration_in_words
+		if self.end_date && self.start_date && self.end_date.to_date != self.start_date.to_date
+			return "#{(self.end_date.to_date - self.start_date.to_date).to_i + 1} days"
+		end
+		helpers.distance_of_time_in_words(self.end_date, self.start_date, false).sub(/about /, '').sub(/less than /, '')
 	end
 end

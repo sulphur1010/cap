@@ -7,7 +7,7 @@
 	%tr.first_row
 		%td.first_block
 			= Block.display("study_center_courses")
-			= select_tag 'courses', options_for_select({"Choose a Course" => ""}) + options_from_collection_for_select(Event.courses, "id", "title")
+			= select_tag 'courses', options_for_select({"Choose a Course" => ""}) + options_from_collection_for_select(Event.course_types, "id", "title")
 			:javascript
 				$("#courses").change(function() {
 					id = $(this).val();
