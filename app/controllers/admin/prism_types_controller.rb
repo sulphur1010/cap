@@ -19,7 +19,7 @@ class Admin::PrismTypesController < ApplicationController
 
 	def create
 		@prism_type = PrismType.new(params[:prism_type])
-		@prism_type.user = current_user
+		@prism_type.users << current_user
 		@prism_type.save!
 		respond_with(@prism_type, :location => admin_prism_types_url)
 	end

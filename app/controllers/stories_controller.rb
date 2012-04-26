@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
 
 	def index
 		if request.xhr?
-			@stories = Story.where(:published => true).order(:created_at)
+			@stories = Story.published.order(:created_at)
 			if params[:category]
 				types = params[:category].split(/,/)
 				if types.count > 0
@@ -19,7 +19,7 @@ class StoriesController < ApplicationController
 			render :action => 'ajax_list', :layout => false
 			return
 		end
-		respond_with(@stories = Story.where(:published => true).order(:updated_at))
+		respond_with(@stories = Story.published.order(:updated_at))
 	end
 
 	def show

@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
 	def view
 		url = request.path
-		@page = Page.where(:url => request.path).where(:published => true).first
+		@page = Page.where(:url => request.path).published.first
 		if !@page
 			not_found
 		else

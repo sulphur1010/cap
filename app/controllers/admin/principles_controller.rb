@@ -19,7 +19,7 @@ class Admin::PrinciplesController < ApplicationController
 
 	def create
 		@principle = Principle.new(params[:principle])
-		@principle.user = current_user
+		@principle.users << current_user
 		@principle.save!
 		respond_with(@principle, :location => admin_principles_url)
 	end

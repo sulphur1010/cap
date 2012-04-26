@@ -18,7 +18,7 @@ class Admin::PagesController < ApplicationController
 
 	def create
 		@page = Page.new(params[:page])
-		@page.user = current_user
+		@page.users << current_user
 		@page.save!
 		respond_with(@page, :location => admin_pages_url)
 	end

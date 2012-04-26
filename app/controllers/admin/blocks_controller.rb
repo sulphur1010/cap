@@ -18,7 +18,7 @@ class Admin::BlocksController < ApplicationController
 
 	def create
 		@block = Block.new(params[:block])
-		@block.user = current_user
+		@block.users << current_user
 		@block.save!
 		respond_with(@block, :location => admin_blocks_url)
 	end

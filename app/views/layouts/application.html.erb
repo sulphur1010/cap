@@ -71,7 +71,7 @@
 		<td width='452px'>
 			<p class='footer_title'>Contemporary Issues</p>
 			<hr class='single_line'>
-			<% contemporary_issues = ContemporaryIssue.where(:published => true).order(:title) %>
+			<% contemporary_issues = ContemporaryIssue.published.order(:title) %>
 			<% contemporary_issues.each do |issue| %>
 				<%= link_to issue.title, contemporary_issue_path(issue), :class => 'footer_link' %>
 			<% end %>

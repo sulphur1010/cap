@@ -19,7 +19,7 @@ class Admin::RoleTypesController < ApplicationController
 
 	def create
 		@role_type = RoleType.new(params[:role_type])
-		@role_type.user = current_user
+		@role_type.users << current_user
 		@role_type.save!
 		respond_with(@role_type, :location => admin_role_types_url)
 	end

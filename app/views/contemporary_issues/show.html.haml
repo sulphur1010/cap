@@ -22,10 +22,11 @@
 			= strip_tags(thought.teaser)
 			= link_to 'Read more', thought_path(thought)
 		.thought_author_container
-			- if thought.user
+			- if !thought.users.empty?
 				by:
-				.thought_author= link_to thought.user.full_name, user_path(thought.user)
-				.thought_image= link_to image_tag(thought.user.profile_image(:small), :class => 'profile_image', :width => 24, :height => 24, :class => 'user_image'), user_path(thought.user)
+				- thought.users.each do |user|
+					.thought_author= link_to user.full_name, user_path(user)
+					.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 24, :height => 24, :class => 'user_image'), user_path(user)
 - if !@contemporary_issue.events.empty?
 	%hr
 	.page

@@ -5,7 +5,7 @@
 	= f.input :body, :input_html => { :class => 'js_editor' }
 	= f.input :published
 	= f.input :published_at, :as => :string, :input_html => { :class => 'js_datetime' }
-	= f.input :user, :collection => User.all.collect { |c| [c.full_name, c.id] }, :label => "Author"
+	= f.input :users, :collection => User.all.collect { |c| [c.full_name, c.id] }, :label => "Author", :input_html => { :class => 'js_multiselect' }
 	= f.input :thumbnail
 	= f.input :image
 	= f.buttons

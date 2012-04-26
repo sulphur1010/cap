@@ -8,7 +8,7 @@ class ContemporaryIssue < ContentFragment
 	end
 
 	def random_thought
-		thoughts = self.content_fragments.where(:type => 'Thought').where(:published => true)
+		thoughts = self.content_fragments.published.where(:type => 'Thought')
 		thoughts[rand(thoughts.count)]
 	end
 

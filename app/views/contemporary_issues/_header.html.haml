@@ -1,6 +1,6 @@
 .page
 	%h2.inline Contemporary Issues
-	= select_tag 'person_type', options_for_select({"Choose a Perspective" => ""}) + options_from_collection_for_select(PersonType.where(:published => true).order(:weight), "id", "name", (@person_type.id rescue ''))
+	= select_tag 'person_type', options_for_select({"Choose a Perspective" => ""}) + options_from_collection_for_select(PersonType.published.order(:weight), "id", "name", (@person_type.id rescue ''))
 	:javascript
 		$("#person_type").change(function() {
 			id = $(this).val();

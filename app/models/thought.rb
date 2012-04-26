@@ -1,7 +1,7 @@
 class Thought < ContentFragment
 
 	def self.random(count = 1)
-		thoughts = Thought.has_body.where(:published => true).where(:feature_on_homepage => true)
+		thoughts = Thought.has_body.published.where(:feature_on_homepage => true)
 		ret = []
 		ids = []
 		max = thoughts.count

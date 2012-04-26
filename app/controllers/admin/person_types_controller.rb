@@ -19,7 +19,7 @@ class Admin::PersonTypesController < ApplicationController
 
 	def create
 		@person_type = PersonType.new(params[:person_type])
-		@person_type.user = current_user
+		@person_type.users << current_user
 		@person_type.save!
 		respond_with(@person_type, :location => admin_person_types_url)
 	end

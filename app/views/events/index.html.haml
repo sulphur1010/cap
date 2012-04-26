@@ -27,7 +27,7 @@
 						= type
 			.left_menu_item
 				%strong For:
-				- PersonType.where(:published => true).order(:weight).each do |person_type|
+				- PersonType.published.order(:weight).each do |person_type|
 					.element{:'data-category' => 'person_type', :'data-value' => person_type.id }
 						= check_box_tag :whatever
 						= person_type.name
@@ -39,7 +39,7 @@
 						= chapter.name
 			.left_menu_item
 				%strong Contemporary Issues:
-				- ContemporaryIssue.where(:published => true).order(:title).each do |issue|
+				- ContemporaryIssue.published.order(:title).each do |issue|
 					.element{:'data-category' => 'contemporary_issue', :'data-value' => issue.id }
 						= check_box_tag :whatever
 						= issue.title

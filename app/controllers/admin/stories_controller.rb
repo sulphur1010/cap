@@ -19,7 +19,7 @@ class Admin::StoriesController < ApplicationController
 
 	def create
 		@story = Story.new(params[:story])
-		@story.user = current_user
+		@story.users << current_user
 		@story.save
 		respond_with(@story, :location => admin_stories_url)
 	end
