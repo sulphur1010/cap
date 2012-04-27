@@ -17,6 +17,13 @@ CappUsa::Application.routes.draw do
 		resources :stories
 		resources :thoughts
 		resources :users
+		resources :questions
+		resources :answers
+		resources :content_fragments do
+			collection do
+				get 'type_options/:content_fragment_type', :action => 'type_options'
+			end
+		end
 		resources :email_addresses do
 			collection do
 				get 'raw'

@@ -110,3 +110,11 @@ end
 EmailAddress.blueprint do
   # Attributes here
 end
+
+Question.blueprint do
+  # Attributes here
+end
+
+Answer.blueprint do
+  # Attributes here
+end

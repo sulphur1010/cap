@@ -1,6 +1,10 @@
 module ApplicationHelper
 
-	def search_result_type_mapper(type)
+	def content_fragment_type_map
+		ContentFragment.types.map { |t| [content_fragment_type_mapper(t), t] }.sort { |a,b| a[0] <=> b[0] }
+	end
+
+	def content_fragment_type_mapper(type)
 		type = "Article" if type == "Thought"
 		type = "News" if type == "Story"
 		type.underscore.humanize.titlecase

@@ -1,0 +1,19 @@
+= semantic_form_for [:admin, @question] do |f|
+	= f.inputs :name => 'Basic' do
+		= f.input :content_fragment_type, :label => 'Type', :as => :select, :collection => content_fragment_type_map, :include_blank => false
+		= f.input :content_fragment, :collection => ContentFragment.where(:type => 'Thought').order(:title), :include_blank => false
+		= f.input :body, :input_html => { :class => 'js_editor' }
+	= f.buttons
+:javascript
+	$(function() {
+		$(document).delegate('#question_content_fragment_type', 'change', function() {
+			var cl = $(this).val();
+			$.ajax({
+				async: true,
+				url: '/admin/content_fragments/type_options/' + cl,
+				success: function(data) {
+					$('#question_content_fragment_id').html(data);
+				}
+			});
+		});
+	});

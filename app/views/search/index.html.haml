@@ -10,7 +10,7 @@
 				.element{:'data-category' => 'type', :'data-value' => 'All'}
 					= check_box_tag :whatever
 					Entire Site
-				- ContentFragment.types.collect { |type| [ search_result_type_mapper(type), type ] }.sort { |a, b| a[0] <=> b[0] }.each do |data|
+				- content_fragment_type_map.each do |data|
 					.element{:'data-category' => 'search_type', :'data-value' => data[1]}
 						= check_box_tag :whatever
 						= data[0]

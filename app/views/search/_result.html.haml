@@ -2,7 +2,7 @@
 	.search_result_title
 		%a{:href => object_url(result.instance)}= result.instance.title
 	.search_result_date= result.instance.updated_at.strftime("%b %d, %Y")
-	.search_result_type{:class => "search_type_#{result.instance.type.underscore}"}= search_result_type_mapper(result.instance.type)
+	.search_result_type{:class => "search_type_#{result.instance.type.underscore}"}= content_fragment_type_mapper(result.instance.type)
 	.clear{:style => "clear: both"}
 	.search_result_body
 		- highlights = result.highlights(:body)

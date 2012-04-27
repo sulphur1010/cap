@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426015452) do
+ActiveRecord::Schema.define(:version => 20120427165028) do
+
+  create_table "answers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
+  add_index "answers", ["user_id"], :name => "index_answers_on_user_id"
 
   create_table "attendees_events", :id => false, :force => true do |t|
     t.integer  "attendee_id"
@@ -170,6 +181,17 @@ ActiveRecord::Schema.define(:version => 20120426015452) do
   add_index "menu_items", ["menu"], :name => "index_menu_items_on_menu"
   add_index "menu_items", ["parent_id"], :name => "index_menu_items_on_parent_id"
 
+  create_table "questions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "content_fragment_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["content_fragment_id"], :name => "index_questions_on_content_fragment_id"
+  add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "email",                      :default => "",    :null => false
     t.string   "encrypted_password",         :default => "",    :null => false
@@ -191,9 +213,9 @@ ActiveRecord::Schema.define(:version => 20120426015452) do
     t.string   "role_list"
     t.integer  "chapter_id"
     t.string   "phone"
-    t.string   "profile_image_file_name"
     t.string   "profile_image_content_type"
     t.integer  "profile_image_file_size"
+    t.string   "profile_image_file_name"
     t.datetime "profile_image_updated_at"
     t.text     "about"
     t.boolean  "celebrant",                  :default => false
