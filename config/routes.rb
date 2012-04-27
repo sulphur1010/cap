@@ -18,7 +18,6 @@ CappUsa::Application.routes.draw do
 		resources :thoughts
 		resources :users
 		resources :questions
-		resources :answers
 		resources :content_fragments do
 			collection do
 				get 'type_options/:content_fragment_type', :action => 'type_options'

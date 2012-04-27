@@ -11,18 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120427165028) do
-
-  create_table "answers", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "question_id"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
-  add_index "answers", ["user_id"], :name => "index_answers_on_user_id"
+ActiveRecord::Schema.define(:version => 20120427194240) do
 
   create_table "attendees_events", :id => false, :force => true do |t|
     t.integer  "attendee_id"
@@ -187,6 +176,7 @@ ActiveRecord::Schema.define(:version => 20120427165028) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "answer_body"
   end
 
   add_index "questions", ["content_fragment_id"], :name => "index_questions_on_content_fragment_id"

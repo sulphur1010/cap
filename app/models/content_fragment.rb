@@ -15,6 +15,7 @@ class ContentFragment < ActiveRecord::Base
 
 	has_many :encyclical_references
 	has_many :encyclicals, :through => :encyclical_references
+	has_many :questions
 
 	alias :authors :users
 

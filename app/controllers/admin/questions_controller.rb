@@ -26,4 +26,8 @@ class Admin::QuestionsController < ApplicationController
 		respond_with(@question = Question.update(params[:id], params[:question]), :location => admin_questions_url)
 	end
 
+	def destroy
+		respond_with(@Question = Question.delete(params[:id]), :location => admin_questions_url)
+	end
+
 end

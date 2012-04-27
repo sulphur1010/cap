@@ -1,8 +1,10 @@
 .page
 	%h2 All Questions
-	- table(@questions, ['summary', '']) do |question, klass|
+	- table(@questions, ['type', 'title', 'summary', '']) do |question, klass|
 		%tr{:class => klass}
-			%td= question.body
+			%td= question.content_fragment.class.to_s
+			%td= link_to question.content_fragment.title, question.content_fragment
+			%td= strip_tags(question.summary)
 			%td.controls
 				= link_to 'Edit', edit_admin_question_path(question)
 				= link_to 'Delete', admin_question_path(question), :method => :delete, :confirm => "Are you sure?"
