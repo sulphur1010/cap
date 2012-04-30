@@ -20,7 +20,11 @@ class SearchController < ApplicationController
 		end
 		@results = @search.results
 		if request.xhr?
-			render :partial => 'result', :collection => @search.hits
+			if @search.hits.empty?
+				render :partial => 'no_results'
+			else
+				render :partial => 'result', :collection => @search.hits
+			end
 			return
 		end
 	end

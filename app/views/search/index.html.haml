@@ -17,7 +17,7 @@
 		%td.content_with_left_menu
 			#js_search_results
 				- if @search.total == 0
-					.no_results No results found
+					= render :partial => 'no_results'
 				- else
 					= render :partial => 'result', :collection => @search.hits
 :javascript
