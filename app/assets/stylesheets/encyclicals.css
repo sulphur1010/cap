@@ -2,3 +2,37 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+table.encyclical_left_menu_container td.content_with_left_menu {
+	padding: 0;
+}
+
+table.encyclical_left_menu_container .content_with_left_menu {
+	background-image: none;
+}
+
+table.encyclical_teaser_list tr td {
+	padding: 8px 5px;
+}
+
+table.encyclical_teaser_list tr.even {
+	background-color: #f0f0f0;
+}
+
+table.encyclical_teaser_list .encyclical_title {
+	width: 150px;
+}
+
+table.encyclical_teaser_list .encyclical_teaser {
+	width: 150px;
+}
+
+table.encyclical_teaser_list .encyclical_author {
+	width: 150px;
+	font-weight: bold;
+	color: #555;
+}
+
+table.encyclical_teaser_list .encyclical_published_at {
+	width: 125px;
+}

@@ -1,0 +1,7 @@
+%tr{:class => cycle("odd", "even")}
+	%td.encyclical_title= link_to teaser.title, encyclical_path(teaser)
+	%td.encyclical_teaser= teaser.teaser
+	%td.encyclical_author
+		- teaser.authors.each do |author|
+			.author= author.full_name rescue ''
+	%td.encyclical_published_at= teaser.published_at.strftime("%h %d, %Y") rescue ''

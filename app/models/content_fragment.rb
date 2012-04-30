@@ -43,6 +43,10 @@ class ContentFragment < ActiveRecord::Base
 		ts
 	end
 
+	def self.users
+		includes(:users).collect { |c| c.users }.flatten.uniq
+	end
+
 	private
 
 	def set_type

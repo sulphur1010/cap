@@ -70,6 +70,10 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def encyclicals
+		content_fragments.published.of_type("Encyclical")
+	end
+
 	private
 
 	def add_user_role

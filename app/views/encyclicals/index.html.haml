@@ -4,8 +4,42 @@
 		$("#top_nav_study_center").addClass("active");
 	});
 .page
-	%h2 All Encyclicals
-	- table(@encyclicals, ['name', 'title']) do |encyclical, klass|
-		%tr{:class => klass}
-			%td= link_to encyclical.name, encyclical_path(encyclical)
-			%td= encyclical.title
+	%h2 Encyclicals
+%table.left_menu_container.encyclical_left_menu_container
+	%tr
+		%td.left_menu.encyclical_left_menu
+			.left_menu_item
+				%strong Authors:
+				- Encyclical.users.sort_by(&:full_name).each do |user|
+					.element{:'data-category' => 'author', :'data-value' => user.id}
+						= check_box_tag :whatever
+						= user.full_name
+		%td.content_with_left_menu
+			%table.encyclical_teaser_list#js_encyclical_list
+				- if @encyclicals.empty?
+					%tr
+						%td.no_results{:colspan => 10}
+							= "No results for the given authors."
+				- else
+					- @encyclicals.each do |encyclical|
+						= render :partial => 'teaser', :object => encyclical
+:javascript
+	$('.element input').click(function() {
+		var ps = collect_params();
+		$('#js_encyclical_list').load('/encyclicals?' + ps);
+	});
+
+	function collect_params() {
+		var param_string = [];
+		param_string.push(collect_params_for('author'));
+		return(param_string.join('&'));
+	}
+
+	function collect_params_for(cat) {
+		var params = [];
+		$('.element[data-category="' + cat + '"] input:checked').each(function() {
+			var container = $(this).closest('.element');
+			params.push(escape(container.attr('data-value')));
+		});
+		return(cat + '=' + params.join(','));
+	}

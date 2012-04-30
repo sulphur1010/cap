@@ -740,7 +740,8 @@ table.thought_block tr td {
 .event_left_menu_container,
 .story_left_menu_container,
 .thought_left_menu_container,
-.search_left_menu_container {
+.search_left_menu_container,
+.encyclical_left_menu_container {
 	border-top: 1px solid #ccc;
 }
 
@@ -759,14 +760,16 @@ table.thought_block tr td {
 
 .event_left_menu strong,
 .story_left_menu strong,
-.thought_left_menu strong {
+.thought_left_menu strong,
+.encyclical_left_menu strong {
 	display: block;
 	padding: 8px;
 }
 
 .event_left_menu .element,
 .story_left_menu .element,
-.thought_left_menu .element {
+.thought_left_menu .element,
+.encyclical_left_menu .element {
 	padding-left: 8px;
 	padding-bottom: 3px;
 }
