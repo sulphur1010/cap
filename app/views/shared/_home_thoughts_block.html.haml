@@ -10,7 +10,7 @@
 					%td
 						- if !thought.users.empty?
 							- thought.users.each do |user|
-								.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'), user_path(user)
+								.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'), user_path(user), :title => user.full_name
 					%td				
 						- if !thought.users.empty?
 							.thought_author_container
