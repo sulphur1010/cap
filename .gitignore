@@ -9,4 +9,5 @@ tmp/
 *.swp
 public/system
 solr/data
+solr
 *.pid
