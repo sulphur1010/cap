@@ -36,11 +36,11 @@ class ContentFragment < ActiveRecord::Base
 	end
 
 	def self.types
-		types = ContentFragment.group(:type).collect { |c| c.type }
-		types << "Event"
-		types = types.sort
-		types.delete("Block")
-		types
+		ts = ContentFragment.group(:type).collect { |c| c.type }.compact
+		ts << "Event"
+		ts = ts.sort
+		ts.delete("Block")
+		ts
 	end
 
 	private
