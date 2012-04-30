@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+	def pluralize_without_count(count, singular, plural = nil)
+		((count == 1 || count =~ / ^1(\.0+)?$/) ? singular : (plural || singular.pluralize))
+	end
+
 	def content_fragment_type_map
 		ContentFragment.types.map { |t| [content_fragment_type_mapper(t), t] }.sort { |a,b| a[0] <=> b[0] }
 	end

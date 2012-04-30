@@ -13,11 +13,10 @@
 								.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'), user_path(user)
 					%td				
 						- if !thought.users.empty?
-							- thought.users.each do |user|
-								.thought_author_container
-									.thought_author
-										= link_to user.full_name, user_path(user)
-						says:
+							.thought_author_container
+								.thought_author
+									= thought.users.map { |user| link_to user.full_name, user_path(user) }.join(" and ").html_safe
+									= "#{pluralize_without_count(thought.users, "says", "say")}:"
 						.thought_teaser
 							= strip_tags(thought.teaser) rescue ""
 							- if !thought.body.empty?
