@@ -32,7 +32,7 @@
 		</a>
 		<div id='top_nav_bar'>
 			<table class='nav_main'><tr>
-					<td width='52px'><a href="/" class='top_nav <%= request.path == "/" ? "active" : '' %>'><img src='/images/home_btn.png' /></a></td>
+					<td class='top_nav_home'><a href="/" class='top_nav <%= request.path == "/" ? "active" : '' %>'><img src='/images/home_btn.png' /></a></td>
 					<%= render :partial => 'shared/main_nav_bar' %>
 			</tr></table>
 		</div>
