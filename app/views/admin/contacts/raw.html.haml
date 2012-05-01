@@ -1,0 +1,10 @@
+.page
+	%h2
+		All Contacts
+		= link_to "(manage)", admin_contacts_path
+	%br
+	%br
+	.email_addresses_list
+		- @contacts.collect { |c| c.email }.each do |email|
+			.email_address= email
+

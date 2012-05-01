@@ -1,0 +1,10 @@
+.page
+	%h2
+		All Contacts
+		= link_to "(raw)", raw_admin_contacts_path
+	- table(@contacts, ['email', 'created', '']) do |contact, klass|
+		%tr{:class => klass}
+			%td= contact.email
+			%td= contact.created_at.strftime("%c")
+			%td.controls
+				= link_to 'Delete', admin_contact_path(contact), :method => :delete, :confirm => "Are you sure?"

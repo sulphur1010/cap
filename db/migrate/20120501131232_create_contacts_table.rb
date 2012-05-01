@@ -11,6 +11,8 @@ class CreateContactsTable < ActiveRecord::Migration
 			t.string :state
 			t.string :zip_code
 			t.string :phone
+
+      t.timestamps
 		end
 
 		EmailAddress.all.each do |email_address|
