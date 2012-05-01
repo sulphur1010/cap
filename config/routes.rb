@@ -23,7 +23,7 @@ CappUsa::Application.routes.draw do
 				get 'type_options/:content_fragment_type', :action => 'type_options'
 			end
 		end
-		resources :email_addresses do
+		resources :contacts do
 			collection do
 				get 'raw'
 			end
@@ -53,7 +53,7 @@ CappUsa::Application.routes.draw do
 	resources :role_types
 	resources :stories
 	resources :thoughts
-	resources :email_addresses
+	resources :contacts
 	resources :users
 
 	match 'what_is_cst' => 'home#what_is_cst'

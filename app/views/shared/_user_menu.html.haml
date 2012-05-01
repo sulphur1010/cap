@@ -33,7 +33,7 @@
 								%li= link_to 'Questions', admin_questions_url
 						%li= link_to 'Menu Items', admin_menu_items_url
 						%li= link_to 'Users', admin_users_url
-						%li= link_to 'Email Addresses', admin_email_addresses_url
+						%li= link_to 'Contacts', admin_contacts_url
 					- if user_signed_in?
 						%li &nbsp;
 						%li= link_to 'logout', destroy_user_session_url, :method => :delete
