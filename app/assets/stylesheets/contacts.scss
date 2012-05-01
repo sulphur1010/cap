@@ -1,0 +1,101 @@
+.contact_popup_button {
+	position: absolute;
+	top: 25px;
+	right: 1px;
+	width: 190px;
+	background-color: white;
+	border: 1px solid #407;
+	padding: 3px;
+	font-size: 1.1em;
+	cursor: pointer;
+	
+	.contact_button_center {
+		font-weight: bold;
+		font-size: 1.4em;
+		text-align: center;
+	}
+}
+
+div.contact_popup {
+
+	width: 500px;
+
+	.title_bar {
+
+		background-color: #ddd;
+		padding: 3px;
+		color: #444;
+
+		.title {
+			padding: 3px;
+		}
+
+		.close_button {
+			float: right;
+			display: block;
+		}
+	}
+
+	.popup_body {
+		.title {
+			font-size: 1.2em;
+			font-weight: bold;
+			padding-top: 6px;
+			padding-bottom: 6px;
+		}
+
+		.formtastic {
+
+			input, textarea {
+				border: 1px solid #ccc;
+				padding: 5px;
+				width: 435px;
+			}
+
+			textarea {
+				height: 100px;
+			}
+
+			select {
+				padding: 4px 12px;
+			}
+
+			label {
+				display: block;
+				float: none;
+				font-weight: normal;
+				width: auto;
+				text-transform: uppercase;
+				font-size: 0.7em;
+			}
+
+			.input_action {
+				padding: 0;
+
+				input {
+					cursor: pointer;
+					width: 75px;
+					float: right;
+					margin-right: 5px;
+				}
+			}
+
+			.half_width {
+				width: 220px;
+
+				input {
+					width: 209px;
+				}
+
+				select {
+					width: 209px;
+				}
+			}
+
+			.float {
+				float: left;
+			}
+		}
+	}
+}
+

@@ -64,6 +64,14 @@ $(function() {
 	});
 
 	slideshow.init();
+
+	$(document).delegate('#js_contact_popup_button', 'click', function() {
+		$("#js_contact_popup").show();
+	});
+
+	$(document).delegate('#js_contact_popup .close_button', 'click', function() {
+		$('#js_contact_popup').hide();
+	});
 });
 
 var slideshow = new function() {

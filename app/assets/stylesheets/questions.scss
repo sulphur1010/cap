@@ -38,7 +38,8 @@
 	}
 }
 
-.answer_popup {
+.answer_popup,
+.contact_popup {
 	width: 66%;
 	position: absolute;
 	left: 16%;
@@ -61,7 +62,12 @@
 			width: 93%;
 		}
 
-		.answer_close {
+		.title {
+			font-weight: bold;
+		}
+
+		.answer_close,
+		.close_button {
 			background-color: #fff;
 			text-align: center;
 			display: inline-block;
@@ -71,7 +77,8 @@
 		}
 	}
 
-	.answer_body {
+	.answer_body,
+	.popup_body {
 		padding: 8px 20px 10px 20px;
 	}
 

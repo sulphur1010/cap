@@ -52,7 +52,7 @@ p.italyGeogia{font-style:italic; font-family:Georgia; }
 /*Basic Structure*/
 body{line-height: 1.4em;}
 #content{width:1001px;height:auto;margin:auto;}
-#logo {margin: 5px 0px;}
+#logo {margin: 5px 0px; height: 85px;}
 
 /*Global Items */
 hr {border-top: 1px solid #aaa;}
@@ -293,7 +293,7 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 .nav_main ul.sub_menu {
 	position: absolute;
 	display: none;
-	top: 107px;
+	top: 125px;
 	list-style-type: none;
 	margin: 0;
 	background-color: black;
@@ -1130,7 +1130,7 @@ table.search_left_menu_container .content_with_left_menu {
 
 #search_box {
 	position: absolute;
-	top: 70px;
+	top: 96px;
 	right: 10px;
 
 	.search_input {
