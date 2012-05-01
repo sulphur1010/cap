@@ -1,6 +1,6 @@
 class ContentFragment < ActiveRecord::Base
 
-	searchable :include => [ :user ] do
+	searchable :include => [ :users ] do
 		text :title, :stored => true
 		text :body, :stored => true
 		string :type
