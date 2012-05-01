@@ -203,9 +203,9 @@ ActiveRecord::Schema.define(:version => 20120427194240) do
     t.string   "role_list"
     t.integer  "chapter_id"
     t.string   "phone"
+    t.string   "profile_image_file_name"
     t.string   "profile_image_content_type"
     t.integer  "profile_image_file_size"
-    t.string   "profile_image_file_name"
     t.datetime "profile_image_updated_at"
     t.text     "about"
     t.boolean  "celebrant",                  :default => false

@@ -2,7 +2,7 @@
 	= f.inputs :name => 'Basic' do
 		= f.input :content_fragment_type, :label => 'Type', :as => :select, :collection => content_fragment_type_map, :include_blank => false, :selected => content_fragment_type_mapper(@question.content_fragment.class.to_s)
 		= f.input :content_fragment, :collection => ContentFragment.where(:type => (@question.content_fragment.nil? ? 'Thought' : @question.content_fragment.class.to_s)).order(:title), :include_blank => false, :member_label => :title
-		= f.input :body, :input_html => { :class => 'js_editor' }
+		= f.input :body, :input_html => { :class => 'js_editor' }, :label => 'Question'
 		= f.input :answer_body, :label => 'Answer', :input_html => { :class => 'js_editor' }
 	= f.buttons
 :javascript
