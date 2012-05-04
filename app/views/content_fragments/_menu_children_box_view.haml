@@ -1,0 +1,7 @@
+- count = 0
+- menu_items.each do |menu_item|
+	- if count % 3 == 0
+		.clear
+	= render :partial => 'content_fragments/menu_item_box_view', :locals => { :menu_item => menu_item }
+	- count += 1
+.clear

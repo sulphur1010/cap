@@ -1,0 +1,29 @@
+
+.menu_item_box {
+	float: left;
+	width: 120px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 5px;
+	margin: 15px;
+
+	.image {
+		text-align: center;
+
+		img {
+			border: 1px solid #ccc;
+		}
+	}
+
+	.bottom {
+		padding: 5px;
+		font-weight: bold;
+
+		.name {
+			width: 80%;
+		}
+
+		.arrow {
+		}
+	}
+}

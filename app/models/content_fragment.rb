@@ -47,6 +47,18 @@ class ContentFragment < ActiveRecord::Base
 		includes(:users).collect { |c| c.users }.flatten.uniq
 	end
 
+	def menu_items_for_content_fragment
+		if !self.url.blank?
+			MenuItem.find_all_by_url(self.url)
+		else
+			[]
+		end
+	end
+
+	def child_menu_items_for_content_fragment
+		self.menu_items_for_content_fragment.map { |mi| mi.children }.flatten.uniq.compact
+	end
+
 	private
 
 	def set_type

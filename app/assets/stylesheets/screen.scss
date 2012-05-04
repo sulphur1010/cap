@@ -14,6 +14,10 @@ a:hover {text-decoration: underline;}
 
 .hidden {display: none;}
 
+.clear {
+	clear: both;
+}
+
 /*Background and Structure*/
 html {font-size:100.01%;}
 body {font-size:75%;color:#222;background: url("/images/background.jpg");font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}

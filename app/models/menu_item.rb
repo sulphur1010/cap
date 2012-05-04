@@ -22,6 +22,10 @@ class MenuItem < ActiveRecord::Base
 		end
 	end
 
+	def target
+		ContentFragment.find_by_url(self.url) rescue nil
+	end
+
 	def parent_menu_name_with_depth
 		"#{" - " * self.menu_depth}#{self.name}"
 	end
