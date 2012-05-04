@@ -126,8 +126,8 @@ table.nav_main tr{margin:0 5px;line-height:40px;border:none;border-collapse:coll
 table.nav_main tr td{border:none;border-collapse:collapse;}
 
 a.top_nav{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:40px;padding:0 8px;display:block;}
-a.top_nav:hover{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:40px;padding:0 16px;display:block;background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
-a.top_nav.active{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:40px;padding:0 16px;display:block;background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
+a.top_nav:hover{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
+a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 
 .search_form{width:250px;height:24px;background:#fff;border:1px #ccc solid;margin:6px 10px;padding:0;}
 .search_box{width:214px;height:24px;border:none;padding:0 3px;vertical-align:top;color:#676767;}
