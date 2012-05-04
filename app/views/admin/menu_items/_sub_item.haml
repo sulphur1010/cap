@@ -1,7 +1,7 @@
 %tr{:class => klass}
 	%td{:class => "level_#{level}"}= menu_item.name
 	%td= menu_item.weight
-	%td= menu_item.url
+	%td= link_to menu_item.url, menu_item.url
 	%td.controls
 		= link_to 'Edit', edit_admin_menu_item_path(menu_item)
 		= link_to 'Delete', admin_menu_item_path(menu_item), :method => :delete, :confirm => "Are you sure?"
