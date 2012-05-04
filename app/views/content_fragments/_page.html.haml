@@ -1,4 +1,5 @@
 - if !page.hide_header
+	= render :partial => "content_fragments/breadcrumb", :locals => { :page => page }
 - if is_admin?
 	= link_to 'Edit', content_fragment_edit_url(page), :class => 'btn_edit'
 - if page.class == Thought
