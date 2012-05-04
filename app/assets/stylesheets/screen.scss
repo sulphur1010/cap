@@ -1226,11 +1226,20 @@ ul.accordion_list {
 	padding-bottom: 10px;
 	font-size: 18px;
 
+	a {
+		display: block;
+		float: left;
+	}
+
 	.breadcrumb_seperator {
 		padding: 0 5px;
+		display: block;
+		float: left;
 	}
 
 	span.breadcrumb {
+		display: block;
+		float: left;
 		font-size: 20px;
 	}
 }
