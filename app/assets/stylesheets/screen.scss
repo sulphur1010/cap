@@ -1223,9 +1223,13 @@ ul.accordion_list {
 .breadcrumbs {
 	font-weight: bold;
 	padding-bottom: 10px;
-	font-size: 1.5em;
+	font-size: 18px;
 
 	.breadcrumb_seperator {
 		padding: 0 5px;
+	}
+
+	span.breadcrumb {
+		font-size: 20px;
 	}
 }
