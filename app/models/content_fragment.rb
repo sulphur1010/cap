@@ -11,7 +11,7 @@ class ContentFragment < ActiveRecord::Base
 	has_and_belongs_to_many :person_types
 
 	has_attached_file :thumbnail, :styles => { :normal => "175x125>" }
-	has_attached_file :image, :styles => { :normal => "725x90>" }
+	has_attached_file :image, :styles => { :normal => "720x405" }
 
 	has_many :encyclical_references
 	has_many :encyclicals, :through => :encyclical_references
