@@ -1,5 +1,9 @@
 $(function() {
-	$('textarea.js_editor').tinymce({ theme: 'advanced' });
+	$('textarea.js_editor').tinymce({ 
+		theme: 'advanced',
+		plugins: "accordion",
+		theme_advanced_buttons3_add: "accordion"
+	});
 	$('select.js_multiselect').multiSelect();
 	$('input.js_datetime').datetimepicker({
 		timeFormat: 'hh:mm:ss',
@@ -71,6 +75,21 @@ $(function() {
 
 	$(document).delegate('#js_contact_popup .close_button', 'click', function() {
 		$('#js_contact_popup').hide();
+	});
+
+	$("ul.accordion_list ul").each(function() {
+		$(this).hide();
+	});
+
+	$(document).delegate("ul.accordion_list li", 'click', function() {
+		console.log("click!!!!!!!");
+		var t = $(this);
+		t.toggleClass("open");
+		if (t.hasClass("open")) {
+			t.next().show();
+		} else {
+			t.next().hide();
+		}
 	});
 });
 

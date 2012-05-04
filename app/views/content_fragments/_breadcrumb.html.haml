@@ -1,0 +1,5 @@
+- item = MenuItem.where(:menu => "Top").where(:url => page.url).first
+- if item
+	- if item.parent_id
+		= render_parent_breadcrumb(item)
+		.breadcrumb= item.name

@@ -1,5 +1,15 @@
 module ApplicationHelper
 
+	def render_parent_breadcrumb(menu_item)
+		output = ""
+		parent = menu_item.parent
+		if parent.parent_id
+			output += render_parent_breadcrumb(parent)
+		end
+		output += link_to parent.title, parent.url
+		return output
+	end
+
 	def pluralize_without_count(count, singular, plural = nil)
 		((count == 1 || count =~ / ^1(\.0+)?$/) ? singular : (plural || singular.pluralize))
 	end

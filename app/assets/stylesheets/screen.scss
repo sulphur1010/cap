@@ -1181,3 +1181,34 @@ table.left_menu_container .national_board_member_content {
 		}
 	}
 }
+
+ul.accordion_list {
+	padding-top: 10px;
+
+	> li {
+		display: block;
+		padding: 12px;
+		padding-left: 40px;
+		margin: 3px;
+		margin-left: 0;
+		margin-bottom: 20px;
+		font-weight: bold;
+		color: #444;
+		-moz-box-shadow:    2px 2px 2px 0px #ddd;
+  	-webkit-box-shadow: 2px 2px 2px 0px #ddd;
+  	box-shadow:         2px 2px 2px 0px #ddd; 
+    border: 1px solid #999;
+    border-radius: 5px 5px 5px 5px;
+		cursor: pointer;
+		background: #f6f6f6 url('/assets/menu_box_arrow.png') no-repeat 50% 0;
+	}
+
+	> li.open {
+		margin: 0;
+		margin-top: 3px;
+	}
+
+	ul {
+		border: 1px solid #ccc;
+	}
+}
