@@ -10,7 +10,9 @@ class EncyclicalsController < ApplicationController
 	def published
 		@encyclicals = Encyclical.published.order("published_at desc").includes(:users)
 		index_search(:published_at)
-		render :action => :index
+		if !request.xhr?
+			render :action => :index
+		end
 	end
 
 	def show

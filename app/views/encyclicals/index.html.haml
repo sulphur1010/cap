@@ -35,7 +35,8 @@
 :javascript
 	$('.element input').click(function() {
 		var ps = collect_params();
-		$('#js_encyclical_list').load('/encyclicals?' + ps);
+		var path = #{controller.action_name == 'published' ? "'/encyclicals/published?'" : "'/encyclicals?'"};
+		$('#js_encyclical_list').load(path + ps);
 	});
 
 	function collect_params() {
