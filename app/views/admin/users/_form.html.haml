@@ -6,7 +6,7 @@
 	= f.input :email
 	= f.input :title
 	= f.input :national_board_member
-	= f.input :about
+	= f.input :about, :input_html => { :class => 'js_editor' }
 	= f.input :phone
 	= f.input :roles, :as => :check_boxes, :collection => [ "admin", "speaker", "celebrant", "thought_creator", "user" ]
 	= f.input :person_type, :collection => PersonType.order(:published => true).order(:weight).collect { |c| [c.name, c.id] }

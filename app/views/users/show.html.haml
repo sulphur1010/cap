@@ -17,7 +17,7 @@
 						- if @user.chapter
 							|
 							= @user.chapter.name
-					= @user.about
+					= @user.about.html_safe rescue ''
 	- if !@user.contemporary_issues.published.empty?
 		%hr
 		.page
