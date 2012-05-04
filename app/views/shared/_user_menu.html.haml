@@ -13,6 +13,7 @@
 									%li= link_to 'Encyclicals', admin_encyclicals_url
 									%li= link_to 'Pages', admin_pages_url
 									%li= link_to 'News Stories', admin_stories_url
+									%li= link_to 'Questions', admin_questions_url
 								- is_thought_creator? do
 									%li= link_to 'Articles', admin_thoughts_url
 					- is_admin? do
@@ -30,7 +31,6 @@
 								%li= link_to 'Chapters', admin_chapters_url
 								%li= link_to 'Events', admin_events_url
 								%li= link_to 'Locations', admin_locations_url
-								%li= link_to 'Questions', admin_questions_url
 						%li= link_to 'Menu Items', admin_menu_items_url
 						%li= link_to 'Users', admin_users_url
 						%li= link_to 'Contacts', admin_contacts_url
