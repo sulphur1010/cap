@@ -5,6 +5,15 @@
 	});
 .page
 	%h2 Encyclicals
+.event_header_navigation
+	- if controller.action_name == 'published'
+		= link_to 'sort by title', encyclicals_path
+		\/
+		%span sort by publication date
+	- else
+		%span sort by title
+		\/
+		= link_to 'sort by publication date', published_encyclicals_path
 %table.left_menu_container.encyclical_left_menu_container
 	%tr
 		%td.left_menu.encyclical_left_menu

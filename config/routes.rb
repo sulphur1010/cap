@@ -35,7 +35,11 @@ CappUsa::Application.routes.draw do
 			get 'view'
 		end
 	end
-	resources :encyclicals
+	resources :encyclicals do
+		collection do
+			get 'published'
+		end
+	end
 	resources :events do
 		member do
 			post 'rsvp'

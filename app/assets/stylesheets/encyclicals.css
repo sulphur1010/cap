@@ -23,7 +23,7 @@ table.encyclical_teaser_list .encyclical_title {
 	width: 150px;
 }
 
-table.encyclical_teaser_list .encyclical_teaser {
+table.encyclical_teaser_list .encyclical_translated_title {
 	width: 150px;
 }
 
@@ -34,5 +34,5 @@ table.encyclical_teaser_list .encyclical_author {
 }
 
 table.encyclical_teaser_list .encyclical_published_at {
-	width: 125px;
+	width: 85px;
 }

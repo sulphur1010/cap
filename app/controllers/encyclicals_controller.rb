@@ -3,23 +3,14 @@ class EncyclicalsController < ApplicationController
 	respond_to :html
 
 	def index
-		if request.xhr?
-			@encyclicals = Encyclical.published.order(:published_at)
-			if params[:author]
-				authors = params[:author].split(/,/)
-				if authors.count > 0
-					ews = []
-					authors.each do |t|
-						ews << "id = '#{t}'"
-					end
-					users = User.where(ews.join(" OR "))
-					@encyclicals = users.collect { |c| c.encyclicals }.flatten.uniq
-				end
-			end
-			render :partial => 'teaser', :collection => @encyclicals
-			return
-		end
-		respond_with(@encyclicals = Encyclical.published.order(:published_at))
+		@encyclicals = Encyclical.published.order(:title).includes(:users)
+		index_search(:title)
+	end
+
+	def published
+		@encyclicals = Encyclical.published.order("published_at desc").includes(:users)
+		index_search(:published_at)
+		render :action => :index
 	end
 
 	def show
@@ -28,6 +19,32 @@ class EncyclicalsController < ApplicationController
 			not_found
 		else
 			respond_with(@encyclical)
+		end
+	end
+
+	private
+
+	def index_search(sort)
+		if request.xhr?
+			if params[:author]
+				authors = params[:author].split(/,/)
+				if authors.count > 0
+					ews = []
+					authors.each do |t|
+						ews << "id = '#{t}'"
+					end
+					users = User.where(ews.join(" OR "))
+
+					# user.encyclical only returns published, so this is safe
+					@encyclicals = users.collect { |c| c.encyclicals }.flatten.uniq
+					@encyclicals = @encyclicals.sort_by(&sort)
+					if sort.to_s == "published_at"
+						@encyclicals.reverse!
+					end
+				end
+			end
+			render :partial => 'teaser', :collection => @encyclicals
+			return
 		end
 	end
 end
