@@ -15,4 +15,8 @@ class Admin::ContactsController < ApplicationController
 	def destroy
 		respond_with(@contact = Contact.delete(params[:id]), :location => admin_contacts_url)
 	end
+
+	def show
+		respond_with(@contact = Contact.find(params[:id]))
+	end
 end
