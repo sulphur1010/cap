@@ -1,4 +1,4 @@
-- item = MenuItem.where(:url => page.url).first
+- item = MenuItem.where(:url => object_url(page)).first
 .breadcrumbs
 	- if item
 		- if item.parent_id
