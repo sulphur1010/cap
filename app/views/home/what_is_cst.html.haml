@@ -1,9 +1,5 @@
-%table.left_menu_container
-  %tr
-    %td.left_menu
-      = render :partial => 'left_menu'
-    %td.content_with_left_menu
-      - if @page
-        = render :partial => 'content_fragments/page', :object => @page
-      - else
-        Create a page with a url of "/what_is_cst" to not see this page anymore.
+.page
+	- if @page
+		= render :partial => 'content_fragments/page', :object => @page
+	- else
+		Create a page with a url of "/what_is_cst" to not see this page anymore.
