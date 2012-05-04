@@ -7,11 +7,11 @@ class MenuItem < ActiveRecord::Base
 	end
 
 	def self.all_with_relative_depth
-		MenuItem.where(:parent_id => nil).all.map { |m| [m, m.all_children] }.flatten
+		MenuItem.where(:parent_id => nil).order(:weight).all.map { |m| [m, m.all_children] }.flatten
 	end
 
 	def all_children
-		MenuItem.where(:parent_id => self).map { |m| [m, m.all_children] }.flatten
+		MenuItem.where(:parent_id => self).order(:weight).map { |m| [m, m.all_children] }.flatten
 	end
 
 	def menu_depth
@@ -26,5 +26,4 @@ class MenuItem < ActiveRecord::Base
 		"#{" - " * self.menu_depth}#{self.name}"
 	end
 
-	validates :menu, :inclusion => { :in => MenuItem.menus }
 end

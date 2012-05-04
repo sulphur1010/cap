@@ -1,6 +1,6 @@
 .page
 	%h2 Menu Items
-	- table(@menu_items, ['name', 'menu', 'weight', 'url', '']) do |menu_item, klass|
+	- table(@menu_items, ['name', 'weight', 'url', '']) do |menu_item, klass|
 		= render :partial => 'sub_item', :locals => { :menu_item => menu_item, :klass => klass, :level => 1 }
 	.link
 		= link_to 'New Menu Item', new_admin_menu_item_url
