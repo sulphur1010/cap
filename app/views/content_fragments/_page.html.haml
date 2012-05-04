@@ -1,9 +1,4 @@
-= render :partial => "content_fragments/breadcrumb", :locals => { :page => page }
 - if !page.hide_header
-	%h2
-		= page.title
-		- if page.translated_title
-			%span.translated_title= "(#{page.translated_title})"
 - if is_admin?
 	= link_to 'Edit', content_fragment_edit_url(page), :class => 'btn_edit'
 - if page.class == Thought

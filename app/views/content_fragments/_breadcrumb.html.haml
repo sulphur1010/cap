@@ -1,5 +1,8 @@
-- item = MenuItem.where(:menu => "Top").where(:url => page.url).first
+- item = MenuItem.where(:url => page.url).first
 - if item
-	- if item.parent_id
-		= render_parent_breadcrumb(item)
-		.breadcrumb= item.name
+	.breadcrumbs
+		- if item.parent_id
+			= render_parent_breadcrumb(item)
+			%span.breadcrumb= page.title
+			- if page.translated_title
+				%span.translated_title= "(#{page.translated_title})"

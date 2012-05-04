@@ -1219,3 +1219,14 @@ ul.accordion_list {
 		padding: 5px;
 	}
 }
+
+.breadcrumbs {
+	padding: 20px;
+	padding-bottom: 0;
+	font-weight: bold;
+	font-size: 1.5em;
+
+	.breadcrumb_seperator {
+		padding: 0 5px;
+	}
+}

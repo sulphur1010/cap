@@ -6,8 +6,9 @@ module ApplicationHelper
 		if parent.parent_id
 			output += render_parent_breadcrumb(parent)
 		end
-		output += link_to parent.title, parent.url
-		return output
+		output += link_to parent.name, parent.url
+		output += "<span class='breadcrumb_seperator'>&gt;</span>";
+		return output.html_safe
 	end
 
 	def pluralize_without_count(count, singular, plural = nil)
