@@ -3,7 +3,10 @@
 	- table(@questions, ['type', 'title', 'summary', '']) do |question, klass|
 		%tr{:class => klass}
 			%td= question.content_fragment.class.to_s
-			%td= link_to question.content_fragment.title, question.content_fragment rescue ''
+			- if question.content_fragment.class.to_s == "Page"
+				%td= link_to question.content_fragment.title, question.content_fragment.url
+			- else
+				%td= link_to question.content_fragment.title, question.content_fragment
 			%td= strip_tags(question.summary)
 			%td.controls
 				= link_to 'Edit', edit_admin_question_path(question)
