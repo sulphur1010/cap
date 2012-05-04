@@ -34,7 +34,7 @@ module ApplicationHelper
 			return '/'
 		end
 
-		polymorphic_url(object)
+		polymorphic_path(object)
 	end
 
 	def is_admin?(&block)
