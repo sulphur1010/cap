@@ -1190,6 +1190,7 @@ ul.accordion_list {
 		padding: 12px;
 		padding-left: 40px;
 		margin: 3px;
+		margin-top: 0;
 		margin-left: 0;
 		margin-bottom: 20px;
 		font-weight: bold;
@@ -1200,15 +1201,20 @@ ul.accordion_list {
     border: 1px solid #999;
     border-radius: 5px 5px 5px 5px;
 		cursor: pointer;
-		background: #f6f6f6 url('/assets/menu_box_arrow.png') no-repeat 50% 0;
+		background: #f6f6f6 url('/assets/menu_box_arrow.png') no-repeat 10px 50%;
 	}
 
 	> li.open {
 		margin: 0;
-		margin-top: 3px;
 	}
 
 	ul {
 		border: 1px solid #ccc;
+		list-style-type: none;
+		padding: 9px;
+	}
+
+	ul li {
+		padding: 5px;
 	}
 }
