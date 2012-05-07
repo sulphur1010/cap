@@ -9,4 +9,4 @@
 				- if location.events.count == 0
 					= link_to 'Delete', admin_location_path(location), :method => :delete, :confirm => "Are you sure?"
 	.link
-		= link_to 'New Location', new_admin_location_url
+		= link_to 'New Location', new_admin_location_url, :class => 'btn_edit left'
