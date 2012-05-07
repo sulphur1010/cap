@@ -65,7 +65,7 @@ a:hover {text-decoration: underline;}
 p {line-height: 1.6em; color: #555; }
 .page p {margin-bottom: 15px; font-size: 16px;}
 .inline {display: inline-block;}
-
+ul {margin: 0 0 0 10px;}
 
 select {
     font-size: 13px;
@@ -519,7 +519,7 @@ ul.contemporary_issues_list li {
 
 .thought_image {
 	display: inline-block;
-	margin-left: 5px;
+	margin-left: 0px;
 }
 
 .thought_image img {
@@ -562,11 +562,11 @@ ul.contemporary_issues_list li {
 }
 
 .thought_author_container {
-	text-align: right;
 	padding-top: 5px;
 	color: #777;
 	font-style: italic;
 	font-family: georgia;
+	display: inline;
 }
 
 .thought_author {
@@ -1154,7 +1154,7 @@ table.search_left_menu_container .content_with_left_menu {
 		padding: 3px;
 		color: #444;
 		font-size: 0.9em;
-		width: 215px;
+		width: 220px;
 	}
 }
 
@@ -1209,10 +1209,10 @@ ul.accordion_list {
 		font-weight: bold;
 		color: #444;
 		-moz-box-shadow:    2px 2px 2px 0px #ddd;
-  	-webkit-box-shadow: 2px 2px 2px 0px #ddd;
-  	box-shadow:         2px 2px 2px 0px #ddd; 
-    border: 1px solid #999;
-    border-radius: 5px 5px 5px 5px;
+  		-webkit-box-shadow: 2px 2px 2px 0px #ddd;
+  		box-shadow:         2px 2px 2px 0px #ddd; 
+    	border: 1px solid #999;
+    	border-radius: 		5px 5px 5px 5px;
 		cursor: pointer;
 		background: #f6f6f6 url('/assets/menu_box_arrow.png') no-repeat 10px 50%;
 	}
@@ -1244,21 +1244,18 @@ ul.accordion_list {
 	display: inline-block;
 
 	a {
-		display: block;
-		float: left;
+		display: inline-block;
 		font-size: 12px;
 	}
 
 	.breadcrumb_seperator {
-		padding: 0 5px;
-		display: block;
-		float: left;
+		padding: 0 3px 0 5px;
+		display: inline-block;
 		font-size: 12px;
 	}
 
 	span.breadcrumb {
-		display: block;
-		float: left;
+		display: inline-block;
 		font-size: 20px;
 		color: #000;
 	}
