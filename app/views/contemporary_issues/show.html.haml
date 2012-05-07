@@ -1,5 +1,7 @@
 = render :partial => 'header'
 .page
+	- if is_admin?
+		= link_to 'Edit', content_fragment_edit_url(@contemporary_issue), :class => 'btn_edit'
 	%h2
 		Contemporary Issue:
 		%span.contemporary_issue_title= @contemporary_issue.title
