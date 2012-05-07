@@ -6,7 +6,11 @@ class Admin::QuestionsController < ApplicationController
 	end
 
 	def new
-		respond_with(@question = Question.new)
+		@question = Question.new
+		if params[:id]
+			@question.content_fragment = ContentFragment.find(params[:id])
+		end
+		respond_with(@question)
 	end
 
 	def create

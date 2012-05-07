@@ -9,6 +9,8 @@
 			- if is_admin?
 				.edit_button
 					= link_to 'Edit Question', edit_admin_question_url(question)
+- if is_admin?
+	= link_to 'Add Question', new_admin_question_path(:id => page.id), :class => 'btn_edit'
 .answer_popup{:'data-id' => question.id, :style => 'display: none;'}
 	.title_bar
 		.answer_question= question.body.html_safe
