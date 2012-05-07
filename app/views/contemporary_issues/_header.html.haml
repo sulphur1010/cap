@@ -8,7 +8,4 @@
 				window.location = "/contemporary_issues?q=" + id;
 			}
 		});
-.black_contemporary_issues_list
-	- @contemporary_issues.each do |contemporary_issue|
-		.issue= active_link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue, :q => (@person_type.id rescue nil))
-	%div{:style => 'clear: both'}
+	= render :partial => 'content_fragments/menu_children_box_view', :locals => { :menu_items => @contemporary_issues }
