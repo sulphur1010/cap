@@ -120,11 +120,11 @@ select {
 }
 
 /*--Header*/
-#header{width:1000px;clear:both;position:relative; background: #fff;}
+#header{width:1001px;clear:both;position:relative;}
 /*----logo*/
 
 /*----Top Navigation & Search Box*/
-#top_nav_bar{display:block;width:1000px;height:40px;background: #fff;}
+#top_nav_bar{display:block;width:1001px;height:40px;background:url(/images/top_nav_bg.gif);}
 
 table.nav_main{display:inline;border:none;border-collapse:collapse;}
 table.nav_main tr{margin:0 5px;line-height:40px;border:none;border-collapse:collapse;}
@@ -139,9 +139,9 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 .search_btn{background:url(/images/search_btn.png);vertical-align:top; width:26px;height:23px;border:none;}
 
 /*Main Part*/
-#main{background:#fff;border:none;width:1000px;height:auto;margin: 0px 0 0 0; position: relative;}
+#main{background:#fff;border:none;width:1000px;height:auto;margin:20px 0 0 0; position: relative;}
 .left_column{width:180px;}
-.left_content{width:760px; border:1px solid #ccc; border-left: 0px; border-right: 0;}
+.left_content{width:760px; border:1px solid #ccc; border-right: 0;}
 .no_right_column {width:1000px; border-right: 1px solid #ccc;}
 .left_content .page {padding:20px}
 .no_right_column .page {background: #000; height: 500px; padding: 0px; position: relative;} 
@@ -207,7 +207,7 @@ table#home_bottom_blocks {width: 100%; border-top: 1px solid #aaa; }
 table.right_col{border:none;border-collapse:collapse;}
 td.right_column{border-bottom: 1px solid #ccc;}
 table.right_col tr{margin:0 5px;border:none;border-collapse:collapse;}
-.right_column table tr td{border:1px solid #ccc;border-bottom: 0; border-right: 0px;border-collapse:collapse;width:240px}
+.right_column table tr td{border:1px solid #ccc;border-bottom: 0;border-collapse:collapse;width:240px}
 table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 .yellow_bg{background:#F7FBDC;}
 .padding_in10{padding:10px;}
