@@ -1,44 +1,18 @@
 .page
-	.slideshow.slide1.js_slideshow
-		.sheen_black.sheen_homepage_title
-			%table
-				%tr
-					%td
-						%img{:src => "/images/profiles/popebenedict.jpg"}
-					%td.homepage_quote
-						%h1
-							"Without internal forms of 
-							%a{:href => "/principles/50"} Solidarity
-							and mutual trust, the market cannot completely fulfill its proper economic function."
-						%h2
-							Pope Benedict XVI, 
-							%a{:href => "/encyclicals/47"}Caritas in Veritate, 35.
-	.slideshow.slide2.js_slideshow{:style => "display:none;"}
-		.sheen_black.sheen_homepage_title 
-			%table
-				%tr
-					%td
-						%img{:src => "/images/profiles/johnpaulII.jpg"}
-					%td.homepage_quote
-						%h1 
-							"To destroy such structures and replace them with more authentic forms of living in community is a task which demands courage and patience."
-						%h2
-							The Blessed Pope John Paul II, 
-							%a{:href => "/encyclicals/45"}Centessimus Annus, 38.
-	.slideshow.slide3.js_slideshow{:style => "display:none;"}
-		.sheen_black.sheen_homepage_title
-			%table
-				%tr
-					%td
-						%img{:src => "/images/profiles/popebenedict.jpg"}
-					%td.homepage_quote
-						%h1 
-							“The State which would provide everything, absorbing everything into itself, would ultimately become a mere bureaucracy.”
-						%h2 
-							Pope Benedict XVI, 
-							%a{:href => "/encyclicals/46"}Deus Caritas Est, 28.
-			
-
+	- num = 0
+	- Thought.no_body.published.where(:feature_on_homepage => true).sort_by { rand }.each do |quote|
+		- num += 1
+		.slideshow.js_slideshow{:class => "slide#{num}", :style => "background: url(#{quote.image}); #{num != 1 ? "display: none" : ""}"}
+			.sheen_black.sheen_homepage_title
+				%table
+					%tr
+						%td
+							%img{:src => (quote.users.first.profile_image rescue "")}
+						%td.homepage_quote
+							%h1
+								= quote.teaser.html_safe
+							%h2
+								= quote.users.first.full_name rescue ''
 	.homepage_overlay
 		%table.homepage_principles_prisms
 			%tr
