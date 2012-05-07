@@ -312,7 +312,7 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 	list-style-type: none;
 	margin: 0;
 	left: 175px;
-	top: 0px;
+	top: -1px;
 	background-color: black;
 	color: white;
 }
@@ -334,10 +334,10 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 	text-decoration: none;
 	width: 170px;
 	display: block;
-	padding: 3px;
 	padding-left: 5px;
 	font-weight: bold;
-	line-height: 25px;
+	height: 30px;
+	line-height: 30px;
 }
 
 .nav_main ul.sub_menu li a:hover {
@@ -441,7 +441,7 @@ table.left_menu_container .content_with_left_menu {
 ul.contemporary_issues_list li {
 	margin: 0 0 0px 0;
 	display: inline-block;
-	width: 260px;
+	width: 235px;
 	font-size: 11px;
 } 
 
@@ -467,7 +467,6 @@ ul.contemporary_issues_list li {
 
 .user_list li {
 	width: 225px;
-	height: 80px;
 	padding: 0;
 	border: 1px solid #ccc;
  	-moz-box-shadow:    2px 2px 2px 0px #ddd;
@@ -498,7 +497,7 @@ ul.contemporary_issues_list li {
 	font-family: georgia;
 	font-size: 16px; 
 	color: #777;
-	line-height: 1.4em;
+	line-height: 1.8em;
 	margin-top: 10px;
 }
 
@@ -615,7 +614,7 @@ table.thought_block tr td {
 }
 
 .event_teaser h5 {
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 1.4em;
 }
 
@@ -958,11 +957,9 @@ a.encyclical_link {
 }
 
 .study_center {
-	background: url('/images/studycenter.jpg') no-repeat;
 }
 
 .study_center h2 {
-	color: #fff;
 }
 
 .study_center_title {
@@ -1249,17 +1246,22 @@ ul.accordion_list {
 	a {
 		display: block;
 		float: left;
+		font-size: 12px;
 	}
 
 	.breadcrumb_seperator {
 		padding: 0 5px;
 		display: block;
 		float: left;
+		font-size: 12px;
 	}
 
 	span.breadcrumb {
 		display: block;
 		float: left;
 		font-size: 20px;
+		color: #000;
 	}
 }
+
+.left {float: none;}
