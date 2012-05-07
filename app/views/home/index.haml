@@ -21,9 +21,9 @@
 						- principle = ContentFragment.where(:id => id).first
 						- if principle
 							%a{:href => object_url(principle)}
-									.principle.sheen_white
-										%img{:href => principle.thumbnail}
-										%h2= principle.name
+								.principle.sheen_white
+									%img{:href => principle.thumbnail}
+									%h2= principle.name
 			%td.side_column
 				.three_prisms
 					- [10,9,11].each do |id|
