@@ -41,13 +41,14 @@
 
 - if @page
 	%table#home_bottom_blocks
-		%tr.address_course_event_row
-			%td.email_address_block= render :partial => 'shared/email_address_block'
-			%td.upcoming_course_block= render :partial => 'shared/home_upcoming_course'
-			%td.upcoming_event_block.last= render :partial => 'shared/home_upcoming_event'
+		/%tr.address_course_event_row
+		/%td.email_address_block= render :partial => 'shared/email_address_block'
 		%tr.thoughts_news_row
 			%td.thoughts_block{:colspan => 2}= render :partial => 'shared/home_thoughts_block'
-			%td.news_block= render :partial => 'shared/home_news_block'
+			%td
+				.news_block= render :partial => 'shared/home_news_block'
+				.upcoming_course_block= render :partial => 'shared/home_upcoming_course'
+				.upcoming_event_block= render :partial => 'shared/home_upcoming_event'
 - else
 	.page
 		Create a page with a url of "/" to not see this page anymore.
