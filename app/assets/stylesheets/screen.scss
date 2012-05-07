@@ -425,7 +425,8 @@ table.left_menu_container .content_with_left_menu {
 }
 
 .contemporary_issues_list_header {
-	padding: 10px 2px;
+	padding: 10px 0px;
+	border-top: 1px dotted #777;
 	margin-top: 10px;
 }
 
@@ -502,7 +503,7 @@ ul.contemporary_issues_list li {
 }
 
 .thought .thought_image {
-	width: 24px;
+	width: 60px;
 	display: inline-block;
 }
 
@@ -523,8 +524,8 @@ ul.contemporary_issues_list li {
 }
 
 .thought_image img {
-	max-width: 24px;
-	max-height: 24px;
+	max-width: 60px;
+	max-height: 60px;
 }
 
 .thought .thought_teaser {
