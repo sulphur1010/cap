@@ -7,7 +7,7 @@
 				%table
 					%tr
 						%td
-							%img{:src => (quote.users.first.profile_image rescue "")}
+							%img{:width => 80, :height => 80, :src => (quote.users.first.profile_image(:small) rescue "")}
 						%td.homepage_quote
 							%h1
 								= quote.teaser.html_safe
