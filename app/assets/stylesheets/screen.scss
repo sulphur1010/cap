@@ -144,11 +144,11 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 .left_content{width:760px; border:1px solid #ccc; border-right: 0;}
 .no_right_column {width:1000px; border-right: 1px solid #ccc;}
 .left_content .page {padding:20px}
-.no_right_column .page {background: #000; height: 500px; padding: 0px; position: relative;} 
+.no_right_column .page {padding: 0px; position: relative;}
 
-.slide1 {background: url("/images/h_economiccrisis.jpg"); padding: 0px; height: 500px; position: relative;}
-.slide2 {background: url("/images/h_newstructures.jpg");  padding: 0px; height: 500px; position: relative;}
-.slide3 {background: url("/images/h_politics.jpg"); padding: 0px; height: 500px; position: relative;}
+.slide1 {background: url("/images/h_economiccrisis.jpg"); padding: 0px; height: 320px; position: relative;}
+.slide2 {background: url("/images/h_newstructures.jpg");  padding: 0px; height: 320px; position: relative;}
+.slide3 {background: url("/images/h_politics.jpg"); padding: 0px; height: 320px; position: relative;}
 
 
 
@@ -175,21 +175,42 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 }
 
 /*Special Homepage*/
+.index_scroller_table {
+	width: 100%;
+
+	.side_column {
+		width: 300px;
+	}
+}
 .homepage_video {width: 640px; height: 360px; position: absolute; top: 20px; left: 20px;}
 .homepage_overlay {width: 650px; position: absolute; bottom: 0px; left: 20px; bottom: -2px;}
 .three_principles {position: relative; width: 650px; margin-bottom: 0px; bottom: 0px;}
 .three_principles h5 {color: #fff;}
 .principle {width: 188px; min-height: 45px; margin-right: 5px; display: inline-block; padding: 10px;}
 .last {margin-right: 0px;}
-.three_prisms {width: 310px; min-height: 0px; margin-bottom: 10px; position: absolute; right: 0px; top: 20px;}
-.prism {width: 290px; min-height: 25px; margin-bottom: 2px; padding: 10px; display: block;}
-.prism:hover {}
+.three_prisms {
+	padding: 5px;
+	padding-bottom: 0;
+	width: 310px;
 
+	.prism {
+		border: 1px solid #aaa;
+		border-bottom: 0;
+		padding: 5px;
+		text-align: right;
+		height: 70px;
+	}
+}
 
 table#home_bottom_blocks {width: 100%; border-top: 1px solid #aaa; }
 #home_bottom_blocks .padding_in10 {padding: 0px;}
 #home_bottom_blocks .address_course_event_row a {color: #427b98;}
-.upcoming_course_block, .upcoming_event_block, .email_address_block {width: 310px; padding: 10px; margin: 5px; border-right: 1px solid #aaa; border-bottom: 1px solid #aaa; background: #F7FBDC;}
+.upcoming_course_block, .upcoming_event_block, .email_address_block {width: 310px; padding: 10px; margin: 5px; border-right: 1px solid #aaa; border-bottom: 1px solid #aaa;}
+.email_address_block {
+	width: auto;
+	border: 1px solid #aaa;
+	margin-top: 0;
+}
 #home_upcoming_course .view_all {display: inline;}
 #home_upcoming_course h4 {display: inline;}
 #home_upcoming_course .event_title a{font-weight: bold;}

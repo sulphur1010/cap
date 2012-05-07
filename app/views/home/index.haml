@@ -1,48 +1,39 @@
 .page
-	- num = 0
-	- Thought.no_body.published.where(:feature_on_homepage => true).sort_by { rand }.each do |quote|
-		- num += 1
-		.slideshow.js_slideshow{:class => "slide#{num}", :style => "background: url(#{quote.image}); #{num != 1 ? "display: none" : ""}"}
-			.sheen_black.sheen_homepage_title
-				%table
-					%tr
-						%td
-							%img{:width => 80, :height => 80, :src => (quote.users.first.profile_image(:small) rescue "")}
-						%td.homepage_quote
-							%h1
-								= quote.teaser.html_safe
-							%h2
-								= quote.users.first.full_name rescue ''
-	.homepage_overlay
-		%table.homepage_principles_prisms
-			%tr
-				%td
-					.three_principles
-						%a{:href => "/principles/48"}
-							.principle.sheen_white
-								%h2 Human Dignity
-						%a{:href => "/principles/50"}
-							.principle.sheen_white 
-								%h2 Solidarity
-						%a{:href => "/principles/49"}
-							.principle.sheen_white.last 
-								%h2 Subsidarity
-	.three_prisms
-		%a{:href => "/prism_types/10"}
-			.prism.sheen_white 
-				%h2 Economics
-		%a{:href => "/prism_types/9"}
-			.prism.sheen_white 
-				%h2 Government & Politics
-		%a{:href => "/prism_types/11"}
-			.prism.sheen_white 
-				%h2 Culture
-
-
+	%table.index_scroller_table
+		%tr
+			%td.scroller_column
+				- num = 0
+				- Thought.no_body.published.where(:feature_on_homepage => true).sort_by { rand }.each do |quote|
+					- num += 1
+					.slideshow.js_slideshow{:class => "slide#{num}", :style => "background: url(#{quote.image}); #{num != 1 ? "display: none" : ""}"}
+						.sheen_black.sheen_homepage_title
+							%table
+								%tr
+									%td
+										%img{:width => 80, :height => 80, :src => (quote.users.first.profile_image(:small) rescue "")}
+									%td.homepage_quote
+										%h1
+											= quote.teaser.html_safe
+										%h2
+											= quote.users.first.full_name rescue ''
+				.three_principles
+					- [48,50,49].each do |id|
+						- principle = ContentFragment.where(:id => id).first
+						- if principle
+							%a{:href => object_url(principle)}
+								.principle.sheen_white{:style => "background: url(#{principle.thumbnail})"}
+									%h2= principle.title
+			%td.side_column
+				.three_prisms
+					- [10,9,11].each do |id|
+						- prism = ContentFragment.where(:id => id).first
+						- if prism
+							%a{:href => object_url(prism)}
+								.prism.sheen_white{:style => "background: url(#{prism.thumbnail})"}
+									%h2= prism.title
+				.email_address_block= render :partial => 'shared/email_address_block'
 - if @page
 	%table#home_bottom_blocks
-		/%tr.address_course_event_row
-		/%td.email_address_block= render :partial => 'shared/email_address_block'
 		%tr.thoughts_news_row
 			%td.thoughts_block{:colspan => 2}= render :partial => 'shared/home_thoughts_block'
 			%td
