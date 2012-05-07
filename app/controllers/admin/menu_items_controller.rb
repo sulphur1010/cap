@@ -13,7 +13,9 @@ class Admin::MenuItemsController < ApplicationController
 	end
 
 	def new
-		respond_with(@menu_item = MenuItem.new)
+		@menu_item = MenuItem.new
+		@menu_item.menu_type = MenuItem.menu_types.first
+		respond_with(@menu_item)
 	end
 
 	def create

@@ -1,0 +1,4 @@
+%ul.sub_menu
+	- ContemporaryIssue.published.order(:title).each do |issue|
+		%li
+			%a{:href => contemporary_issue_path(issue)}= issue.title

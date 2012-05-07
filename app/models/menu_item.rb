@@ -6,6 +6,10 @@ class MenuItem < ActiveRecord::Base
 		[ "Top", "About" ]
 	end
 
+	def self.menu_types
+		[ "Normal", "Contemporary Issues" ]
+	end
+
 	def self.all_with_relative_depth
 		MenuItem.where(:parent_id => nil).order(:weight).all.map { |m| [m, m.all_children] }.flatten
 	end

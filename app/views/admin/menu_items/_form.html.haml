@@ -4,4 +4,5 @@
 		= f.input :url
 		= f.input :parent, :member_label => :parent_menu_name_with_depth, :collection => MenuItem.all_with_relative_depth
 		= f.input :weight
+		= f.input :menu_type, :collection => MenuItem.menu_types, :as => :select, :include_blank => false
 	= f.buttons

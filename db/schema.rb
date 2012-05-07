@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120501132014) do
+ActiveRecord::Schema.define(:version => 20120507174845) do
 
   create_table "attendees_events", :id => false, :force => true do |t|
     t.integer  "attendee_id"
@@ -181,6 +181,7 @@ ActiveRecord::Schema.define(:version => 20120501132014) do
     t.datetime "updated_at"
     t.integer  "weight"
     t.string   "menu"
+    t.string   "menu_type"
   end
 
   add_index "menu_items", ["menu"], :name => "index_menu_items_on_menu"
