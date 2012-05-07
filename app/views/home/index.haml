@@ -22,7 +22,7 @@
 						- if principle
 							%a{:href => object_url(principle)}
 								.principle.sheen_white{:style => "background: url(#{principle.thumbnail})"}
-									%h2= principle.title
+									%h2= principle.name
 			%td.side_column
 				.three_prisms
 					- [10,9,11].each do |id|
@@ -30,7 +30,7 @@
 						- if prism
 							%a{:href => object_url(prism)}
 								.prism.sheen_white{:style => "background: url(#{prism.thumbnail})"}
-									%h2= prism.title
+									%h2= prism.name
 				.email_address_block= render :partial => 'shared/email_address_block'
 - if @page
 	%table#home_bottom_blocks
