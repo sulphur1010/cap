@@ -63,7 +63,7 @@ hr {border-top: 1px solid #aaa;}
 a {color: #08c; text-decoration: none;}
 a:hover {text-decoration: underline;}
 p {line-height: 1.6em; color: #555; }
-.page p {margin-bottom: 10px; font-size: 16px;}
+.page p {margin-bottom: 15px; font-size: 16px;}
 .inline {display: inline-block;}
 
 
@@ -426,7 +426,6 @@ table.left_menu_container .content_with_left_menu {
 
 .contemporary_issues_list_header {
 	padding: 10px 2px;
-	border-top: 1px dotted #777;
 	margin-top: 10px;
 }
 
@@ -602,8 +601,7 @@ table.thought_block tr td {
 }
 
 .event_teaser {
-	padding: 5px 0px;
-	margin: 10px 0 0 0;
+	padding: 10px 0px;
 	border-top: 1px dotted #777;
 	width: 100%;
 }
