@@ -1,26 +1,33 @@
 
 .question {
 	width: 100%;
+	padding: 0 0 10px 0;
+	border-bottom: 1px dotted #aaa;
+	margin: 0 0 10px 0;
 
 	.question_body {
 		font-weight: bold;
-		width: 75%;
+		width: 85%;
 		vertical-align: middle;
+		
+		p {
+			font-size: 12px;
+			margin-bottom: 0px;
+		}
 	}
 
 	.buttons {
-		width: 23%;
+		width: 15%;
 		vertical-align: middle;
 		text-align: center;
 
 		.answer_button {
 			cursor: pointer;
-			width: 75px;
-			margin-left: 10%;
-			background-color: #c1ff90;
+			width: 90px;
+			background-color: #e0edd6;
 			text-align: left;
 			font-weight: bold;
-			border: 2px solid #ccc;
+			border: 1px solid #ccc;
 			border-radius: 4px;
 			padding: 0px 3px 5px 9px;
 
@@ -52,14 +59,18 @@
 	font-size: 1.4em;
 
 	.title_bar {
-		background-color: #c1ff90;
+		background-color: #e0edd6;
 		font-weight: bold;
 		padding: 3px;
 
 		.answer_question {
 			display: inline-block;
-			text-align: center;
 			width: 93%;
+
+			p {
+				padding: 5px;
+				margin: 0px;
+			}
 		}
 
 		.title {
@@ -68,12 +79,12 @@
 
 		.answer_close,
 		.close_button {
-			background-color: #fff;
 			text-align: center;
 			display: inline-block;
 			padding: 3px;
-			width: 4%;
+			width: 3%;
 			cursor: pointer;
+			float: right;
 		}
 	}
 

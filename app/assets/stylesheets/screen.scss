@@ -20,7 +20,7 @@ a:hover {text-decoration: underline;}
 
 /*Background and Structure*/
 html {font-size:100.01%;}
-body {font-size:75%;color:#222;background: url("/images/background.jpg");font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
+body {font-size:75%;color:#777;background: url("/images/background.jpg");font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
 
 /*Typography definition*/
 h1 {font-size:24px;font-weight:bold;line-height:140%;margin:0;font-family:arial;color:#232323;}
@@ -31,7 +31,7 @@ h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0;font-family:arial;
 
 /*Special font definitions*/
 .event_page h2 {padding: 5px 0; font-size: 22px; display: inline-block;}
-.page h2 {margin: 0 10px 2px 0; display: inline;}
+.page h2 {margin: 0 10px 10px 0; display: inline-block;}
 .content_with_left_menu h2 {display: inline;}
 .study_center_blocks h2 {font-size: 16px;}
 .content_with_left_menu ul li {margin: 0 0 0 18px;} 
@@ -62,8 +62,8 @@ body{line-height: 1.4em;}
 hr {border-top: 1px solid #aaa;}
 a {color: #08c; text-decoration: none;}
 a:hover {text-decoration: underline;}
-p {line-height: 1.6em; color: #555;}
-.page p {margin-bottom: 15px;}
+p {line-height: 1.6em; color: #555; }
+.page p {margin-bottom: 10px; font-size: 16px;}
 .inline {display: inline-block;}
 
 
@@ -91,6 +91,7 @@ select {
     color: #fff;
     padding: 0px 20px;
     right: 0px;
+	font-size: 11px;
 	}
 .no_results {
 	padding: 3px;
@@ -129,7 +130,7 @@ table.nav_main{display:inline;border:none;border-collapse:collapse;}
 table.nav_main tr{margin:0 5px;line-height:40px;border:none;border-collapse:collapse;}
 table.nav_main tr td{border:none;border-collapse:collapse;}
 
-a.top_nav{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:40px;padding:0 8px;display:block;}
+a.top_nav{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:40px;padding:0 10px;display:block;}
 a.top_nav:hover{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 
@@ -168,7 +169,7 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
     border-radius: 3px 3px 3px 3px;
     cursor: pointer;
     padding: 8px 12px;
-    display: block;
+    display: inline-block;
     float: right;
     right: 8px;
 }
@@ -297,7 +298,7 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 .nav_main ul.sub_menu {
 	position: absolute;
 	display: none;
-	top: 125px;
+	top: 130px;
 	list-style-type: none;
 	margin: 0;
 	background-color: black;
@@ -451,6 +452,7 @@ ul.contemporary_issues_list li {
 
 .user_list li {
 	width: 225px;
+	height: 80px;
 	padding: 0;
 	border: 1px solid #ccc;
  	-moz-box-shadow:    2px 2px 2px 0px #ddd;
@@ -1067,7 +1069,7 @@ a.encyclical_link {
 }
 
 .content_fragment_header_image {
-	padding-top: 15px;
+	padding-top: 5px;
 	padding-bottom: 10px;
 }
 
@@ -1135,12 +1137,13 @@ table.search_left_menu_container .content_with_left_menu {
 #search_box {
 	position: absolute;
 	top: 96px;
-	right: 10px;
+	right: 6px;
 
 	.search_input {
 		padding: 3px;
 		color: #444;
 		font-size: 0.9em;
+		width: 215px;
 	}
 }
 
@@ -1183,7 +1186,7 @@ table.left_menu_container .national_board_member_content {
 }
 
 ul.accordion_list {
-	padding-top: 10px;
+	padding-bottom: 10px;
 
 	> li {
 		display: block;
@@ -1192,7 +1195,6 @@ ul.accordion_list {
 		margin: 3px;
 		margin-top: 0;
 		margin-left: 0;
-		margin-bottom: 20px;
 		font-weight: bold;
 		color: #444;
 		-moz-box-shadow:    2px 2px 2px 0px #ddd;
@@ -1213,6 +1215,8 @@ ul.accordion_list {
 		border: 1px solid #ccc;
 		list-style-type: none;
 		padding: 9px;
+		margin-top: -2px;
+		border-top: 0px;
 	}
 
 	ul li {
@@ -1225,6 +1229,8 @@ ul.accordion_list {
 	font-weight: bold;
 	padding-bottom: 10px;
 	font-size: 18px;
+	width: 90%;
+	display: inline-block;
 
 	a {
 		display: block;

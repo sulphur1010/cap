@@ -2,6 +2,9 @@
 	%tr
 		%td.question_body
 			= question.body.html_safe
+			- if is_admin?
+				.edit_button
+					= link_to 'edit', edit_admin_question_url(question)
 		%td.buttons
 			.answer_button{:'data-id' => question.id}
 				%span= "ANSWER"

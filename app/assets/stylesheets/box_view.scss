@@ -1,11 +1,11 @@
 
 .menu_item_box {
 	float: left;
-	width: 120px;
+	width: 100px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
-	padding: 5px;
-	margin: 15px;
+	padding: 10px;
+	margin: 0 10px 10px 0;
 
 	.image {
 		text-align: center;
@@ -24,6 +24,7 @@
 		}
 
 		.arrow {
+			margin-top: 5px;
 		}
 	}
 }
