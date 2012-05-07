@@ -8,3 +8,8 @@
 				- menu_item.children.order(:weight).each do |sub_menu_item|
 					%li
 						%a{:href => sub_menu_item.url}= sub_menu_item.name
+						- if !sub_menu_item.children.empty?
+							%ul.sub_sub_menu
+								- sub_menu_item.children.order(:weight).each do |sub_sub_menu_item|
+									%li
+										%a{:href => sub_sub_menu_item.url}= sub_sub_menu_item.name
