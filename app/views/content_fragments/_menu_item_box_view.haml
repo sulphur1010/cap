@@ -2,7 +2,7 @@
 	- target = menu_item.target
 	- name = menu_item.name
 	- url = menu_item.url
-	- image = Page.find_by_url(menu_item.url).image rescue nil
+	- image = Page.find_by_url(menu_item.url).thumbnail rescue nil
 - else
 	- target = menu_item
 	- name = menu_item.title
