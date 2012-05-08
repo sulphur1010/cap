@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120507174845) do
+ActiveRecord::Schema.define(:version => 20120508163633) do
 
   create_table "attendees_events", :id => false, :force => true do |t|
     t.integer  "attendee_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20120507174845) do
   create_table "content_fragments", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.text     "body",                   :limit => 16777215
+    t.text     "body",                        :limit => 16777215
     t.boolean  "published"
     t.datetime "published_at"
     t.text     "teaser"
@@ -94,6 +94,10 @@ ActiveRecord::Schema.define(:version => 20120507174845) do
     t.datetime "image_updated_at"
     t.boolean  "feature_on_homepage"
     t.string   "translated_title"
+    t.string   "homepage_image_content_type"
+    t.integer  "homepage_image_file_size"
+    t.string   "homepage_image_file_name"
+    t.datetime "homepage_image_updated_at"
   end
 
   add_index "content_fragments", ["url"], :name => "index_content_fragments_on_url", :unique => true

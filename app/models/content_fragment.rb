@@ -12,6 +12,7 @@ class ContentFragment < ActiveRecord::Base
 
 	has_attached_file :thumbnail, :styles => { :normal => "200x100" }
 	has_attached_file :image, :styles => { :normal => "720x405" }
+	has_attached_file :homepage_image
 
 	has_many :encyclical_references
 	has_many :encyclicals, :through => :encyclical_references
