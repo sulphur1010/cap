@@ -56,7 +56,7 @@ p.italyGeogia{font-style:italic; font-family:Georgia; }
 /*Basic Structure*/
 body{line-height: 1.4em;}
 #content{width:1001px;height:auto;margin:auto;}
-#logo {margin: 5px 0px; height: 85px;}
+#logo {margin: 5px 0px; height: 60px;}
 
 /*Global Items */
 hr {border-top: 1px solid #aaa;}
@@ -184,7 +184,16 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 }
 .homepage_video {width: 640px; height: 360px; position: absolute; top: 20px; left: 20px;}
 .homepage_overlay {width: 650px; position: absolute; bottom: 0px; left: 20px; bottom: -2px;}
-.three_principles {position: relative; width: 650px; margin-bottom: 0px; bottom: 0px;}
+.three_principles {
+	position: relative;
+	width: 650px;
+	margin-bottom: 0px;
+	bottom: 0px;
+
+	a:hover {
+		text-decoration: none;
+	}
+}
 .three_principles h5 {color: #fff;}
 .principle {width: 188px; min-height: 45px; margin-right: 5px; display: inline-block; padding: 10px;}
 .last {margin-right: 0px;}
@@ -193,22 +202,42 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 	padding-bottom: 0;
 	width: 310px;
 
+	a:hover {
+		text-decoration: none;
+	}
+
 	.prism {
-		border: 1px solid #aaa;
 		border-bottom: 0;
-		padding: 5px;
 		text-align: right;
-		height: 70px;
+		height: 81px;
+
+		h2 {
+			text-align: right;
+		}
 	}
 }
 
 table#home_bottom_blocks {width: 100%; border-top: 1px solid #aaa; }
 #home_bottom_blocks .padding_in10 {padding: 0px;}
 #home_bottom_blocks .address_course_event_row a {color: #427b98;}
-.upcoming_course_block, .upcoming_event_block, .email_address_block {width: 310px; padding: 10px; margin: 5px; border-right: 1px solid #aaa; border-bottom: 1px solid #aaa;}
+
+.newscourse_block {width: 310px;}
+
+.news_block {padding: 20px;}
+.news_block .view_all {display: inline;}
+.news_block h4 {display: inline;}
+
+.upcoming_course_block
+	{padding: 20px;}
+.upcoming_event_block
+	{}
+.email_address_block 
+	{width: 310px; padding: 10px; margin: 5px;}
+.email_address_block {
+}
 .email_address_block {
 	width: auto;
-	border: 1px solid #aaa;
+	border-top: 0;
 	margin-top: 0;
 }
 #home_upcoming_course .view_all {display: inline;}
@@ -219,12 +248,8 @@ table#home_bottom_blocks {width: 100%; border-top: 1px solid #aaa; }
 #home_thoughts .view_all {display: inline;}
 #home_thoughts h4 {display: inline;}
 .view_all {float: none;}
-
-.newscourse_block {width: 300px;}
 #home_thoughts {padding: 20px; }
-.news_block {padding: 20px;}
-.news_block .view_all {display: inline;}
-.news_block h4 {display: inline;}
+
 
 /*right_column*/
 table.right_col{border:none;border-collapse:collapse;}
@@ -321,7 +346,7 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 .nav_main ul.sub_menu {
 	position: absolute;
 	display: none;
-	top: 130px;
+	top: 102px;
 	list-style-type: none;
 	margin: 0;
 	background-color: black;
@@ -335,7 +360,7 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 	list-style-type: none;
 	margin: 0;
 	left: 175px;
-	top: -1px;
+	top: 0px;
 	background-color: black;
 	color: white;
 }
@@ -357,10 +382,9 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 	text-decoration: none;
 	width: 170px;
 	display: block;
-	padding-left: 5px;
+	padding: 5px;
 	font-weight: bold;
-	height: 30px;
-	line-height: 30px;
+	line-height: 20px;
 }
 
 .nav_main ul.sub_menu li a:hover {
@@ -1025,6 +1049,7 @@ a.encyclical_link {
 	color: #000;
 	font-size: 12px;
 	text-transform: uppercase;
+	display: block;
 }
 
 .sheen_black h4 {
@@ -1175,14 +1200,14 @@ table.search_left_menu_container .content_with_left_menu {
 
 #search_box {
 	position: absolute;
-	top: 96px;
+	top: 71px;
 	right: 6px;
 
 	.search_input {
 		padding: 3px;
 		color: #444;
 		font-size: 0.9em;
-		width: 220px;
+		width: 200px;
 	}
 }
 
