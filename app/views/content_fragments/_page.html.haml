@@ -17,8 +17,8 @@
 = page.body.html_safe rescue ""
 - if !page.questions.empty?
 	= render :partial => 'questions/question', :collection => page.questions
-	- if is_admin?
-		= link_to 'Add Question', new_admin_question_path(:id => page.id), :class => 'btn_edit left'
+- if is_admin?
+	= link_to 'Add Question', new_admin_question_path(:id => page.id), :class => 'btn_edit left'
 - if page.child_menu_items_for_content_fragment.count > 0
 	- if !local_assigns[:hide_sub_menu]
 		= render :partial => 'content_fragments/menu_children_box_view', :locals => { :menu_items => page.child_menu_items_for_content_fragment }
