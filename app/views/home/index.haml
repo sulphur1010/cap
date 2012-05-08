@@ -21,14 +21,14 @@
 						%a{:href => principle_url(principle)}
 							.principle.sheen_white
 								%h2= principle.name
-								%img{:src => principle.thumbnail, :width => 100, :height => 60}
+								%img{:src => principle.thumbnail, :width => 300, :height => 100}
 			%td.side_column
 				.three_prisms
 					- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
 						%a{:href => prism_type_url(prism)}
 							.prism.sheen_white
 								%h2= prism.name
-								%img{:src => prism.thumbnail}
+								%img{:src => prism.image, :width => 310, :height => 81}
 				.email_address_block= render :partial => 'shared/email_address_block'
 - if @page
 	%table#home_bottom_blocks
