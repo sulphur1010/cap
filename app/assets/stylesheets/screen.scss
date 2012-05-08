@@ -202,6 +202,11 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 	padding-bottom: 0;
 	width: 310px;
 
+	a {
+		margin-bottom: 5px;
+		display: block;
+	}
+
 	a:hover {
 		text-decoration: none;
 	}

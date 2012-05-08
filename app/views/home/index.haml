@@ -27,8 +27,15 @@
 				.three_prisms
 					- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
 						%a{:href => prism_type_url(prism)}
-							.prism.sheen_white{:style => "background: url(#{prism.homepage_image});"}
-				.email_address_block= render :partial => 'shared/email_address_block'
+							.prism.sheen_white{:style => "background: url(#{prism.image});"}
+				.padding_in10
+					%h5 Yes! I want to learn more... 
+					%h5 Add Your Email
+					= form_for Contact.new do |f|
+						= f.text_field :email, { :class => 'email_box', :id => 'js_email_address', :'data-label' => 'Add Email' }
+						.arial.size11.cgrey Sign up for news, courses and events tailored to your interests.
+						= f.submit :class => 'submit_btn', :value=> 'Submit'
+
 - if @page
 	%table#home_bottom_blocks
 		%tr.thoughts_news_row
