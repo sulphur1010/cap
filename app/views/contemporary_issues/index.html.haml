@@ -1,1 +1,7 @@
 = render :partial => 'header'
+.page
+	- if @page
+		= render :partial => 'content_fragments/page', :object => @page, :locals => { :hide_sub_menu => true }
+	- else
+		Create a page with a url of "/contemporary_issues" to not see this page anymore.
+= render :partial => 'content_fragments/menu_children_box_view', :locals => { :menu_items => @contemporary_issues }

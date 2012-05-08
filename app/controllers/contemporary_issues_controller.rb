@@ -5,6 +5,7 @@ class ContemporaryIssuesController < ApplicationController
 	before_filter :load_contemporary_issues
 
 	def index
+		@page = Page.where(:url => "/contemporary_issues").first
 		respond_with(@contemporary_issues)
 	end
 
