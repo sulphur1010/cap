@@ -10,7 +10,7 @@
 	- image = menu_item.thumbnail
 .menu_item_box
 	.image
-		- if image && image.file?
+		- if image
 			= link_to image_tag(image), url
 		- else
 			= link_to image_tag('capp_logo.jpg', :size => '100x100'), url
