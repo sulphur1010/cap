@@ -213,6 +213,7 @@ table#home_bottom_blocks {width: 100%; border-top: 1px solid #aaa; }
 .email_address_block {
 	width: auto;
 	border: 1px solid #aaa;
+	border-top: 0;
 	margin-top: 0;
 }
 #home_upcoming_course .view_all {display: inline;}
@@ -359,10 +360,9 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 	text-decoration: none;
 	width: 170px;
 	display: block;
-	padding-left: 5px;
+	padding: 5px;
 	font-weight: bold;
-	height: 30px;
-	line-height: 30px;
+	line-height: 20px;
 }
 
 .nav_main ul.sub_menu li a:hover {
