@@ -194,10 +194,9 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 	width: 310px;
 
 	.prism {
-		border: 1px solid #aaa;
 		border-bottom: 0;
 		text-align: right;
-		height: 70px;
+		height: 81x;
 
 		h2 {
 			position: relative;
@@ -1027,6 +1026,8 @@ a.encyclical_link {
 	color: #000;
 	font-size: 12px;
 	text-transform: uppercase;
+	display: block;
+	text-align: center;
 }
 
 .sheen_black h4 {
