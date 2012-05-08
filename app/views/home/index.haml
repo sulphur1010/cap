@@ -21,7 +21,7 @@
 						%a{:href => principle_url(principle)}
 							.principle.sheen_white
 								%h2= principle.name
-								%img{:src => principle.thumbnail, :width => 300, :height => 100}
+								%img{:src => principle.thumbnail, :width => 200, :height => 100}
 			%td.side_column
 				.three_prisms
 					- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
