@@ -1,9 +1,10 @@
 .page
 	%h2 All Principles
-	- table(@principles, ['name', 'title', 'weight', '']) do |principle, klass|
+	- table(@principles, ['name', 'title', 'homepage', 'weight', '']) do |principle, klass|
 		%tr{:class => klass}
 			%td= principle.name
 			%td= principle.title
+			%td= principle.feature_on_homepage?
 			%td= principle.weight
 			%td.controls
 				= link_to 'Edit', edit_admin_principle_path(principle)

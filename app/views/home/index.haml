@@ -17,21 +17,17 @@
 										%h2
 											= quote.users.first.full_name rescue ''
 				.three_principles
-					- [48,50,49].each do |id|
-						- principle = ContentFragment.where(:id => id).first
-						- if principle
-							%a{:href => object_url(principle)}
-								.principle.sheen_white
-									%img{:href => principle.thumbnail}
-									%h2= principle.name
+					- Principle.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |principle|
+						%a{:href => principle_url(principle)}
+							.principle.sheen_white
+								%img{:href => principle.thumbnail}
+								%h2= principle.name
 			%td.side_column
 				.three_prisms
-					- [10,9,11].each do |id|
-						- prism = ContentFragment.where(:id => id).first
-						- if prism
-							%a{:href => object_url(prism)}
-								.prism.sheen_white{:style => "background: url(#{prism.thumbnail})"}
-									%h2= prism.name
+					- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
+						%a{:href => prism_type_url(prism)}
+							.prism.sheen_white{:style => "background: url(#{prism.thumbnail})"}
+								%h2= prism.name
 				.email_address_block= render :partial => 'shared/email_address_block'
 - if @page
 	%table#home_bottom_blocks
