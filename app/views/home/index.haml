@@ -27,8 +27,8 @@
 					- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
 						%a{:href => prism_type_url(prism)}
 							.prism.sheen_white
-								%h2= prism.name
 								%img{:src => prism.image, :width => 310, :height => 81}
+								%h2= prism.name
 				.email_address_block= render :partial => 'shared/email_address_block'
 - if @page
 	%table#home_bottom_blocks
