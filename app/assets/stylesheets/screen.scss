@@ -184,7 +184,16 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 }
 .homepage_video {width: 640px; height: 360px; position: absolute; top: 20px; left: 20px;}
 .homepage_overlay {width: 650px; position: absolute; bottom: 0px; left: 20px; bottom: -2px;}
-.three_principles {position: relative; width: 650px; margin-bottom: 0px; bottom: 0px;}
+.three_principles {
+	position: relative;
+	width: 650px;
+	margin-bottom: 0px;
+	bottom: 0px;
+
+	a:hover {
+		text-decoration: none;
+	}
+}
 .three_principles h5 {color: #fff;}
 .principle {width: 188px; min-height: 45px; margin-right: 5px; display: inline-block; padding: 10px;}
 .last {margin-right: 0px;}
