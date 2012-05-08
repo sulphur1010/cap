@@ -3,6 +3,13 @@
 	- name = menu_item.name
 	- url = menu_item.url
 	- image = Page.find_by_url(menu_item.url).thumbnail rescue nil
+	- if !image
+		- model = menu_item.url.split('/')[1]
+		- id = menu_item.url.split('/')[2]
+		- if model && id
+			- obj = model.singularize.camelize.constantize.find(id.to_i) rescue nil
+			- if obj
+				- image = obj.thumbnail
 - else
 	- target = menu_item
 	- name = menu_item.title
