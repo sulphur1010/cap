@@ -20,14 +20,15 @@
 					- Principle.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |principle|
 						%a{:href => principle_url(principle)}
 							.principle.sheen_white
-								%img{:href => principle.thumbnail}
 								%h2= principle.name
+								%img{:src => principle.thumbnail}
 			%td.side_column
 				.three_prisms
 					- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
 						%a{:href => prism_type_url(prism)}
 							.prism.sheen_white{:style => "background: url(#{prism.thumbnail})"}
 								%h2= prism.name
+								%img{:src => prism.thumbnail}
 				.email_address_block= render :partial => 'shared/email_address_block'
 - if @page
 	%table#home_bottom_blocks

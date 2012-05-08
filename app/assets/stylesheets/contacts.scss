@@ -1,10 +1,5 @@
 .contact_popup_button {
-	position: absolute;
-	top: 25px;
-	right: 1px;
-	width: 190px;
 	background-color: white;
-	border: 1px solid #407;
 	padding: 3px;
 	font-size: 1.1em;
 	cursor: pointer;
@@ -13,7 +8,12 @@
 		font-weight: bold;
 		font-size: 1.4em;
 		text-align: center;
+
 	}
+}
+
+.contact_popup_button:hover {
+	background: #ffc;
 }
 
 div.contact_popup {

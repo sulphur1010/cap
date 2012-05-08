@@ -1005,8 +1005,8 @@ a.encyclical_link {
 	width: 550px;
 	padding: 10px;
 	position: relative;
-	top: 20px;
-	left: 20px;
+	top: 10px;
+	left: 10px;
 }
 
 .sheen_black a {
@@ -1042,9 +1042,14 @@ a.encyclical_link {
 }
 
 .sheen_homepage_title h1 {
-	font-size: 16px;
 	text-transform: none;
 	color: #fff;
+
+	p {
+		color: #fff;
+		font-size: 14px;
+		display: inline-block;
+	}
 
 }
 
