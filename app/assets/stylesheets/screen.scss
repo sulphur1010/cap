@@ -196,9 +196,13 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 	.prism {
 		border: 1px solid #aaa;
 		border-bottom: 0;
-		padding: 5px;
 		text-align: right;
 		height: 70px;
+
+		h2 {
+			position: relative;
+			top: -80px;
+		}
 	}
 }
 
