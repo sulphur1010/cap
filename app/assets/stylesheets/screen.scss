@@ -1228,8 +1228,10 @@ table.search_left_menu_container .content_with_left_menu {
 	padding: 0;
 
 	.board_member {
-		padding: 20px;
-		border-bottom: 1px solid #aaa;
+		padding: 0px;
+		border-bottom: 1px dotted #aaa;
+		margin-bottom: 5px;
+		padding-bottom: 5px;
 
 		.board_member_image {
 			float: left;
