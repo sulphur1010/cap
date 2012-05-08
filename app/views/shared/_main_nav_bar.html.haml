@@ -1,4 +1,4 @@
-- MenuItem.where(:menu => 'Top').where(:parent_id => nil).order(:weight).each do |menu_item|
+- MenuItem.where(:parent_id => nil).order(:weight).each do |menu_item|
 	%td.top_nav_container
 		= top_nav_active_link_to menu_item.name, menu_item.url, { :class => 'top_nav', :id => "top_nav_#{menu_item.name.downcase.gsub(" ", "_").gsub("?", "_")}" }
 		- if menu_item.menu_type == "Contemporary Issues"
