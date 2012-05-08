@@ -2,7 +2,7 @@
 	- target = menu_item.target
 	- name = menu_item.name
 	- url = menu_item.url
-	- image = Page.find_by_url(menu_item.url).image rescue ''
+	- image = Page.find_by_url(menu_item.url).image rescue nil
 - else
 	- target = menu_item
 	- name = menu_item.title
@@ -10,7 +10,7 @@
 	- image = menu_item.thumbnail
 .menu_item_box
 	.image
-		- if target and image.file?
+		- if image && image.file?
 			= link_to image_tag(image), url
 		- else
 			= link_to image_tag('capp_logo.jpg', :size => '100x100'), url
