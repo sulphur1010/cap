@@ -1,9 +1,40 @@
 %table.right_col
-	%tr
-		%td.padding_in10
-			%h5 Yes! I want to learn more... 
-			%h5 Add Your Email
-			= form_for Contact.new do |f|
-				= f.text_field :email, { :class => 'email_box', :id => 'js_email_address', :'data-label' => 'Add Email' }
-				%p.arial.size11.cgrey Sign up for news, courses and events tailored to your interests.
-				= f.submit :class => 'submit_btn', :value=> 'Submit'
+	/
+		%tr
+			%td.padding_in10
+				%h5 Yes! I want to learn more... 
+				%h5 Add Your Email
+				= form_for Contact.new do |f|
+					= f.text_field :email, { :class => 'email_box', :id => 'js_email_address', :'data-label' => 'Add Email' }
+					%p.arial.size11.cgrey Sign up for news, courses and events tailored to your interests.
+					= f.submit :class => 'submit_btn', :value=> 'Submit'
+
+
+	.contact_popup_button#js_contact_popup_button
+		%tr
+			%td.padding_in10
+				%h5 Questions? Comments?
+				%h5 Call
+				%h5 Or, Send us a note!
+				.submit_btn Contact Us!
+.contact_popup#js_contact_popup{:style => 'display: none'}
+	.title_bar
+		.close_button X
+		.title Keep Me Updated
+	.popup_body
+		.title Sign up for free CAPP-USA updates:
+		= semantic_form_for Contact.new do |f|
+			= f.input :prefix, :wrapper_html => { :class => 'half_width' }, :as => :select, :collection => Contact::NAME_PREFIXES
+			= f.input :first_name, :wrapper_html => { :class => 'half_width float' }
+			= f.input :last_name, :wrapper_html => { :class => 'half_width float' }
+			= f.input :email
+			= f.input :address
+			= f.input :address_2, :label => "Address Line 2"
+			= f.input :city
+			= f.input :state, :wrapper_html => { :class => 'half_width float' }, :as => :select, :collection => Contact::US_STATES
+			= f.input :zip_code, :wrapper_html => { :class => 'half_width float' }
+			= f.input :phone
+			= f.input :note
+			= f.actions do
+				= f.action :submit, :as => :input, :label => "Sign Up"
+				= f.action :reset, :as => :input, :label => "Cancel", :button_html => { :class => "close_button" }
