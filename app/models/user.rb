@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 				 :recoverable, :rememberable, :trackable, :validatable
 
 	# Setup accessible (or protected) attributes for your model
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :title, :phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :national_board_member
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :title, :phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :national_board_member, :national_board_weight
 
 	belongs_to :chapter
 	belongs_to :person_type
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 	before_save :set_celebrant
 	before_create :add_user_role
 
-	scope :national_board_members, where(:national_board_member => true)
+	scope :national_board_members, where(:national_board_member => true).order(:national_board_weight)
 
 	def thoughts
 		self.content_fragments.thoughts
