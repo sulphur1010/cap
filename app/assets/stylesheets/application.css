@@ -27,5 +27,5 @@ label.input input {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-	label.input input { padding; 4px; }
+	label.input input { padding: 4px; }
 }
