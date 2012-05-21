@@ -21,7 +21,7 @@
 			= teaser.short_start
 			%br
 			.event_about_time
-				= distance_of_time_in_words(teaser.duration) rescue ''
+				= teaser.duration_in_words
 		%td{:style => 'width: 40px'}
 			.rsvp
 				= link_to "VIEW", event_path(teaser)
