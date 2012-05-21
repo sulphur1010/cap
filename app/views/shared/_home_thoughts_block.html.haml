@@ -1,4 +1,4 @@
-- thoughts = Thought.random(3)
+- thoughts = Thought.published.has_body.order(:published_at).limit(5)
 #home_thoughts
 	%h4
 		Articles on Catholic Social Teaching
