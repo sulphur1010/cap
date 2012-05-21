@@ -35,7 +35,7 @@
 	- if !@user.thoughts.has_body.published.empty?
 		%hr
 		.page
-			%h4 Articles on CST:
+			%h4 Articles on Catholic Social Teaching:
 			#js_thought_list
 				- @user.thoughts.has_body.published.each do |thought|
 					.thought_teaser_list_item
