@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120521164746) do
+ActiveRecord::Schema.define(:version => 20120521173511) do
 
   create_table "attendees_events", :id => false, :force => true do |t|
     t.integer  "attendee_id"
@@ -230,8 +230,8 @@ ActiveRecord::Schema.define(:version => 20120521164746) do
     t.datetime "profile_image_updated_at"
     t.text     "about"
     t.boolean  "celebrant",                  :default => false
-    t.boolean  "national_board_member"
-    t.integer  "national_board_weight"
+    t.string   "about_us_type"
+    t.integer  "about_us_weight"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

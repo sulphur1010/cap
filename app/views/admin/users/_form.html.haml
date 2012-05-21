@@ -5,8 +5,8 @@
 	= f.input :password_confirmation, :label => 'Password', :required => true
 	= f.input :email
 	= f.input :title
-	= f.input :national_board_member
-	= f.input :national_board_weight
+	= f.input :about_us_type, :collection => User.about_us_types
+	= f.input :about_us_weight
 	= f.input :about, :input_html => { :class => 'js_editor' }
 	= f.input :phone
 	= f.input :roles, :as => :check_boxes, :collection => [ "admin", "speaker", "celebrant", "thought_creator", "user" ]
