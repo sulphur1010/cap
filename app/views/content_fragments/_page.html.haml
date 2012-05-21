@@ -6,7 +6,7 @@
 	.thought_quote= strip_tags(@thought.teaser) rescue ''
 - if page.class == Encyclical
 	- if page.published_at
-		.published_date= page.published_at.strftime("%c")
+		.published_date= page.published_at.strftime("%a %b %e %Y")
 	- if !page.authors.empty?
 		.authors
 			by:
