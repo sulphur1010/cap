@@ -82,6 +82,8 @@ namespace :deploy do
 	desc "symlink system directory"
 	task :symlink_system_dir, :roles => :app do
 		run "cd #{release_path}/public && ln -s #{deploy_to}/shared/system"
+		run "cd #{release_path}/public && ln -s #{deploy_to}/shared/profile_images"
+		run "cd #{release_path}/public && ln -s #{deploy_to}/shared/thumbnails"
 	end
 
 	desc "create tmp/cache directory"
