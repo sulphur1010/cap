@@ -1,5 +1,6 @@
 = render :partial => 'header'
 .page
+	%h2.inline Contemporary Issues
 	- if @page
 		= render :partial => 'content_fragments/page', :object => @page, :locals => { :hide_sub_menu => true }
 	- else

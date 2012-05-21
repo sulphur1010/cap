@@ -11,3 +11,4 @@ public/system
 solr/data
 solr
 *.pid
+bin/

@@ -11,7 +11,7 @@
 		vertical-align: middle;
 		
 		p {
-			font-size: 14px;
+			font-size: 12px;
 			margin-bottom: 0px;
 			color: #000;
 		}
@@ -25,12 +25,13 @@
 		.answer_button {
 			cursor: pointer;
 			width: 90px;
-			background-color: #e0edd6;
 			text-align: left;
 			font-weight: bold;
 			border: 1px solid #ccc;
 			border-radius: 4px;
 			padding: 0px 3px 5px 9px;
+			background: -moz-linear-gradient(center top , white, #EFEFEF) repeat scroll 0 0 #F6F6F6;
+		
 
 			.arrow {
 				margin-left: 18px;
@@ -48,11 +49,16 @@
 	}
 }
 
+.answer_button:hover {
+	background: #eee;
+	color: black;
+}
+
 .answer_popup,
 .contact_popup {
 	width: 66%;
 	position: absolute;
-	left: 16%;
+	left: 8%;
 	top: 10px;
 	background-color: #fff;
 	z-index: 999;

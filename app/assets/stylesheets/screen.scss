@@ -18,6 +18,8 @@ a:hover {text-decoration: underline;}
 	clear: both;
 }
 
+.paperclip_image {max-width: 720px;}
+
 /*Background and Structure*/
 html {font-size:100.01%;}
 body {font-size:75%;color:#777;background: url("/images/background.jpg");font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
@@ -26,7 +28,7 @@ body {font-size:75%;color:#777;background: url("/images/background.jpg");font-fa
 h1 {font-size:24px;font-weight:bold;line-height:140%;margin:0;font-family:arial;color:#232323;}
 h2 {font-size:18px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
 h3 {font-size:15px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
-h4 {font-size:14px;font-weight:bold;line-height:130%;margin:0 0 6px 0;font-family:arial;color:#232323; display: inline-block;}
+h4 {font-size:14px;font-weight:bold;line-height:130%;margin:5px 0 6px 0;font-family:arial;color:#777; }
 h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0;font-family:arial;color:#232323;}/*left bar title CAP*/
 
 /*Special font definitions*/
@@ -37,6 +39,8 @@ h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0;font-family:arial;
 .content_with_left_menu ul li {margin: 0 0 0 18px;} 
 .page h3 {text-transform: uppercase; font-size: 13px; margin-bottom: 10px;}
 .events_block p {color: #aaa;}
+.about_cst {padding: 20px; text-align: center; width: 940px; font-size: 26px; color: #333; line-height: 1.2em; color: #777;}
+.strong {font-weight: bold; display: inline-block; color: #333;}
  
 /*---General Define P TAG*/
 .arial{font-family:arial;}
@@ -52,18 +56,20 @@ h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0;font-family:arial;
 
 /*---Special Group*/
 p.italyGeogia{font-style:italic; font-family:Georgia; }
+em {font-style: italic;}
 
 /*Basic Structure*/
 body{line-height: 1.4em;}
-#content{width:1001px;height:auto;margin:auto;}
+#content{width:980px;height:auto;margin:auto;}
 #logo {margin: 5px 0px; height: 60px;}
 
 /*Global Items */
-hr {border-top: 1px solid #aaa;}
+hr {border-top: 1px solid #ddd; border-bottom: 9px solid #eee;}
 a {color: #08c; text-decoration: none;}
 a:hover {text-decoration: underline;}
-p {line-height: 1.6em; color: #555; }
-.page p {margin-bottom: 15px; font-size: 16px;}
+p {line-height: 1.6em; color: #333; }
+.page ul li {font-size: 14px; line-height: 1.6em; color: #333;}
+.page p {margin-bottom: 15px; font-size: 14px;}
 .inline {display: inline-block;}
 ul {margin: 0 0 0 10px;}
 
@@ -120,11 +126,11 @@ select {
 }
 
 /*--Header*/
-#header{width:1001px;clear:both;position:relative;}
+#header{width:980px;clear:both;position:relative;}
 /*----logo*/
 
 /*----Top Navigation & Search Box*/
-#top_nav_bar{display:block;width:1001px;height:40px;background:url(/images/top_nav_bg.gif);}
+#top_nav_bar{display:block;width:980px;height:40px;background:url(/images/top_nav_bg.gif);}
 
 table.nav_main{display:inline;border:none;border-collapse:collapse;}
 table.nav_main tr{margin:0 5px;line-height:40px;border:none;border-collapse:collapse;}
@@ -139,16 +145,15 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 .search_btn{background:url(/images/search_btn.png);vertical-align:top; width:26px;height:23px;border:none;}
 
 /*Main Part*/
-#main{background:#fff;border:none;width:1000px;height:auto;margin:20px 0 0 0; position: relative;}
+#main{background:#fff;border:none;width:980px;height:auto;margin:20px 0 0 0; position: relative;}
 .left_column{width:180px;}
 .left_content{width:760px; border:1px solid #ccc; border-right: 0;}
-.no_right_column {width:1000px; border-right: 1px solid #ccc;}
+.no_right_column {width:980px; border-right: 1px solid #ccc;}
 .left_content .page {padding:20px}
 .no_right_column .page {padding: 0px; position: relative;}
 
-.slide1 {background: url("/images/h_economiccrisis.jpg"); padding: 0px; height: 320px; position: relative;}
-.slide2 {background: url("/images/h_newstructures.jpg");  padding: 0px; height: 320px; position: relative;}
-.slide3 {background: url("/images/h_politics.jpg"); padding: 0px; height: 320px; position: relative;}
+.black {background: black;}
+.slide1, .slide2, .slide3 {background: url("/images/h_economiccrisis.jpg"); padding: 0px; height: 410px; position: relative;}
 
 
 
@@ -186,7 +191,7 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 .homepage_overlay {width: 650px; position: absolute; bottom: 0px; left: 20px; bottom: -2px;}
 .three_principles {
 	position: relative;
-	width: 650px;
+	width: 720px;
 	margin-bottom: 0px;
 	bottom: 0px;
 
@@ -195,7 +200,7 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 	}
 }
 .three_principles h5 {color: #fff;}
-.three_principles .principle {width: 188px; min-height: 45px; margin-right: 5px; display: inline-block; padding: 10px;}
+.three_principles .principle {margin-bottom: 20px; display: inline-block;}
 .last {margin-right: 0px;}
 .three_prisms {
 	padding: 5px;
@@ -222,21 +227,29 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 	}
 }
 
-table#home_bottom_blocks {width: 100%; border-top: 1px solid #aaa; }
+.col_three {
+	width: 300px;
+	padding: 20px 20px 0px 0px;
+}
+
+.col_two_three {
+	width: 700px;
+	padding: 20px; 
+}
+
+table#home_bottom_blocks {width: 100%; }
 #home_bottom_blocks .padding_in10 {padding: 0px;}
 #home_bottom_blocks .address_course_event_row a {color: #427b98;}
 
-.newscourse_block {width: 310px;}
+.newscourse_block {}
 
-.news_block {padding: 10px 5px;}
+.news_block {}
 .news_block .view_all {display: inline;}
 .news_block h4 {display: inline;}
 
-.upcoming_course_block
-	{padding: 10px 5px;}
+.upcoming_course_block, .upcoming_event_block
+	{padding: 20px 0px;}
 
-.upcoming_event_block
-	{}
 .email_address_block 
 	{width: 310px; padding: 10px; margin: 5px;}
 .email_address_block {
@@ -254,7 +267,7 @@ table#home_bottom_blocks {width: 100%; border-top: 1px solid #aaa; }
 #home_thoughts .view_all {display: inline;}
 #home_thoughts h4 {display: inline;}
 .view_all {float: none;}
-#home_thoughts {padding: 20px; }
+#home_thoughts {}
 
 
 /*right_column*/
@@ -352,11 +365,11 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 .nav_main ul.sub_menu {
 	position: absolute;
 	display: none;
-	top: 102px;
+	top: 105px;
 	list-style-type: none;
 	margin: 0;
-	background-color: black;
-	color: white;
+	background-color: #fff;
+	color: #777;
 	z-index: 9999;
 }
 
@@ -365,10 +378,10 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 	display: none;
 	list-style-type: none;
 	margin: 0;
-	left: 175px;
+	left: 220px;
 	top: 0px;
-	background-color: black;
-	color: white;
+	background-color: #fff;
+	color: #777;
 }
 
 .nav_main td.top_nav_container:hover ul.sub_menu {
@@ -380,13 +393,15 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 }
 
 .nav_main ul.sub_menu li {
-	border-bottom: 1px solid #999;
+	border-bottom: 1px solid #ddd;
+	border-right: 2px solid #eee;
+	border-left: 1px solid #ddd;
 }
 
 .nav_main ul.sub_menu li a {
-	color: #aaa;
+	color: #333;
 	text-decoration: none;
-	width: 170px;
+	width: 220px;
 	display: block;
 	padding: 5px;
 	font-weight: bold;
@@ -394,8 +409,8 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 }
 
 .nav_main ul.sub_menu li a:hover {
-	background-color: #77bb41;
-	color: white;
+	background-color: #EBEAE6;
+	color: #333;
 }
 
 table.data_table {
@@ -525,7 +540,7 @@ ul.contemporary_issues_list li {
  	-moz-box-shadow:    2px 2px 2px 0px #ddd;
   	-webkit-box-shadow: 2px 2px 2px 0px #ddd;
   	box-shadow:         2px 2px 2px 0px #ddd; 
-  	margin-right: 6px;
+  	margin-right: 5px;
   	margin-bottom: 10px;
   	background: #fff; 
   	display: inline-block;
@@ -552,6 +567,7 @@ ul.contemporary_issues_list li {
 	color: #777;
 	line-height: 1.6em;
 	margin-top: 10px;
+	margin-bottom: 15px;
 }
 
 .thought .thought_image {
@@ -567,7 +583,7 @@ ul.contemporary_issues_list li {
 
 .thought .thought_author_container {
 	text-align: left;
-	padding: 0 0 0 10px;
+	padding: 0 0 0 0px;
 }
 
 .thought_image {
@@ -582,7 +598,7 @@ ul.contemporary_issues_list li {
 
 .thought .thought_teaser {
 	display: inline-block;
-	padding: 0 0 0 10px;
+	padding: 0 0 0 0px;
 	font-family: georgia;
 	font-style: italic;
 	font-size: 14px;
@@ -913,12 +929,16 @@ a.contemporary_issue_link:hover {
 }
 
 a.encyclical_link {
-	padding: 1px 8px;
-	background-color: #fefcdd;
-	border: 1px solid #f5ec00;
-	color: #8d8600;
+	padding: 0px 4px;
+	background-colorx: #fefcdd;
+	borderx: 1px solid #f5ec00;
+	colorx: #8d8600;
 	text-decoration: none;
 	font-size: 1em;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 .profile_table tr td{
@@ -996,7 +1016,6 @@ a.encyclical_link {
 }
 
 .contemporary_issue_title {
-	color: #75bb55;
 }
 
 .events_block .event {
@@ -1037,8 +1056,8 @@ a.encyclical_link {
 	width: 550px;
 	padding: 10px;
 	position: relative;
-	top: 10px;
-	left: 10px;
+	top: 20px;
+	left: 20px;
 }
 
 .sheen_black a {
@@ -1056,6 +1075,7 @@ a.encyclical_link {
 	font-size: 12px;
 	text-transform: uppercase;
 	display: block;
+	margin: 2px 10px 4px 0px;
 }
 
 .sheen_black h4 {
@@ -1077,10 +1097,15 @@ a.encyclical_link {
 .sheen_homepage_title h1 {
 	text-transform: none;
 	color: #fff;
+	display: inline-block;
 
 	p {
 		color: #fff;
-		font-size: 14px;
+		font-size: 16px;
+		display: inline-block;
+	}
+
+	h2 {
 		display: inline-block;
 	}
 
@@ -1259,28 +1284,27 @@ table.search_left_menu_container .content_with_left_menu {
 
 ul.accordion_list {
 	padding-bottom: 10px;
+	margin: 0px;
 
 	> li {
 		display: block;
-		padding: 12px;
-		padding-left: 40px;
+		padding: 10px 12px;
 		margin: 3px;
 		margin-top: 0;
 		margin-left: 0;
 		font-weight: bold;
-		color: #444;
-		-moz-box-shadow:    2px 2px 2px 0px #ddd;
-  		-webkit-box-shadow: 2px 2px 2px 0px #ddd;
-  		box-shadow:         2px 2px 2px 0px #ddd; 
-    	border: 1px solid #999;
-    	border-radius: 		5px 5px 5px 5px;
+		color: #000;
+    	border-radius: 		4px 4px 4px 4px;
+		font-size: 14px;
 		cursor: pointer;
-		background: #f6f6f6 url('/assets/menu_box_arrow.png') no-repeat 10px 50%;
+		border: 1px solid #ccc;
+		background: url('/assets/menu_box_arrow.png') no-repeat 10px 50%;
+		background: -moz-linear-gradient(center top , white, #EFEFEF) repeat scroll 0 0 #F6F6F6
 	}
 
 	> li.open {
-		margin: 0;
-		background: #ddd url('/assets/menu_box_arrow_down.png') no-repeat 10px 50%;
+		padding-left: 30px;
+		background: #eee url('/assets/menu_box_arrow_down.png') no-repeat 10px 50%;
 	}
 
 	ul {

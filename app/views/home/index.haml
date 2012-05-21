@@ -5,45 +5,62 @@
 				- num = 0
 				- Thought.no_body.published.where(:feature_on_homepage => true).sort_by { rand }.each do |quote|
 					- num += 1
-					.slideshow.js_slideshow{:class => "slide#{num}", :style => "background: url(#{quote.image}); #{num != 1 ? "display: none" : ""}"}
-						.sheen_black.sheen_homepage_title
-							%table
-								%tr
-									%td
-										%img{:width => 80, :height => 80, :src => (quote.users.first.profile_image(:small) rescue "")}
-									%td.homepage_quote
-										%h1
-											= quote.teaser.html_safe
-										
-										%h2
-											= quote.users.first.full_name rescue ''
-				.three_principles
-					- Principle.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |principle|
-						%a{:href => principle_url(principle)}
-							.principle.sheen_white
-								%h2= principle.name
-								%img{:src => principle.thumbnail, :width => 200, :height => 100}
-			%td.side_column
-				.three_prisms
-					- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
-						%a{:href => prism_type_url(prism)}
-							%h2= prism.name
-							.prism.sheen_white{:style => "background: url(#{prism.image});"}
-				.padding_in10
-					%h5 Get the Newsletter...
-					%h5 Add Your Email
-					= form_for Contact.new do |f|
-						= f.text_field :email, { :class => 'email_box', :id => 'js_email_address', :'data-label' => 'Add Email' }
-						.arial.size11.cgrey Sign up for news, courses and events tailored to your interests.
-						= f.submit :class => 'submit_btn', :value=> 'Submit'
-
+					.black
+						.slideshow.js_slideshow{:class => "slide#{num}", :style => "background: url(#{quote.image}); #{num != 1 ? "display: none" : ""}"}
+							.sheen_black.sheen_homepage_title
+								%table
+									%tr
+										%td
+											%img{:width => 80, :height => 80, :src => (quote.users.first.profile_image(:small) rescue "")}
+										%td.homepage_quote
+											%h1
+												= quote.teaser.html_safe
+											%h2
+												= quote.users.first.full_name rescue ''
+	.about_cst 
+		.strong 
+			Catholic Social Teaching 
+		answers a question posed by Tolstoy: 
+		%br
+		“How, then, shall we live our life?”
+		%a.button_home{:href => "/what_is_cst"} Learn More
+	%hr
+	%table
+		%tr
+			%td
+				.col_two_three								
+					.three_principles
+						%h4 Learn about the 3 Principles of Catholic Social Teaching
+						- Principle.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |principle|
+							%a{:href => principle_url(principle)}
+								.principle.menu_item_box
+									%img{:src => principle.thumbnail, :width => 200, :height => 100}
+									.bottom
+										= principle.name
+				/					
+					.three_prisms
+						- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
+							%a{:href => prism_type_url(prism)}
+								.sheen_white
+									%h2= prism.name
+									.prism.sheen_white{:style => "background: url(#{prism.image});"}
+			%td.col_three
+				%h4 Get the Newsletter...
+				%h5 Add Your Email
+				= form_for Contact.new do |f|
+					= f.text_field :email, { :class => 'email_box', :id => 'js_email_address', :'data-label' => 'Add Email' }
+					.arial.size11.cgrey Sign up for news, courses and events tailored to your interests.
+					= f.submit :class => 'submit_btn', :value=> 'Submit'
+%hr
 - if @page
-	%table#home_bottom_blocks
+	%table#home_bottom_blocks							
 		%tr.thoughts_news_row
-			%td.thoughts_block{:colspan => 2}= render :partial => 'shared/home_thoughts_block'
-			%td.newscourse_block
+			%td.thoughts_block.col_two_three{:colspan => 2}= render :partial => 'shared/home_thoughts_block'
+			%td.newscourse_block.col_three
 				.news_block= render :partial => 'shared/home_news_block'
+				%hr
 				.upcoming_course_block= render :partial => 'shared/home_upcoming_course'
+				%hr
 				.upcoming_event_block= render :partial => 'shared/home_upcoming_event'
 - else
 	.page

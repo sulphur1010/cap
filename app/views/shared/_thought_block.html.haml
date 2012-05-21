@@ -11,7 +11,7 @@
 					- thought.users.each do |user|
 						.thought_author_container
 							- if user == thought.users.first
-								by:
+								says:
 							.thought_author
 								.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 24, :height => 24, :class => 'user_image', :title => user.full_name), user_path(user)
 								= link_to user.full_name, user_path(user)
