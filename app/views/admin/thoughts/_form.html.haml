@@ -6,6 +6,7 @@
 	= f.input :teaser, :input_html => { :class => 'js_editor' }, :label => 'Quote'
 	= f.input :body, :input_html => { :class => 'js_editor' }
 	= f.input :published
+	= f.input :published_at
 	= f.input :feature_on_homepage
 	= f.input :contemporary_issues, :collection => ContemporaryIssue.published.order(:title).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
 	= f.input :person_types, :collection => PersonType.published.collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
