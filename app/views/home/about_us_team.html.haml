@@ -2,7 +2,7 @@
 	- if @page
 		= render :partial => 'content_fragments/page', :object => @page
 	- else
-		Create a page with a url of "/about_us/national_board" to not see this page anymore.
+		Create a page with a url of "/about_us/team" to not see this page anymore.
 .page.national_board_member_content
 	%h2 National Board Members
 	= render :partial => 'users/board_member', :collection => User.national_board_members
