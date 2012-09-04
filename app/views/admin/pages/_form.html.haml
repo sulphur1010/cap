@@ -9,5 +9,7 @@
 		= f.input :teaser, :input_html => { :class => 'js_editor' }
 		= f.input :menu, :collection => MenuItem.menus
 		= f.input :thumbnail
+		= remove_thumbnail_tag(f, @page)
 		= f.input :image 
+		= remove_image_tag(f, @page)
 	= f.buttons

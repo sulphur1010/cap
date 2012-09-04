@@ -1,5 +1,7 @@
 class ContentFragment < ActiveRecord::Base
 
+	attr_accessor :delete_thumbnail, :delete_image, :delete_homepage_image
+
 	searchable :include => [ :users ] do
 		text :title, :stored => true
 		text :body, :stored => true
@@ -22,6 +24,13 @@ class ContentFragment < ActiveRecord::Base
 
 	before_save :set_type
 	before_save :set_published_at
+	before_validation :check_clear_attachments
+
+	def check_clear_attachments
+		thumbnail.clear if delete_thumbnail == '1'
+		 image.clear if delete_image == '1'
+		 homepage_image.clear if delete_homepage_image == '1'
+	end
 
 	validates :url, :uniqueness => true
 

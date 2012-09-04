@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 	end
 
 	# Setup accessible (or protected) attributes for your model
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :title, :phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :about_us_type, :about_us_weight
+	attr_accessor :delete_profile_image
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :title, :phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :about_us_type, :about_us_weight, :delete_profile_image
 
 	belongs_to :chapter
 	belongs_to :person_type
@@ -24,6 +25,11 @@ class User < ActiveRecord::Base
 	before_save :set_speaker
 	before_save :set_celebrant
 	before_create :add_user_role
+	before_validation :check_clear_attachments
+
+	def check_clear_attachments
+		profile_image.clear if delete_profile_image == '1'
+	end
 
 	scope :national_board_members, where(:about_us_type => 'National Board').order(:about_us_weight)
 	scope :staff, where(:about_us_type => 'Staff').order(:about_us_weight)

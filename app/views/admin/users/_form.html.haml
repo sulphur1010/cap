@@ -13,7 +13,7 @@
 	= f.input :person_type, :collection => PersonType.order(:published => true).order(:weight).collect { |c| [c.name, c.id] }
 	= f.input :chapter, :collection => Chapter.order(:name).collect { |c| [c.name, c.id] }
 	= f.input :contemporary_issues, :collection => ContemporaryIssue.published.order(:title).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
-	- if @user.profile_image.url
-		= image_tag @user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80
 	= f.input :profile_image
+	- if @user.profile_image_file_name?
+		= f.input :delete_profile_image, :as => :boolean, :label => "Remove profile image?"
 	= f.buttons

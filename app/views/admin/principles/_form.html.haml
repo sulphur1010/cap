@@ -7,5 +7,7 @@
 	= f.input :weight
 	= f.input :contemporary_issues, :collection => ContemporaryIssue.published.order(:title).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
 	= f.input :thumbnail
-	= f.input :image
+	= remove_thumbnail_tag(f, @page)
+	= f.input :image 
+	= remove_image_tag(f, @page)
 	= f.buttons

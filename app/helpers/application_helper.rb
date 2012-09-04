@@ -1,5 +1,23 @@
 module ApplicationHelper
 
+	def remove_thumbnail_tag(f, page)
+		if page.thumbnail_file_name?
+			return f.input :delete_thumbnail, :as => :boolean, :label => "Remove thumbnail?"
+		end
+	end
+
+	def remove_image_tag(f, page)
+		if page.image_file_name?
+			return f.input :delete_image, :as => :boolean, :label => "Remove image?"
+		end
+	end
+
+	def remove_homepage_image_tag(f, page)
+		if page.homepage_image_file_name?
+			return f.input :delete_homepage_image, :as => :boolean, :label => "Remove homepage image?"
+		end
+	end
+
 	def render_parent_breadcrumb(menu_item)
 		output = ""
 		parent = menu_item.parent
