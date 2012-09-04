@@ -16,7 +16,11 @@ CappUsa::Application.routes.draw do
 		resources :role_types
 		resources :stories
 		resources :thoughts
-		resources :users
+		resources :users do
+			collection do
+				post 'search'
+			end
+		end
 		resources :questions
 		resources :content_fragments do
 			collection do

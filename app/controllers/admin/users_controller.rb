@@ -8,6 +8,22 @@ class Admin::UsersController < ApplicationController
 		respond_with(@users = User.order(:last_name))
 	end
 
+	def search
+		@q = params[:q]
+		if @q.empty?
+			@users = User.order(:last_name)
+			render :action => :index
+			return
+		end
+		users = User.arel_table
+		@users = User.where(users[:first_name].matches("%#{@q}%")).all
+		@users += User.where(users[:last_name].matches("%#{@q}%")).all
+		@users += User.where(users[:email].matches("%#{@q}%")).all
+		@users += User.where(users[:role_list].matches("%#{@q}%")).all
+		@users = @users.flatten.compact.uniq.sort_by(&:last_name)
+		render :action => :index
+	end
+
 	def show
 		respond_with(@user = User.find(params[:id]))
 	end

@@ -5,7 +5,7 @@ class Admin::PagesController < ApplicationController
 	respond_to :html
 
 	def index
-		respond_with(@pages = Page.all)
+		respond_with(@pages = Page.order(:url))
 	end
 
 	def show
