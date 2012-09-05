@@ -1,14 +1,15 @@
-%p
-	%strong Title
-	= @feed_source.title
-%p
-	%strong url
-	= @feed_source.url
-%p
-	%strong link
-	= link_to @feed_source.link, @feed_source.link
-%h2 Feed Entries
-- table(@feed_source.feed_entries, ['title', 'published_at']) do |feed_entry, klass|
-	%tr{:class => klass}
-		%td= feed_entry.title
-		%td= feed_entry.published_at
+.page
+	%p
+		%strong Title:
+		= @feed_source.title
+	%p
+		%strong url:
+		= @feed_source.url
+	%p
+		%strong link:
+		= link_to @feed_source.link, @feed_source.link
+	%h2 Feed Entries
+	- table(@feed_source.feed_entries, ['title', 'published_at']) do |feed_entry, klass|
+		%tr{:class => klass}
+			%td= feed_entry.title
+			%td= feed_entry.published_at
