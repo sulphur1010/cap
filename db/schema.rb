@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120521173511) do
+ActiveRecord::Schema.define(:version => 20120905171817) do
 
   create_table "attendees_events", :id => false, :force => true do |t|
     t.integer  "attendee_id"
@@ -118,6 +118,22 @@ ActiveRecord::Schema.define(:version => 20120521173511) do
   add_index "content_fragments_users", ["content_fragment_id"], :name => "index_content_fragments_users_on_content_fragment_id"
   add_index "content_fragments_users", ["user_id"], :name => "index_content_fragments_users_on_user_id"
 
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
   create_table "email_addresses", :force => true do |t|
     t.string   "email"
     t.datetime "created_at"
@@ -168,6 +184,26 @@ ActiveRecord::Schema.define(:version => 20120521173511) do
   create_table "events_speakers", :id => false, :force => true do |t|
     t.integer "event_id"
     t.integer "user_id"
+  end
+
+  create_table "feed_entries", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "entry_id"
+    t.text     "summary"
+    t.datetime "published_at"
+    t.integer  "feed_source_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feed_sources", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.text     "description"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "locations", :force => true do |t|

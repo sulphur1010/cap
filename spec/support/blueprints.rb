@@ -118,3 +118,11 @@ end
 Answer.blueprint do
   # Attributes here
 end
+
+FeedSource.blueprint do
+  # Attributes here
+end
+
+FeedEntry.blueprint do
+  # Attributes here
+end

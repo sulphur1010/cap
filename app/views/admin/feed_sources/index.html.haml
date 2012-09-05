@@ -1,0 +1,13 @@
+.page
+	%h2 All Feed Sources
+	- table(@feed_sources, ['title', 'url', '']) do |feed_source, klass|
+		%tr{:class => klass}
+			%td
+				- if feed_source.title
+					= link_to feed_source.title, admin_feed_source_path(feed_source)
+			%td= feed_source.url
+			%td.controls
+				= link_to 'Edit', edit_admin_feed_source_path(feed_source)
+				= link_to 'Delete', admin_feed_source_path(feed_source), :method => :delete, :confirm => "Are you sure?"
+	.link
+		= link_to 'New Feed Source', new_admin_feed_source_url, :class => 'btn_edit left'

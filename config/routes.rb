@@ -16,6 +16,7 @@ CappUsa::Application.routes.draw do
 		resources :role_types
 		resources :stories
 		resources :thoughts
+		resources :feed_sources
 		resources :users do
 			collection do
 				post 'search'
