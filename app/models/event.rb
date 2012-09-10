@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
 
+	after_create :create_reminders!
+
 	def helpers
 		ActionController::Base.helpers
 	end
@@ -37,9 +39,14 @@ class Event < ActiveRecord::Base
 		["International", "USA"]
 	end
 
+	def self.reminder_durations
+		[1.week, 1.day]
+	end
+
 	belongs_to :location
 	belongs_to :director, :class_name => "User"
 	belongs_to :chapter
+	has_many :event_reminders
 
 	has_and_belongs_to_many :contemporary_issues
 	has_and_belongs_to_many :person_types
@@ -51,6 +58,12 @@ class Event < ActiveRecord::Base
 	validates :event_region, :inclusion => { :in => Event.event_regions }
 	validates :title, :presence => true
 	validates :end_date, :end_date => true
+
+	def create_reminders!
+		Event.reminder_durations.each do |d|
+			er = EventReminder.create(:event_id => self.id, :duration => d, :sent => false, :sent_at => nil)
+		end
+	end
 
 	def spots_left
 		[self.spots_available - self.attendees.count,0].max rescue 0

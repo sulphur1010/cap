@@ -126,3 +126,7 @@ end
 FeedEntry.blueprint do
   # Attributes here
 end
+
+EventReminder.blueprint do
+  # Attributes here
+end
