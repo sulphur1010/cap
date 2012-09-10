@@ -61,6 +61,7 @@ CappUsa::Application.routes.draw do
 	resources :prism_types
 	resources :role_types
 	resources :stories
+	resources :feed_entries
 	resources :thoughts
 	resources :contacts
 	resources :users

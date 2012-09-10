@@ -19,7 +19,10 @@ class StoriesController < ApplicationController
 			render :action => 'ajax_list', :layout => false
 			return
 		end
-		respond_with(@stories = Story.published.order(:updated_at))
+		@stories = Story.published.order(:created_at)
+		@stories += FeedEntry.all
+		@stories = @stories.sort_by(&:created_at)
+		respond_with(@stories)
 	end
 
 	def show

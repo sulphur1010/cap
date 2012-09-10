@@ -1,0 +1,7 @@
+.page
+	%h2= @feed_entry.title
+	.published_at= @feed_entry.formatted_published_at
+	.source= @feed_entry.feed_source.title
+%hr
+.page
+	= @feed_entry.summary.html_safe rescue ''
