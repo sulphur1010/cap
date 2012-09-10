@@ -1,0 +1,13 @@
+!!! XML
+!!!
+%html
+	%head
+		%title Encyclical Reference Manager
+		%script{:src => '/assets/tinymce/tiny_mce_popup.js'}
+		%script{:src => '/assets/tinymce/utils/mctabs.js'}
+		%script{:src => '/assets/tinymce/utils/form_utils.js'}
+		%script{:src => '/assets/jquery.js'}
+		= stylesheet_link_tag "application"
+		= javascript_include_tag "application"
+	%body
+		= yield

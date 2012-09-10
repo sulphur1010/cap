@@ -1,0 +1,22 @@
+%form#encyclical_popup_form{:onsubmit => "EncyclicalPlugin.update(); return false", :action => "#"}
+	.tabs{:role => "tablist", :tabindex => "-1"}
+	.panel_wrapper
+		.encyclical_list
+			%ul#encyclical_list_container
+				- @encyclicals.each do |encyclical|
+					%li{:'data-ref' => encyclical.reference_keyword, :'data-id' => encyclical.id}= encyclical.title
+		#encyclical_container
+		.clear{:style => 'clear: both'}
+	.mceActionPanel
+		%input#insert{:type => 'submit', :name => "insert", :value => "Insert"}
+		%input#cancel{:type => 'button', :name => "cancel", :value => "Cancel", :onclick => "tinyMCEPopup.close();"}
+	:javascript
+		$(document).ready(function() {
+			$("#encyclical_list_container li").click(function() {
+				$("#encyclical_list_container li").removeClass("active");
+				var t = $(this);
+				t.addClass("active");
+				var id = t.attr('data-id');
+				$("#encyclical_container").load("/encyclicals/" + id + "/reference");
+			});
+		});

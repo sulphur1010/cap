@@ -1,0 +1,9 @@
+%h3= @encyclical.title
+- if @encyclical.published_at
+	.published_date= @encyclical.published_at.strftime("%a %b %e %Y")
+- if !@encyclical.authors.empty?
+	.authors
+		by:
+		- @encyclical.authors.each do |author|
+			.author= author.full_name
+= @encyclical.body.html_safe rescue ""

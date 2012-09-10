@@ -1,6 +1,7 @@
 class EncyclicalsController < ApplicationController
 
 	respond_to :html
+	layout :determine_layout
 
 	def index
 		@encyclicals = Encyclical.published.order(:title).includes(:users)
@@ -22,6 +23,15 @@ class EncyclicalsController < ApplicationController
 		else
 			respond_with(@encyclical)
 		end
+	end
+
+	def popup
+		@encyclicals = Encyclical.published.order(:title)
+	end
+
+	def reference
+		@encyclical = Encyclical.find(params[:id])
+		render :action => :reference, :layout => false
 	end
 
 	private
@@ -48,5 +58,10 @@ class EncyclicalsController < ApplicationController
 			render :partial => 'teaser', :collection => @encyclicals
 			return
 		end
+	end
+
+	def determine_layout
+		return "tinymce_popup" if action_name == "popup"
+		"application"
 	end
 end

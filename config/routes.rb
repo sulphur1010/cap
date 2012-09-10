@@ -43,6 +43,10 @@ CappUsa::Application.routes.draw do
 	resources :encyclicals do
 		collection do
 			get 'published'
+			get 'popup'
+		end
+		member do
+			get 'reference'
 		end
 	end
 	resources :events do

@@ -1,8 +1,8 @@
 $(function() {
 	$('textarea.js_editor').tinymce({ 
 		theme: 'advanced',
-		plugins: "accordion",
-		theme_advanced_buttons3_add: "accordion"
+		plugins: "accordion,encyclical",
+		theme_advanced_buttons3_add: "accordion,encyclical"
 	});
 	$('select.js_multiselect').multiSelect();
 	$('input.js_datetime').datetimepicker({
