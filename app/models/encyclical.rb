@@ -3,10 +3,12 @@ class Encyclical < ContentFragment
 	validates :name, :presence => true
 	validates :body, :presence => true
 
-	before_save :parse_chapters
-
 	def reference_keyword
 		self.title.titleize.gsub(/[^A-Z]/, '')
+	end
+
+	def parsed_body
+		parse_chapters
 	end
 
 	def parse_chapters
