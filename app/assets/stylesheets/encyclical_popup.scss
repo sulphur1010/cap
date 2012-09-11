@@ -1,6 +1,12 @@
 #encyclical_popup_form {
+
+	padding: 5px;
+
 	.encyclical_list {
-		width: 150px;
+		padding: 5px;
+		width: 160px;
+		height: 440px;
+		overflow: auto;
 		float: left;
 
 		li {
@@ -8,14 +14,61 @@
 			cursor: pointer;
 		}
 
+		li.active {
+			color: black;
+		}
+
 		li:hover {
 			text-decoration: underline;
 		}
+
+		h3 {
+			padding: 5px;
+			padding-bottom: 8px;
+		}
+	}
+
+	.help_text {
+		color: black;
+		font-weight: bold;
+	}
+
+	.panel_wrapper {
+		padding: 0;
+		border-top: 1px solid #919b9c;
+	}
+
+	#grabber {
+		display: block;
+		position: relative;
+		top: 19px;
+		margin-left: 520px;
 	}
 
 	#encyclical_container {
-		margin-left: 160px;
-		border-left: 1px solid black;
+		margin-left: 175px;
+		border-left: 1px solid #919b9c;
 		padding-left: 5px;
+		height: 450px;
+		overflow: auto;
+
+		.chapter {
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+	}
+
+	.encyclical_body {
+	}
+
+	.encyclical_reference_textarea {
+		float: left;
+		width: 500px;
+		height: 50px;
+	}
+
+	.reference_form {
+		border-top: 1px solid #919b9c;
+		padding: 10px;
 	}
 }

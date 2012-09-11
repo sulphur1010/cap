@@ -6,4 +6,6 @@
 		by:
 		- @encyclical.authors.each do |author|
 			.author= author.full_name
-= @encyclical.body.html_safe rescue ""
+.encyclical_body
+	/= @encyclical.body.html_safe rescue ""
+	= @encyclical.parse_chapters.html_safe rescue ""

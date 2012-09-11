@@ -1,22 +1,67 @@
-%form#encyclical_popup_form{:onsubmit => "EncyclicalPlugin.update(); return false", :action => "#"}
-	.tabs{:role => "tablist", :tabindex => "-1"}
+%form#encyclical_popup_form{:onsubmit => "insertContent(); return false", :action => "#"}
 	.panel_wrapper
 		.encyclical_list
+			%h3 Encyclicals
 			%ul#encyclical_list_container
 				- @encyclicals.each do |encyclical|
-					%li{:'data-ref' => encyclical.reference_keyword, :'data-id' => encyclical.id}= encyclical.title
+					%li{:'data-ref' => encyclical.reference_keyword, :'data-id' => encyclical.id}= "#{encyclical.title} (#{encyclical.reference_keyword})"
 		#encyclical_container
 		.clear{:style => 'clear: both'}
+		.reference_form
+			#help1.help_text Help: Select an encyclical on the left.
+			#help2.help_text{:style => 'display: none'} Help: Select text in the encyclical with your mouse.
+			#help3.help_text{:style => 'display: none'} Help: Click on the 'Grab Selected Text' button.
+			#help4.help_text{:style => 'display: none'} Help: Click on the 'Insert' button.
+			%textarea#text.encyclical_reference_textarea{:type => 'text', :name => 'text'}
+			%input#chapter{:type => 'hidden'}
+			%input#grabber{:type => 'button', :onmousedown => 'grabText();', :value => "Grab Selected Text"}
+			.clear{:style => 'clear: both'}
 	.mceActionPanel
 		%input#insert{:type => 'submit', :name => "insert", :value => "Insert"}
 		%input#cancel{:type => 'button', :name => "cancel", :value => "Cancel", :onclick => "tinyMCEPopup.close();"}
 	:javascript
+		function grabText() {
+			var text = "";
+			if (window.getSelection) {
+				text = window.getSelection();
+			} else if(document.getSelection) {
+				text = document.getSelection();
+			} else if(document.selection) {
+				text = document.selection.createRange().text;
+			}
+			var ref = $("#encyclical_list_container li.active").attr('data-ref');
+			var chapter = $("#chapter").val();
+			text = "\"" + text + "\" [e:" + ref + "," + chapter + "]";
+			if (chapter != "" && ref != "undefined") {
+				$("#text").val(text.replace(/(\r\n|\n|\r)/gm, " "));
+				displayHelp("help4");
+			}
+		}
+		function displayHelp(str) {
+			$(".help_text").hide();
+			$("#" + str).show();
+		}
+		function setChapter() {
+			var chapter = $(this).attr('data-id');
+			$("#chapter").val(chapter);
+			displayHelp("help3");
+		}
+		function insertContent() {
+			tinyMCEPopup.execCommand("mceInsertContent", false, $("#text").val());
+			tinyMCEPopup.close();
+		}
 		$(document).ready(function() {
 			$("#encyclical_list_container li").click(function() {
 				$("#encyclical_list_container li").removeClass("active");
 				var t = $(this);
 				t.addClass("active");
 				var id = t.attr('data-id');
+				$("#chapter").val('');
+				$("#text").val('');
 				$("#encyclical_container").load("/encyclicals/" + id + "/reference");
+				displayHelp("help2");
 			});
+			$("#encyclical_container").on("click", ".encyclical_body .chapter", setChapter);
+			$("#encyclical_container").on("mousedown", ".encyclical_body .chapter", setChapter);
+			$("#encyclical_container").on("mouseup", ".encyclical_body .chapter", setChapter);
 		});
