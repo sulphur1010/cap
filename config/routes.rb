@@ -74,6 +74,7 @@ CappUsa::Application.routes.draw do
 	match 'study_center' => 'home#study_center'
 	match 'about_us/team' => 'home#about_us_team'
 	match 'search' => 'search#index'
+	match 'encyclicals/:id/chapter/:chapter/references' => 'encyclicals#chapter_references'
 
 	# The priority is based upon order of creation:
 	# first created -> highest priority.

@@ -1,5 +1,5 @@
 .page
-	%h2 All Encyclicals
+	%h2 All Social Encyclicals
 	- table(@encyclicals, ['name', 'title', 'published', '']) do |encyclical, klass|
 		%tr{:class => klass}
 			%td= link_to encyclical.name, encyclical_path(encyclical)

@@ -15,7 +15,7 @@ class Encyclical < ContentFragment
 		self.body.split(/<br \/>(?=\d+\. )/).map {|chapter|
 			number = chapter.split(".").first
 			number = 0 if number.to_i.to_s != number
-			"<a name='chapter_#{number}'></a><p class='chapter' id='chapter_#{number}' data-id='#{number}'>#{chapter}</p>"
+			"<div id='chapter_#{number}_reference_container' class='chapter_reference_container' style='display: none'></div><a class='encyclical_chapter_link' data-id='#{id}' data-chapter='#{number}' data-encyclical='#{reference_keyword}' data-name='chapter_#{number}'></a><p class='chapter' id='chapter_#{number}' data-id='#{number}'>#{chapter}</p>"
 		}.join("")
 	end
 

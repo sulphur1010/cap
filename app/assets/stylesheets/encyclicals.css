@@ -52,3 +52,29 @@ table.encyclical_teaser_list .encyclical_published_at {
 	font-size: smaller;
 }
 
+#main .left_content .page .encyclical_chapter_link {
+	float: left;
+	display: block;
+	position: relative;
+	left: -15px;
+	width: 15px;
+	height: 15px;
+	background-color: red;
+	cursor: pointer;
+}
+
+.chapter_reference_content {
+	border: 1px solid #777;
+	padding: 5px;
+}
+
+ul.encyclical_chapter_results li {
+	list-style-type: none;
+}
+
+ul.encyclical_chapter_results .search_result_type {
+	float: none;
+	display: inline;
+	color: #777;
+}
+

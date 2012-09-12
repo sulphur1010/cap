@@ -6,6 +6,7 @@ class ContentFragment < ActiveRecord::Base
 		text :title, :stored => true
 		text :body, :stored => true
 		string :type
+		string :encyclical_references, :stored => true, :multiple => true do parse_encyclical_references end
 	end
 
 	has_and_belongs_to_many :users
@@ -47,6 +48,20 @@ class ContentFragment < ActiveRecord::Base
 
 	def parsed_body
 		self.body
+	end
+
+	def parse_encyclical_references
+		references = []
+		self.body.scan(ContentFragment.encyclical_reference_regex) { |ref, chapter| references << ContentFragment.indexed_encyclical_reference(ref, chapter) }
+		references
+	end
+
+	def self.indexed_encyclical_reference(ref, chapter)
+		"[#{ref},#{chapter}]"
+	end
+
+	def self.encyclical_reference_regex
+		/\[e:([A-Z]+),(\d+)\]/
 	end
 
 	def self.types

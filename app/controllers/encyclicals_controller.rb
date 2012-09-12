@@ -34,6 +34,16 @@ class EncyclicalsController < ApplicationController
 		render :action => :reference, :layout => false
 	end
 
+	def chapter_references
+		@encyclical = Encyclical.find(params[:id])
+		chapter = params[:chapter]
+		@search = Sunspot.search([ContentFragment]) do |q|
+			q.with(:encyclical_references, ContentFragment.indexed_encyclical_reference(@encyclical.reference_keyword, chapter))
+		end
+		@results = @search.results
+		render :action => :chapter_references, :layout => false
+	end
+
 	private
 
 	def index_search(sort)
