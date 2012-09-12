@@ -56,10 +56,10 @@ table.encyclical_teaser_list .encyclical_published_at {
 	float: left;
 	display: block;
 	position: relative;
-	left: -15px;
-	width: 15px;
-	height: 15px;
-	background-color: red;
+	left: -10px;
+	width: 29px;
+	height: 25px;
+	background: url('/assets/book.png') white no-repeat 50% 50%;
 	cursor: pointer;
 }
 
