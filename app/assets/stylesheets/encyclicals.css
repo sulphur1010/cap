@@ -36,3 +36,19 @@ table.encyclical_teaser_list .encyclical_author {
 table.encyclical_teaser_list .encyclical_published_at {
 	width: 85px;
 }
+
+.page .chapter.found {
+	background-color: #fffbd1;
+}
+
+.page div.encyclical_reference {
+	margin-left: 40px;
+	margin-right: 40px;
+	font-size: 14px;
+	color: #742900;
+}
+
+.page .encyclical_reference_link {
+	font-size: smaller;
+}
+

@@ -5,3 +5,8 @@
 	});
 .page
 	= render :partial => 'content_fragments/page', :object => @encyclical
+:javascript
+	$(document).ready(function() {
+		var chapter = window.location.hash.replace("#", "");
+		$("#" + chapter).addClass("found");
+	});

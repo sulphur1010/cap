@@ -45,6 +45,10 @@ class ContentFragment < ActiveRecord::Base
 		self.published_at.strftime("%h %d, %Y %H:%M%P")
 	end
 
+	def parsed_body
+		self.body
+	end
+
 	def self.types
 		ts = ContentFragment.group(:type).collect { |c| c.type.to_s }.compact
 		ts << "Event"

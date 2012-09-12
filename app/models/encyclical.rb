@@ -19,4 +19,8 @@ class Encyclical < ContentFragment
 		}.join("")
 	end
 
+	def self.reference_map
+		@reference_map ||= Hash[*Encyclical.all.collect { |c| [c.reference_keyword, c.id] }.flatten]
+	end
+
 end

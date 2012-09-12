@@ -1,5 +1,12 @@
 module ApplicationHelper
 
+	def parse_references(text)
+		text.gsub(/\[e:([A-Z]+),(\d+)\]/) { |s|
+			id = Encyclical.reference_map[$1]
+			"<a class='encyclical_reference_link' href='/encyclicals/#{id}#chapter_#{$2}'>(#{$1}, #{$2})</a>"
+		}
+	end
+
 	def remove_thumbnail_tag(f, page)
 		if page.thumbnail_file_name?
 			return f.input :delete_thumbnail, :as => :boolean, :label => "Remove thumbnail?"

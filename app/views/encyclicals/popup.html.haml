@@ -47,7 +47,8 @@
 			displayHelp("help3");
 		}
 		function insertContent() {
-			tinyMCEPopup.execCommand("mceInsertContent", false, $("#text").val());
+			var text = "<div class='encyclical_reference'>" + $("#text").val() + "</div>";
+			tinyMCEPopup.execCommand("mceInsertContent", true, text);
 			tinyMCEPopup.close();
 		}
 		$(document).ready(function() {

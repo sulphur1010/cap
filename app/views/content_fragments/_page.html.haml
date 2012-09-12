@@ -14,7 +14,7 @@
 				.author= author.full_name
 - if page.image?
 	= image_tag page.image.url(:normal), :class => 'content_fragment_header_image'
-= page.body.html_safe rescue ""
+= parse_references(page.parsed_body).html_safe rescue ""
 - if !page.questions.empty?
 	= render :partial => 'questions/question', :collection => page.questions
 - if is_admin?
