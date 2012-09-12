@@ -1,0 +1,14 @@
+.page
+	%h2 All Papal Addresses
+	- table(@papal_addresses, ['name', 'title', 'weight', '']) do |papal_address, klass|
+		%tr{:class => klass}
+			%td= papal_address.name
+			%td= papal_address.title
+			%td= papal_address.weight
+			- if is_admin?
+				%td.controls
+					= link_to 'Edit', edit_papal_address_path(papal_address)
+					= link_to 'Delete', papal_address_path(papal_address), :method => :delete, :confirm => "Are you sure?"
+	- if is_admin?
+		.link
+			= link_to 'New Papal Address', new_papal_address_url

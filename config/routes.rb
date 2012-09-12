@@ -12,6 +12,7 @@ CappUsa::Application.routes.draw do
 		resources :pages
 		resources :person_types
 		resources :principles
+		resources :papal_addresses
 		resources :prism_types
 		resources :role_types
 		resources :stories
@@ -65,6 +66,7 @@ CappUsa::Application.routes.draw do
 	resources :prism_types
 	resources :role_types
 	resources :stories
+	resources :papal_addresses
 	resources :feed_entries
 	resources :thoughts
 	resources :contacts

@@ -37,4 +37,13 @@
 					}
 				});
 		%td
-			= Block.display("study_center_other")
+			= Block.display("study_center_papl_addresses")
+			= select_tag 'papal_addresses', options_for_select({"Choose a Papal Address" => ""}) + options_from_collection_for_select(PapalAddress.published.order(:title), "id", "title")
+			:javascript
+				$("#papal_addresses").change(function() {
+					id = $(this).val();
+					if (id) {
+						window.location = "/papal_addresses/" + id;
+					}
+				});
+

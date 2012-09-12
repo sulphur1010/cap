@@ -1,0 +1,13 @@
+.page
+	%h2 All Papal Addresses
+	- table(@papal_addresses, ['name', 'title', 'homepage', 'weight', '']) do |papal_address, klass|
+		%tr{:class => klass}
+			%td= papal_address.name
+			%td= papal_address.title
+			%td= papal_address.feature_on_homepage?
+			%td= papal_address.weight
+			%td.controls
+				= link_to 'Edit', edit_admin_papal_address_path(papal_address)
+				= link_to 'Delete', admin_papal_address_path(papal_address), :method => :delete, :confirm => "Are you sure?"
+	.link
+		= link_to 'New Papal Address', new_admin_papal_address_url, :class => 'btn_edit left'
