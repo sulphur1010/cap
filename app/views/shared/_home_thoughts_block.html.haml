@@ -21,3 +21,4 @@
 							= strip_tags(thought.teaser) rescue ""
 							- if !thought.body.empty?
 								= link_to "Read more", thought_path(thought)
+	.view_all.btm_link= link_to 'See More Social Thoughts', thoughts_path

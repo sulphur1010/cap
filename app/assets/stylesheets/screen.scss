@@ -145,7 +145,7 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 .search_btn{background:url(/images/search_btn.png);vertical-align:top; width:26px;height:23px;border:none;}
 
 /*Main Part*/
-#main{background:#fff;border:none;width:980px;height:auto;margin:20px 0 0 0; position: relative;border:1px solid #ddd;}
+#main{background:#fff;border:none;width:980px;height:auto;margin:20px 0 0 0; position: relative;border:1px solid #ddd; padding: 0 0 20px 0;}
 .left_column{width:180px;}
 .left_content{width:760px; border:0px solid #ddd; border-right: 0;}
 .no_right_column {width:980px; border-right: 0px solid #ddd;}
@@ -275,7 +275,7 @@ table#home_bottom_blocks {width: 100%; }
 
 /*right_column*/
 table.right_col{border:none;border-collapse:collapse;}
-td.right_column{border-bottom: 1px solid #eee;}
+td.right_column{border-left: 1px solid #eee;}
 table.right_col tr{margin:0 5px;border:none;border-collapse:collapse;}
 .right_column table tr td{border:0px solid #eee;border-bottom: 0;border-collapse:collapse;width:240px}
 table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
@@ -302,7 +302,7 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 #footer a{width: 224px; display: inline-block; font-size:12px;font-weight:normal;color:#606060;font-family:arial;line-height:27px;height:27px;padding:0;}	
 #footer a:hover{font-weight:normal;color:#000;text-decoration:underline;font-family:arial;line-height:27px;height:27px;padding:0;}	
 #footer h5, .footer_title{font-size:13px;font-weight:bold;line-height:1.3;margin:0;font-family:arial;color:#404040;}
-#footer hr, hr.single_line{color: #F3E3B4;background:transparent; border: 1px solid #eee; border-style: none none solid; margin:5px 0;padding:0;}
+#footer hr, hr.single_line{color: #F3E3B4;background:transparent; border: 1px solid #aaa; border-style: none none solid; margin:5px 0;padding:0;}
 #footer a:hover {background: #ddd;}
 .footer_link {width: 224px; }
 
@@ -1166,10 +1166,20 @@ a:hover {
 	display: table-cell;
 	}
 
+.event_time {
+	.event_type {
+	display: inline-block;
+	}
+}
+
+#home_news {.thought {.thought_title {font-size: 12px !important;}}}
+ 
 .event_type_lecture {
 	background: #fffac1;
 	border-color: #f5eb4E;
 }
+
+.btm_link {padding: 2px 8px; background: #777; margin: 0 0 10px 0; a {color: #fff;}}
 
 .event_type_course {
 	background: #caf1fd;
