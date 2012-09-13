@@ -1,8 +1,9 @@
 - thoughts = Thought.published.has_body.order(:published_at).limit(5)
 #home_thoughts
-	%h4
-		Social Thought
-	.view_all= link_to 'view all', thoughts_path
+	.section_header
+		.hp
+			%h4	Social Thought
+			.view_all= link_to 'view all', thoughts_path
 	- thoughts.each do |thought|
 		.thought
 			%table
@@ -11,14 +12,18 @@
 						- if !thought.users.empty?
 							.thought_author_container
 								.thought_author
+									/= thought.users.count == 1 ? "by" : "by"
 									- thought.users.each do |user|
-										.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 24, :height => 24, :class => 'user_image'), user_path(user), :title => user.full_name
-										= link_to user.full_name, user_path(user)
-										-  if user != thought.users.last
-											&
-									= thought.users.count == 1 ? "says" : "say"
+										.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 60, :height => 60, :class => 'user_image'), user_path(user), :title => user.full_name
+										/= link_to user.full_name, user_path(user)
+										/-  if user != thought.users.last
+										/	&					
+					%td
 						.thought_teaser
+							.story_title= link_to thought.title, thought_path(thought)
 							= strip_tags(thought.teaser) rescue ""
 							- if !thought.body.empty?
 								= link_to "Read more", thought_path(thought)
-	.view_all.btm_link= link_to 'See More Social Thoughts', thoughts_path
+						
+					/			
+	.view_all.btm_link= link_to 'Read More Social Thoughts', thoughts_path
