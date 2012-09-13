@@ -1,0 +1,8 @@
+- event = Event.upcoming.course_types.limit(1).first
+- if event
+	#home_upcoming_course.featured
+		%img.inline{:src => "/assets/date.png"}
+		%h4.inline Featured Event:
+		.event.inline
+			.event_title.inline= link_to event.title, event_path(event)
+			.event_start.inline= event.formatted_start

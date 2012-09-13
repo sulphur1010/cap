@@ -1,8 +1,8 @@
 - event = Event.upcoming.course_types.limit(1).first
 - if event
-	#home_upcoming_course
-		%h4
-			Upcoming Course
+	#home_upcoming_course.upcoming_course_block
+		%img.inline{:src => "/assets/date.png"}
+		%h4.inline Courses
 		.view_all= link_to 'view all', events_path
 		.event
 			.event_title= link_to event.title, event_path(event)

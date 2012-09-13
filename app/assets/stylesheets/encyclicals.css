@@ -78,3 +78,34 @@ ul.encyclical_chapter_results .search_result_type {
 	color: #777;
 }
 
+.encyclical_search_list {
+	margin: 10px;
+}
+
+.encyclical_search_list_item {
+	width: 525px;
+	padding:10px;
+	border: 1px solid #aaa;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	font-family: georgia;
+	font-size: 16px;
+	line-height: 1.5em;
+	color: #333;
+}
+
+.highlight {
+		background: none repeat scroll 0 0 #EF0FFF;
+		display: inline-block;
+		color: white;
+		padding: 0px 5px;
+}
+
+.encyclical_search_list h3 {
+		margin-bottom: 5px;
+}
+
+.encyclical_search_list h2 {
+	margin-top: 15px;
+	display: inline-block;
+}

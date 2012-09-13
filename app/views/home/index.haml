@@ -1,3 +1,4 @@
+= render :partial => 'shared/home_upcoming_featured'
 .page
 	%table.index_scroller_table
 		%tr
@@ -37,31 +38,31 @@
 									%img{:src => principle.thumbnail, :width => 200, :height => 100}
 									.bottom
 										= principle.name
-				/					
-					.three_prisms
-						- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
-							%a{:href => prism_type_url(prism)}
-								.sheen_white
-									%h2= prism.name
-									.prism.sheen_white{:style => "background: url(#{prism.image});"}
-			%td.col_three
-				%h4 Get the Newsletter...
-				%h5 Add Your Email
-				= form_for Contact.new do |f|
-					= f.text_field :email, { :class => 'email_box', :id => 'js_email_address', :'data-label' => 'Add Email' }
-					.arial.size11.cgrey Sign up for news, courses and events tailored to your interests.
-					= f.submit :class => 'submit_btn', :value=> 'Submit'
+			%td
+				.three_prisms
+					- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
+						%a{:href => prism_type_url(prism)}
+							.sheen_white
+								%h2= prism.name
+								.prism.sheen_white{:style => "background: url(#{prism.image});"}
 %hr
 - if @page
 	%table#home_bottom_blocks							
 		%tr.thoughts_news_row
 			%td.thoughts_block.col_two_three{:colspan => 2}= render :partial => 'shared/home_thoughts_block'
 			%td.newscourse_block.col_three
+				.newsletter_capture
+					%h4 Get the Newsletter...
+					.arial.size11.cgrey Sign up for news, courses and events tailored to your interests.
+					= form_for Contact.new do |f|
+						%table
+							%tr
+								%td= f.text_field :email, { :class => 'email_box', :id => 'js_email_address', :'data-label' => 'Add Your Email' }
+								%td= f.submit :class => 'submit_btn', :value=> 'Submit'
+				= render :partial => 'shared/home_upcoming_course'
+				= render :partial => 'shared/home_upcoming_event'
+				%hr
 				.news_block= render :partial => 'shared/home_news_block'
-				%hr
-				.upcoming_course_block= render :partial => 'shared/home_upcoming_course'
-				%hr
-				.upcoming_event_block= render :partial => 'shared/home_upcoming_event'
 - else
 	.page
 		Create a page with a url of "/" to not see this page anymore.

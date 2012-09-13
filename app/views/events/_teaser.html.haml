@@ -3,9 +3,7 @@
 		%td{:style => 'width: 450px'}
 			%h5.event_title
 				= link_to teaser.title, event_path(teaser)
-				- if teaser.type
-					%span.event_type{ :class => "event_type_#{teaser.type.downcase.gsub(" ", "_")}"}
-						= teaser.type
+			.event.teaser= strip_tags(teaser.teaser) rescue ""
 			- if teaser.celebrants.count > 0 || teaser.speakers.count > 0
 				.event_users
 					- if teaser.celebrants.count > 0
@@ -16,8 +14,11 @@
 						.event_speakers
 							Speakers:
 							= teaser.speakers.order('last_name asc').collect { |c| link_to c.full_name, user_path(c) }.join(", ").html_safe
-			.event.teaser= strip_tags(teaser.teaser) rescue ""
 		%td.event_time{:style => 'width: 100px'}
+			- if teaser.type
+				%span.event_type{ :class => "event_type_#{teaser.type.downcase.gsub(" ", "_")}"}
+					= teaser.type
+			%br
 			= teaser.short_start
 			%br
 			.event_about_time

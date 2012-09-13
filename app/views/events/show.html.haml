@@ -2,11 +2,11 @@
 	.page
 		- if is_admin?
 			= link_to 'Edit', edit_admin_event_url(@event), :class => 'btn_edit'
+		- if @event.type
+			.event_type{ :class => "event_type_#{@event.type.downcase.gsub(" ", "_")}"}
+				= @event.type
 		%h2
 			= @event.title
-		- if @event.type
-			%span.event_type{ :class => "event_type_#{@event.type.downcase.gsub(" ", "_")}"}
-				= @event.type
 		.event_header
 			.event_time_info
 				- if @event.start_date && @event.end_date
@@ -20,28 +20,30 @@
 			-#= link_to person_type.name, person_type_path(person_type), :class => 'person_type_link'
 			%span.person_type_link= person_type.name
 		.event_body= @event.body.html_safe rescue ""
+	
 		- if @event.location
-			.event_location
-				Main Location: 
-			.event_location_name
-				= @event.location.name
-			.event_location_address
-				= @event.location.address
-		%br
+			.location_box
+				.event_location
+					Main Location: 
+				.event_location_name
+					= @event.location.name
+				.event_location_address
+					= @event.location.address
 		- if @event.chapter
-			.event_chapter
-				Hosted by:
-			.event_chapter_name
-				= @event.chapter.name 
+			.host_box
+				.event_chapter
+					Hosted by:
+				.event_chapter_name
+					= @event.chapter.name 
 		- if @event.director
-			.event_director
-				%br
-				Contact the Program Director: 
-				= @event.director.full_name
-				@
-				%span.event_director_phone
-					= @event.director.phone
-				/= link_to @event.director.full_name, user_path(@event.director)
+			.director_box
+				.event_director
+					Contact the Program Director: 
+					= @event.director.full_name
+					@
+					%span.event_director_phone
+						= @event.director.phone
+					/= link_to @event.director.full_name, user_path(@event.director)
 		- if @event.attendees.include?(current_user)
 			.unrsvp
 				= link_to 'UnRSVP', unrsvp_event_url(@event), :method => :post

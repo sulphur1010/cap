@@ -22,7 +22,7 @@
 						= "No results for the given filters.  Try removing some filters."
 				- else
 					- @thoughts.each do |thought|
-						.thought_teaser_list_item
+						.story_teaser_list_item
 							= render :partial => 'teaser', :object => thought
 :javascript
 	$('.element input').click(function() {
