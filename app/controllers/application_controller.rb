@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery
 
+	before_filter :ensure_running_threads
 	before_filter :setup_variables
 
 	private
@@ -11,6 +12,10 @@ class ApplicationController < ActionController::Base
 
 	def setup_variables
 		@show_right_side_bar = true
+	end
+
+	def ensure_running_threads
+		ReminderThread.ensure_running_thread
 	end
 
 	def is_admin?(&block)

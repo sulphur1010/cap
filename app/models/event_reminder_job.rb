@@ -11,5 +11,9 @@ class EventReminderJob
 		end
 	end
 
+	def self.enqueued?
+		!Delayed::Job.all.select { |j| YAML.load(j.handler).class == self }.empty?
+	end
+
 end
 
