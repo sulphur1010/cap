@@ -1,5 +1,6 @@
 = semantic_form_for [:admin, @event] do |f|
 	= f.input :type, :collection => Event.types
+	= f.input :featured
 	= f.input :event_region, :collection => Event.event_regions
 	= f.input :title
 	= f.input :body, :input_html => { :class => 'js_editor' }
@@ -9,10 +10,18 @@
 	= f.input :speakers, :collection => User.where(:speaker => true).collect { |c| [c.full_name, c.id] }, :input_html => { :class => 'js_multiselect' }, :label => 'Speaker / Panelist'
 	= f.input :celebrants, :collection => User.where(:celebrant => true).collect { |c| [c.full_name, c.id] }, :input_html => { :class => 'js_multiselect' }, :label => 'Celebrants'
 	= f.input :director, :collection => User.all.collect { |c| [c.full_name, c.id] }
-	= f.input :cost
 	= f.input :spots_available
 	= f.input :start_date, :as => :string, :input_html => { :class => 'js_start_date' }
 	= f.input :end_date, :as => :string, :input_html => { :class => 'js_end_date' }
 	= f.input :contemporary_issues, :collection => ContemporaryIssue.published.order(:title).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
 	= f.input :person_types, :collection => PersonType.published.collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
+	= f.inputs :name => 'Pricing' do
+		= f.input :allow_paypal
+		= f.input :allow_other_payment_type
+		= f.input :other_payment_type_text
+		= f.input :other_payment_type_instructions
+		= f.input :allow_discount
+		= f.input :discounted_text
+		= f.input :discounted_cost
+		= f.input :cost
 	= f.buttons

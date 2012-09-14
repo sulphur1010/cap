@@ -1,0 +1,18 @@
+.rsvp
+	- if @event.cost != 0
+		- if @event.allow_paypal
+			- if @event.allow_discount
+				= link_to "#{@event.discounted_text} through Paypal (#{number_to_currency(@event.discounted_cost)})", paypal_url(@event, current_user, @event.discounted_cost, "Student Discount")
+				= link_to "Standard Price through Paypal (#{number_to_currency(@event.cost)})", paypal_url(@event, current_user, @event.cost)
+			- else
+				= link_to "Pay through Paypal (#{number_to_currency(@event.cost)})", paypal_url(@event, current_user, @event.cost)
+		- if @event.allow_other_payment_type
+			%h2= @event.other_payment_type_text
+			%p= "Instructions: #{@event.other_payment_type_instructions}"
+			- if @event.allow_discount
+				%p= "#{@event.discounted_text} (#{number_to_currency(@event.discounted_cost)})"
+				%p= "Standard Price (#{number_to_currency(@event.cost)})"
+			- else
+				%p= "Price (#{number_to_currency(@event.cost)})"
+	- else
+		= link_to "RSVP", rsvp_event_url(@event), :method => :post

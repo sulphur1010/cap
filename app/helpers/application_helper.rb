@@ -1,16 +1,20 @@
 module ApplicationHelper
 
-	def paypal_url(event, user)
+	def paypal_url(event, user, cost, text='')
 		id = "#{event.id}-#{user.id}"
+		title = event.title
+		if text != ''
+			title = "#{title} (#{text})"
+		end
 		values = {
-			:business => Rails.env.production? ? 'blah@blah.com' : 'seller_1316980320_biz@darmasoft.com',
+			:business => Rails.env.production? ? 'payments@capp-usa.org' : 'seller_1316980320_biz@darmasoft.com',
 			:cmd => '_cart',
 			:upload => 1,
 			:return => thanks_event_url(event),
 			:invoice => id,
 			:notify_url => paypal_ipn_url,
-			"amount_1" => event.cost,
-			"item_name_1" => event.title,
+			"amount_1" => cost,
+			"item_name_1" => title,
 			"item_number_1" => id,
 			"quantity_1" => 1
 		}
