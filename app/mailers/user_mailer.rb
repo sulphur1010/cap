@@ -4,4 +4,7 @@ class UserMailer < ActionMailer::Base
 	def contact_confirmation(contact)
 		@contact = contact
 	end
+
+	def reminder_email(er, user)
+	end
 end

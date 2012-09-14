@@ -22,7 +22,7 @@ class EventReminder < ActiveRecord::Base
 
 	def send!
 		logger.info "EventReminder/#{self.id}::send!"
-		self.event.users.each do |user|
+		self.event.attendees.each do |user|
 			UserMailer.reminder_email(self, user).deliver
 		end
 		self.mark_sent!
