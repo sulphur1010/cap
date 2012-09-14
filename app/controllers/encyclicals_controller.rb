@@ -16,6 +16,14 @@ class EncyclicalsController < ApplicationController
 		end
 	end
 
+	def search
+		@encyclicals = Encyclical.published.order(:title).includes(:users)
+		index_search(:title)
+		if !request.xhr?
+			render :action => :index
+		end
+	end
+
 	def show
 		@encyclical = Encyclical.find(params[:id])
 		unless @encyclical.published
@@ -47,24 +55,26 @@ class EncyclicalsController < ApplicationController
 	private
 
 	def index_search(sort)
+		sort_order = 'desc'
+		sort_order = 'asc' if sort == 'published_at'
 		if request.xhr?
-			if params[:author]
-				authors = params[:author].split(/,/)
-				if authors.count > 0
-					ews = []
-					authors.each do |t|
-						ews << "id = '#{t}'"
-					end
-					users = User.where(ews.join(" OR "))
-
-					# user.encyclical only returns published, so this is safe
-					@encyclicals = users.collect { |c| c.encyclicals }.flatten.uniq
-					@encyclicals = @encyclicals.sort_by(&sort)
-					if sort.to_s == "published_at"
-						@encyclicals.reverse!
+			@search = ContentFragment.search do |q|
+				q.with(:type, 'Encyclical')
+				if params[:author]
+					authors = params[:author].split(/,/)
+					if authors.count > 0
+						q.with(:author_ids, authors)
 					end
 				end
+				if params[:q]
+					@q = params[:q]
+					q.fulltext @q do
+						highlight :body
+					end
+				end
+				q.order_by sort, sort_order
 			end
+			@encyclicals = @search.results
 			render :partial => 'teaser', :collection => @encyclicals
 			return
 		end

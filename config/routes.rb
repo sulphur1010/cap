@@ -45,6 +45,8 @@ CappUsa::Application.routes.draw do
 		collection do
 			get 'published'
 			get 'popup'
+			get 'search'
+			post 'search'
 		end
 		member do
 			get 'reference'

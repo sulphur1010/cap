@@ -32,7 +32,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def self.types
-		["Conference", "Course", "Lecture", "Retreat", "Communion Breakfast"]
+		["Conference", "Course", "Lecture", "Retreat", "Communion Breakfast", "Gala"]
 	end
 
 	def self.event_regions

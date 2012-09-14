@@ -20,8 +20,8 @@
 												= quote.users.first.full_name rescue ''
 	.about_cst 
 		.strong 
-			Catholic Social Teaching 
-		answers a question posed by Tolstoy: 
+			Catholic Social Teaching
+		answers a question posed by Tolstoy:
 		%br
 		“How, then, shall we live our life?”
 		%a.button_home{:href => "/what_is_cst"} Learn More
@@ -29,7 +29,7 @@
 	%table
 		%tr
 			%td
-				.col_two_three								
+				.col_two_three
 					.three_principles
 						%h4 Learn about the 3 Principles of Catholic Social Teaching
 						- Principle.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |principle|
@@ -47,12 +47,12 @@
 								.prism.sheen_white{:style => "background: url(#{prism.image});"}
 %hr
 - if @page
-	%table#home_bottom_blocks							
+	%table#home_bottom_blocks
 		%tr.thoughts_news_row
 			%td.thoughts_block.col_two_three{:colspan => 2}= render :partial => 'shared/home_thoughts_block'
 			%td.newscourse_block.col_three
 				.newsletter_capture
-					%h4 Get the Newsletter...
+					%h4 Signup for Mailing List
 					.arial.size11.cgrey Sign up for news, courses and events tailored to your interests.
 					= form_for Contact.new do |f|
 						%table

@@ -13,6 +13,7 @@ class ReminderThread
 					sleep(5.minutes)
 				}
 			}
+		end
 	end
 
 end

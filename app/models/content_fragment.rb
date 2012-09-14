@@ -5,8 +5,11 @@ class ContentFragment < ActiveRecord::Base
 	searchable :include => [ :users ] do
 		text :title, :stored => true
 		text :body, :stored => true
+		string :title
+		string :author_ids, :multiple => true do self.authors.collect { |c| c.id } end
 		string :type
 		string :encyclical_references, :stored => true, :multiple => true do parse_encyclical_references end
+		date :published_at
 	end
 
 	has_and_belongs_to_many :users

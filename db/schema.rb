@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914130506) do
+ActiveRecord::Schema.define(:version => 20120914172436) do
 
   create_table "attendees_events", :force => true do |t|
     t.integer  "attendee_id"
@@ -175,13 +175,21 @@ ActiveRecord::Schema.define(:version => 20120914130506) do
     t.text     "body"
     t.integer  "director_id"
     t.integer  "spots_available"
-    t.decimal  "cost",            :precision => 8, :scale => 2
+    t.decimal  "cost",                            :precision => 8, :scale => 2
     t.integer  "chapter_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "teaser"
     t.string   "event_type"
     t.string   "event_region"
+    t.boolean  "featured"
+    t.boolean  "allow_paypal"
+    t.boolean  "allow_other_payment_type"
+    t.string   "other_payment_type_text"
+    t.text     "other_payment_type_instructions"
+    t.boolean  "allow_discount"
+    t.string   "discounted_text"
+    t.decimal  "discounted_cost",                 :precision => 8, :scale => 2
   end
 
   add_index "events", ["chapter_id"], :name => "index_events_on_chapter_id"
