@@ -28,6 +28,12 @@ class EventsController < ApplicationController
 			return
 		end
 		if @event.spots_left > 0
+
+			# we only get to this action if the other payment type is enabled for the event
+			if !@event.allow_other_payment_type
+				redirect_to event_url(@event), :notice => 'You must register for that event through a payment method.'
+			end
+
 			if @event.attendees.include?(current_user)
 				redirect_to events_url, :notice => 'You are already attending that event.'
 				return

@@ -53,8 +53,8 @@ class Event < ActiveRecord::Base
 	has_and_belongs_to_many :person_types
 	has_and_belongs_to_many :speakers, :class_name => 'User', :association_foreign_key => 'user_id', :join_table => 'events_speakers'
 	has_and_belongs_to_many :celebrants, :class_name => 'User', :association_foreign_key => 'user_id', :join_table => 'celebrants_events'
-	has_many :attendees_events
-	has_many :attendees, :through => :attendees_events
+	has_many :attendees_events, :include => [ :attendee, :payment_confirmation ]
+	has_many :attendees, :through => :attendees_events, :include => [ :payment_confirmations ]
 
 	validates :type, :inclusion => { :in => Event.types }
 	validates :event_region, :inclusion => { :in => Event.event_regions }
@@ -68,7 +68,9 @@ class Event < ActiveRecord::Base
 	end
 
 	def spots_left
-		[self.spots_available - self.attendees.count,0].max rescue 0
+		count = self.attendees_events.select { |c| c.payment_confirmed? }.count
+		count += self.attendees_events.select { |c| c.payment_confirmation == nil }.count
+		[self.spots_available - count,0].max rescue 0
 	end
 
 	def short_start

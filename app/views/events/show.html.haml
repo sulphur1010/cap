@@ -53,9 +53,16 @@
 	%hr
 	- if is_admin?
 		.page
-			%h4 Attendees
-			- if @event.attendees.count > 0
-				= render :partial => 'users/list', :object => @event.attendees
+			- paypal_attendees = @event.attendees_events.select { |c| c.payment_confirmed? }.collect { |c| c.attendee }.compact
+			%h4 Paypal Attendees
+			- if paypal_attendees.size > 0
+				= render :partial => 'users/list', :object => paypal_attendees
+			- else
+				= "None"
+			- other_attendees = @event.attendees_events.select { |c| c.payment_confirmation == nil }.collect { |c| c.attendee }.compact
+			%h4 Other Attendees
+			- if other_attendees.size > 0
+				= render :partial => 'users/list', :object => other_attendees
 			- else
 				= "None"
 		%hr
