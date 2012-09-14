@@ -1,5 +1,5 @@
-- event = Event.upcoming.course_types.limit(1).first
-- if event
+- events = Event.upcoming.where(:featured => true)
+- events.each do |event|
 	#home_upcoming_course.featured
 		%img.inline{:src => "/assets/date.png"}
 		%h4.inline Featured Event:
