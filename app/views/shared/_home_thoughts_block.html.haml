@@ -12,12 +12,7 @@
 						- if !thought.users.empty?
 							.thought_author_container
 								.thought_author
-									/= thought.users.count == 1 ? "by" : "by"
-									- thought.users.each do |user|
-										.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 60, :height => 60, :class => 'user_image'), user_path(user), :title => user.full_name
-										/= link_to user.full_name, user_path(user)
-										/-  if user != thought.users.last
-										/	&					
+									.thought_image= link_to image_tag(thought.users.first.profile_image(:small), :class => 'profile_image', :width => 60, :height => 60, :class => 'user_image'), user_path(thought.users.first), :title => thought.users.first.full_name
 					%td
 						.thought_teaser
 							.story_title= link_to thought.title, thought_path(thought)
