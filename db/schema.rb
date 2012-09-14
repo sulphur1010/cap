@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910164333) do
+ActiveRecord::Schema.define(:version => 20120914130506) do
 
-  create_table "attendees_events", :id => false, :force => true do |t|
+  create_table "attendees_events", :force => true do |t|
     t.integer  "attendee_id"
     t.integer  "event_id"
     t.datetime "created_at"
@@ -175,7 +175,7 @@ ActiveRecord::Schema.define(:version => 20120910164333) do
     t.text     "body"
     t.integer  "director_id"
     t.integer  "spots_available"
-    t.integer  "cost"
+    t.decimal  "cost",            :precision => 8, :scale => 2
     t.integer  "chapter_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -239,6 +239,67 @@ ActiveRecord::Schema.define(:version => 20120910164333) do
 
   add_index "menu_items", ["menu"], :name => "index_menu_items_on_menu"
   add_index "menu_items", ["parent_id"], :name => "index_menu_items_on_parent_id"
+
+  create_table "payment_confirmations", :force => true do |t|
+    t.string   "address_city"
+    t.string   "address_country"
+    t.string   "address_country_code"
+    t.string   "address_name"
+    t.string   "address_state"
+    t.string   "address_status"
+    t.string   "address_street"
+    t.string   "address_zip"
+    t.string   "business"
+    t.string   "charset"
+    t.string   "custom"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "invoice"
+    t.string   "ipn_track_id"
+    t.string   "item_name1"
+    t.integer  "item_number1"
+    t.string   "mc_currency"
+    t.float    "mc_fee"
+    t.float    "mc_gross_1"
+    t.float    "mc_gross"
+    t.float    "mc_handling1"
+    t.float    "mc_handling"
+    t.float    "mc_shipping1"
+    t.float    "mc_shipping"
+    t.string   "notify_version"
+    t.integer  "num_cart_items"
+    t.string   "payer_email"
+    t.string   "payer_id"
+    t.string   "payer_status"
+    t.datetime "payment_date"
+    t.float    "payment_fee"
+    t.float    "payment_gross"
+    t.string   "payment_status"
+    t.string   "payment_type"
+    t.string   "protection_eligibility"
+    t.integer  "quantity1"
+    t.string   "receiver_email"
+    t.string   "receiver_id"
+    t.string   "residence_country"
+    t.float    "tax"
+    t.boolean  "test_ipn"
+    t.string   "transaction_subject"
+    t.string   "txn_id"
+    t.string   "txn_type"
+    t.string   "verify_sign"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "quantity"
+    t.string   "pending_reason"
+    t.float    "shipping"
+    t.string   "item_name"
+    t.integer  "item_number"
+    t.string   "parent_txn_id"
+    t.string   "reason_code"
+    t.integer  "attendees_event_id"
+    t.integer  "event_id"
+    t.integer  "user_id"
+  end
 
   create_table "questions", :force => true do |t|
     t.integer  "user_id"

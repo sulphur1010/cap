@@ -47,10 +47,14 @@
 		- if @event.attendees.include?(current_user)
 			.unrsvp
 				= link_to 'UnRSVP', unrsvp_event_url(@event), :method => :post
+				= link_to 'paypal', paypal_url(@event, current_user)
 		- else
 			- if @event.spots_left > 0
 				.rsvp
-					= link_to "RSVP", rsvp_event_url(@event), :method => :post
+					- if @event.cost != 0
+						= link_to "RSVP", paypal_url(@event, current_user)
+					- else
+						= link_to "RSVP", rsvp_event_url(@event), :method => :post
 	%hr
 	- if is_admin?
 		.page

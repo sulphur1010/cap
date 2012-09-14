@@ -47,12 +47,14 @@ class Event < ActiveRecord::Base
 	belongs_to :director, :class_name => "User"
 	belongs_to :chapter
 	has_many :event_reminders
+	has_many :payment_confirmations
 
 	has_and_belongs_to_many :contemporary_issues
 	has_and_belongs_to_many :person_types
 	has_and_belongs_to_many :speakers, :class_name => 'User', :association_foreign_key => 'user_id', :join_table => 'events_speakers'
 	has_and_belongs_to_many :celebrants, :class_name => 'User', :association_foreign_key => 'user_id', :join_table => 'celebrants_events'
-	has_and_belongs_to_many :attendees, :class_name => 'User', :join_table => 'attendees_events', :association_foreign_key => 'attendee_id'
+	has_many :attendees_events
+	has_many :attendees, :through => :attendees_events
 
 	validates :type, :inclusion => { :in => Event.types }
 	validates :event_region, :inclusion => { :in => Event.event_regions }

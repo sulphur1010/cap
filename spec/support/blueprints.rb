@@ -130,3 +130,7 @@ end
 EventReminder.blueprint do
   # Attributes here
 end
+
+PaymentConfirmation.blueprint do
+  # Attributes here
+end

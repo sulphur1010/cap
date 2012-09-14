@@ -16,6 +16,10 @@ class EventsController < ApplicationController
 		respond_with(@event = Event.find(params[:id]))
 	end
 
+	def thanks
+		respond_with(@event = Event.find(params[:id]))
+	end
+
 	def rsvp
 		@event = Event.find(params[:id])
 		unless user_signed_in?

@@ -18,7 +18,10 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :events, :join_table => 'events_speakers'
 	has_and_belongs_to_many :content_fragments;
 	has_attached_file :profile_image, :styles => { :small => "80x80>" }
-	has_and_belongs_to_many :attended_events, :class_name => 'Event', :join_table => 'attendees_events', :foreign_key => 'attendee_id'
+
+	has_many :attendees_events
+	has_many :attended_events, :through => :attendees_events
+	has_many :payment_confirmations
 
 	after_initialize :load_roles
 	before_save :convert_roles
