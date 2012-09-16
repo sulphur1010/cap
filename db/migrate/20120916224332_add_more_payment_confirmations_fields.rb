@@ -8,7 +8,7 @@ class AddMorePaymentConfirmationsFields < ActiveRecord::Migration
 		add_column :payment_confirmations, :item_tax_rate1, :string
 		add_column :payment_confirmations, :item_count_unit1, :string
 		add_column :payment_confirmations, :item_mpn1, :string
-		add_column :payment_confirmations, :item_model_number1, :stringS
+		add_column :payment_confirmations, :item_model_number1, :string
   end
 
   def down
