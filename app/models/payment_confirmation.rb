@@ -17,5 +17,6 @@ class PaymentConfirmation < ActiveRecord::Base
 			ae.event_id = data.first
 			ae.save!
 		end
+		self.attendees_event = ae
 	end
 end
