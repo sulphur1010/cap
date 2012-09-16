@@ -1,6 +1,5 @@
 class AddMorePaymentConfirmationsFields < ActiveRecord::Migration
   def up
-		add_column :payment_confirmations, :item_taxable1, :string
 		add_column :payment_confirmations, :item_isbn1, :string
 		add_column :payment_confirmations, :item_plu1, :string
 		add_column :payment_confirmations, :item_style_number1, :string
@@ -13,7 +12,6 @@ class AddMorePaymentConfirmationsFields < ActiveRecord::Migration
   end
 
   def down
-		remove_column :payment_confirmations, :item_taxable1
 		remove_column :payment_confirmations, :item_isbn1
 		remove_column :payment_confirmations, :item_plu1
 		remove_column :payment_confirmations, :item_style_number1
