@@ -7,7 +7,8 @@ module ApplicationHelper
 			title = "#{title} (#{text})"
 		end
 		values = {
-			:business => Rails.env.production? ? 'payments@capp-usa.org' : 'seller_1316980320_biz@darmasoft.com',
+			#:business => 'payments@capp-usa.org',  # <- production
+			:business => 'seller_1316980320_biz@darmasoft.com', # <- dev
 			:cmd => '_cart',
 			:upload => 1,
 			:return => thanks_event_url(event),
