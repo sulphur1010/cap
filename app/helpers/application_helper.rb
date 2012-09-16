@@ -20,10 +20,10 @@ module ApplicationHelper
 			values["amount_1"] = cost
 			values["item_name_1"] = title
 		end
-		url = "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
-		if !Rails.env.production?
-			url = "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
-		end
+		#url = "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
+		url = "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+		#if !Rails.env.production?
+		#end
 		url
 	end
 
