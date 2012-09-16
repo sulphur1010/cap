@@ -13,11 +13,13 @@ module ApplicationHelper
 			:return => thanks_event_url(event),
 			:invoice => id,
 			:notify_url => paypal_ipn_url,
-			"amount_1" => cost,
-			"item_name_1" => title,
-			"item_number_1" => id,
-			"quantity_1" => 1
+			"item_number_1" => id
 		}
+		if cost != 0
+			values["quantity_1"] = 1
+			values["amount_1"] = cost
+			values["item_name_1"] = title
+		end
 		url = "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
 		if !Rails.env.production?
 			url = "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query

@@ -23,7 +23,9 @@ class EventsController < ApplicationController
 	def rsvp
 		@event = Event.find(params[:id])
 		unless user_signed_in?
-			session[:return_url] = rsvp_event_url(@event)
+			return_url = rsvp_event_url(@event)
+			return_url = params[:return_url] if params[:return_url]
+			session[:return_url] = return_url
 			redirect_to new_user_registration_url, :notice => 'You must register in order to RSVP.'
 			return
 		end

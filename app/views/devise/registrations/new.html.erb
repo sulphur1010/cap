@@ -1,5 +1,9 @@
 <div class="page">
-  <h2>Sign up</h2>
+  <h2>Register</h2>
+
+	<p>As a registered user, you'll be able to view exclusive site content and register for special events, conferences, and classes. We will occasionally send you notices about CAPP-sponsored events and news.</p>
+
+	<p>Your privacy is of the upmost importance to us; we will not share your email with any other organization or 3rd party vendor.</p>
 
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -27,6 +31,8 @@
 
     <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %></div>
+
+    <div><br /><%= f.check_box :email_list %> Yes, I would like to receive occasional updates from CAPP about new features and special offers.</div><br />
 
     <div><%= f.submit "Sign up" %></div>
   <% end %>

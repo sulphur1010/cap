@@ -1,18 +1,83 @@
-.rsvp
-	- if @event.cost != 0
-		- if @event.allow_paypal
-			- if @event.allow_discount
-				= link_to "#{@event.discounted_text} through Paypal (#{number_to_currency(@event.discounted_cost)})", paypal_url(@event, current_user, @event.discounted_cost, "Student Discount")
-				= link_to "Standard Price through Paypal (#{number_to_currency(@event.cost)})", paypal_url(@event, current_user, @event.cost)
-			- else
-				= link_to "Pay through Paypal (#{number_to_currency(@event.cost)})", paypal_url(@event, current_user, @event.cost)
-		- if @event.allow_other_payment_type
-			%h2= @event.other_payment_type_text
-			%p= "Instructions: #{@event.other_payment_type_instructions}"
-			- if @event.allow_discount
-				%p= "#{@event.discounted_text} (#{number_to_currency(@event.discounted_cost)})"
-				%p= "Standard Price (#{number_to_currency(@event.cost)})"
-			- else
-				%p= "Price (#{number_to_currency(@event.cost)})"
-	- else
-		= link_to "RSVP", rsvp_event_url(@event), :method => :post
+.rsvp_block
+	%form#rsvp_form{:method => 'get', :action => '#'}
+		%table
+			%tr
+				%td.rsvp_left_column
+					%h3 1) Price
+					- if @event.allow_discount
+						%input#standard_price.js_rsvp_form_element.js_cost_category{:type => 'radio', :name => 'price', :value => @event.cost, :checked => true, :'data-type' => 'Standard'}= "Standard Price (#{number_to_currency(@event.cost)})"
+						%br
+						%input#discounted_price.js_rsvp_form_element.js_cost_category{:type => 'radio', :name => 'price', :value => @event.discounted_cost, :'data-type' => @event.discounted_text}= "#{@event.discounted_text} (#{number_to_currency(@event.discounted_cost)})"
+					- else
+						%input#standard_price.js_rsvp_form_element.js_cost_category{:type => 'radio', :name => 'price', :value => @event.cost, :checked => true, :'data-type' => 'Standard'}= "Price (#{number_to_currency(@event.cost)})"
+					%br
+					%br
+					%span.spots_title Number of Spots:
+					%select.js_rsvp_form_element{:name => 'count'}
+						- (1..10).each do |i|
+							%option{:value => i}= i
+					%br
+					%br
+					%h3
+						Total:
+						%span.js_computed_total
+				%td.rsvp_right_column
+					%h3 2) Payment Method
+					- if @event.allow_paypal
+						%input#paypal_payment{:type => 'radio', :name => 'payment_method', :value => 'paypal', :checked => true} Paypal / Credit Card
+						/%a#js_paypal_payment.payment_link{:href => '#'} Pay via Paypal
+					- if @event.allow_paypal && @event.allow_other_payment_type
+						.payment_separator
+					- if @event.allow_other_payment_type
+						%input#other_payment{:type => 'radio', :name => 'payment_method', :value => 'other'}= @event.other_payment_type_text
+						/= link_to @event.other_payment_type_text, rsvp_event_url(@event), :id => 'js_other_payment', :class => 'payment_link', :method => :post
+						%p
+							%strong Instructions:
+							= @event.other_payment_type_instructions
+					%br
+					%a.rsvp#rsvp_button{:href => '#'} RSVP
+:javascript
+	function rsvpFormOptions() {
+		var rsvp_data = {};
+		jQuery.each($("#rsvp_form").serializeArray(), function(i, field) {
+			rsvp_data[field.name] = field.value;
+		});
+		return rsvp_data;
+	}
+
+	function calculateTotal() {
+		var data = rsvpFormOptions();
+		var price = parseInt(data.price);
+		var count = parseInt(data.count);
+		var total = price * count;
+		$(".js_computed_total").html("$" + total);
+		return total;
+	}
+
+	$(document).ready(function() {
+
+		calculateTotal();
+
+		$(".js_rsvp_form_element").change(function() {
+			calculateTotal();
+		});
+
+		$("#rsvp_button").click(function() {
+			var data = rsvpFormOptions();
+			var cost_category = $(".js_cost_category:checked").attr('data-type');
+			var t = $(this);
+			if (data.payment_method == undefined) {
+				alert("Please select a payment method.");
+				return false;
+			}
+			var href = "";
+			if (data.payment_method == "other") {
+				href = "#{rsvp_event_path(@event)}?count=" + data.count;
+			}
+			if (data.payment_method == "paypal") {
+				var name = "#{@event.title} (" + cost_category + ")";
+				href = "#{paypal_url(@event, current_user, 0)}&quantity_1=" + data.count + "&amount_1=" + data.price + "&item_name_1=" + escape(name);
+			}
+			t.attr('href', href);
+		});
+	});

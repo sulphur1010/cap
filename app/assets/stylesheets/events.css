@@ -2,3 +2,38 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.rsvp_block .rsvp_left_column {
+	padding: 8px;
+	width: 400px;
+	border-right: 1px solid #eee;
+}
+
+.rsvp_block .rsvp_left_column .spots_title {
+	position: relative;
+	top: 2px;
+}
+
+.rsvp_block .rsvp_right_column {
+	width: 250px;
+	padding: 8px;
+}
+
+.rsvp_block .rsvp_right_column .payment_link {
+	display: block;
+	font-size: larger;
+	font-weight: bold;
+	padding-top: 5px;
+}
+
+.rsvp_block .rsvp_right_column .payment_separator {
+	margin-top: 5px;
+	border-top: 1px solid #eee;
+	margin-bottom: 5px;
+}
+
+.rsvp_block {
+	padding: 8px;
+	border: 1px solid #eee;
+	border-radius: 3px;
+}
