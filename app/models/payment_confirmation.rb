@@ -1,4 +1,5 @@
 class PaymentConfirmation < ActiveRecord::Base
+	has_one :attendees_event
 	before_create :parse_event_and_user
 
 	private

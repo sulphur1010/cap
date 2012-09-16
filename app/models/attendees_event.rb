@@ -11,4 +11,14 @@ class AttendeesEvent < ActiveRecord::Base
 	def payment_confirmed?
 		return (!self.payment_confirmation.nil?) && self.payment_confirmation.payment_status == 'Completed'
 	end
+
+	def count
+		cnt = read_attribute(:count)
+		if self.payment_confirmation
+			cnt = self.payment_confirmation.quantity1
+		end
+		return 1 unless cnt
+		return 1 if cnt == 0
+		cnt
+	end
 end

@@ -68,8 +68,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def spots_left
-		count = self.attendees_events.select { |c| c.payment_confirmed? }.count
-		count += self.attendees_events.select { |c| c.payment_confirmation == nil }.count
+		count = self.attendees_events.collect { |c| c.count }.inject(:+) || 0
 		[self.spots_available - count,0].max rescue 0
 	end
 
