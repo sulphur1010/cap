@@ -49,7 +49,7 @@
 				= link_to 'UnRSVP', unrsvp_event_url(@event), :method => :post
 		- else
 			- if @event.spots_left > 0
-				- if user_logged_in?
+				- if user_signed_in?
 					= render :partial => 'rsvp_block'
 				- else
 					.rsvp_block
