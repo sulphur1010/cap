@@ -12,8 +12,8 @@
 	= f.input :person_types, :collection => PersonType.published.collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
 	= f.input :encyclicals, :collection => Encyclical.published.collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
 	= f.input :thumbnail
-	= remove_thumbnail_tag(f, @page)
+	= remove_thumbnail_tag(f, @thought)
 	= f.input :image 
-	= remove_image_tag(f, @page)
+	= remove_image_tag(f, @thought)
 	= f.buttons do
 		= f.submit :value => (@thought.new_record? ? 'Create Article' : 'Update Article')
