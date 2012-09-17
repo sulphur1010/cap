@@ -33,7 +33,7 @@ class AttendeesEvent < ActiveRecord::Base
 
 	def created_at
 		ca = read_attribute(:created_at)
-		ca = Time.new(0) unless ca
+		ca = (Time.new - 5.years) unless ca
 		return ca
 	end
 

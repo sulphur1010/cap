@@ -3,7 +3,7 @@
 		- if is_admin?
 			= link_to 'Edit', edit_admin_event_url(@event), :class => 'btn_edit'
 		- if @event.type
-			.event_type{ :class => "event_type_#{@event.type.downcase.gsub(" ", "_")}"}
+			.event_type{ :class => "event_type_#{@event.type.to_s.downcase.gsub(" ", "_")}"}
 				= @event.type
 		%h2
 			= @event.title
