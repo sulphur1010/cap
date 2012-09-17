@@ -1,6 +1,7 @@
 = semantic_form_for [:admin, @papal_address] do |f|
 	= f.input :name
 	= f.input :title
+	= f.input :translated_title
 	= f.input :body, :input_html => { :class => 'js_editor' }
 	= f.input :published
 	= f.input :feature_on_homepage
