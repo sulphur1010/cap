@@ -12,7 +12,7 @@
 						%input#standard_price.js_rsvp_form_element.js_cost_category{:type => 'radio', :name => 'price', :value => @event.cost, :checked => true, :'data-type' => 'Standard'}= "Price (#{number_to_currency(@event.cost)})"
 					%br
 					%br
-					%span.spots_title Number of Spots:
+					%span.spots_titled Number of Spots:
 					%select.js_rsvp_form_element{:name => 'count'}
 						- (1..10).each do |i|
 							%option{:value => i}= i
