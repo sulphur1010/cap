@@ -38,6 +38,7 @@ gem 'sunspot', '1.3.0'
 gem 'sunspot_solr', '1.3.0'
 gem 'sunspot_rails', '1.3.0'
 gem 'hpricot', '0.8.6'
+gem 'mail', '2.3.0'
 
 group :assets do
 	gem 'sass-rails', '~> 3.1.0'

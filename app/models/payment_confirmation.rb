@@ -1,5 +1,7 @@
 class PaymentConfirmation < ActiveRecord::Base
 	belongs_to :attendees_event
+	belongs_to :event
+	belongs_to :user
 	before_create :parse_event_and_user
 
 	private

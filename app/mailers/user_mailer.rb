@@ -1,5 +1,6 @@
 class UserMailer < ActionMailer::Base
   default from: "drkwright@capp-usa.org"
+	layout "email"
 
 	def contact_confirmation(contact)
 		@contact = contact
@@ -14,9 +15,9 @@ class UserMailer < ActionMailer::Base
 		mail(:to => user.email, :subject => "You have registered for a CAPP-USA event!")
 	end
 
-	def event_daily_summary(event, users)
+	def event_daily_summary(event, attendees_events)
 		@event = event
-		@users = users
+		@attendees_events = attendees_events.sort { |a, b| a.attendee.last_name <=> b.attendee.last_name }
 		@director = @event.director
 		@program_contact = "drkwright@capp-usa.org"
 		cc = nil

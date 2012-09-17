@@ -30,4 +30,15 @@ class AttendeesEvent < ActiveRecord::Base
 		return 0 unless cnt
 		cnt
 	end
+
+	def created_at
+		ca = read_attribute(:created_at)
+		ca = Time.new(0) unless ca
+		return ca
+	end
+
+	def payment_method
+		return "other" unless self.payment_confirmation
+		"paypal"
+	end
 end

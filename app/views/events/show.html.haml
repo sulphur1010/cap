@@ -38,12 +38,14 @@
 		- if @event.director
 			.director_box
 				.event_director
-					Contact the Program Director: 
+					Program Contact: 
 					= @event.director.full_name
 					@
 					%span.event_director_phone
 						= @event.director.phone
-					/= link_to @event.director.full_name, user_path(@event.director)
+					or
+					%span.event_director_email
+						%a{:href => "mailto:#{@event.director.email}"}= @event.director.email
 		- if @event.attendees.include?(current_user)
 			- ae = AttendeesEvent.where(:attendee_id => current_user.id).where(:event_id => @event.id).first
 			.unrsvp

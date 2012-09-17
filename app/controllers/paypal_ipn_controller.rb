@@ -8,6 +8,8 @@ class PaypalIpnController < ApplicationController
 		unless pc.save
 			puts pc.errors
 		end
+
+		UserMailer.event_register_user(pc.event, pc.user).deliver
 		render :nothing => true
 	end
 end

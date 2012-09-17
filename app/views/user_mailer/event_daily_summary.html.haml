@@ -1,0 +1,42 @@
+%p
+	Hello
+	= @director.full_name
+%p
+	You are receiving this message because you have been flagged as the
+	- if @program_contact == @event.director.email
+		event creator
+	- else
+		contact
+	for a CAPP-USA event.
+%p
+	The following contacts have registered today for
+	%a{:href => event_url(@event)}
+		= @event.title
+		at
+		= @event.location.name
+		on
+		= @event.formatted_start
+%p
+	display event list:
+
+	= "#{@event.title} (#{@event.spots_available - @event.spots_left} are registered to attend)"
+	%ul
+	- @attendees_events.each do |attendees_event|
+		- user = attendees_event.attendee
+		- if user
+			/%div= "#{user.last_name}, #{user.first_name}, #{user.email}, (x#{attendees_event.count}) payment method = #{attendees_event.payment_method}"
+			%li= "#{user.last_name}, #{user.first_name} - #{user.email} (x#{attendees_event.count}) payment method = #{attendees_event.payment_confirmation ? "paypal" : "other"}"
+
+%p
+	1 hour prior to the event start time, a full list of event registrants will be emailed to this address.
+
+%p
+	Please do not reply to this email; this email address is used solely for outgoing email documents. For general inquiries by email, contact <a href="mailto:cstprogram@capp-usa.org">cstprogram@capp-usa.org</a>. To contact a CAPP-USA representative call 1-888-448-4788.
+
+%p
+	Thank you,
+
+%p
+	CAPP-USA.org
+	%br
+	System Admin

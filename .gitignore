@@ -12,3 +12,4 @@ solr/data
 solr
 *.pid
 bin/
+config/initializers/setup_mail.rb

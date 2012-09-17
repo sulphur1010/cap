@@ -98,4 +98,10 @@ class Event < ActiveRecord::Base
 		end
 		helpers.distance_of_time_in_words(self.end_date, self.start_date, false).sub(/about /, '').sub(/less than /, '')
 	end
+
+	# list of users who should be listed in the daily attendees email
+	def aggregate_attendees_list(duration=1.day)
+		start_time = Time.now - duration
+		self.attendees_events.select { |c| c.created_at >= start_time }
+	end
 end

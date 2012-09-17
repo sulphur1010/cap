@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
 	def ensure_running_threads
 		ReminderThread.ensure_running_thread
+		EventRegistrationThread.ensure_running_thread
 	end
 
 	def is_admin?(&block)

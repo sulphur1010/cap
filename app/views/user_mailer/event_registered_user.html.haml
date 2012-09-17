@@ -1,30 +1,22 @@
-!!!
-%html
-	%head
-		%meta{:content => "text/html; charset=UTF-8", :'http-equiv' => "Content-Type"}
-	%body
-		%p= "Hello #{@user.first_name}"
-		%p
-			Thank you for registering for
-			%a{:href => event_url(@event)}
-				= @event.title
-				at
-				= @event.location
-				on
-				= @event.formatted_start
-			. We look forward to seeing you there.
-		%p
-			Should there be any changes or important news regarding this event, we will contact you accordingly. If you have any questions regarding this event, contact the Program Director
-			= @director.first_name
-			= @director.last_name
-			@
-			= @director.phone
-			or
-			= @director.email
-			.
-		%p
-			Please do not reply to this email; this email address is used solely for outgoing email documents. For general inquiries by email, contact
-			%a{:mailto => "cstprogram@capp-usa.org"} cstprogram@capp-usa.org
-			. To contact a CAPP-USA representative call 1-888-448-4788.
-		%p Sincerely,
-		%p Centesimus Annus Pro Pontifice, Inc (CAPP-USA)
+%p= "Hello #{@user.first_name}"
+%p
+	Thank you for registering for
+	%a{:href => event_url(@event)}
+		= @event.title
+		at
+		= @event.location.name
+		on
+		= "#{@event.formatted_start}."
+	We look forward to seeing you there."
+- if @director
+	%p
+		Should there be any changes or important news regarding this event, we will contact you accordingly. If you have any questions regarding this event, the Program Contact is:
+		= @director.full_name
+		@
+		= @director.phone
+		or
+		= "#{@director.email}."
+%p
+	Please do not reply to this email; this email address is used solely for outgoing email documents. For general inquiries by email, contact <a href="mailto:cstprogram@capp-usa.org">cstprogram@capp-usa.org</a>. To contact a CAPP-USA representative call 1-888-448-4788.
+%p Sincerely,
+%p Centesimus Annus Pro Pontifice, Inc (CAPP-USA)

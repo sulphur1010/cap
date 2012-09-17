@@ -48,6 +48,8 @@ class EventsController < ApplicationController
 			ae.total_cost = params[:total_cost]
 			ae.save!
 
+			UserMailer.event_register_user(@event, current_user).deliver
+
 			redirect_to @event, :notice => 'You have registered to attend the event.'
 		else
 			redirect_to events_url, :alert => 'There are no spots available for that event.'
