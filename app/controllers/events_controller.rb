@@ -29,7 +29,8 @@ class EventsController < ApplicationController
 			redirect_to new_user_registration_url, :notice => 'You must register in order to RSVP.'
 			return
 		end
-		if @event.spots_left > 0
+		count = params[:count].to_i
+		if (@event.spots_left - count) > 0
 
 			# we only get to this action if the other payment type is enabled for the event
 			if !@event.allow_other_payment_type
@@ -40,7 +41,13 @@ class EventsController < ApplicationController
 				redirect_to events_url, :notice => 'You are already attending that event.'
 				return
 			end
-			@event.attendees << current_user
+			ae = AttendeesEvent.new
+			ae.attendee = current_user
+			ae.event = @event
+			ae.count = params[:count]
+			ae.total_cost = params[:total_cost]
+			ae.save!
+
 			redirect_to @event, :notice => 'You have registered to attend the event.'
 		else
 			redirect_to events_url, :alert => 'There are no spots available for that event.'

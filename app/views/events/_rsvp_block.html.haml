@@ -64,6 +64,7 @@
 
 		$("#rsvp_button").click(function() {
 			var data = rsvpFormOptions();
+			var total = calculateTotal();
 			var cost_category = $(".js_cost_category:checked").attr('data-type');
 			var t = $(this);
 			if (data.payment_method == undefined) {
@@ -72,7 +73,7 @@
 			}
 			var href = "";
 			if (data.payment_method == "other") {
-				href = "#{rsvp_event_path(@event)}?count=" + data.count;
+				href = "#{rsvp_event_path(@event)}?count=" + data.count + "&total_cost=" + total;
 			}
 			if (data.payment_method == "paypal") {
 				var name = "#{@event.title} (" + cost_category + ")";

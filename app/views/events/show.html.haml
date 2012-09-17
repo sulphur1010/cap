@@ -47,6 +47,15 @@
 		- if @event.attendees.include?(current_user)
 			.unrsvp
 				= link_to 'UnRSVP', unrsvp_event_url(@event), :method => :post
+			- ae = AttendeesEvent.where(:attendee_id => current_user.id).where(:event_id => @event.id).first
+			- if ae.payment_confirmation.nil?
+				.payment_instructions
+					%h3 Payment Instructions
+					%strong Total:
+					= number_to_currency(ae.total_cost)
+					%br
+					%strong Instructions:
+					= @event.other_payment_type_instructions
 		- else
 			- if @event.spots_left > 0
 				- if user_signed_in?
@@ -58,16 +67,16 @@
 	%hr
 	- if is_admin?
 		.page
-			- paypal_attendees = @event.attendees_events.select { |c| c.payment_confirmed? }.collect { |c| c.attendee }.compact
+			- paypal_attendees = @event.attendees_events.select { |c| c.payment_confirmed? }
 			%h4 Paypal Attendees
 			- if paypal_attendees.size > 0
-				= render :partial => 'users/list', :object => paypal_attendees
+				= render :partial => 'users/guest_list', :object => paypal_attendees
 			- else
 				= "None"
-			- other_attendees = @event.attendees_events.select { |c| c.payment_confirmation == nil }.collect { |c| c.attendee }.compact
+			- other_attendees = @event.attendees_events.select { |c| c.payment_confirmation == nil }
 			%h4 Other Attendees
 			- if other_attendees.size > 0
-				= render :partial => 'users/list', :object => other_attendees
+				= render :partial => 'users/guest_list', :object => other_attendees
 			- else
 				= "None"
 		%hr

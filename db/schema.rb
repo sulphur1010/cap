@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120916204634) do
+ActiveRecord::Schema.define(:version => 20120916231639) do
 
   create_table "attendees_events", :force => true do |t|
     t.integer  "attendee_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20120916204634) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "count"
+    t.decimal  "total_cost",  :precision => 8, :scale => 2
   end
 
   add_index "attendees_events", ["attendee_id"], :name => "index_attendees_events_on_attendee_id"
@@ -308,6 +309,16 @@ ActiveRecord::Schema.define(:version => 20120916204634) do
     t.integer  "attendees_event_id"
     t.integer  "event_id"
     t.integer  "user_id"
+    t.string   "item_taxable1"
+    t.string   "item_isbn1"
+    t.string   "item_plu1"
+    t.string   "item_style_number1"
+    t.string   "item_tax_rate_double1"
+    t.string   "tax1"
+    t.string   "item_tax_rate1"
+    t.string   "item_count_unit1"
+    t.string   "item_mpn1"
+    t.string   "item_model_number1"
   end
 
   create_table "questions", :force => true do |t|

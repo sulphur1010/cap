@@ -21,4 +21,13 @@ class AttendeesEvent < ActiveRecord::Base
 		return 1 if cnt == 0
 		cnt
 	end
+
+	def total_cost
+		cnt = read_attribute(:total_cost)
+		if self.payment_confirmation
+			cnt = self.payment_confirmation.payment_gross
+		end
+		return 0 unless cnt
+		cnt
+	end
 end

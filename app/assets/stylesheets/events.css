@@ -37,3 +37,29 @@
 	border: 1px solid #eee;
 	border-radius: 3px;
 }
+
+.user_list li .count {
+	float: right;
+	padding: 0 3px;
+	position: relative;
+	border: 1px solid black;
+	background-color: #eee;
+	border-right: 0;
+	color: black;
+}
+
+.user_list li .total_cost {
+	float: right;
+	padding: 0 3px;
+	position: relative;
+	border: 1px solid black;
+	background-color: #eee;
+	color: black;
+}
+
+div.payment_instructions {
+	margin-top: 5px;
+	padding: 8px;
+	border: 1px solid #ff3030;
+	background-color: #ffb7b7;
+}
