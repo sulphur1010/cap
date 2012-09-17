@@ -7,8 +7,7 @@ module ApplicationHelper
 			title = "#{title} (#{text})"
 		end
 		values = {
-			#:business => 'payments@capp-usa.org',  # <- production
-			:business => 'seller_1316980320_biz@darmasoft.com', # <- dev
+			:business => Rails.env.production? ? 'payments@capp-usa.org' : 'seller_1316980320_biz@darmasoft.com',
 			:cmd => '_cart',
 			:upload => 1,
 			:return => thanks_event_url(event),
@@ -21,10 +20,10 @@ module ApplicationHelper
 			values["amount_1"] = cost
 			values["item_name_1"] = title
 		end
-		#url = "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
-		url = "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
-		#if !Rails.env.production?
-		#end
+		url = "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
+		if !Rails.env.production?
+			url = "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+		end
 		url
 	end
 
