@@ -9,7 +9,7 @@ class PaypalIpnController < ApplicationController
 			puts pc.errors
 		end
 
-		UserMailer.event_register_user(pc.event, pc.user).deliver
+		UserMailer.event_registered_user(pc.event, pc.user).deliver
 		render :nothing => true
 	end
 end
