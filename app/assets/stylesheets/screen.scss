@@ -130,7 +130,7 @@ select {
 /*----logo*/
 
 /*----Top Navigation & Search Box*/
-#top_nav_bar{display:block;width:980px;height:40px;background:url(/images/top_nav_bg.gif); text-shadow: 0px -1px 0px #24124F;}
+#top_nav_bar{display:block;width:980px;height:40px;background:url(/images/top_nav_bg.gif);}
 
 table.nav_main{display:inline;border:none;border-collapse:collapse;}
 table.nav_main tr{margin:0 5px;line-height:40px;border:none;border-collapse:collapse;}
@@ -404,6 +404,10 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 
 .nav_main td.top_nav_container:hover ul.sub_menu {
 	display: block;
+}
+
+.top_nav_container {
+	.top_nav {text-shadow: 0px -1px 0px #24124F;}
 }
 
 .nav_main td.top_nav_container ul.sub_menu li:hover ul.sub_sub_menu {
