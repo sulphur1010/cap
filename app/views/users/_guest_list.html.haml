@@ -1,12 +1,13 @@
 %ul.user_list
 	- guest_list.each do |attendees_event|
 		- user = attendees_event.attendee
-		%li
-			.total_cost= number_to_currency(attendees_event.total_cost)
-			.count= "x#{attendees_event.count}"
-			= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'), user_path(user)
-			.user_info
-				= link_to user.full_name, user_path(user)
-				%br
-				= user.title
+		- if user
+			%li
+				.total_cost= number_to_currency(attendees_event.total_cost)
+				.count= "x#{attendees_event.count}"
+				= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image'), user_path(user)
+				.user_info
+					= link_to user.full_name, user_path(user)
+					%br
+					= user.title
 %div{:style => 'clear:both'}
