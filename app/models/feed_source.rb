@@ -1,7 +1,7 @@
 class FeedSource < ActiveRecord::Base
 	validates :url, :presence => true
 
-	before_save :delay_load_channel_data
+	after_save :delay_load_channel_data
 	attr_accessor :form_save
 
 	has_many :feed_entries, :order => :published_at
