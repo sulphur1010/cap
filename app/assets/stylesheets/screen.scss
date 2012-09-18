@@ -65,6 +65,7 @@ body{line-height: 1.6em;}
 
 /*Global Items */
 hr {border-top: 1px solid #ddd; border-bottom: 9px solid #eee;}
+hr.thin {border-top: 1px solid #ddd; border-bottom: 2px solid #eee; margin-bottom: 10px;}
 a {color: #61849D; text-decoration: none;}
 a:hover {text-decoration: underline;}
 p {line-height: 1.6em; color: #333; }
@@ -130,7 +131,7 @@ select {
 /*----logo*/
 
 /*----Top Navigation & Search Box*/
-#top_nav_bar{display:block;width:980px;height:40px;background:url(/images/top_nav_bg.gif);}
+#top_nav_bar{display:block;width:980px;height:40px;background:url(/images/top_nav_bg.gif) #8977B3;}
 
 table.nav_main{display:inline;border:none;border-collapse:collapse;}
 table.nav_main tr{margin:0 5px;line-height:40px;border:none;border-collapse:collapse;}
@@ -1405,3 +1406,7 @@ ul.accordion_list {
 }
 
 .left {float: none;}
+
+.js_rsvp_form_element {
+	margin: 0 5px 10px 0;
+}

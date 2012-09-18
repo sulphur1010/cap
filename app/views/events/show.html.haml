@@ -82,13 +82,6 @@
 				= render :partial => 'users/guest_list', :object => other_attendees
 			- else
 				= "None"
-		%hr
-	- if !@event.contemporary_issues.empty?
-		.page
-			%h4
-				Contemporary Issues Covered:
-			- @event.contemporary_issues.each do |issue|
-				= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'
 	- if !@event.speakers.empty?
 		%hr
 		.page
@@ -99,3 +92,10 @@
 		.page
 			%h4 Celebrants
 			= render :partial => 'users/list', :object => @event.celebrants
+	- if !@event.contemporary_issues.empty?
+		%hr
+		.page
+			%h4.inline
+				Contemporary Issues Covered:
+			- @event.contemporary_issues.each do |issue|
+				= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'
