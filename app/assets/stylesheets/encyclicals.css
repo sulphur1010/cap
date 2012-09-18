@@ -44,12 +44,15 @@ table.encyclical_teaser_list .encyclical_published_at {
 .page div.encyclical_reference {
 	margin-left: 40px;
 	margin-right: 40px;
-	font-size: 14px;
+	font-size: 13px;
 	color: #742900;
+	margin-bottom: 15px;
+	font-family: georgia;
+	line-height: 1.6em;
 }
 
 .page .encyclical_reference_link {
-	font-size: smaller;
+	font-style: italic;
 }
 
 #main .left_content .page .encyclical_chapter_link {
