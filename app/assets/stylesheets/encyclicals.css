@@ -59,11 +59,12 @@ table.encyclical_teaser_list .encyclical_published_at {
 #main .left_content .page .encyclical_chapter_link {
 	float: left;
 	display: block;
+	position: relative;
 	width: 100%;
-	left: -10px;
-	width: 29px;
-	height: 25px;
-	background: url('/assets/book.png') #fffbd1 no-repeat;
+	left: -6px;
+	width: 16px;
+	height: 16px;
+	background: url('/assets/book.png') no-repeat;
 	cursor: pointer;
 }
 
