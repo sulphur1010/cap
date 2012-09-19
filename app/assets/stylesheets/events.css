@@ -63,3 +63,17 @@ div.payment_instructions {
 	border: 1px solid #ff3030;
 	background-color: #ffb7b7;
 }
+
+table.event_attendees_table {
+	width: 100%;
+}
+
+table.event_attendees_table th {
+	padding: 3px;
+	font-weight: bold;
+	border-bottom: 1px solid #eee;
+}
+
+table.event_attendees_table td {
+	padding: 3px;
+}

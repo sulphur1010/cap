@@ -70,18 +70,25 @@
 	%hr
 	- if is_admin?
 		.page
-			- paypal_attendees = @event.attendees_events.select { |c| c.payment_confirmed? }
-			%h4 Paypal Attendees
-			- if paypal_attendees.size > 0
-				= render :partial => 'users/guest_list', :object => paypal_attendees
-			- else
-				= "None"
-			- other_attendees = @event.attendees_events.select { |c| c.payment_confirmation == nil }
-			%h4 Other Attendees
-			- if other_attendees.size > 0
-				= render :partial => 'users/guest_list', :object => other_attendees
-			- else
-				= "None"
+			%h4 Attendees
+			%table.event_attendees_table
+				%tr
+					%th Last Name
+					%th First Name
+					%th Email
+					%th Spots
+					%th Total
+					%th Payment Type
+				- @event.attendees_events.sort { |a,b| (a.attendee.last_name rescue '') <=> (b.attendee.last_name rescue '') }.each do |attendee_event|
+					- user = attendee_event.attendee
+					- if user
+						%tr
+							%td= user.last_name
+							%td= user.first_name
+							%td= user.email
+							%td= attendee_event.count
+							%td= number_to_currency(attendee_event.total_cost)
+							%td= attendee_event.payment_method
 	- if !@event.speakers.empty?
 		%hr
 		.page
