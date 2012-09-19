@@ -42,15 +42,29 @@ table.encyclical_teaser_list .encyclical_published_at {
 	padding: 20px;
 }
 
-.page div.encyclical_reference {
+.encyclical_reference {
 	margin-left: 40px;
 	margin-right: 40px;
 	font-size: 13px;
 	color: #742900;
 	margin-bottom: 15px;
 	font-family: georgia;
-	line-height: 1em;
+	line-height: 1.4em;
 }
+
+.homepage_quote 
+	.encyclical_reference {
+		margin-left: 0px;
+		margin-right: 0px;
+		font-size: 16px !important;
+		color: #fff !important;
+		margin-bottom: 15px;
+		font-family: arial !important;
+		line-height: 1.6em;
+	
+}
+
+
 
 .page .encyclical_reference_link {
 	font-style: italic;
