@@ -1,4 +1,3 @@
-= render :partial => 'shared/home_upcoming_featured'
 .page
 	%table.index_scroller_table
 		%tr
@@ -18,6 +17,7 @@
 												= quote.teaser.html_safe
 											%h2
 												= quote.users.first.full_name rescue ''
+	= render :partial => 'shared/home_upcoming_featured'
 	.about_cst 
 		.strong 
 			Catholic Social Teaching
