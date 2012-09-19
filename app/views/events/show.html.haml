@@ -50,7 +50,7 @@
 			- ae = AttendeesEvent.where(:attendee_id => current_user.id).where(:event_id => @event.id).first
 			.unrsvp
 				- if ae.payment_confirmation.nil?
-					= link_to 'UnRSVP', unrsvp_event_url(@event), :method => :post
+					= link_to 'UnRegister for this Event', unrsvp_event_url(@event), :method => :post
 			- if ae.payment_confirmation.nil?
 				.payment_instructions
 					%h3 Payment Instructions

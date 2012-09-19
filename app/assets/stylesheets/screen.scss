@@ -24,7 +24,7 @@ a:hover {text-decoration: underline;}
 
 /*Background and Structure*/
 html {font-size:100.01%;}
-body {font-size:75%;color:#333;background: url("/images/background.jpg");font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
+body {font-size:75%;color:#333;background: url("/images/background.jpg") #ECEDE7;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
 
 /*Typography definition*/
 h1 {font-size:24px;font-weight:bold;line-height:140%;margin:0;font-family:arial;color:#232323;}
@@ -768,7 +768,6 @@ table.thought_block tr td {
     font-weight: bold;
     color: #555555;
 	text-align: center;
-	vertical-align: middle;
     
     background: -moz-linear-gradient(center top , #FFFFFF, #EFEFEF) repeat scroll 0 0 #F6F6F6;
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#efefef));
@@ -780,6 +779,7 @@ table.thought_block tr td {
     border-radius: 3px 3px 3px 3px;
     cursor: pointer;
     padding: 8px 20px;
+	display: inline-block;
 }
 
 .rsvp:hover {
