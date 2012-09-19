@@ -10,7 +10,7 @@ module ApplicationHelper
 			:business => Rails.env.production? ? 'payments@capp-usa.org' : 'seller_1316980320_biz@darmasoft.com',
 			:cmd => '_cart',
 			:upload => 1,
-			:return => thanks_event_url(event),
+			:return => event_url(event, :thanks => '1'),
 			:invoice => id,
 			:notify_url => paypal_ipn_url,
 			"item_number_1" => id

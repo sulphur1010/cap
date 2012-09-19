@@ -46,27 +46,31 @@
 					or
 					%span.event_director_email
 						%a{:href => "mailto:#{@event.director.email}"}= @event.director.email
-		- if @event.attendees.include?(current_user)
-			- ae = AttendeesEvent.where(:attendee_id => current_user.id).where(:event_id => @event.id).first
-			.unrsvp
+		- unless @thanks
+			- if @event.attendees.include?(current_user)
+				- ae = AttendeesEvent.where(:attendee_id => current_user.id).where(:event_id => @event.id).first
+				.unrsvp
+					- if ae.payment_confirmation.nil?
+						= link_to 'UnRegister for this Event', unrsvp_event_url(@event), :method => :post
 				- if ae.payment_confirmation.nil?
-					= link_to 'UnRegister for this Event', unrsvp_event_url(@event), :method => :post
-			- if ae.payment_confirmation.nil?
-				.payment_instructions
-					%h3 Payment Instructions
-					%strong Total:
-					= number_to_currency(ae.total_cost)
-					%br
-					%strong Instructions:
-					= @event.other_payment_type_instructions
+					.payment_instructions
+						%h3 Payment Instructions
+						%strong Total:
+						= number_to_currency(ae.total_cost)
+						%br
+						%strong Instructions:
+						= @event.other_payment_type_instructions
+			- else
+				- if @event.spots_left > 0
+					- if user_signed_in?
+						= render :partial => 'rsvp_block'
+					- else
+						.rsvp_block
+							%h3 You must create an account before registering for an event
+							= link_to "Create an Account", new_user_registration_url
 		- else
-			- if @event.spots_left > 0
-				- if user_signed_in?
-					= render :partial => 'rsvp_block'
-				- else
-					.rsvp_block
-						%h3 You must create an account before registering for an event
-						= link_to "Create an Account", new_user_registration_url
+			.pending
+				= "Your registration is currently pending."
 	%hr
 	- if is_admin?
 		.page

@@ -13,6 +13,8 @@ class EventsController < ApplicationController
 	end
 
 	def show
+		@thanks = params.has_key?(:thanks) && params[:thanks] == '1'
+		flash[:notice] = 'Thank you for registering for this event.' if @thanks
 		respond_with(@event = Event.find(params[:id]))
 	end
 
