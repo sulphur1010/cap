@@ -2,6 +2,7 @@
 load 'config/deploy/unicorn'
 load 'config/deploy/release'
 require 'bundler/capistrano'
+require 'delayed/recipes'
 
 namespace :deploy do
 	
@@ -123,3 +124,7 @@ after 'deploy:make_tmp_dirs', 'deploy:create_cache_dir'
 before 'deploy:restart', 'deploy:symlink_system_dir'
 
 after 'deploy', 'deploy:cleanup'
+
+after 'unicorn:stop', 'delayed_job:stop'
+after 'unicorn:start', 'delayed_job:start'
+after 'unicorn:restart', 'delayed_job:restart'
