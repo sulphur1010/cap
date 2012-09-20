@@ -6,6 +6,7 @@
 	= f.input :published
 	= f.input :feature_on_homepage
 	= f.input :weight
+	= f.input :users, :collection => User.all.collect { |c| [c.full_name, c.id] }, :label => "Author", :input_html => { :class => 'js_multiselect' }
 	= f.input :contemporary_issues, :collection => ContemporaryIssue.published.order(:title).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
 	= f.input :thumbnail
 	= remove_thumbnail_tag(f, @papal_address)
