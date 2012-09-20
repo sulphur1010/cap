@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120916231639) do
+ActiveRecord::Schema.define(:version => 20120919152729) do
 
   create_table "attendees_events", :force => true do |t|
     t.integer  "attendee_id"
@@ -141,6 +141,17 @@ ActiveRecord::Schema.define(:version => 20120916231639) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "encyclical_chapters", :force => true do |t|
+    t.integer  "encyclical_id"
+    t.integer  "chapter_num"
+    t.text     "chapter_body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "encyclical_chapters", ["chapter_num"], :name => "index_encyclical_chapters_on_chapter_num"
+  add_index "encyclical_chapters", ["encyclical_id"], :name => "index_encyclical_chapters_on_encyclical_id"
 
   create_table "encyclical_references", :force => true do |t|
     t.integer  "content_fragment_id"

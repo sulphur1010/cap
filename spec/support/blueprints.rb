@@ -134,3 +134,7 @@ end
 PaymentConfirmation.blueprint do
   # Attributes here
 end
+
+EncyclicalChapter.blueprint do
+  # Attributes here
+end
