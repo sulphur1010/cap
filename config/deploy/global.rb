@@ -105,6 +105,12 @@ namespace :deploy do
 		run "cd #{release_path} && bundle exec rake assets:precompile"
 	end
 
+	desc "deploy the precompiled assets"
+	task :deploy_assets, :except => { :no_release => true } do
+	 run_locally("rake assets:clean && rake precompile")
+	 upload("public/assets", "#{release_path}/public/assets", :via => :scp, :recursive => true)
+	end
+
 	task :finalize_update, :roles => :app do
 	end
 end
@@ -113,7 +119,8 @@ after 'deploy:setup', 'deploy:setup_code'
 after 'deploy:pull_repo', 'deploy:copy_code_to_release'
 before 'deploy:update_code', 'deploy:pull_repo'
 after 'deploy:update_code', 'deploy:finalize_update'
-before 'deploy:restart', 'deploy:compile_assets'
+#before 'deploy:restart', 'deploy:compile_assets'
+before 'deploy:restart', 'deploy:deploy_assets'
 before 'deploy:copy_code_to_release', 'deploy:make_release_dir'
 before 'deploy:restart', 'deploy:migrate_db'
 before 'deploy:symlink_database_yml', 'deploy:symlink_initializers'
