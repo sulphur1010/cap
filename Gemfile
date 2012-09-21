@@ -56,3 +56,7 @@ group :development, :test do
 	gem 'faker', '1.0.1'
 	gem 'syntax', '1.0.0'
 end
+
+group :development do
+	gem 'active_record_query_trace', '1.1'
+end

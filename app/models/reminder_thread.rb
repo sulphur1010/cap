@@ -8,7 +8,7 @@ class ReminderThread
 				loop {
 					if !EventReminderJob.enqueued?
 						Rails.logger.info "EventReminderJob not queued.  queueing."
-						Delayed::Job.enqueue EventReminderJob.new
+						Delayed::Job.enqueue EventReminderJob.new, { :run_at => EventReminderJob.next_run }
 					end
 					sleep(5.minutes)
 				}

@@ -1,14 +1,14 @@
-- MenuItem.where(:parent_id => nil).order(:weight).each do |menu_item|
+- MenuItem.where(:parent_id => nil).order(:weight).includes(:children).each do |menu_item|
 	%td.top_nav_container
 		= top_nav_active_link_to menu_item.name, menu_item.url, { :class => 'top_nav', :id => "top_nav_#{menu_item.name.downcase.gsub(" ", "_").gsub("?", "_")}" }
 		- if menu_item.menu_type == "Contemporary Issues"
 			= render :partial => 'contemporary_issues/menu'
-		- if !menu_item.children.empty?
+		- if menu_item.children.size != 0
 			%ul.sub_menu
-				- menu_item.children.order(:weight).each do |sub_menu_item|
+				- menu_item.children.includes(:children).order(:weight).each do |sub_menu_item|
 					%li
 						%a{:href => sub_menu_item.url}= sub_menu_item.name
-						- if !sub_menu_item.children.empty?
+						- if sub_menu_item.children.size != 0
 							%ul.sub_sub_menu
 								- sub_menu_item.children.order(:weight).each do |sub_sub_menu_item|
 									%li

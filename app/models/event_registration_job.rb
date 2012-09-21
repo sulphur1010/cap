@@ -1,4 +1,7 @@
 class EventRegistrationJob
+	include ScheduledJob
+
+	run_every 1.day
 
 	def self.next_run
 		# 17 = 5pm
@@ -9,20 +12,27 @@ class EventRegistrationJob
 		next_time
 	end
 
+	# we do this so this runs every day exactly at 5pm
+	# this gets rescheduled *after* the job is done
+	def run_at
+		EventRegistrationJob.next_run
+	end
+
 	def perform
+		puts "EventRegistrationJob::perform"
 		processed_events = []
 		Event.upcoming.each do |event|
 			users = event.aggregate_attendees_list(1.day)
+			puts "EventRegistrationJob::perform - event = #{event.id.to_s}, users = #{users.count}"
 			if !users.empty?
-				UserMail.event_daily_summary(event, users).deliver
+				puts "EventRegistrationJob::perform - sending an email!"
+				UserMailer.event_daily_summary(event, users).deliver
 			end
 		end
 	end
-	handle_asynchronously :perform, :run_at => Proc.new { next_run }
 
 	def self.enqueued?
 		!Delayed::Job.all.select { |j| YAML.load(j.handler).class == self }.empty?
 	end
-
 end
 
