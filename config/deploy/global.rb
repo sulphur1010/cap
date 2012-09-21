@@ -110,7 +110,7 @@ namespace :deploy do
 		run_locally("rake assets:clean && RAILS_ENV=development rake assets:precompile")
 		run_locally("tar -czvf public/assets.tgz public/assets")
 		top.upload("public/assets.tgz", "#{release_path}/public/", { :via => :scp, :recursive => true })
-		run "cd #{release_path} && tar -zxvf public/assets.tgz"
+		run "cd #{release_path} && tar -zxvf public/assets.tgz 1> /dev/null"
 	end
 
 	task :finalize_update, :roles => :app do
