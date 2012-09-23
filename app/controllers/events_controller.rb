@@ -48,7 +48,9 @@ class EventsController < ApplicationController
 			ae.event = @event
 			ae.count = params[:count]
 			ae.total_cost = params[:total_cost]
-			ae.save!
+			ae.created_at = Time.now
+			ae.updated_at = Time.now
+			ae.save
 
 			UserMailer.event_registered_user(@event, current_user).deliver
 
