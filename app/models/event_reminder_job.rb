@@ -17,6 +17,7 @@ class EventReminderJob
 				processed_events << er.event_id
 			end
 		end
+		Delayed::Job.all.each { |c| YAML.load(c.handler).class == self ? c.destroy : '' }
 	end
 
 	def self.enqueued?
