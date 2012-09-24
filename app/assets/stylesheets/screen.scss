@@ -71,7 +71,7 @@ hr.thin {border-top: 1px solid #ddd; border-bottom: 2px solid #eee; margin-botto
 a {color: #61849D; text-decoration: none;}
 a:hover {text-decoration: underline;}
 p {line-height: 1.6em; color: #333; }
-.page ul li {font-size: 14px; line-height: 1.6em; color: #333;}
+.page ul li {font-size: 12px; line-height: 1.6em; color: #333;}
 .page p {margin-bottom: 15px; font-size: 12px;}
 .inline {display: inline-block;}
 ul {margin: 0 0 0 10px;}
@@ -1119,7 +1119,7 @@ a:hover {
 }
 
 .sheen_homepage_title {
-	width: 550px;
+	width: 500px;
 	padding: 10px;
 	position: relative;
 	top: 20px;
@@ -1313,6 +1313,25 @@ table.search_left_menu_container .content_with_left_menu {
 		color: #444;
 		font-size: 0.9em;
 		width: 185px;
+	}
+}
+
+.friendly {
+	label {
+		font-weight: bold;
+	}
+	input {
+		padding: 6px 4px;
+		color: #444;
+		font-size: 1.1em;
+    border: 1px solid #aaa;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    color: #555555;
+    cursor: pointer;
+    font-size: 15px;
+    text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
+    vertical-align: middle;
 	}
 }
 
