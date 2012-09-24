@@ -134,6 +134,9 @@ before 'deploy:restart', 'deploy:symlink_system_dir'
 
 after 'deploy', 'deploy:cleanup'
 
-after 'unicorn:stop', 'delayed_job:stop'
-after 'unicorn:start', 'delayed_job:start'
-after 'unicorn:restart', 'delayed_job:restart'
+#after 'unicorn:stop', 'delayed_job:stop'
+#after 'unicorn:start', 'delayed_job:start'
+#after 'unicorn:restart', 'delayed_job:restart'
+
+before 'deploy:restart', 'delayed_job:stop'
+after 'deploy:restart', 'delayed_job:start'
