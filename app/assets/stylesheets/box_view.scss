@@ -1,6 +1,41 @@
 
 .menu_item_box {
 	float: left;
+	width: 200px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 10px;
+	margin: 10px 12px 0 0;
+
+	.image {
+		text-align: center;
+
+		img {
+			width: 200px;
+			height: 100px;
+		}
+	}
+
+	.bottom {
+		padding: 5px;
+		font-weight: bold;
+		font-size: 10px;
+		text-align: center;
+
+		.name {
+			width: 80%;
+		}
+
+		.arrow {
+			margin-top: 5px;
+		}
+	}
+}
+
+
+
+.menu_item_box_home {
+	float: left;
 	width: 120px;
 	border: 1px solid #ccc;
 	border-radius: 4px;

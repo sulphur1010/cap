@@ -34,7 +34,7 @@
 						%h4.center Learn what the Catholic Church has to say about:
 						- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
 							%a{:href => prism_type_url(prism)}
-								.principle.menu_item_box
+								.principle.menu_item_box_home
 									%img{:src => prism.image, :width => 120, :height => 70}
 									.bottom= prism.name
 
@@ -44,7 +44,7 @@
 						%h4.center Learn about the 3 Principles of Catholic Social Teaching:
 						- Principle.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |principle|
 							%a{:href => principle_url(principle)}
-								.principle.menu_item_box
+								.principle.menu_item_box_home
 									%img{:src => principle.thumbnail, :width => 120, :height => 70}
 									.bottom= principle.name
 
