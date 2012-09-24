@@ -29,22 +29,25 @@
 	%table
 		%tr
 			%td
-				.col_two_three
+				.col_half
 					.three_principles
-						%h4 Learn about the 3 Principles of Catholic Social Teaching
+						%h4.center Learn what the Catholic Church has to say about:
+						- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
+							%a{:href => prism_type_url(prism)}
+								.principle.menu_item_box
+									%img{:src => prism.image, :width => 120, :height => 70}
+									.bottom= prism.name
+
+			%td
+				.col_half
+					.three_principles
+						%h4.center Learn about the 3 Principles of Catholic Social Teaching:
 						- Principle.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |principle|
 							%a{:href => principle_url(principle)}
 								.principle.menu_item_box
-									%img{:src => principle.thumbnail, :width => 200, :height => 100}
-									.bottom
-										= principle.name
-			%td
-				.three_prisms
-					- PrismType.published.where(:feature_on_homepage => true).order(:weight).limit(3).each do |prism|
-						%a{:href => prism_type_url(prism)}
-							.sheen_white
-								%h2= prism.name
-								.prism.sheen_white{:style => "background: url(#{prism.image});"}
+									%img{:src => principle.thumbnail, :width => 120, :height => 70}
+									.bottom= principle.name
+
 %hr
 - if @page
 	%table#home_bottom_blocks

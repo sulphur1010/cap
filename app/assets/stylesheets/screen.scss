@@ -199,7 +199,7 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 .homepage_overlay {width: 650px; position: absolute; bottom: 0px; left: 20px; bottom: -2px;}
 .three_principles {
 	position: relative;
-	width: 720px;
+	width: 465px;
 	margin-bottom: 0px;
 	bottom: 0px;
 
@@ -234,10 +234,15 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 		}
 	}
 }
-
+.center{text-align: center;}
 .col_three {
 	width: 300px;
 	padding: 20px 20px 0px 0px;
+}
+
+.col_half {
+	width: 450px;
+	padding: 20px; 
 }
 
 .col_two_three {
@@ -1332,6 +1337,7 @@ table.search_left_menu_container .content_with_left_menu {
     font-size: 15px;
     text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
     vertical-align: middle;
+	margin-bottom: 10px;
 	}
 }
 
