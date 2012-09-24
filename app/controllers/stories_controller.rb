@@ -4,7 +4,9 @@ class StoriesController < ApplicationController
 
 	def index
 		if request.xhr?
-			@stories = Story.published.order("created_at desc")
+			@stories = Story.published
+			@stories += FeedEntry.all
+			@stories.flatten!
 			if params[:category]
 				types = params[:category].split(/,/)
 				if types.count > 0
@@ -12,16 +14,19 @@ class StoriesController < ApplicationController
 					types.each do |t|
 						ews << "category = '#{t}'"
 					end
-					@stories = @stories.where(ews.join(" OR "))
+					@stories = Story.published.where(ews.join(" OR "))
+					@stories += FeedSource.where(ews.join(" OR ")).collect { |e| e.feed_entries }
+					@stories.flatten!
 				end
 			end
 			@stories = @stories.uniq
+			@stories = @stories.sort_by(&:published_at).reverse
 			render :action => 'ajax_list', :layout => false
 			return
 		end
-		@stories = Story.published.order("created_at desc")
+		@stories = Story.published
 		@stories += FeedEntry.all
-		@stories = @stories.sort_by(&:created_at).reverse
+		@stories = @stories.sort_by(&:published_at).reverse
 		respond_with(@stories)
 	end
 

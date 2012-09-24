@@ -6,7 +6,7 @@
 				.published_at= teaser.formatted_published_at
 				.teaser= teaser.teaser.html_safe
 			- else
-				%h5.story_title= link_to teaser.title, feed_entry_path(teaser)
+				%h5.story_title= link_to teaser.title, teaser.url, :target => '_blank'
 				.published_at= teaser.formatted_published_at
 				.source= teaser.feed_source.title
 				/.teaser= teaser.teaser.html_safe
