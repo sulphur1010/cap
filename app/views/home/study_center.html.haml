@@ -38,7 +38,7 @@
 				});
 		%td
 			= Block.display("study_center_papal_addresses")
-			= select_tag 'papal_addresses', options_for_select({"Choose a Papal Address" => ""}) + options_from_collection_for_select(PapalAddress.published.order(:title), "id", "title")
+			= select_tag 'papal_addresses', options_for_select({"Choose a Papal Address" => ""}) + options_from_collection_for_select(PapalAddress.published.order(:name), "id", "name")
 			:javascript
 				$("#papal_addresses").change(function() {
 					id = $(this).val();
