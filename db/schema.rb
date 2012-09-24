@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919152729) do
+ActiveRecord::Schema.define(:version => 20120924023437) do
 
   create_table "attendees_events", :force => true do |t|
     t.integer  "attendee_id"
@@ -203,6 +203,7 @@ ActiveRecord::Schema.define(:version => 20120919152729) do
     t.boolean  "allow_discount"
     t.string   "discounted_text"
     t.decimal  "discounted_cost",                 :precision => 8, :scale => 2
+    t.boolean  "free_event"
   end
 
   add_index "events", ["chapter_id"], :name => "index_events_on_chapter_id"
@@ -330,6 +331,7 @@ ActiveRecord::Schema.define(:version => 20120919152729) do
     t.string   "item_count_unit1"
     t.string   "item_mpn1"
     t.string   "item_model_number1"
+    t.string   "receipt_id"
   end
 
   create_table "questions", :force => true do |t|

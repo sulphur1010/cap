@@ -72,6 +72,12 @@ class Event < ActiveRecord::Base
 		[self.spots_available - count,0].max rescue 0
 	end
 
+	def cost
+		cst = self.read_attribute(:cost)
+		return 0 if self.free_event
+		cst
+	end
+
 	def short_start
 		return unless self.start_date
 		self.start_date.strftime("%h %d, %Y")

@@ -54,7 +54,7 @@
 				.unrsvp
 					- if ae.payment_confirmation.nil?
 						= link_to 'UnRegister for this Event', unrsvp_event_url(@event), :method => :post
-				- if ae.payment_confirmation.nil?
+				- if ae.payment_confirmation.nil? && !@event.free_event
 					.payment_instructions
 						%h3 Payment Instructions
 						%strong Total:
