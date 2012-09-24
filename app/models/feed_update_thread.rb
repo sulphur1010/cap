@@ -10,7 +10,7 @@ class FeedUpdateThread
 						Rails.logger.info "FeedUpdateJob not queued.  queueing."
 						Delayed::Job.enqueue(FeedUpdateJob.new)
 					end
-					sleep(1.hour)
+					sleep(1.hour.to_i)
 				}
 			}
 		end

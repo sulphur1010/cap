@@ -10,7 +10,7 @@ class EventRegistrationThread
 						Rails.logger.info "EventRegistrationJob not queued.  queueing."
 						Delayed::Job.enqueue(EventRegistrationJob.new, { :run_at => EventRegistrationJob.next_run })
 					end
-					sleep(1.hour)
+					sleep(1.hour.to_i)
 				}
 			}
 		end

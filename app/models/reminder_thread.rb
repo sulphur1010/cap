@@ -10,7 +10,7 @@ class ReminderThread
 						Rails.logger.info "EventReminderJob not queued.  queueing."
 						Delayed::Job.enqueue EventReminderJob.new, { :run_at => EventReminderJob.next_run }
 					end
-					sleep(5.minutes)
+					sleep(5.minutes.to_i)
 				}
 			}
 		end
