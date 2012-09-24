@@ -5,7 +5,7 @@ class PaypalIpnController < ApplicationController
 		params.delete(:action)
 		params.delete(:controller)
 		orig_keys = params.keys
-		params = params.delete_if { |p| !PaymentConfirmation.acceptible_fields.include?(p) }
+		params.delete_if { |p| !PaymentConfirmation.acceptible_fields.include?(p.to_sym) }
 		missing_keys = orig_keys - params.keys
 		unless missing_keys.empty?
 			Rails.logger.warn "Keys from paypal that are missing in PaymentConfirmation: #{missing_keys.inspect}"
