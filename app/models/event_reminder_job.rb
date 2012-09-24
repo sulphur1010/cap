@@ -17,11 +17,9 @@ class EventReminderJob
 				processed_events << er.event_id
 			end
 		end
-		Delayed::Job.all.each { |c| 
-			if YAML.load(c.handler).class == self
-				c.destroy
-			end
-		}
+
+		# ensure there is only one (this one requeues)
+		Delayed::Job.all.each { |c| c.destroy if YAML.load(c.handler).class == self }
 	end
 
 	def self.enqueued?

@@ -1,9 +1,12 @@
 class EventRegistrationJob
 	include ScheduledJob
 
-	run_every 1.day
+	run_every 1.minute
 
+	# we do this so this runs every day exactly at 5pm
+	# this gets rescheduled *after* the job is done
 	def self.next_run
+		puts "EventRegistrationJob::next_run - calculating next run time"
 		# 17 = 5pm
 		next_time = Date.today.to_time + 17.hours
 		if Time.now > next_time
@@ -12,9 +15,7 @@ class EventRegistrationJob
 		next_time
 	end
 
-	# we do this so this runs every day exactly at 5pm
-	# this gets rescheduled *after* the job is done
-	def run_at
+	def self.run_at
 		EventRegistrationJob.next_run
 	end
 
