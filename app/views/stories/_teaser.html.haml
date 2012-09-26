@@ -3,7 +3,7 @@
 		%td
 			- if teaser.is_a?(Story)
 				%h5.story_title= link_to teaser.title, story_path(teaser)
-				.source CAPP USA
+				.source CAPP-USA
 				.published_at= teaser.formatted_published_at
 				.category= teaser.category
 				.teaser= teaser.teaser.html_safe
