@@ -55,7 +55,7 @@ module ApplicationHelper
 	def render_parent_breadcrumb(menu_item)
 		output = ""
 		parent = menu_item.parent
-		if parent.parent_id
+		if parent && parent.parent_id
 			output += render_parent_breadcrumb(parent)
 		end
 		output += link_to parent.name, parent.url
