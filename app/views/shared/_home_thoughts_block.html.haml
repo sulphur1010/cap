@@ -1,4 +1,4 @@
-- thoughts = Thought.published.has_body.order(:published_at).includes(:users).limit(5)
+- thoughts = Thought.published.has_body.order("published_at desc").includes(:users).limit(5)
 #home_thoughts
 	.section_header
 		.hp
