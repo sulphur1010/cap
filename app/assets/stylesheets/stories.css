@@ -2,3 +2,33 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.story_teaser .rss_feed_icon {
+	float: left;
+	width: 16px;
+	height: 16px;
+	background: url("/assets/rss.png") 50% 50% no-repeat;
+	position: relative;
+	top: 3px;
+	left: -4px;
+}
+
+.story_teaser .source {
+	font-weight: bold;
+	display: inline;
+}
+
+.story_teaser .published_at,
+.story_teaser .category {
+	display: inline;
+	margin-left: 5px;
+}
+
+.story_teaser .category {
+	padding: 0 6px;
+	border: 1px solid #aaa;
+}
+
+.story_teaser {
+	width: 100%;
+}
