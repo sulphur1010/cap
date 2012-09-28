@@ -4,7 +4,7 @@ class FeedSource < ActiveRecord::Base
 	after_save :delay_load_channel_data
 	attr_accessor :form_save
 
-	has_many :feed_entries, :order => :published_at
+	has_many :feed_entries, :order => :published_at, :dependent => :destroy
 
 	def entries
 		feed = Feedzirra::Feed.fetch_and_parse(self.url)
