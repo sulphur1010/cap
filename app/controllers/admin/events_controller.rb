@@ -1,3 +1,5 @@
+require 'csv'
+
 class Admin::EventsController < ApplicationController
 
 	before_filter :require_admin!
@@ -6,6 +8,29 @@ class Admin::EventsController < ApplicationController
 
 	def index
 		respond_with(@events = Event.order(:start_date))
+	end
+
+	def user_list
+		@event = Event.find(params[:id])
+		csv_data = CSV.generate do |csv|
+			csv << ["Last Name","First Name","Email","Attendee Count","Amount Paid","Payment Method","Person Type","Chapter","Roles"]
+			@event.attendees_events.includes(:attendee).each do |attendee_event|
+				csv << [
+					(attendee_event.attendee.last_name rescue ''),
+					(attendee_event.attendee.first_name rescue ''),
+					(attendee_event.attendee.email rescue ''),
+					attendee_event.count,
+					ActionController::Base.helpers.number_to_currency(attendee_event.total_cost),
+					attendee_event.payment_method,
+					(attendee_event.attendee.person_type.name rescue ''),
+					(attendee_event.attendee.chapter.name rescue ''),
+					(attendee_event.attendee.roles.join(", ") rescue '')
+				]
+			end
+		end
+		send_data csv_data,
+			:type => 'text/csv; charset=iso-8859-1; header=present',
+			:disposition => "attachment; filename=event_#{@event.id}_user_list.csv"
 	end
 
 	def show

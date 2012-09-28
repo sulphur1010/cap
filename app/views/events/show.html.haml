@@ -78,6 +78,8 @@
 	%hr
 	- if is_admin?
 		.page
+			= link_to "CSV User List", user_list_admin_event_path(@event)
+		.page
 			%h4 Attendees
 			%table.event_attendees_table
 				%tr

@@ -6,7 +6,11 @@ CappUsa::Application.routes.draw do
 		resources :chapters
 		resources :contemporary_issues
 		resources :encyclicals
-		resources :events
+		resources :events do
+			member do
+				get 'user_list'
+			end
+		end
 		resources :locations
 		resources :menu_items
 		resources :pages
