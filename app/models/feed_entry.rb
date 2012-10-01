@@ -19,7 +19,7 @@ class FeedEntry < ActiveRecord::Base
 	def teaser
 		stripped = helpers.strip_tags(self.summary)
 		if stripped.size > TEASER_LENGTH
-			return "#{stripped[0..TEASER_LENGTH]} ... <a href='#{self.url}' target='_blank'>Rad More</a>"
+			return "#{stripped[0..TEASER_LENGTH]} ... <a href='#{self.url}' target='_blank'>Read More</a>"
 		end
 		self.summary
 	end
