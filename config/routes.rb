@@ -10,6 +10,8 @@ CappUsa::Application.routes.draw do
 			member do
 				get 'user_list'
 			end
+
+			resources :attendees_events
 		end
 		resources :locations
 		resources :menu_items

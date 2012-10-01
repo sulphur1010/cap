@@ -89,6 +89,7 @@
 					%th Spots
 					%th Total
 					%th Payment Type
+					%th
 				- @event.attendees_events.sort { |a,b| (a.attendee.last_name rescue '') <=> (b.attendee.last_name rescue '') }.each do |attendee_event|
 					- user = attendee_event.attendee
 					- if user
@@ -99,6 +100,7 @@
 							%td= attendee_event.count
 							%td= number_to_currency(attendee_event.total_cost)
 							%td= attendee_event.payment_method
+							%td= link_to "remove", admin_event_attendees_event_path(@event, attendee_event), :method => :delete, :confirm => "Are you sure?"
 	- if !@event.speakers.empty?
 		%hr
 		.page
