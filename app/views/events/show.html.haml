@@ -80,6 +80,14 @@
 		.page
 			= link_to "CSV User List", user_list_admin_event_path(@event)
 		.page
+			%h4 Add User
+			= semantic_form_for [:admin, @event, AttendeesEvent.new] do |f|
+				- users = User.order(:last_name).all.delete_if { |c| @event.attendees.include?(c) }
+				= f.input :attendee, :collection => users
+				= f.input :count
+				= f.input :total_cost
+				= f.actions
+		.page
 			%h4 Attendees
 			%table.event_attendees_table
 				%tr
