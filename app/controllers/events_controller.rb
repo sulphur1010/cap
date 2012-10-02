@@ -15,6 +15,7 @@ class EventsController < ApplicationController
 	def show
 		@thanks = params.has_key?(:thanks) && params[:thanks] == '1'
 		flash[:notice] = 'Thank you for registering for this event.' if @thanks
+		session[:return_url] = request.url unless current_user
 		respond_with(@event = Event.find(params[:id]))
 	end
 
