@@ -51,11 +51,11 @@
 		- unless @thanks
 			- if @event.attendees.include?(current_user)
 				- ae = AttendeesEvent.where(:attendee_id => current_user.id).where(:event_id => @event.id).first
-				.unrsvp
-					- if ae.payment_confirmation.nil?
+				- if ae.payment_confirmation.nil?
+					.unrsvp
 						= link_to 'UnRegister for this Event', unrsvp_event_url(@event), :method => :post
-					- else
-						You have registered for this event, if you need to un-register please notify the program contact.
+				- else
+					%h6 You have registered for this event, if you need to un-register please notify the program contact.
 				- if ae.payment_confirmation.nil? && !@event.free_event
 					.payment_instructions
 						%h3 Payment Instructions
@@ -70,7 +70,6 @@
 						= render :partial => 'rsvp_block'
 					- else
 						.rsvp_block
-							%h3 You must create an account before registering for an event
 							.unrsvp= link_to "Sign Up to Register for Event", new_user_registration_url
 		- else
 			.pending
