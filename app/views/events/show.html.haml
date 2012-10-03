@@ -69,7 +69,7 @@
 		- if @event.director
 			.director_box
 				.event_director
-					Program Contact: 
+					%b Program Contact: 
 				= @event.director.full_name
 				@
 				%span.event_director_phone
@@ -80,19 +80,20 @@
 		- unless @thanks
 			- if @event.attendees.include?(current_user)
 				- ae = AttendeesEvent.where(:attendee_id => current_user.id).where(:event_id => @event.id).first
-				- if ae.payment_confirmation.nil?
-					.unrsvp
-						= link_to 'UnRegister for this Event', unrsvp_event_url(@event), :method => :post
-				- else
-					%h6 You have registered for this event, if you need to un-register please notify the program contact.
 				- if ae.payment_confirmation.nil? && !@event.free_event
 					.payment_instructions
-						%h3 Payment Instructions
-						%strong Total:
-						= number_to_currency(ae.total_cost)
+						%b YOU HAVE RSVP'd:
+						%h1 
+							Total:
+							= number_to_currency(ae.total_cost)
 						%br
 						%strong Instructions:
 						= @event.other_payment_type_instructions
+				- if ae.payment_confirmation.nil?
+					.unrsvp
+						= link_to 'UnRSVP for this Event', unrsvp_event_url(@event), :method => :post
+				- else
+					%h6 You have RSVP'd for this event, if you need to un-register please notify the program contact.
 			- else
 				- if @event.spots_left > 0
 					- if user_signed_in?

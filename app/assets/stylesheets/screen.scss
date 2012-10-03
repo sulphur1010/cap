@@ -159,7 +159,7 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 
 .black {background: black;}
 .slide1, .slide2, .slide3 {background: url("/images/h_economiccrisis.jpg"); padding: 0px; height: 410px; position: relative;}
-
+.instructions {color: red; margin: 2px;}
 
 
 .right_content{width:820px;}
@@ -1460,7 +1460,7 @@ ul.accordion_list {
 
 .left {float: none;}
 
-.js_rsvp_form_element {
+.js_rsvp_form_element, .rsvp_form_element {
 	margin: 0 5px 10px 0;
 }
 

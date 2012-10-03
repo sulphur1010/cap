@@ -1,16 +1,22 @@
 .rsvp_block
 	%form#rsvp_form{:method => 'get', :action => '#'}
 		- if !@event.free_event
-			%h3 Price
+			%h3 PRICE:
 			- if @event.allow_discount
-				%input#standard_price.js_rsvp_form_element.js_cost_category{:type => 'radio', :name => 'price', :value => @event.cost, :checked => true, :'data-type' => 'Standard'}= "Standard Price (#{number_to_currency(@event.cost)})"
+				%input#standard_price.js_rsvp_form_element.js_cost_category{:type => 'radio', :name => 'price', :value => @event.cost, :checked => true, :'data-type' => 'Standard'}
+					%b.price= "#{number_to_currency(@event.cost)}"
+					Standard Price
 				%br
-				%input#discounted_price.js_rsvp_form_element.js_cost_category{:type => 'radio', :name => 'price', :value => @event.discounted_cost, :'data-type' => @event.discounted_text}= "#{@event.discounted_text} (#{number_to_currency(@event.discounted_cost)})"
+				%input#discounted_price.js_rsvp_form_element.js_cost_category{:type => 'radio', :name => 'price', :value => @event.discounted_cost, :'data-type' => @event.discounted_text}
+					%b.price= "#{number_to_currency(@event.discounted_cost)}"
+					= "#{@event.discounted_text}"
 			- else
-				%input#standard_price.js_rsvp_form_element.js_cost_category{:type => 'radio', :name => 'price', :value => @event.cost, :checked => true, :'data-type' => 'Standard'}= "Price (#{number_to_currency(@event.cost)})"
+				%input#standard_price.js_rsvp_form_element.js_cost_category{:type => 'radio', :name => 'price', :value => @event.cost, :checked => true, :'data-type' => 'Standard'}
+				%b.price= "#{number_to_currency(@event.cost)}"
 			%br
 			%br
-		%h3 NUMBER OF TICKETS
+		%hr.thin
+		%h3 NUMBER OF TICKETS:
 		%select.js_rsvp_form_element{:name => 'count'}
 			- (1..10).each do |i|
 				%option{:value => i}= i
@@ -19,23 +25,24 @@
 			%input{:type => 'hidden', :name => 'price', :value => "0", :'data-type' => 'Standard'}
 			%input{:type => 'hidden', :name => 'payment_method', :value => 'other'}
 		- else
-			%h3 Payment Method
+			%hr.thin
+			%h3 PAYMENT METHOD:
 			- if @event.allow_paypal
-				%input#paypal_payment{:type => 'radio', :name => 'payment_method', :value => 'paypal', :checked => true} Online via Credit Card
+				%input#paypal_payment.rsvp_form_element{:type => 'radio', :name => 'payment_method', :value => 'paypal', :checked => true} Pay with Credit Card via Paypal
 				/%a#js_paypal_payment.payment_link{:href => '#'} Pay via Paypal
 			- if @event.allow_paypal && @event.allow_other_payment_type
 				.payment_separator
 			- if @event.allow_other_payment_type
-				%input#other_payment{:type => 'radio', :name => 'payment_method', :value => 'other'}= @event.other_payment_type_text
+				%input#other_payment.rsvp_form_element{:type => 'radio', :name => 'payment_method', :value => 'other'}= @event.other_payment_type_text
 				/= link_to @event.other_payment_type_text, rsvp_event_url(@event), :id => 'js_other_payment', :class => 'payment_link', :method => :post
 				%p
-					= @event.other_payment_type_instructions
+					.instructions= @event.other_payment_type_instructions
 			%hr.thin
-			%h3
+			%h1
 				Total:
 				%span.js_computed_total
 		%br
-		%a.rsvp#rsvp_button{:href => '#'} Register for this Event
+		%a.rsvp#rsvp_button{:href => '#'} RSVP & Pay for this Event
 :javascript
 	function rsvpFormOptions() {
 		var rsvp_data = {};

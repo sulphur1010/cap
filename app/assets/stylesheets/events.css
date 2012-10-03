@@ -7,7 +7,6 @@
 	padding: 8px;
 	width: 400px;
 	border-right: 1px solid #eee;
-	background: #ffe;
 }
 
 .rsvp_block .rsvp_left_column .spots_titled {
@@ -37,6 +36,7 @@
 	padding: 8px;
 	border: 1px solid #eee;
 	border-radius: 3px;
+	background: #ffe;
 }
 
 .user_list li .count {
@@ -77,4 +77,8 @@ table.event_attendees_table th {
 
 table.event_attendees_table td {
 	padding: 3px;
+}
+
+.price {
+	font-size: 1.2em;
 }
