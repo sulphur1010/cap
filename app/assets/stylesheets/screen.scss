@@ -63,7 +63,7 @@ em {font-style: italic;}
 /*Basic Structure*/
 body{line-height: 1.6em;}
 #content{width:980px;height:auto;margin:auto;}
-#logo {margin: 5px 0px; height: 60px;}
+#logo {margin: 15px 0px; height: 60px;}
 
 /*Global Items */
 hr {border-top: 1px solid #ddd; border-bottom: 9px solid #eee;}
@@ -396,7 +396,7 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 .nav_main ul.sub_menu {
 	position: absolute;
 	display: none;
-	top: 105px;
+	top: 115px;
 	list-style-type: none;
 	margin: 0;
 	background-color: #fff;
@@ -597,7 +597,7 @@ ul.contemporary_issues_list li {
 
 .thought_quote {
 	font-family: georgia;
-	font-size: 20px; 
+	font-size: 16px; 
 	color: #777;
 	line-height: 1.6em;
 	margin-top: 10px;
@@ -1323,7 +1323,7 @@ table.full {
 
 #search_box {
 	position: absolute;
-	top: 71px;
+	top: 81px;
 	right: 6px;
 
 	.search_input {
@@ -1474,4 +1474,37 @@ ul.accordion_list {
 .event_location_name,
 .event_location_address {
 	display: inline-block;
+}
+
+.required {
+	color: red;
+}
+
+.error {
+	background: pink;
+	border: 1px solid red;
+	font-size: 14px;
+	padding: 10px;
+	
+	h2 {
+		font-size: 14px;
+	}
+	
+	li {
+		
+	}
+}
+
+.field_with_errors {
+	display: inline-block;
+	color: red;
+	
+	input {
+		border: 1px solid red;
+	}
+}
+
+.directions {
+	font-size: 11px;
+	color: #999;
 }

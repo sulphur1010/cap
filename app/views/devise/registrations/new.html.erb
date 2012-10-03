@@ -3,25 +3,39 @@
   <h4>With your Capp-usa.org account, you can view exclusive site content and register for special events, conferences, and classes.</h4>
 
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-
-    <div><%= f.label :first_name %><br />
-    <%= f.text_field :first_name %></div>
-
-    <div><%= f.label :last_name %><br />
-    <%= f.text_field :last_name %></div>
-
-    <div><%= f.label :phone %><br />
-    <%= f.text_field :phone %></div>
-
-    <div><%= f.label :email %><br />
+    <div class="error"><%= devise_error_messages! %></div>
+	<hr class="thin">
+	<h4>Required *</h4>
+    <div><%= f.label :email %>
+	<div class= "inline required">*</div>
+	<div class="inline directions">enter a valid email address</div>
+	<br />
     <%= f.email_field :email %></div>
 
-    <div><%= f.label :password %><br />
+    <div><%= f.label :password %>
+	<div class= "inline required">*</div>
+	<div class="inline directions">minimum is 6 characters</div>
+	<br />
     <%= f.password_field :password %></div>
 
-    <div><%= f.label :password_confirmation %><br />
+    <div><%= f.label :password_confirmation %>
+	<div class= "inline required">*</div>
+	<div class="inline directions">password must match above</div>
+	<br />
     <%= f.password_field :password_confirmation %></div>
+	<hr class="thin">
+	<h4>Optional</h4>
+    <div><%= f.label :first_name %>
+	<br />
+    <%= f.text_field :first_name %></div>
+
+    <div><%= f.label :last_name %>
+	<br />
+    <%= f.text_field :last_name %></div>
+
+    <div><%= f.label :phone %>
+	<br />
+    <%= f.text_field :phone %></div>
 
     <div><br /><%= f.check_box :email_list %> Yes, I would like to receive occasional updates from CAPP about new features and special offers.</div><br />
 
