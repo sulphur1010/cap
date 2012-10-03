@@ -154,7 +154,7 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 .left_column{width:180px;}
 .left_content{width:760px; border:0px solid #ddd; border-right: 0;}
 .no_right_column {width:980px; border-right: 0px solid #ddd;}
-.left_content .page {padding:20px}
+.left_content .page {padding:10px 20px;}
 .no_right_column .page {padding: 0px; position: relative;}
 
 .black {background: black;}
@@ -867,14 +867,22 @@ table.thought_block tr td {
 }
 
 .location_box, .host_box, .director_box {
-	padding: 10px; margin: 0 0 10px 0; background: #ffc; border: 1px solid #dde;
+	padding: 4px 6px; margin: 0 0 10px 0; background: #ffc; border: 1px solid #dde;
 }
 
 .event_page .event_location,
-.event_page .event_director, .event_chapter {
+.event_page .event_chapter {
 	font-weight: bold;
-	font-size: 1.1em;
 }
+
+.event_director {
+	display: inline-block;
+}
+
+.director_box {
+}
+
+.sign_in {padding: 6px; margin: 10px 0 0 0;}
 
 .event_left_menu_container,
 .story_left_menu_container,
@@ -1308,6 +1316,11 @@ table.search_left_menu_container .content_with_left_menu {
 	padding: 0;
 }
 
+table.full {
+	th {font-weight: bold;}
+	width: 100%
+}
+
 #search_box {
 	position: absolute;
 	top: 71px;
@@ -1449,4 +1462,16 @@ ul.accordion_list {
 
 .js_rsvp_form_element {
 	margin: 0 5px 10px 0;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.hide {display: none;}
+
+.event_location,
+.event_location_name,
+.event_location_address {
+	display: inline-block;
 }
