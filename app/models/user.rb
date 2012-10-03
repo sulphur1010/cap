@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
 	has_many :payment_confirmations
 
 	after_initialize :load_roles
+	before_save :set_title
 	before_save :convert_roles
 	before_save :set_speaker
 	before_save :set_celebrant
@@ -90,6 +91,10 @@ class User < ActiveRecord::Base
 	end
 
 	private
+
+	def set_title
+		self.title = "" if self.title.nil?
+	end
 
 	def add_user_role
 		@roles = [ "user" ]
