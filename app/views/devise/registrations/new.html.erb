@@ -23,9 +23,6 @@
     <div><%= f.label :email %><br />
     <%= f.email_field :email %></div>
 
-    <div><%= f.label :chapter %><br />
-    <%= f.collection_select :chapter_id, Chapter.all, :id, :name %>
-
     <div><%= f.label :password %><br />
     <%= f.password_field :password %></div>
 
