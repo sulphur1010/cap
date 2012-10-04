@@ -57,7 +57,7 @@ class EncyclicalsController < ApplicationController
 	def index_search(sort)
 		sort_order = :asc
 		sort_order = :desc if sort == :published_at
-		if request.xhr?
+		if request.xhr? || params[:q]
 			@search = ContentFragment.search do |q|
 				q.with(:type, 'Encyclical')
 				if params[:author]
@@ -66,17 +66,19 @@ class EncyclicalsController < ApplicationController
 						q.with(:author_ids, authors)
 					end
 				end
-				#if params[:q]
-				#	@q = params[:q]
-				#	q.fulltext @q do
-				#		highlight :body
-				#	end
-				#end
+				if params[:eq]
+					@eq = params[:eq]
+					q.fulltext @eq #do
+						#highlight :body
+					#end
+				end
 				q.order_by sort, sort_order
 			end
 			@encyclicals = @search.results
-			render :partial => 'teaser', :collection => @encyclicals
-			return
+			if request.xhr?
+				render :partial => 'teaser', :collection => @encyclicals
+				return
+			end
 		end
 	end
 
