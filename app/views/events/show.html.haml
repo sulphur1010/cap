@@ -108,6 +108,11 @@
 		.page
 			%h4 Celebrants:
 			= render :partial => 'users/list', :object => @event.celebrants
+	- if @teaser_event
+		%hr
+		.page
+			%h4 Another Event:
+			= render :partial => 'teaser', :object => @teaser_event
 	- if is_admin?
 		.page
 			.attendee_list

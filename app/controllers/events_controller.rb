@@ -16,6 +16,7 @@ class EventsController < ApplicationController
 		@thanks = params.has_key?(:thanks) && params[:thanks] == '1'
 		flash[:notice] = 'Thank you for registering for this event.' if @thanks
 		session[:return_url] = request.url unless current_user
+		@teaser_event = Event.where("id != ?", params[:id]).order("updated_at desc").first
 		respond_with(@event = Event.find(params[:id]))
 	end
 
