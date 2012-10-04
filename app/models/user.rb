@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
 	before_save :set_celebrant
 	before_create :add_user_role
 	before_validation :check_clear_attachments
+	after_create :send_welcome_email
 
 	validates :first_name, :presence => true
 	validates :last_name, :presence => true
@@ -101,6 +102,10 @@ class User < ActiveRecord::Base
 
 	def add_user_role
 		@roles = [ "user" ]
+	end
+
+	def send_welcome_email
+		UserMailer.welcome_email(self).deliver
 	end
 
 	def normalize_roles

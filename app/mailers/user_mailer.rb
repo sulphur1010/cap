@@ -4,6 +4,7 @@ class UserMailer < ActionMailer::Base
 
 	def contact_confirmation(contact)
 		@contact = contact
+		mail(:to => contact.email, :from => "website-notifications@capp-usa.org", :subject => "CAPP-USA.org Thank you for joining our mailing list!")
 	end
 
 	def reminder_email(er, user)
@@ -28,5 +29,10 @@ class UserMailer < ActionMailer::Base
 	end
 
 	def event_reminder_user(event, user)
+	end
+
+	def welcome_email(user)
+		@user = user
+		mail(:to => user.email, :from => "website-notifications@capp-usa.org", :subject => "Thank you for registering to CAPP-USA.org!")
 	end
 end
