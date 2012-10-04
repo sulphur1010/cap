@@ -31,6 +31,9 @@ class User < ActiveRecord::Base
 	before_create :add_user_role
 	before_validation :check_clear_attachments
 
+	validates :first_name, :presence => true
+	validates :last_name, :presence => true
+
 	def check_clear_attachments
 		profile_image.clear if delete_profile_image == '1'
 	end
