@@ -697,6 +697,10 @@ ul.contemporary_issues_list li {
 table.thought_block tr td {
 }
 
+td.controls {
+	width: 70px;
+}
+
 .events_block tr {
 	background-color: #111;
 	color: #ddd;
@@ -793,7 +797,7 @@ table.thought_block tr td {
 	
 	text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
     box-shadow: 0 0 1px #FFFFFF inset;
-    border: 1px solid #eee;
+    border: 1px solid #ddd;
     border-radius: 3px 3px 3px 3px;
     cursor: pointer;
     padding: 8px 20px;
@@ -863,7 +867,6 @@ table.thought_block tr td {
 }
 
 .event_page .event_body {
-	padding: 10px 0;
 }
 
 .location_box, .host_box, .director_box {

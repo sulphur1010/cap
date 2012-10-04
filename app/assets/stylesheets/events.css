@@ -67,6 +67,7 @@ div.payment_instructions {
 
 table.event_attendees_table {
 	width: 100%;
+	font-size: 11px;
 }
 
 table.event_attendees_table th {
@@ -81,4 +82,18 @@ table.event_attendees_table td {
 
 .price {
 	font-size: 1.2em;
+}
+
+.attendee_list {
+	background: #eff;
+	border: 1px solid #dee;
+	padding: 10px;
+}
+
+.right {
+		float: right;
+}
+
+.link {
+	padding: 4px;
 }

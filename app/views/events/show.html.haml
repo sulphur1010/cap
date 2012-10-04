@@ -28,29 +28,8 @@
 						- if @event.start_date && @event.end_date
 							%span.event_duration= @event.duration_in_words
 	.page
-		%b.inline
-			Ideal for the:
-		- @event.person_types.each do |person_type|
-			-#= link_to person_type.name, person_type_path(person_type), :class => 'person_type_link'
-			%span.person_type_link= person_type.name
 		.event_body= @event.body.html_safe rescue ""
-	- if !@event.contemporary_issues.empty?
-		%hr
-		.page
-			%h4.inline
-				Contemporary Issues Covered:
-			- @event.contemporary_issues.each do |issue|
-				= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'	
-	- if !@event.speakers.empty?
-		%hr
-		.page
-			%h4 Speakers / Panelists:
-			= render :partial => 'users/list', :object => @event.speakers
-	- if !@event.celebrants.empty?
-		%hr
-		.page
-			%h4 Celebrants:
-			= render :partial => 'users/list', :object => @event.celebrants
+
 	.page
 		- if @event.location
 			.location_box
@@ -105,37 +84,60 @@
 		- else
 			.pending
 				= "Your registration is currently pending."
-	- if is_admin?
+	%hr
+	.page
+		%b.inline
+			%h4 Ideal for the:
+		- @event.person_types.each do |person_type|
+			-#= link_to person_type.name, person_type_path(person_type), :class => 'person_type_link'
+			%span.person_type_link= person_type.name
+	- if !@event.contemporary_issues.empty?
 		%hr
 		.page
-			= link_to "CSV User List", user_list_admin_event_path(@event)
+			%h4.inline
+				Contemporary Issues Covered:
+			- @event.contemporary_issues.each do |issue|
+				= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'	
+	- if !@event.speakers.empty?
+		%hr
 		.page
-			%h4 Add User
-			= semantic_form_for [:admin, @event, AttendeesEvent.new] do |f|
-				- users = User.order(:last_name).all.delete_if { |c| @event.attendees.include?(c) }
-				= f.input :attendee, :collection => users
-				= f.input :count
-				= f.input :total_cost
-				= f.actions
+			%h4 Speakers / Panelists:
+			= render :partial => 'users/list', :object => @event.speakers
+	- if !@event.celebrants.empty?
+		%hr
 		.page
-			%h4 Attendees
-			%table.event_attendees_table
-				%tr
-					%th Last Name
-					%th First Name
-					%th Email
-					%th Spots
-					%th Total
-					%th Payment Type
-					%th
-				- @event.attendees_events.sort { |a,b| (a.attendee.last_name rescue '') <=> (b.attendee.last_name rescue '') }.each do |attendee_event|
-					- user = attendee_event.attendee
-					- if user
-						%tr
-							%td= user.last_name
-							%td= user.first_name
-							%td= user.email
-							%td= attendee_event.count
-							%td= number_to_currency(attendee_event.total_cost)
-							%td= attendee_event.payment_method
-							%td= link_to "remove", admin_event_attendees_event_path(@event, attendee_event), :method => :delete, :confirm => "Are you sure?"
+			%h4 Celebrants:
+			= render :partial => 'users/list', :object => @event.celebrants
+	- if is_admin?
+		.page
+			.attendee_list
+				%h4 Add User
+				= semantic_form_for [:admin, @event, AttendeesEvent.new] do |f|
+					- users = User.order(:last_name).all.delete_if { |c| @event.attendees.include?(c) }
+					= f.input :attendee, :collection => users
+					= f.input :count
+					= f.input :total_cost
+					= f.actions
+				%hr
+				.right.link= link_to "Download Attendee List Spreadsheet", user_list_admin_event_path(@event)
+				%h4 Attendees
+				%table.event_attendees_table
+					%tr
+						%th Last Name
+						%th First Name
+						%th Email
+						%th Spots
+						%th Total
+						%th Payment Type
+						%th
+					- @event.attendees_events.sort { |a,b| (a.attendee.last_name rescue '') <=> (b.attendee.last_name rescue '') }.each do |attendee_event|
+						- user = attendee_event.attendee
+						- if user
+							%tr
+								%td= user.last_name
+								%td= user.first_name
+								%td= user.email
+								%td= attendee_event.count
+								%td= number_to_currency(attendee_event.total_cost)
+								%td= attendee_event.payment_method
+								%td= link_to "remove", admin_event_attendees_event_path(@event, attendee_event), :method => :delete, :confirm => "Are you sure?"
