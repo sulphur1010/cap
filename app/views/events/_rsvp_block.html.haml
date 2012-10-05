@@ -26,10 +26,12 @@
 			%input{:type => 'hidden', :name => 'price', :value => "0", :'data-type' => 'Standard'}
 			%input{:type => 'hidden', :name => 'payment_method', :value => 'other'}
 			.user_event_info
-				%h4 Required *
-				= f.input :first_name
-				= f.input :last_name
-				= f.input :email
+				.friendly
+					%hr.thin
+					%h3 REQUIRED*
+					= f.input :first_name
+					= f.input :last_name
+					= f.input :email
 		- else
 			%hr.thin
 			%h3 PAYMENT METHOD:
@@ -47,10 +49,12 @@
 				%p
 					.instructions= @event.other_payment_type_instructions
 			.user_event_info{:style => "display: #{paypal_payment ? "none" : ""}"}
-				%h4 Required *
-				= f.input :first_name
-				= f.input :last_name
-				= f.input :email
+				.friendly
+					%hr.thin
+					%h3 REQUIRED*
+					= f.input :first_name
+					= f.input :last_name
+					= f.input :email
 			%hr.thin
 			%h1
 				Total:

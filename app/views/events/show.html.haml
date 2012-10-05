@@ -75,14 +75,20 @@
 					%h6 You have RSVP'd for this event, if you need to un-register please notify the program contact.
 			- else
 				- if @event.spots_left > 0
-					- if !user_signed_in?
-						.rsvp_block
-							.unrsvp= link_to "Create an Account on Capp-usa.org to Register for Events", new_user_registration_url
-							.sign_in= link_to "Already signed up to capp-usa.org?  Login.", new_user_session_url
+					/
+						- if !user_signed_in?
+							.rsvp_block
+								.unrsvp= link_to "Create an Account on Capp-usa.org to Register for Events", new_user_registration_url
+								.sign_in= link_to "Already signed up to capp-usa.org?  Login.", new_user_session_url
 					= render :partial => 'rsvp_block'
 		- else
 			.pending
 				= "Your registration is currently pending."
+	- if @teaser_event
+		%hr
+		.page
+			%h4 Related Event:
+			= render :partial => 'teaser', :object => @teaser_event
 	%hr
 	.page
 		%b.inline
@@ -107,11 +113,6 @@
 		.page
 			%h4 Celebrants:
 			= render :partial => 'users/list', :object => @event.celebrants
-	- if @teaser_event
-		%hr
-		.page
-			%h4 Another Event:
-			= render :partial => 'teaser', :object => @teaser_event
 	- if is_admin?
 		.page
 			.attendee_list
