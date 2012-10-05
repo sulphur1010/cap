@@ -16,6 +16,7 @@ class PaymentConfirmation < ActiveRecord::Base
 			self.attendees_event = AttendeesEvent.new
 			self.attendees_event.event = self.event
 			self.attendees_event.attendee = self.user if self.user
+			self.attendees_event.payment_confirmation = self
 
 			self.attendees_event.save
 		end
