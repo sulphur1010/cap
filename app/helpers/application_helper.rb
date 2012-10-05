@@ -1,32 +1,5 @@
 module ApplicationHelper
 
-	def paypal_url(event, user, cost, text='')
-		id = "#{event.id}-#{user.id}"
-		title = event.title
-		if text != ''
-			title = "#{title} (#{text})"
-		end
-		values = {
-			:business => Rails.env.production? ? 'payments@capp-usa.org' : 'seller_1316980320_biz@darmasoft.com',
-			:cmd => '_cart',
-			:upload => 1,
-			:return => event_url(event, :thanks => '1'),
-			:invoice => id,
-			:notify_url => paypal_ipn_url,
-			"item_number_1" => id
-		}
-		if cost != 0
-			values["quantity_1"] = 1
-			values["amount_1"] = cost
-			values["item_name_1"] = title
-		end
-		url = "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
-		if !Rails.env.production?
-			url = "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
-		end
-		url
-	end
-
 	def parse_references(text)
 		text.gsub(ContentFragment.encyclical_reference_regex) { |s|
 			id = Encyclical.reference_map[$1]

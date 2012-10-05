@@ -1,5 +1,6 @@
 .rsvp_block
-	%form#rsvp_form{:method => 'get', :action => '#'}
+	- @attendee_event = AttendeesEvent.new unless @attendee_event
+	= semantic_form_for @attendee_event, :url => rsvp_event_path(@event), :method => :post, :html => { :id => "rsvp_form" } do |f|
 		- if !@event.free_event
 			%h3 PRICE:
 			- if @event.allow_discount
@@ -24,25 +25,41 @@
 		- if @event.free_event
 			%input{:type => 'hidden', :name => 'price', :value => "0", :'data-type' => 'Standard'}
 			%input{:type => 'hidden', :name => 'payment_method', :value => 'other'}
+			.user_event_info
+				%h4 Required *
+				= f.input :first_name
+				= f.input :last_name
+				= f.input :email
 		- else
 			%hr.thin
 			%h3 PAYMENT METHOD:
+			- paypal_payment = true
+			- if @payment_method
+				- paypal_payment = @payment_method == "paypal"
 			- if @event.allow_paypal
-				%input#paypal_payment.rsvp_form_element{:type => 'radio', :name => 'payment_method', :value => 'paypal', :checked => true} Pay with Credit Card via Paypal
+				%input#paypal_payment.rsvp_form_element.js_payment_method{:type => 'radio', :name => 'payment_method', :value => 'paypal', :checked => paypal_payment} Pay with Credit Card via Paypal
 				/%a#js_paypal_payment.payment_link{:href => '#'} Pay via Paypal
 			- if @event.allow_paypal && @event.allow_other_payment_type
 				.payment_separator
 			- if @event.allow_other_payment_type
-				%input#other_payment.rsvp_form_element{:type => 'radio', :name => 'payment_method', :value => 'other'}= @event.other_payment_type_text
+				%input#other_payment.rsvp_form_element.js_payment_method{:type => 'radio', :name => 'payment_method', :value => 'other', :checked => !paypal_payment}= @event.other_payment_type_text
 				/= link_to @event.other_payment_type_text, rsvp_event_url(@event), :id => 'js_other_payment', :class => 'payment_link', :method => :post
 				%p
 					.instructions= @event.other_payment_type_instructions
+			.user_event_info{:style => "display: #{paypal_payment ? "none" : ""}"}
+				%h4 Required *
+				= f.input :first_name
+				= f.input :last_name
+				= f.input :email
 			%hr.thin
 			%h1
 				Total:
 				%span.js_computed_total
+
 		%br
-		%a.rsvp#rsvp_button{:href => '#'} RSVP & Pay for this Event
+		- button_value = "RSVP & Pay for this Event"
+		- button_value = "RSVP for this Free Event" if @event.free_event?
+		%input.rsvp#rsvp_button{:type => "submit", :value => button_value}
 :javascript
 	function rsvpFormOptions() {
 		var rsvp_data = {};
@@ -69,23 +86,17 @@
 			calculateTotal();
 		});
 
-		$("#rsvp_button").click(function() {
-			var data = rsvpFormOptions();
-			var total = calculateTotal();
-			var cost_category = $(".js_cost_category:checked").attr('data-type');
+		$(".js_payment_method").click(function() {
 			var t = $(this);
-			if (data.payment_method == undefined) {
-				alert("Please select a payment method.");
-				return false;
+			console.log(t);
+			if (t.attr('id') == "other_payment") {
+				$(".user_event_info").show();
+			} else {
+				$(".user_event_info").hide();
 			}
-			var href = "";
-			if (data.payment_method == "other") {
-				href = "#{rsvp_event_path(@event)}?count=" + data.count + "&total_cost=" + total;
-			}
-			if (data.payment_method == "paypal") {
-				var name = "#{@event.title} (" + cost_category + ")";
-				href = "#{paypal_url(@event, current_user, 0)}&quantity_1=" + data.count + "&amount_1=" + data.price + "&item_name_1=" + escape(name);
-			}
-			t.attr('href', href);
 		});
+
+		if ($("#other_payment").attr('checked')) {
+			$(".user_event_info").show();
+		}
 	});

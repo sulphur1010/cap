@@ -20,6 +20,27 @@ class ApplicationController < ActionController::Base
 		FeedUpdateThread.ensure_running_thread
 	end
 
+	def paypal_url(event, id, cost, text='')
+		title = event.title
+		if text != ''
+			title = "#{title} (#{text})"
+		end
+		values = {
+			:business => Rails.env.production? ? 'payments@capp-usa.org' : 'seller_1316980320_biz@darmasoft.com',
+			:cmd => '_cart',
+			:upload => 1,
+			:return => event_url(event, :thanks => '1'),
+			:invoice => id,
+			:notify_url => paypal_ipn_url,
+			"item_number_1" => id
+		}
+		url = "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
+		if !Rails.env.production?
+			url = "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+		end
+		url
+	end
+
 	def is_admin?(&block)
 		if block_given?
 			yield if current_user && current_user.has_role?("admin")

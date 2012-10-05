@@ -75,12 +75,11 @@
 					%h6 You have RSVP'd for this event, if you need to un-register please notify the program contact.
 			- else
 				- if @event.spots_left > 0
-					- if user_signed_in?
-						= render :partial => 'rsvp_block'
-					- else
+					- if !user_signed_in?
 						.rsvp_block
 							.unrsvp= link_to "Create an Account on Capp-usa.org to Register for Events", new_user_registration_url
 							.sign_in= link_to "Already signed up to capp-usa.org?  Login.", new_user_session_url
+					= render :partial => 'rsvp_block'
 		- else
 			.pending
 				= "Your registration is currently pending."
@@ -136,13 +135,11 @@
 						%th Payment Type
 						%th
 					- @event.attendees_events.sort { |a,b| (a.attendee.last_name rescue '') <=> (b.attendee.last_name rescue '') }.each do |attendee_event|
-						- user = attendee_event.attendee
-						- if user
-							%tr
-								%td= user.last_name
-								%td= user.first_name
-								%td= user.email
-								%td= attendee_event.count
-								%td= number_to_currency(attendee_event.total_cost)
-								%td= attendee_event.payment_method
-								%td= link_to "remove", admin_event_attendees_event_path(@event, attendee_event), :method => :delete, :confirm => "Are you sure?"
+						%tr
+							%td= attendee_event.last_name
+							%td= attendee_event.first_name
+							%td= attendee_event.email
+							%td= attendee_event.count
+							%td= number_to_currency(attendee_event.total_cost)
+							%td= attendee_event.payment_method
+							%td= link_to "remove", admin_event_attendees_event_path(@event, attendee_event), :method => :delete, :confirm => "Are you sure?"

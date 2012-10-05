@@ -26,40 +26,47 @@ class EventsController < ApplicationController
 
 	def rsvp
 		@event = Event.find(params[:id])
-		unless user_signed_in?
-			return_url = rsvp_event_url(@event)
-			return_url = params[:return_url] if params[:return_url]
-			session[:return_url] = return_url
-			redirect_to new_user_registration_url, :notice => 'You must register in order to RSVP.'
-			return
-		end
-		count = params[:count].to_i
-		if (@event.spots_left - count) > 0
 
-			# we only get to this action if the other payment type is enabled for the event
-			if !@event.allow_other_payment_type
-				redirect_to event_url(@event), :notice => 'You must register for that event through a payment method.'
-			end
+		@payment_method = params[:payment_method]
+		@price = params[:price].to_d
+		@count = params[:count].to_i
+		@total_price = @count * @price
+		@price_title = "Standard"
 
-			if @event.attendees.include?(current_user)
-				redirect_to events_url, :notice => 'You are already attending that event.'
+		# VALIDATIONS
+
+		if @event.free_event
+			@price = 0
+			@total_price = 0
+			@payment_method = "other"
+		else
+			allowed_prices = [@event.cost]
+			allowed_prices << @event.discounted_cost if @event.allow_discount
+			if !allowed_prices.include?(@price)
+				redirect_to event_url(@event), :alert => "Price not acceptible"
 				return
 			end
-			ae = AttendeesEvent.new
-			ae.attendee = current_user
-			ae.event = @event
-			ae.count = params[:count]
-			ae.total_cost = params[:total_cost]
-			ae.created_at = Time.now
-			ae.updated_at = Time.now
-			ae.save
 
-			UserMailer.event_registered_user(@event, current_user).deliver
-
-			redirect_to @event, :notice => 'You have registered to attend the event.'
-		else
-			redirect_to events_url, :alert => 'There are no spots available for that event.'
+			@price_title = @event.discounted_text if @price == @event.discounted_cost
 		end
+
+		if !["other", "paypal"].include?(@payment_method)
+			redirect_to event_url(@event), :notice => 'Payment method not acceptible.'
+			return
+		end
+
+		if (@event.spots_left - @count) < 0
+			redirect_to event_url(@event), :alert => 'There are no spots available for that event.'
+			return
+		end
+
+		#if user_signed_in? && @event.attendees.include?(current_user)
+		#	redirect_to event_url(@event), :notice => 'You are already attending that event.'
+		#	return
+		#end
+
+		other_rsvp_payment if @payment_method == "other"
+		paypal_rsvp_payment if @payment_method == "paypal"
 	end
 
 	def unrsvp
@@ -138,4 +145,52 @@ class EventsController < ApplicationController
 		render :action => 'index'
 	end
 
+	def other_rsvp_payment
+		if !@event.free_event && !@event.allow_other_payment_type
+			redirect_to event_url(@event), :alert => 'That payment method is not accepted for this event.'
+			return
+		end
+		@attendee_event = AttendeesEvent.new
+		if user_signed_in?
+			@attendee_event.attendee = current_user
+		else
+			@attendee_event.email = params[:attendees_event][:email]
+			@attendee_event.first_name = params[:attendees_event][:first_name]
+			@attendee_event.last_name = params[:attendees_event][:last_name]
+		end
+		@attendee_event.event = @event
+		@attendee_event.count = @count
+		@attendee_event.total_cost = @total_price
+		@attendee_event.created_at = Time.now
+		@attendee_event.updated_at = Time.now
+
+		if @attendee_event.save
+			UserMailer.event_registered_user(@event, @attendee_event).deliver
+			redirect_to @event, :notice => 'You have registered to attend the event.'
+		else
+			render :action => "show"
+		end
+	end
+
+	def paypal_rsvp_payment
+		if !@event.allow_paypal
+			redirect_to event_url(@event), :alert => 'That payment method is not accepted for this event.'
+			return
+		end
+
+		payment_confirmation = PaymentConfirmation.new
+		payment_confirmation.event = @event
+		if user_signed_in?
+			payment_confirmation.user = current_user
+		end
+		if payment_confirmation.save
+			item_name = "#{@event.title} (#{@price_title})"
+			invoice_id = payment_confirmation.id
+			redirect_to "#{paypal_url(@event, invoice_id, 0)}&quantity_1=#{@count}&amount_1=#{@price}&item_name_1=" + URI.encode(item_name)
+			return
+		else
+			redirect_to event_path(@event), :alert => "Error redirecting to paypal for payment."
+			return
+		end
+	end
 end

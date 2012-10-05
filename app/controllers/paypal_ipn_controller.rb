@@ -10,12 +10,13 @@ class PaypalIpnController < ApplicationController
 		unless missing_keys.empty?
 			Rails.logger.warn "Keys from paypal that are missing in PaymentConfirmation: #{missing_keys.inspect}"
 		end
-		pc = PaymentConfirmation.create(params)
+		invoice = params.delete(:invoice)
+		pc = PaymentConfirmation.update(invoice, params)
 		unless pc.save
 			puts pc.errors
 		end
 
-		UserMailer.event_registered_user(pc.event, pc.user).deliver
+		UserMailer.event_registered_user(pc.event, pc.attendees_event).deliver
 		render :nothing => true
 	end
 end

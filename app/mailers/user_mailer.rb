@@ -10,10 +10,10 @@ class UserMailer < ActionMailer::Base
 	def reminder_email(er, user)
 	end
 
-	def event_registered_user(event, user)
+	def event_registered_user(event, attendee_event)
 		@event = event
-		@user = user
-		mail(:to => user.email, :from => "drkwright@capp-usa.org", :subject => "You have registered for a CAPP-USA event!")
+		@attendee_event = attendee_event
+		mail(:to => attendee_event.email, :from => "drkwright@capp-usa.org", :subject => "You have registered for a CAPP-USA event!")
 	end
 
 	def event_daily_summary(event, attendees_events)
