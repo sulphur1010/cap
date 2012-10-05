@@ -12,19 +12,12 @@ class PaymentConfirmation < ActiveRecord::Base
 
 	def parse_event_and_user
 		if self.invoice && !self.attendees_event
-			data = self.invoice.split("-")
-			self.event_id = data.first
-			self.user_id = data.last
 
-			ae = AttendeesEvent.where(:attendee_id => data.last).where(:event_id => data.first).first rescue nil
+			self.attendees_event = AttendeesEvent.new
+			self.attendees_event.event = self.event
+			self.attendees_event.attendee = self.user if self.user
 
-			if !ae
-				ae = AttendeesEvent.new
-				ae.attendee_id = data.last
-				ae.event_id = data.first
-				ae.save!
-			end
-			self.attendees_event = ae
+			self.attendees_event.save
 		end
 	end
 end
