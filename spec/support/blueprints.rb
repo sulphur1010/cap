@@ -138,3 +138,11 @@ end
 EncyclicalChapter.blueprint do
   # Attributes here
 end
+
+ContactList.blueprint do
+  # Attributes here
+end
+
+StaticContactListUser.blueprint do
+  # Attributes here
+end

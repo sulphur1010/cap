@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
 	has_many :attended_events, :through => :attendees_events
 	has_many :payment_confirmations
 
+	has_many :static_contact_lists
+
 	after_initialize :load_roles
 	before_save :set_title
 	before_save :convert_roles
