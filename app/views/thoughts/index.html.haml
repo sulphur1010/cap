@@ -1,5 +1,5 @@
 .page
-	%h2 Articles on Catholic Social Teaching
+	%h2 Social Thought Articles
 %table.left_menu_container.thought_left_menu_container
 	%tr
 		%td.left_menu.thought_left_menu
@@ -27,7 +27,7 @@
 :javascript
 	$('.element input').click(function() {
 		var ps = collect_params();
-		$('#js_thought_list').load('/thoughts?' + ps);
+		$('#js_thought_list').load('/social_thoughts?' + ps);
 	});
 
 	function collect_params() {

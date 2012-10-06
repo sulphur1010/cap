@@ -88,7 +88,7 @@
 
 	function encyclical_search() {
 		var ps = collect_params();
-		var path = #{controller.action_name == 'published' ? "'/encyclicals/published?'" : "'/encyclicals?'"};
+		var path = #{controller.action_name == 'published' ? "'/social_encyclicals/published?'" : "'/social_encyclicals?'"};
 		$('#js_encyclical_list').load(path + ps);
 	}
 

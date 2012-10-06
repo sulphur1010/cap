@@ -12,7 +12,7 @@ class HomeController < ApplicationController
 		@page = Page.where(:url => '/study_center').first
 	end
 
-	def about_us_team
-		@page = Page.where(:url => '/about_us/team').first
+	def about_us_capp_usa_team
+		@page = Page.where(:url => '/about_us/capp_usa_team').first
 	end
 end

@@ -68,6 +68,7 @@ table.encyclical_teaser_list .encyclical_published_at {
 
 .page .encyclical_reference_link {
 	font-style: italic;
+	white-space: nowrap;
 }
 
 #main .left_content .page .encyclical_chapter_link {

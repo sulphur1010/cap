@@ -1,6 +1,6 @@
 .page
 	%h2 News
-	Read up on important news on CAPP Chapters, National and Global. 
+	The latest information from CAPP, the Vatican, and Catholic organizations around the Globe
 %table.left_menu_container.story_left_menu_container
 	%tr
 		%td.left_menu.story_left_menu
@@ -22,7 +22,7 @@
 :javascript
 	$('.element input').click(function() {
 		var ps = collect_params();
-		$('#js_story_list').load('/stories?' + ps);
+		$('#js_story_list').load('/news?' + ps);
 	});
 
 	function collect_params() {

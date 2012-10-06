@@ -1,5 +1,5 @@
 CappUsa::Application.routes.draw do
-	devise_for :users
+	devise_for :users, :path_names => { :sign_in => 'login' }
 
 	namespace :admin do
 		resources :blocks
@@ -47,7 +47,7 @@ CappUsa::Application.routes.draw do
 			get 'view'
 		end
 	end
-	resources :encyclicals do
+	resources :encyclicals, :path => "social_encyclicals" do
 		collection do
 			get 'published'
 			get 'popup'
@@ -73,16 +73,16 @@ CappUsa::Application.routes.draw do
 	resources :principles
 	resources :prism_types
 	resources :role_types
-	resources :stories
+	resources :stories, :path => "news"
 	resources :papal_addresses
 	resources :feed_entries
-	resources :thoughts
+	resources :thoughts, :path => "social_thoughts"
 	resources :contacts
 	resources :users
 
 	match 'what_is_cst' => 'home#what_is_cst'
 	match 'study_center' => 'home#study_center'
-	match 'about_us/team' => 'home#about_us_team'
+	match 'about_us/capp_usa_team' => 'home#about_us_capp_usa_team'
 	match 'search' => 'search#index'
 	match 'encyclicals/:id/chapter/:chapter/references' => 'encyclicals#chapter_references'
 
