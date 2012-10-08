@@ -76,7 +76,7 @@ CappUsa::Application.routes.draw do
 	resources :stories, :path => "news"
 	resources :papal_addresses
 	resources :feed_entries
-	resources :thoughts, :path => "social_thoughts"
+	resources :thoughts, :path => "social_thought"
 	resources :contacts
 	resources :users
 
