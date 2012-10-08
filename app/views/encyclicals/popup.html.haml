@@ -59,7 +59,7 @@
 				var id = t.attr('data-id');
 				$("#chapter").val('');
 				$("#text").val('');
-				$("#encyclical_container").load("/encyclicals/" + id + "/reference");
+				$("#encyclical_container").load("/social_encyclicals/" + id + "/reference");
 				displayHelp("help2");
 			});
 			$("#encyclical_container").on("click", ".encyclical_body .chapter", setChapter);

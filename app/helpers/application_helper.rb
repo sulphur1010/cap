@@ -3,7 +3,7 @@ module ApplicationHelper
 	def parse_references(text)
 		text.gsub(ContentFragment.encyclical_reference_regex) { |s|
 			id = Encyclical.reference_map[$1]
-			"<a class='encyclical_reference_link' href='/encyclicals/#{id}#chapter_#{$2}'>(#{$1}, #{$2})</a>"
+			"<a class='encyclical_reference_link' href='/social_encyclicals/#{id}#chapter_#{$2}'>(#{$1}, #{$2})</a>"
 		}
 	end
 

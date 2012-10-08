@@ -85,6 +85,7 @@ CappUsa::Application.routes.draw do
 	match 'about_us/capp_usa_team' => 'home#about_us_capp_usa_team'
 	match 'search' => 'search#index'
 	match 'encyclicals/:id/chapter/:chapter/references' => 'encyclicals#chapter_references'
+	match 'encyclicals/popup' => 'encyclicals#popup'
 
 	post 'paypal_ipn', :to => 'paypal_ipn#index', :as => 'paypal_ipn'
 
