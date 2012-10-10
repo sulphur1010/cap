@@ -16,9 +16,9 @@ class Admin::EventsController < ApplicationController
 			csv << ["Last Name","First Name","Email","Attendee Count","Amount Paid","Payment Method","Person Type","Chapter","Roles"]
 			@event.attendees_events.includes(:attendee).each do |attendee_event|
 				csv << [
-					(attendee_event.attendee.last_name rescue ''),
-					(attendee_event.attendee.first_name rescue ''),
-					(attendee_event.attendee.email rescue ''),
+					attendee_event.last_name,
+					attendee_event.first_name,
+					attendee_event.email,
 					attendee_event.count,
 					ActionController::Base.helpers.number_to_currency(attendee_event.total_cost),
 					attendee_event.payment_method,
