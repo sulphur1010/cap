@@ -2,7 +2,9 @@
 
 rails_env = ENV['RAILS_ENV'] || 'production'
 
-worker_processes 3
+# temporarily decrease workers to 2 until they upgrade their account
+#worker_processes 3
+worker_processes 2
 
 preload_app true
 
