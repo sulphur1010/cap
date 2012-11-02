@@ -1,0 +1,7 @@
+- facets = @search.facet(:encyclical_id).rows
+- if facets.size > 1
+	%ul
+	- @search.facet(:encyclical_id).rows.each do |row|
+		%li= link_to row.value, '#'
+= render :partial => 'chapter_teaser', :collection => @search.hits
+

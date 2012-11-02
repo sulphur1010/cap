@@ -1,0 +1,14 @@
+- color = cycle("odd", "even")
+- chapter = chapter_teaser.instance
+%tr{:class => color}
+	%td.encyclical_title= link_to "#{chapter.encyclical.title} - Chapter #{chapter.chapter_num}", encyclical_path(chapter.encyclical, :anchor => "chapter_#{chapter.chapter_num}")
+	%td.encyclical_translated_title= "#{chapter.encyclical.translated_title} - Chapter #{chapter.chapter_num}"
+	%td.encyclical_author
+		- chapter.encyclical.authors.each do |author|
+			.author= author.full_name rescue ''
+	%td.encyclical_published_at= chapter.encyclical.published_at.strftime("%h %d, %Y") rescue ''
+%tr{:class => color}
+	%td.search_result_body{:colspan => 4}
+		- highlights = chapter_teaser.highlights(:chapter_body)
+		- if highlights.size > 0
+			= Hpricot(highlights.first.format { |phrase| "<span class=\"chapter_search_result_highlight search_result_highlight\">#{phrase}</span>" }).to_html.gsub("<br>", '').gsub(/^\/>/, '').html_safe

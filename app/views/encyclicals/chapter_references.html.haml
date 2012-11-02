@@ -1,8 +1,8 @@
-- if @search.total != 0
+- unless @references.empty?
 	.chapter_reference_content
 		%h3 Content Referencing this Chapter
 		%ul.encyclical_chapter_results
-			- @search.hits.each do |result|
+			- @references.each do |reference|
 				%li
-					%a{:href => object_url(result.instance)}= result.instance.title
-					.search_result_type{:class => "search_type_#{result.instance.type.underscore}"}= content_fragment_type_mapper(result.instance.type)
+					%a{:href => object_url(reference.content_fragment)}= reference.content_fragment.title
+					.search_result_type{:class => "search_type_#{reference.content_fragment.type.underscore}"}= content_fragment_type_mapper(reference.content_fragment.type)

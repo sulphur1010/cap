@@ -9,6 +9,7 @@
 		= form_for User.new, :url => "/encyclicals/search", :method => :get, :html => { :class => "search_page_form js_page_search_form" } do |f|
 			%input.search_input#js_search_input{:name => "eq", :size => "30", :type => "text", :value => (@eq rescue '')}
 			%input#js_search_authors{:type => 'hidden', :name => 'author', :value => ''}
+			%input#js_search_encyclicals{:type => 'hidden', :name => 'encyclical_id', :value => ''}
 			%input#js_search_submit{:type => "submit", :value => "Search"}
 .event_header_navigation
 	- if controller.action_name == 'published'
@@ -19,7 +20,12 @@
 		%span sort by title
 		\/
 		= link_to 'sort by publication date', published_encyclicals_path
-
+:javascript
+	$(document).ready(function() {
+		if ($("#js_search_input").val() != "") {
+			$("#js_search_submit").click();
+		}
+	});
 %table.left_menu_container.encyclical_left_menu_container
 	%tr
 		%td.left_menu.encyclical_left_menu
@@ -30,44 +36,6 @@
 						= check_box_tag :whatever
 						= user.full_name
 		%td.content_with_left_menu
-			.encyclical_search_list{:style => 'display: none'}
-				%h3 Dignity Found: 5 times
-				%hr
-				%h2.inline
-					%a.encyclical_title{:href => "#"}
-					Caritas in Veritate
-				%h5.inline Found: 2
-				.encyclical_search_list_item
-					%a.encyclical_title{:href => "#"}
-						9
-					She does, however, have a mission of truth to accomplish, in every time and circumstance, for a society that is attuned to man, to his 
-					.highlight dignity
-					, to his vocation.
-				.encyclical_search_list_item
-					%a.encyclical_title{:href => "#"}
-						16
-					The Church forcefully maintains this link between life ethics and social ethics, fully aware that “a society lacks solid foundations when, on the one hand, it asserts values such as the 
-					.highlight dignity
-					of the person, justice and peace, but then, on the other hand, radically acts to the contrary by allowing or tolerating a variety of ways in which human life is devalued and violated, especially where it is weak or marginalized.
-				%h2.inline
-					%a.encyclical_title{:href => "#"}
-					Centesimus Annus
-				%h5.inline Found: 3
-				.encyclical_search_list_item 
-					%a.encyclical_title{:href => "#"}
-						16	
-					Thus it is possible to meet these new situations without degrading the human person's transcendent 
-					.highlight dignity
-					, either in oneself or in one's adversaries, and to direct those situations towards just solutions.
-				.encyclical_search_list_item 
-					%a.encyclical_title{:href => "#"}
-						18
-					Indeed, the key to reading the Encyclical is the 
-					.highlight dignity
-					of the worker as such, and, for the same reason, the 
-					.highlight dignity
-					of work, which is defined as follows: "to exert oneself for the sake of procuring what is necessary for the various purposes of life, and first of all for self-preservation".
-						
 			%table.encyclical_teaser_list#js_encyclical_list
 				- if @encyclicals.empty?
 					%tr
@@ -95,6 +63,7 @@
 	function collect_params() {
 		var param_string = [];
 		param_string.push(collect_params_for('author'));
+		param_string.push(collect_params_for('encyclical_id'));
 		param_string.push(collect_text_query());
 		return(param_string.join('&'));
 	}

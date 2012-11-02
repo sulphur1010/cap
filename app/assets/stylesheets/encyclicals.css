@@ -79,8 +79,12 @@ table.encyclical_teaser_list .encyclical_published_at {
 	left: -6px;
 	width: 16px;
 	height: 16px;
-	background: url('/assets/book.png') no-repeat;
+	background: url('/assets/empty_book.png') no-repeat;
+}
+
+#main .left_content .page .encyclical_chapter_link.encyclical_with_reference {
 	cursor: pointer;
+	background: url('/assets/book.png') no-repeat;
 }
 
 .chapter_reference_content {

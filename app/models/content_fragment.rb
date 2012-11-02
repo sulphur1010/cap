@@ -10,6 +10,7 @@ class ContentFragment < ActiveRecord::Base
 		string :type
 		string :encyclical_references, :stored => true, :multiple => true do parse_encyclical_references end
 		date :published_at
+		string :reference_name do reference_name end
 	end
 
 	has_and_belongs_to_many :users
@@ -28,12 +29,17 @@ class ContentFragment < ActiveRecord::Base
 
 	before_save :set_type
 	before_save :set_published_at
+	after_save :populate_encyclical_references
 	before_validation :check_clear_attachments
 
 	def check_clear_attachments
 		thumbnail.clear if delete_thumbnail == '1'
 		 image.clear if delete_image == '1'
 		 homepage_image.clear if delete_homepage_image == '1'
+	end
+
+	def reference_name
+		nil
 	end
 
 	validates :url, :uniqueness => true
@@ -57,6 +63,13 @@ class ContentFragment < ActiveRecord::Base
 		references = []
 		self.body.scan(ContentFragment.encyclical_reference_regex) { |ref, chapter| references << ContentFragment.indexed_encyclical_reference(ref, chapter) }
 		references
+	end
+
+	def populate_encyclical_references
+		self.encyclical_references.destroy_all
+		self.body.scan(ContentFragment.encyclical_reference_regex) do |ref, chapter|
+			self.encyclical_references << EncyclicalReference.new(:reference => ref, :chapter_number => chapter, :content_fragment_id => self.id)
+		end
 	end
 
 	def self.indexed_encyclical_reference(ref, chapter)
