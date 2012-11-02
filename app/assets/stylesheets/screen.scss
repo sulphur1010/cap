@@ -75,8 +75,18 @@ hr.thin {border-top: 1px solid #ddd; border-bottom: 2px solid #eee; margin-botto
 a {color: #61849D; text-decoration: none;}
 a:hover {text-decoration: underline;}
 p {line-height: 1.6em; color: #333; }
-.page ul li {font-size: 12px; line-height: 1.6em; color: #333;}
-.page p {margin-bottom: 15px; font-size: 12px;}
+.page ul li {font-size: 13px; line-height: 1.6em; color: #333;}
+.page > * {
+	padding-left: 40px;
+	padding-right: 60px;
+}
+.page > img {
+	padding-left: 0;
+	padding-right: 0;
+}
+.page p {
+	margin-bottom: 15px; font-size: 13px;
+}
 .inline {display: inline-block;}
 ul {margin: 0 0 0 10px;}
 
@@ -665,10 +675,17 @@ ul.contemporary_issues_list li {
 
 .share_pad {
 	padding: 0 0 0 20px;
+	position: relative;
+	top: -10px;
 }
 
-.page {.share_pad {padding: 0px !important;}}
-
+.page {
+	.share_pad {
+		padding: 0px !important;
+		position: relative;
+		top: -10px;
+	}
+}
 
 .thought_block .thought_quote {
 	font-size: 14px;

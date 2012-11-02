@@ -63,13 +63,17 @@
 	function collect_params() {
 		var param_string = [];
 		param_string.push(collect_params_for('author'));
-		param_string.push(collect_params_for('encyclical_id'));
+		param_string.push(collect_encyclical_ids());
 		param_string.push(collect_text_query());
 		return(param_string.join('&'));
 	}
 
 	function collect_text_query() {
 		return "eq=" + $("#js_search_input").val();
+	}
+
+	function collect_encyclical_ids() {
+		return "encyclical_id=" + $("#js_search_encyclicals").val();
 	}
 
 	function collect_params_for(cat) {
@@ -79,4 +83,28 @@
 			params.push(escape(container.attr('data-value')));
 		});
 		return(cat + '=' + params.join(','));
+	}
+
+	function add_encyclical_id(id) {
+		var val = $("#js_search_encyclicals").val();
+		val = val.split(",");
+		for (i = 0; i < val.length; i++) {
+			if (val[i] == id) {
+				return
+			}
+		}
+		val.push(id);
+		$("#js_search_encyclicals").val(val.join(","));
+	}
+
+	function remove_encyclical_id(id) {
+		var val = $("#js_search_encyclicals").val();
+		val = val.split(",");
+		var new_val = [];
+		for (i = 0; i < val.length; i++) {
+			if (val[i] != id) {
+				new_val.push(val[i]);
+			}
+		}
+		$("#js_search_encyclicals").val(new_val.join(","));
 	}

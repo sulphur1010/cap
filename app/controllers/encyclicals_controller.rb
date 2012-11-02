@@ -55,6 +55,7 @@ class EncyclicalsController < ApplicationController
 	def index_search(sort)
 		sort_order = :asc
 		sort_order = :desc if sort == :published_at
+		@encyclical_ids = params[:encyclical_id].split(/,/).delete_if { |c| c == "" } rescue []
 		if request.xhr? || params[:q]
 			if params[:eq] && params[:eq] != ""
 				encyclical_chapter_search(sort, sort_order)
@@ -76,17 +77,12 @@ class EncyclicalsController < ApplicationController
 			q.fulltext @eq do
 				highlight :chapter_body
 			end
-			#facet_restriction = q.with(:encyclical_id, params[:encyclical_id])
-			if params[:encyclical_id]
-				encyclical_ids = params[:encyclical_id].split(/,/)
-				if encyclical_ids.count > 0
-					q.with(:encyclical_id, encyclical_ids)
-				end
+			if !@encyclical_ids.empty?
+				q.with(:encyclical_id, @encyclical_ids)
 			end
 			q.facet(:encyclical_id)
 			q.order_by sort, sort_order
 		end
-		Rails.logger.debug @search.inspect
 		@encyclical_chapters = @search.results
 		if request.xhr?
 			render :partial => 'chapter_results'#, :collection => @search.hits

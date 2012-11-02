@@ -64,7 +64,13 @@ table.encyclical_teaser_list .encyclical_published_at {
 	
 }
 
+table.encyclical_teaser_list tr.encyclical_results_facets {
+	background-color: #f8fadb;
+}
 
+table.encyclical_teaser_list tr.encyclical_results_facets td {
+	border-bottom: 1px solid #eee;
+}
 
 .page .encyclical_reference_link {
 	font-style: italic;
@@ -76,13 +82,18 @@ table.encyclical_teaser_list .encyclical_published_at {
 	display: block;
 	position: relative;
 	width: 100%;
-	left: -6px;
+	left: 20px;
 	width: 16px;
 	height: 16px;
+	padding: 0;
 	background: url('/assets/empty_book.png') no-repeat;
 }
 
 #main .left_content .page .encyclical_chapter_link.encyclical_with_reference {
+	display: block;
+	float: none;
+	width: auto;
+	padding-left: 20px;
 	cursor: pointer;
 	background: url('/assets/book.png') no-repeat;
 }

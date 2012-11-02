@@ -1,7 +1,43 @@
 - facets = @search.facet(:encyclical_id).rows
-- if facets.size > 1
-	%ul
-	- @search.facet(:encyclical_id).rows.each do |row|
-		%li= link_to row.value, '#'
+- if facets.size > 1 || !@encyclical_ids.empty?
+	%tr.even{:class => "encyclical_results_facets"}
+		%td{:colspan => 4}
+			%h3 Instances of search term in these Encyclicals:
+			%ul
+				- facets.each do |row|
+					- encyclical = Encyclical.find(row.value)
+					- if encyclical
+						%li
+							- if @encyclical_ids.include?(row.value.to_s)
+								= "#{encyclical.title} (#{row.count})"
+								= link_to "(remove)", "#", :'data-id' => row.value, :class => "js_remove_encyclical_facet_link"
+							- else
+								= link_to "#{encyclical.title} (#{row.count})", '#', :'data-id' => row.value, :class => "js_encyclical_facet_link"
+				- if facets.size == 0
+					- Rails.logger.debug "encyclical ids = #{@encyclical_ids.inspect}"
+					- @encyclical_ids.each do |id|
+						- encyclical = Encyclical.find(id)
+						- if encyclical
+							%li
+								= "#{encyclical.title} (0)"
+								= link_to "(remove)", "#", :'data-id' => id, :class => "js_remove_encyclical_facet_link"
 = render :partial => 'chapter_teaser', :collection => @search.hits
+- if @search.hits.empty?
+	%tr.odd{:colspan => 4}
+		%td
+			No Results Found
+:javascript
+	$(".js_encyclical_facet_link").click(function(e) {
+		e.preventDefault();
+		var t = $(this);
+		add_encyclical_id(t.attr('data-id'));
+		$("#js_search_submit").click();
+	});
+
+	$(".js_remove_encyclical_facet_link").click(function(e) {
+		e.preventDefault();
+		var t = $(this);
+		remove_encyclical_id(t.attr('data-id'));
+		$("#js_search_submit").click();
+	});
 
