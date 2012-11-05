@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
 	respond_to :html
 
 	def index
-		respond_with(@users = User.order(:last_name))
+		respond_with(@users = User.by_last_name)
 	end
 
 	def search

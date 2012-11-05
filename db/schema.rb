@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102172116) do
+ActiveRecord::Schema.define(:version => 20121105220437) do
 
   create_table "attendees_events", :force => true do |t|
     t.integer  "attendee_id"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20121102172116) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "note"
+    t.string   "title"
   end
 
   create_table "contacts_static_contact_lists", :id => false, :force => true do |t|
@@ -378,14 +379,10 @@ ActiveRecord::Schema.define(:version => 20121102172116) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "title"
     t.integer  "person_type_id"
     t.boolean  "speaker"
     t.string   "role_list"
     t.integer  "chapter_id"
-    t.string   "phone"
     t.string   "profile_image_content_type"
     t.integer  "profile_image_file_size"
     t.string   "profile_image_file_name"

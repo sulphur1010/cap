@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
 	# Setup accessible (or protected) attributes for your model
 	attr_accessor :delete_profile_image
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :title, :phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :about_us_type, :about_us_weight, :delete_profile_image, :email_list
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :about_us_type, :about_us_weight, :delete_profile_image, :email_list, :contact_attributes
 
 	belongs_to :chapter
 	belongs_to :person_type
@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :events, :join_table => 'events_speakers'
 	has_and_belongs_to_many :content_fragments;
 	has_attached_file :profile_image, :styles => { :small => "80x80>" }
+
+	has_one :contact, :foreign_key => :email, :primary_key => :email
+	accepts_nested_attributes_for :contact
 
 	has_many :attendees_events, :foreign_key => :attendee_id
 	has_many :attended_events, :through => :attendees_events
@@ -34,9 +37,6 @@ class User < ActiveRecord::Base
 	before_validation :check_clear_attachments
 	after_create :send_welcome_email
 
-	validates :first_name, :presence => true
-	validates :last_name, :presence => true
-
 	def check_clear_attachments
 		profile_image.clear if delete_profile_image == '1'
 	end
@@ -44,6 +44,25 @@ class User < ActiveRecord::Base
 	scope :national_board_members, where(:about_us_type => 'National Board').order(:about_us_weight)
 	scope :staff, where(:about_us_type => 'Staff').order(:about_us_weight)
 	scope :chapter_presidents, where(:about_us_type => 'Chapter President').order(:about_us_weight)
+
+	scope :admins, where("role_list LIKE '%admin%'")
+	scope :speakers, where("role_list LIKE '%speaker%'")
+	scope :thought_creators, where("role_list LIKE '%thought_creator%'")
+	scope :celebrants, where("role_list LIKE '%celebrant%'")
+
+	scope :by_last_name, joins(:contact).order("contacts.last_name")
+
+	def first_name
+		self.contact.first_name rescue nil
+	end
+
+	def last_name
+		self.contact.last_name rescue nil
+	end
+
+	def title
+		self.contact.title rescue nil
+	end
 
 	def thoughts
 		self.content_fragments.thoughts

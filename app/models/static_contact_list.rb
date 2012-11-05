@@ -1,4 +1,10 @@
 class StaticContactList < ContactList
-	#has_many :contacts, :class_name => StaticContactListContact, :foreign_key => :contact_list_id
 	has_and_belongs_to_many :contacts
+	belongs_to :user
+
+	validates :name, :presence => true
+
+	def display_name
+		self.name
+	end
 end
