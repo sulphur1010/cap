@@ -135,4 +135,8 @@ class ApplicationController < ActionController::Base
 	def not_found
 		render :text => "<div class='page'><h2>Page not found</h2></div>", :status => 404, :layout => true
 	end
+
+	def load_contact_lists
+		@contact_lists = ContactList.all_contact_lists
+	end
 end

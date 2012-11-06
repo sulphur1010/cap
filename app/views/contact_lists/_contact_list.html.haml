@@ -1,0 +1,10 @@
+%h2= @contact_list.display_name
+%table.data_table
+	%thead
+		%tr
+			%th Email
+			%th Name
+	- @contact_list.contacts.each do |contact|
+		%tr{:class => cycle("odd", "even")}
+			%td= contact.email
+			%td= contact.full_name

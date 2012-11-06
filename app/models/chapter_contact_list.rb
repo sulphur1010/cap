@@ -8,6 +8,6 @@ class ChapterContactList < ContactList
 	end
 
 	def display_name
-		"Chapter Contact List - #{self.chapter.name}" if self.chapter
+		"Chapter - #{self.chapter.name}" if self.chapter
 	end
 end

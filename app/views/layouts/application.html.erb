@@ -70,7 +70,7 @@
 			</div>
 		<table><tr>
 			<td class='left_content<%= @show_right_side_bar ? ' ' : ' no_right_column' %>'>
-				<%= yield %>
+				<%= content_for?(:content) ? yield(:content) : yield %>
 			</td>
 			<% if @show_right_side_bar %>
 				<td class='right_column'>

@@ -20,10 +20,10 @@ class ContactList < ActiveRecord::Base
 	end
 
 	def self.all_contact_lists
-		ContactList.dynamic_contact_lists + StaticContactList.all
+		ContactList.dynamic_contact_lists + StaticContactList.includes(:contacts)
 	end
 
 	def display_name
-		self.type.titleize
+		self.type.gsub("ContactList", '').titleize.pluralize
 	end
 end

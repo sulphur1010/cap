@@ -1,0 +1,18 @@
+= content_for :content do
+	.page
+		%h2 Mailer
+	%table.left_menu_container.mail_left_menu_container
+		%tr
+			%td.left_menu.mail_left_menu
+				.left_menu_item
+					%strong Send Mail
+				.left_menu_item
+					%strong Contact Lists
+					%ul.contact_lists
+						- @contact_lists.each do |list|
+							%li
+								%a{:href => contact_list_href(list)}= list.display_name
+						
+			%td.content_with_left_menu.mail_content_container
+				= yield
+= render :file => "layouts/application.html.erb"

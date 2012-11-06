@@ -1,6 +1,14 @@
 CappUsa::Application.routes.draw do
 	devise_for :users, :path_names => { :sign_in => 'login' }
 
+	resources :mail
+	resources :contact_lists do
+		collection do
+			get :by_type
+		end
+	end
+	resources :static_contact_lists
+
 	namespace :admin do
 		resources :blocks
 		resources :chapters

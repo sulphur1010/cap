@@ -36,4 +36,12 @@ class Contact < ActiveRecord::Base
 							"Gov",
 							"Coach",
 							"Ofc" ] unless const_defined?("NAME_PREFIXES")
+
+	def full_name
+		if self.first_name.blank? && self.last_name.blank?
+			self.email
+		else
+			"#{self.first_name} #{self.last_name}"
+		end
+	end
 end
