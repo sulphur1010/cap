@@ -1,6 +1,7 @@
 class SentEmailMessagesController < ApplicationController
 
 	before_filter :load_contact_lists
+	layout "mail"
 
 	def index
 		@sent_email_messages = SentEmailMessage.order("created_at desc")
