@@ -146,3 +146,7 @@ end
 StaticContactListUser.blueprint do
   # Attributes here
 end
+
+SendEmailMessage.blueprint do
+  # Attributes here
+end

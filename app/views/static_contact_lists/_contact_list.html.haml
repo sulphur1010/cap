@@ -1,0 +1,14 @@
+%h2= @contact_list.display_name
+%table.data_table
+	%thead
+		%tr
+			%th &nbsp;
+			%th Email
+			%th Name
+	- @contact_list.contacts.each do |contact|
+		%tr{:class => cycle("odd", "even")}
+			%td
+				%a.remove_contact{:href => "#", :'data-id' => contact.id, :title => "Remove Contact"}
+					%img{:src => "/assets/remove.png"}
+			%td= contact.email
+			%td= contact.full_name

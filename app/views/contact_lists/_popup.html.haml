@@ -1,0 +1,14 @@
+%table.data_table
+	%thead
+		%tr
+			%th &nbsp;
+			%th Email
+			%th Name
+	- @contacts.each do |contact|
+		%tr{:class => cycle("odd", "even")}
+			%td
+				%a.add_contact{:href => "#", :'data-id' => contact.id, :title => "Add Contact"}
+					%img{:src => "/assets/add.png"}
+			%td= contact.email
+			%td= contact.full_name
+= will_paginate @contacts

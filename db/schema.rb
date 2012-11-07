@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105220437) do
+ActiveRecord::Schema.define(:version => 20121107184015) do
 
   create_table "attendees_events", :force => true do |t|
     t.integer  "attendee_id"
@@ -365,6 +365,16 @@ ActiveRecord::Schema.define(:version => 20121105220437) do
 
   add_index "questions", ["content_fragment_id"], :name => "index_questions_on_content_fragment_id"
   add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
+
+  create_table "sent_email_messages", :force => true do |t|
+    t.string   "subject"
+    t.text     "to"
+    t.text     "body"
+    t.string   "status"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                      :default => "",    :null => false

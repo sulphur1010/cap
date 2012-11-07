@@ -5,14 +5,15 @@
 		%tr
 			%td.left_menu.mail_left_menu
 				.left_menu_item
-					%strong Send Mail
+					= link_to "Send Mail", new_mail_path
 				.left_menu_item
 					%strong Contact Lists
 					%ul.contact_lists
 						- @contact_lists.each do |list|
 							%li
 								%a{:href => contact_list_href(list)}= list.display_name
-						
+				.left_menu_item
+					= link_to "New Contact List", new_static_contact_list_path
 			%td.content_with_left_menu.mail_content_container
 				= yield
 = render :file => "layouts/application.html.erb"

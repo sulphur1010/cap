@@ -1,3 +1,25 @@
-= link_to "Edit", edit_static_contact_list_path(@contact_list)
-= render :partial => "contact_lists/contact_list"
-
+= link_to "Edit Contact List Name", edit_static_contact_list_path(@contact_list)
+%div
+	= link_to "Add Contacts", "#", :class => "add_contacts_button"
+#contact_list_container
+	= render :partial => "contact_list"
+= link_to "Add Contacts", "#", :class => "add_contacts_button"
+#contact_popup{:style => "display: none"}
+:javascript
+	$(document).ready(function() {
+		$(".add_contacts_button").click(function(e) {
+			e.preventDefault();
+			$("#contact_popup").show();
+			$("#contact_popup").load("#{popup_contact_lists_path}");
+		});
+		$("#contact_popup_container a.add_contact").live("click", function(e) {
+			e.preventDefault();
+			var t = $(this);
+			$.post("#{add_contact_static_contact_list_path(@contact_list)}", { contact_id: t.attr('data-id') }, null, "script");
+		});
+		$("#contact_list_container a.remove_contact").live("click", function(e) {
+			e.preventDefault();
+			var t = $(this);
+			$.post("#{remove_contact_static_contact_list_path(@contact_list)}", { contact_id: t.attr('data-id') }, null, "script");
+		});
+	});

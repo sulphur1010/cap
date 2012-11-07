@@ -1,0 +1,21 @@
+#contact_popup {
+	position: absolute;
+	border: 1px solid #555;
+	padding: 5px;
+	background: white;
+	width: 600px;
+	top: 60px;
+	right: 0;
+}
+
+#contact_popup h3 {
+	float: left;
+	position: relative;
+	top: 3px;
+}
+
+#contact_popup_close {
+	float: right;
+	font-weight: bold;
+	cursor: pointer;
+}

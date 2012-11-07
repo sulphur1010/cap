@@ -1,0 +1,15 @@
+#contact_popup_close X
+%h3 Add Contacts
+= form_tag popup_contact_lists_path, :method => 'get', :id => 'contact_lists_search' do
+	%p
+		= text_field_tag :search, params[:search]
+		= submit_tag "Search", :name => nil
+	#contact_popup_container
+		= render 'popup'
+:javascript
+	$(document).ready(function() {
+		$("#contact_popup_close").click(function() {
+			$("#contact_popup").html("");
+			$("#contact_popup").hide();
+		});
+	});
