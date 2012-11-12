@@ -1,5 +1,130 @@
 = semantic_form_for @sent_email_message do |f|
-	= f.input :to
+	= text_field_tag 'sent_email_message[to_addr_str]', ''
+	= select_tag :to_select, options_from_collection_for_select(ContactList.all_contact_lists, :value_name, :display_name), { :class => 'multiselect', :multiple => true }
+	.edit_button_container
+		.edit_button.submit_btn_no_float
+			= link_to 'Edit Individual Emails', '#'
 	= f.input :subject
 	= f.input :body
-	= f.actions
+	= f.actions do
+		= f.submit 'Send Message'
+#individual_email_popup{:style => 'display: none;'}
+	#iep_border
+		#iep_content
+			- ContactList.all_contact_lists.each do |cl|
+				.contact_list{:'data-name' => cl.value_name}
+					.name= cl.display_name
+					- cl.contacts.each do |c|
+						.wrapper
+							.checkbox{:'data-email' => c.email}
+								= check_box_tag :whatver, c.email, true
+							.contact{:'data-email' => c.email}= c.email
+			.btn_save
+				= link_to 'Save', '#'
+:javascript
+	Array.prototype.getUnique = function(){
+	 var u = {}, a = [];
+	 for(var i = 0, l = this.length; i < l; ++i){
+			if(u.hasOwnProperty(this[i])) {
+				 continue;
+			}
+			a.push(this[i]);
+			u[this[i]] = 1;
+	 }
+	 return a;
+	}
+
+	function hide_popup() {
+		$('#individual_email_popup').hide();
+	}
+
+	function show_popup() {
+		$('#individual_email_popup .contact_list').hide();
+		$('#individual_email_popup .contact_list').removeClass('selected');
+
+		$('.ms-elem-selected').each(function() {
+			var vn = $(this).attr('ms-value');
+			$('#individual_email_popup .contact_list[data-name="' + vn + '"]').show();
+			$('#individual_email_popup .contact_list[data-name="' + vn + '"]').addClass('selected');
+		});
+
+		$('#individual_email_popup').show();
+	}
+
+	function set_to_addresses_from_popup() {
+		$('#sent_email_message_to_addr_str').val('');
+		to_emails = [];
+		$('#individual_email_popup .contact_list.selected input:checked').each(function() {
+			var email = $(this).closest('.checkbox').attr('data-email');
+			to_emails.push(email);
+		});
+		$('#sent_email_message_to_addr_str').val(to_emails.getUnique().join(','));
+	}
+
+	function set_to_addresses() {
+		$('#sent_email_message_to_addr_str').val('');
+		to_emails = [];
+		$('#individual_email_popup .contact_list.selected input:checked').each(function() {
+			to_emails.push($(this).closest('.checkbox').attr('data-email'));
+		});
+		$('#sent_email_message_to_addr_str').val(to_emails.getUnique().join(','));
+	}
+
+	function set_modified_classes() {
+		$('#individual_email_popup .contact_list').each(function() {
+			var vn = $(this).attr('data-name');
+			if ($('#individual_email_popup .contact_list[data-name="' + vn + '"] input:not(:checked)').size() > 0) {
+				// modified
+				$('.ms-elem-selected[ms-value="' + vn + '"]').addClass('modified');
+			} else {
+				// not modified
+				$('.ms-elem-selected[ms-value="' + vn + '"]').removeClass('modified');
+			};
+		});
+	}
+
+	$('.edit_button').click(function() {
+		show_popup();
+	});
+
+	$(document).delegate('.ms-elem-selectable', 'click', function() {
+		var vn = $(this).attr('ms-value');
+		console.log(vn + ' selected');
+		sel = '#individual_email_popup .contact_list[data-name="' + vn + '"]';
+		$(sel).addClass('selected');
+		$(sel + ' input').each(function() {
+			var email = $(this).closest('.checkbox').attr('data-email');
+			console.log('checking all instances of: ' + email);
+			$('#individual_email_popup .checkbox[data-email="' + email + '"] input').each(function() {
+				console.log([email, $(this)]);
+				$(this).attr('checked', true);
+			});
+		});
+		set_to_addresses();
+	});
+
+	$(document).delegate('.ms-elem-selected', 'click', function() {
+		var vn = $(this).attr('ms-value');
+		console.log(vn + ' deselected');
+		sel = '#individual_email_popup .contact_list[data-name="' + vn + '"]';
+		$(sel).removeClass('selected');
+		set_to_addresses();
+	});
+
+	$(document).delegate('.checkbox input', 'click', function() {
+		var email = $(this).closest('.checkbox').attr('data-email');
+		var ch = $(this).attr('checked') === 'checked';
+		$('.checkbox[data-email="' + email + '"] input').each(function() {
+			$(this).attr('checked', ch);
+		});
+	});
+
+	$(document).delegate('#individual_email_popup .btn_save', 'click', function() {
+		set_to_addresses_from_popup();
+		set_modified_classes();
+		hide_popup();
+	});
+
+	$(function() {
+		$('.multiselect').multiSelect();
+	});

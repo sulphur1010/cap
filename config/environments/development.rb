@@ -14,7 +14,8 @@ CappUsa::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+	config.action_mailer.perform_deliveries = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -35,7 +36,7 @@ CappUsa::Application.configure do
 		:port                 => 587,
 		:domain               => 'trueinteraction.com',
 		:user_name            => 'developer@trueinteraction.com',
-		:password             => 'asd4232@sdf1',
+		:password             => 'tideveloper',
 		:authentication       => 'plain',
 		:enable_starttls_auto => true
 	}

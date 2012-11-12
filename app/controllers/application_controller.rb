@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 	before_filter :ensure_running_threads
 	before_filter :setup_variables
 
+	layout 'application'
+
 	private
 
 	def after_sign_in_path_for(resource)
@@ -110,6 +112,7 @@ class ApplicationController < ActionController::Base
 
 	def require_admin!
 		unless is_admin?
+			self.class.layout 'application'
 			not_found
 		end
 	end

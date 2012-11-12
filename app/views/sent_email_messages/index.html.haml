@@ -1,1 +1,23 @@
-stuff
+#sent_email_messages
+	%table#sent_email_table
+		%thead
+			%tr
+				%td ID
+				%td From
+				%td To
+				%td Subject
+				%td Status
+				%td Updated
+		%tbody
+			- @sent_email_messages.each do |sem|
+				%tr{:class => "#{cycle('odd', 'even')} #{sem.status}"}
+					%td= sem.id
+					%td= sem.user.email rescue nil
+					%td
+						%table.to_lists
+							- sem.contact_lists.map(&:display_name).each do |cl|
+								%tr
+									%td= cl
+					%td= sem.subject
+					%td= sem.status.titleize
+					%td= sem.updated_at.strftime("%F %T")

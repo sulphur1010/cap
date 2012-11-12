@@ -35,4 +35,12 @@ class UserMailer < ActionMailer::Base
 		@user = user
 		mail(:to => user.email, :from => "website-notifications@capp-usa.org", :subject => "Thank you for registering to CAPP-USA.org!")
 	end
+
+	def bulk_email(sem, to_user)
+		@user = sem.user
+		@to = to_user
+		@subject = sem.subject
+		@body = sem.body
+		mail(:to => @to, :from => "website-notifications@capp-usa.org", :subject => @subject)
+	end
 end

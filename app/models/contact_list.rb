@@ -26,4 +26,8 @@ class ContactList < ActiveRecord::Base
 	def display_name
 		self.type.gsub("ContactList", '').titleize.pluralize
 	end
+
+	def value_name
+		self.display_name.gsub(/ /, '').underscore.gsub(/,/, '')
+	end
 end

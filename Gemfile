@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.2.3'
 gem 'devise', '2.0'
-gem 'haml', '3.0.24'
+gem 'haml', '3.1.4'
 gem 'formtastic', '2.1.0.rc'
 
 # Bundle edge Rails instead:
@@ -39,10 +39,9 @@ gem 'sunspot', '1.3.3'
 gem 'sunspot_solr', '1.3.3'
 gem 'sunspot_rails', '1.3.3'
 gem 'hpricot', '0.8.6'
-gem 'mail', '2.3.0'
 
 group :assets do
-	gem 'sass-rails', '~> 3.1.0'
+	gem 'sass-rails'
 	gem 'uglifier'
 end
 

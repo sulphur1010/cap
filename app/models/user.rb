@@ -118,7 +118,7 @@ class User < ActiveRecord::Base
 	private
 
 	def set_title
-		self.title = "" if self.title.nil?
+		self.title = "" if self.title.nil? && !self.contact.nil?
 	end
 
 	def add_user_role

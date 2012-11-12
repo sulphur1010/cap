@@ -14,6 +14,11 @@ class SentEmailMessage < ActiveRecord::Base
 	scope :queued, where(:status => "queued")
 	scope :draft, where(:status => "draft")
 
+	def to_addr_str=(str)
+		self.to_addresses = str.split(/,/).map { |r| r.strip } rescue []
+		self.convert_to_addresses
+	end
+
 	def load_to_addresses
 		self.to_addresses = self.to.split(/,/).map { |r| r.strip } rescue []
 		unless self.to_addresses
@@ -30,6 +35,21 @@ class SentEmailMessage < ActiveRecord::Base
 	end
 
 	def perform
+		Rails.logger.info "sending email to #{self.to}"
+		self.to_addresses.each do |to_addr|
+			UserMailer.delay.bulk_email(self, to_addr)
+		end
+		self.update_attributes( { :status => "sent" } )
+		Rails.logger.info "sent"
+	end
 
+	def contact_lists
+		ContactList.all_contact_lists.select { |cl| cl.contacts.map(&:email) - self.to_addresses != cl.contacts.map(&:email) }
+	end
+
+	def queue!
+		return nil unless self.status == "draft"
+		self.update_attributes({:status => "queued"})
+		Delayed::Job.enqueue(self)
 	end
 end
