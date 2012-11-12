@@ -118,7 +118,7 @@
 			.attendee_list
 				%h4 Add User
 				= semantic_form_for [:admin, @event, AttendeesEvent.new] do |f|
-					- users = User.order(:last_name).all.delete_if { |c| @event.attendees.include?(c) }
+					- users = User.by_last_name.all.delete_if { |c| @event.attendees.include?(c) }
 					= f.input :attendee, :collection => users
 					= f.input :count
 					= f.input :total_cost
