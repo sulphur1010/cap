@@ -64,6 +64,10 @@ class User < ActiveRecord::Base
 		self.contact.title rescue nil
 	end
 
+	def phone
+		self.contact.phone rescue nil
+	end
+
 	def thoughts
 		self.content_fragments.thoughts
 	end
