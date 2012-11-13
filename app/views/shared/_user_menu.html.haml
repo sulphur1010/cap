@@ -33,19 +33,18 @@
 								%li= link_to 'Chapters', admin_chapters_url
 								%li= link_to 'Events', admin_events_url
 								%li= link_to 'Locations', admin_locations_url
-						/
-							%li
-								Mailer
-								%ul
-									%li= link_to "Send Mail", new_sent_email_message_path
-									%li= link_to "Sent", sent_email_messages_path
-									%li Contact Lists
-									%li
-										%ul
-											- ContactList.all_contact_lists.each do |list|
-												%li
-													%a{:href => contact_list_href(list)}= list.display_name
-									%li= link_to "New Contact List", new_static_contact_list_path
+						%li
+							Mailer
+							%ul
+								%li= link_to "Send Mail", new_sent_email_message_path
+								%li= link_to "Sent", sent_email_messages_path
+								%li Contact Lists
+								%li
+									%ul
+										- ContactList.all_contact_lists.each do |list|
+											%li
+												%a{:href => contact_list_href(list)}= list.display_name
+								%li= link_to "New Contact List", new_static_contact_list_path
 									
 						%li= link_to 'Menu Items', admin_menu_items_url
 						%li= link_to 'Users', admin_users_url

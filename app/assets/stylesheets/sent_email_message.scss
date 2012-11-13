@@ -69,6 +69,17 @@
 			margin-top: 10px;
 		}
 
+		.cft_name.selected {
+			color: rgb(101,86,153);
+		};
+
+		.content_fragment {
+			clear: both;
+
+			.checkbox {
+				float: left;
+			}
+		}
 	}
 
 	#individual_email_popup {

@@ -13,6 +13,7 @@ class SentEmailMessagesController < ApplicationController
 			@sent_email_message = SentEmailMessage.new(:user_id => current_user.id)
 			@sent_email_message.save
 		end
+		@content_fragment_types = ContentFragment.types.select { |cft| cft != "PersonType" }
 	end
 
 	def update

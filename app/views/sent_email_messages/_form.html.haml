@@ -6,6 +6,16 @@
 			= link_to 'Edit Individual Emails', '#'
 	= f.input :subject
 	= f.input :body
+	= text_field_tag 'sent_email_message[content_fragment_ids]', ''
+	- @content_fragment_types.each do |cft|
+		.cft_container
+			%h4.cft_name{:'data-type' => cft }= cft.titleize.pluralize
+			.cft_content{:'data-type' => cft }
+				- cft.constantize.order('created_at desc').each do |cf|
+					.content_fragment
+						.checkbox{:'data-id' => cf.id}
+							= check_box_tag :ctf_checkbox, 'yes', false
+						= cf.title
 	= f.actions do
 		= f.submit 'Send Message'
 #individual_email_popup{:style => 'display: none;'}
@@ -111,7 +121,7 @@
 		set_to_addresses();
 	});
 
-	$(document).delegate('.checkbox input', 'click', function() {
+	$(document).delegate('#individual_email_popup .checkbox input', 'click', function() {
 		var email = $(this).closest('.checkbox').attr('data-email');
 		var ch = $(this).attr('checked') === 'checked';
 		$('.checkbox[data-email="' + email + '"] input').each(function() {
@@ -125,6 +135,55 @@
 		hide_popup();
 	});
 
+	$(document).delegate('.cft_name', 'click', function() {
+		var cft = $(this).attr('data-type');
+		$('.cft_content[data-type="' + cft + '"]').toggle();
+	});
+
+	function enable_disable_content_fragment_type(cft) {
+		if ($('.cft_content[data-type="' + cft + '"] input:checked').size() > 0) {
+			$('.cft_content[data-type="' + cft + '"]').addClass('selected');
+		} else {
+			$('.cft_content[data-type="' + cft + '"]').removeClass('selected');
+		}
+		$('.cft_name.selected').removeClass('selected');
+		$('.cft_content.selected').closest('.cft_container').children('.cft_name').addClass('selected');
+		if ($('.cft_content.selected').size() >= 3) {
+			$('.cft_content:not(.selected) input').attr('disabled', true);
+		} else {
+			$('.cft_content:not(.selected) input').attr('disabled', false);
+		}
+		if ($('.cft_content[data-type="' + cft + '"] input:checked').size() >= 3) {
+			disable_content_fragment_type(cft);
+		} else {
+			enable_content_fragment_type(cft);
+		}
+	}
+
+	function disable_content_fragment_type(cft) {
+		$('.cft_content[data-type="' + cft + '"] input:not(:checked)').attr('disabled', true);
+	}
+
+	function enable_content_fragment_type(cft) {
+		$('.cft_content[data-type="' + cft + '"] input:not(:checked)').attr('disabled', false);
+	}
+
+	function set_content_fragment_ids() {
+		var ids = [];
+		$('.cft_content input:checked').each(function() {
+			var id = $(this).closest('.checkbox').attr('data-id');
+			ids.push(id);
+		});
+		$('#sent_email_message_content_fragment_ids').val(ids.join(','));
+	}
+
+	$(document).delegate('.content_fragment .checkbox input', 'click', function() {
+		var cft = $(this).closest('.cft_content').attr('data-type');
+		enable_disable_content_fragment_type(cft);
+		set_content_fragment_ids();
+	});
+
 	$(function() {
+		$('.cft_content').hide();
 		$('.multiselect').multiSelect();
 	});
