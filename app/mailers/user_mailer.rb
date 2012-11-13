@@ -41,6 +41,7 @@ class UserMailer < ActionMailer::Base
 		@to = to_user
 		@subject = sem.subject
 		@body = sem.body
-		mail(:to => @to, :from => "website-notifications@capp-usa.org", :subject => @subject)
+		@content_fragments = sem.content_fragments
+		mail(:to => @to, :from => "website-notifications@capp-usa.org", :subject => @subject, :css => :email)
 	end
 end

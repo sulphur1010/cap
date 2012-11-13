@@ -1,0 +1,5 @@
+
+#bulk_email .content_fragments .content_fragment_type {
+	font-weight: bold;
+	color: red;
+}

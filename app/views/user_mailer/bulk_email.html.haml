@@ -1,2 +1,14 @@
-.test
-	= @body
+#bulk_email
+	.body
+		= @body
+	- if @content_fragments.count > 0
+		%hr
+		.content_fragments
+			- @content_fragments.group_by { |cf| cf.class.to_s }.each do |cft, cfs|
+				.content_fragment_type= cft.titleize.pluralize
+				- cfs.each do |cf|
+					.content_fragment
+						- if cf.teaser.nil?
+							= cf.title
+						- else
+							= raw(cf.teaser)

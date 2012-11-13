@@ -40,6 +40,8 @@ gem 'sunspot_solr', '1.3.3'
 gem 'sunspot_rails', '1.3.3'
 gem 'hpricot', '0.8.6'
 
+gem 'roadie'
+
 group :assets do
 	gem 'sass-rails'
 	gem 'uglifier'

@@ -14,6 +14,11 @@ class SentEmailMessage < ActiveRecord::Base
 	scope :queued, where(:status => "queued")
 	scope :draft, where(:status => "draft")
 
+	def content_fragments
+		return [] if self.content_fragment_ids.blank?
+		ContentFragment.find(self.content_fragment_ids.split(/,/).map(&:to_i))
+	end
+
 	def to_addr_str=(str)
 		self.to_addresses = str.split(/,/).map { |r| r.strip } rescue []
 		self.convert_to_addresses
