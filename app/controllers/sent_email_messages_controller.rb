@@ -14,6 +14,7 @@ class SentEmailMessagesController < ApplicationController
 		"RoleType"
 		]
 
+
 	def index
 		@sent_email_messages = SentEmailMessage.order("updated_at desc")
 	end
