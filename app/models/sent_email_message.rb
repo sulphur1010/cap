@@ -55,6 +55,11 @@ class SentEmailMessage < ActiveRecord::Base
 		ContactList.all_contact_lists.select { |cl| cl.contacts.map(&:email) - self.to_addresses != cl.contacts.map(&:email) }
 	end
 
+	def requeue!
+		self.status = "draft"
+		self.queue!
+	end
+
 	def queue!
 		return nil unless self.status == "draft"
 		self.update_attributes({:status => "queued"})
