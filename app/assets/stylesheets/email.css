@@ -3,3 +3,10 @@
 	font-weight: bold;
 	color: red;
 }
+
+#bulk_email .background {
+	font-size:75%;
+	color:#333;
+	background: url("http://www.capp-usa.org/images/background.jpg") #ECEDE7;
+	font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
+	}
