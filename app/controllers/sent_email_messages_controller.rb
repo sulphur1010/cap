@@ -3,6 +3,10 @@ class SentEmailMessagesController < ApplicationController
 	before_filter :require_admin!
 	before_filter :load_contact_lists
 
+	def self.not_included_types
+		[ "PersonType" ]
+	end
+
 	def index
 		@sent_email_messages = SentEmailMessage.order("updated_at desc")
 	end
@@ -13,7 +17,7 @@ class SentEmailMessagesController < ApplicationController
 			@sent_email_message = SentEmailMessage.new(:user_id => current_user.id)
 			@sent_email_message.save
 		end
-		@content_fragment_types = ContentFragment.types.select { |cft| cft != "PersonType" }
+		@content_fragment_types = ContentFragment.types.select { |cft| !@@not_included_types.include?(cft) }
 	end
 
 	def update
