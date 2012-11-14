@@ -6,14 +6,14 @@
 			= link_to 'Edit Individual Emails', '#'
 	= f.input :subject
 	= f.input :body
-	= text_field_tag 'sent_email_message[content_fragment_ids]', '', :hidden => true
+	= text_field_tag 'sent_email_message[content_fragment_ids]', '', :hidden => false
 	- @content_fragment_types.each do |cft|
 		.cft_container
 			%h4.cft_name{:'data-type' => cft }= cft.titleize.pluralize
 			.cft_content{:'data-type' => cft }
 				- cft.constantize.order('created_at desc').each do |cf|
 					.content_fragment
-						.checkbox{:'data-id' => cf.id}
+						.checkbox{:'data-class' => cf.class.to_s.underscore, :'data-id' => cf.id}
 							= check_box_tag :ctf_checkbox, 'yes', false
 						= cf.title
 	= f.actions do
@@ -171,8 +171,9 @@
 	function set_content_fragment_ids() {
 		var ids = [];
 		$('.cft_content input:checked').each(function() {
+			var cl = $(this).closest('.checkbox').attr('data-class');
 			var id = $(this).closest('.checkbox').attr('data-id');
-			ids.push(id);
+			ids.push(cl + ':' + id);
 		});
 		$('#sent_email_message_content_fragment_ids').val(ids.join(','));
 	}

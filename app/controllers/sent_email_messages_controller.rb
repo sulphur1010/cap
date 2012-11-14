@@ -4,7 +4,14 @@ class SentEmailMessagesController < ApplicationController
 	before_filter :load_contact_lists
 
 	@@not_included_types = [
-		"PersonType"
+		"ContemporaryIssue",
+		"Encyclical",
+		"Page",
+		"PapalAddress",
+		"PersonType",
+		"Principle",
+		"PrismType",
+		"RoleType"
 		]
 
 	def index

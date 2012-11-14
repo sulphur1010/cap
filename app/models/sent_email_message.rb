@@ -16,7 +16,10 @@ class SentEmailMessage < ActiveRecord::Base
 
 	def content_fragments
 		return [] if self.content_fragment_ids.blank?
-		ContentFragment.find(self.content_fragment_ids.split(/,/).map(&:to_i))
+		self.content_fragment_ids.split(/,/).map { |cfid|
+			cl, id = cfid.split(/:/)
+			cl.camelcase.constantize.find(id) rescue nil
+		}.flatten.compact.uniq
 	end
 
 	def to_addr_str=(str)
