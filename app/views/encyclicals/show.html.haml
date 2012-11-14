@@ -9,5 +9,16 @@
 :javascript
 	$(document).ready(function() {
 		var chapter = window.location.hash.replace("#", "");
-		$("#" + chapter).addClass("found");
+		if (chapter != "") {
+			$("#" + chapter).addClass("found");
+		}
+		if ("#{params[:hl]}" != "") {
+			$("p.chapter").each(function() {
+				var chapter = $(this)[0];
+				var regex = new RegExp("\\b#{params[:hl]}\\b", "gi");
+				chapter.innerHTML = chapter.innerHTML.replace(regex, function(matched) {
+					return "<span class=\"highlighted\">" + matched + "</span>";
+				});
+			});
+		}
 	});

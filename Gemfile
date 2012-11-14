@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.3'
 gem 'devise', '2.0'
 gem 'haml', '3.1.4'
+gem 'sass', '3.2.3'
 gem 'formtastic', '2.1.0.rc'
 
 # Bundle edge Rails instead:
@@ -57,6 +58,7 @@ group :development, :test do
 	gem 'machinist', '2.0'
 	gem 'faker', '1.0.1'
 	gem 'syntax', '1.0.0'
+	gem 'progress_bar', '0.4.0'
 end
 
 group :development do

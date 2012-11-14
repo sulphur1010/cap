@@ -1,7 +1,7 @@
 - color = cycle("odd", "even")
 - chapter = chapter_teaser.instance
 %tr{:class => color}
-	%td.encyclical_title= link_to "#{chapter.encyclical.title} - Chapter #{chapter.chapter_num}", encyclical_path(chapter.encyclical, :anchor => "chapter_#{chapter.chapter_num}")
+	%td.encyclical_title= link_to "#{chapter.encyclical.title} - Chapter #{chapter.chapter_num}", encyclical_path(chapter.encyclical, :anchor => "chapter_#{chapter.chapter_num}", :hl => @eq)
 	%td.encyclical_translated_title= "#{chapter.encyclical.translated_title}"
 	%td.encyclical_author
 		- chapter.encyclical.authors.each do |author|
