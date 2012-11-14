@@ -3,9 +3,9 @@ class SentEmailMessagesController < ApplicationController
 	before_filter :require_admin!
 	before_filter :load_contact_lists
 
-	def self.not_included_types
-		[ "PersonType" ]
-	end
+	@@not_included_types = [
+		"PersonType"
+		]
 
 	def index
 		@sent_email_messages = SentEmailMessage.order("updated_at desc")
