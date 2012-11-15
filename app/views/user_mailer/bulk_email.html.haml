@@ -12,9 +12,10 @@
 							.content_fragment_type= cft.titleize.pluralize
 							- cfs.each do |cf|
 								.content_fragment
-									- if cf.teaser.nil?
-										= cf.title
-										= cf.body
+									.title
+										= link_to cf.title, url_for(cf)
+									- unless cf.teaser.nil?
+										.teaser
+											= raw(cf.teaser)
+									.author
 										= cf.authors.map { |u| u.full_name }.join(", ")
-									- else
-										= raw(cf.teaser)

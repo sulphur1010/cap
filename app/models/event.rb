@@ -43,6 +43,10 @@ class Event < ActiveRecord::Base
 		[1.week, 1.day]
 	end
 
+	def authors
+		[ self.director ].compact
+	end
+
 	belongs_to :location
 	belongs_to :director, :class_name => "User"
 	belongs_to :chapter
