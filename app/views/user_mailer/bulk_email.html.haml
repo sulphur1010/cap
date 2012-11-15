@@ -13,7 +13,7 @@
 							- cfs.each do |cf|
 								.content_fragment
 									.title
-										= link_to cf.title, url_for(cf)
+										= link_to cf.title, send("#{cf.class.to_s.underscore}_url".to_sym, cf)
 									- unless cf.teaser.nil?
 										.teaser
 											= raw(cf.teaser)

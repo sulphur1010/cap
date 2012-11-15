@@ -12,10 +12,11 @@
 			%h4.cft_name{:'data-type' => cft }= cft.titleize.pluralize
 			.cft_content{:'data-type' => cft }
 				- cft.constantize.order('created_at desc').each do |cf|
-					.content_fragment
-						.checkbox{:'data-class' => cf.class.to_s.underscore, :'data-id' => cf.id}
-							= check_box_tag :ctf_checkbox, 'yes', false
-						= cf.title
+					- if !cf.respond_to?(:published?) || cf.published?
+						.content_fragment
+							.checkbox{:'data-class' => cf.class.to_s.underscore, :'data-id' => cf.id}
+								= check_box_tag :ctf_checkbox, 'yes', false
+							= cf.title
 	= f.actions do
 		= f.submit 'Send Message'
 #individual_email_popup{:style => 'display: none;'}
