@@ -7,7 +7,15 @@
   	background: url("/images/top_nav_bg.gif");
   	color: #fff;
   	padding: 4px 7px;
+}
 
+#bulk_email a {
+	color: #08c;
+	text-decoration: none;
+}
+
+#bulk_email a:hover {
+	text-decoration: underline;
 }
 
 #bulk_email .wrapper {
@@ -35,6 +43,7 @@
 	font-size: 16px;
 	color: #333;
 	line-height: 1.6em;
+	margin-bottom: 10px;
 	}
 
 #bulk_email hr {
@@ -43,7 +52,7 @@
 	margin: 10px 0;	
 }
 
-#bulk_email p {
+#bulk_email .teaser {
 	margin-top: 0px;
   display: inline-block;
   padding: 0 0 0 0px;
@@ -57,4 +66,14 @@
   margin: 10px 0 10px 0;
   border-top: 1px dotted #aaa;
   padding: 10px 0 0 0;
+}
+
+#bulk_email h1 {
+	font-size: 36px;
+	font-weight: bold;
+}
+
+#bulk_email .title {
+	font-weight: bold;
+	font-size: 16px;
 }
