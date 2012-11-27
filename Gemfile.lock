@@ -217,7 +217,7 @@ DEPENDENCIES
   formtastic (= 2.1.0.rc)
   haml (= 3.1.4)
   hpricot (= 0.8.6)
-  jquery-rails
+  jquery-rails (= 2.1.4)
   less (~> 2.0.8)
   machinist (= 2.0)
   mysql2 (= 0.3.11)
