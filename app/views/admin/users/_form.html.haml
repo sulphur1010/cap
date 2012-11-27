@@ -9,7 +9,7 @@
 		= f.input :about_us_type, :collection => User.about_us_types
 		= f.input :about_us_weight
 		= f.input :about, :input_html => { :class => 'js_editor' }
-		= f.input :phone
+		= contact_f.input :phone
 		= f.input :roles, :as => :check_boxes, :collection => [ "admin", "speaker", "celebrant", "thought_creator", "user" ]
 		= f.input :person_type, :collection => PersonType.order(:published => true).order(:weight).collect { |c| [c.name, c.id] }
 		= f.input :chapter, :collection => Chapter.order(:name).collect { |c| [c.name, c.id] }
