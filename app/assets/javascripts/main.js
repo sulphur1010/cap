@@ -1,9 +1,4 @@
 $(function() {
-	$('textarea.js_editor').tinymce({ 
-		theme: 'advanced',
-		plugins: "accordion,encyclical",
-		theme_advanced_buttons3_add: "accordion,encyclical"
-	});
 	$('select.js_multiselect').multiSelect();
 	$('input.js_datetime').datetimepicker({
 		timeFormat: 'hh:mm:ss',
@@ -90,6 +85,11 @@ $(function() {
 		} else {
 			t.next().hide();
 		}
+	});
+	$('textarea.js_editor').tinymce({ 
+		theme: 'advanced',
+		plugins: "accordion,encyclical",
+		theme_advanced_buttons3_add: "accordion,encyclical"
 	});
 });
 
