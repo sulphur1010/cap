@@ -12,13 +12,13 @@ gem 'formtastic', '2.1.0.rc'
 #gem 'mysql2', '0.2.6'
 gem 'mysql2', '0.3.11'
 gem 'less', '~> 2.0.8'
-gem 'tinymce-rails', '3.4.8'
+gem 'tinymce-rails', '3.5.8'
 gem 'will_paginate', '3.0.3'
 
 
 # Use unicorn as the web server
 gem 'unicorn'
-gem 'jquery-rails', '>= 1.0.12'
+gem 'jquery-rails', '2.1.4'
 gem 'paperclip', '2.6.0'
 gem 'feedzirra', '0.0.24'
 gem 'delayed_job', '3.0.3'
