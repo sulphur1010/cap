@@ -135,7 +135,7 @@
 						%th Total
 						%th Payment Type
 						%th
-					- @event.attendees_events.sort { |a,b| (a.attendee.last_name rescue '') <=> (b.attendee.last_name rescue '') }.each do |attendee_event|
+					- @event.attendees_events.sort { |a,b| (a.last_name rescue '') <=> (b.last_name rescue '') }.each do |attendee_event|
 						%tr
 							%td= attendee_event.last_name
 							%td= attendee_event.first_name
