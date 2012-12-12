@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
 	# Setup accessible (or protected) attributes for your model
 	attr_accessor :delete_profile_image
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :about_us_type, :about_us_weight, :delete_profile_image, :email_list, :contact_attributes
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :about_us_type, :about_us_weight, :delete_profile_image, :email_list, :contact_attributes, :first_name, :last_name, :title
 
 	belongs_to :chapter
 	belongs_to :person_type
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :content_fragments;
 	has_attached_file :profile_image, :styles => { :small => "80x80>" }
 
-	has_one :contact, :foreign_key => :email, :primary_key => :email
+	has_one :contact, :foreign_key => :email, :primary_key => :email, :autosave => true
 	accepts_nested_attributes_for :contact
 
 	has_many :attendees_events, :foreign_key => :attendee_id
@@ -58,6 +58,38 @@ class User < ActiveRecord::Base
 
 	def last_name
 		self.contact.last_name rescue nil
+	end
+
+	def first_name=(fn)
+		c = self.mandatory_contact
+		c.first_name = fn
+		fn
+	end
+
+	def last_name=(ln)
+		c = self.mandatory_contact
+		c.last_name = ln
+		ln
+	end
+
+	def phone=(p)
+		c = self.mandatory_contact
+		c.phone = p
+		p
+	end
+
+	def title=(t)
+		c = self.mandatory_contact
+		c.title = t
+		t
+	end
+
+	def mandatory_contact
+		unless self.contact
+			self.create_contact
+		else
+			self.contact
+		end
 	end
 
 	def title
@@ -120,6 +152,12 @@ class User < ActiveRecord::Base
 	end
 
 	private
+
+	def save_contact_if_dirty!
+		if self.contact && (self.contact.changed? || self.contact.new_record?)
+			self.contact.save
+		end
+	end
 
 	def set_title
 		self.title = "" if self.title.nil? && !self.contact.nil?
