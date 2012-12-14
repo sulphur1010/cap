@@ -1,0 +1,82 @@
+#!/usr/bin/env ruby
+
+require "csv"
+
+def help
+	puts "USAGE: <script> some_csv_file.csv"
+end
+
+def help_and_exit
+	help
+	exit
+end
+
+
+help_and_exit if ARGV.size != 1
+
+file_name = ARGV[0]
+contact_list_name = file_name.split("/").last.split(".").first
+csv_rows = CSV.read(file_name)
+
+csv_rows = csv_rows[1..-1]
+puts "processing #{csv_rows.size} rows in file for contact list '#{contact_list_name}' ..."
+puts ""
+
+row_number = 2
+
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'config', 'environment'))
+
+contact_list = StaticContactList.find_or_create_by_name(contact_list_name)
+contact_list.save
+
+csv_rows.each do |row|
+	contact_data = {
+		:prefix => (row[0].strip rescue nil),
+		:first_name => (row[1].strip rescue nil),
+		:middle_initial => (row[2].strip rescue nil),
+		:last_name => (row[3].strip rescue nil),
+		:suffix => (row[4].strip rescue nil),
+		:title => (row[5].strip rescue nil),
+		:email => (row[6].strip rescue nil),
+		:address => (row[7].strip rescue nil),
+		:address_2 => (row[8].strip rescue nil),
+		:address_3 => (row[9].strip rescue nil),
+		:city => (row[10].strip rescue nil),
+		:state => (row[11].strip rescue nil),
+		:country => (row[12].strip rescue nil),
+		:zip_code => (row[13].strip rescue nil),
+		:work_phone => (row[14].strip rescue nil),
+		:work_phone_ext => (row[15].strip rescue nil),
+		:mobile_phone => (row[16].strip rescue nil),
+		:home_phone => (row[17].strip rescue nil)
+#		:cst_student => (row[18].strip rescue nil),
+#		:parish => (row[19].strip rescue nil),
+#		:diocese => (row[20].strip rescue nil)
+	}
+	if contact_data[:email] == nil
+		puts "#{row_number} - skipping row - no email address"
+	else
+
+		# remove the nil data fields
+		contact_data = contact_data.delete_if { |k, v| v.nil? || v.empty? }
+
+		# create or update the contact
+		contact = Contact.find_by_email(contact_data[:email])
+		if contact
+			puts "#{row_number} - updating #{contact_data[:email]}"
+			contact.update_attributes(contact_data)
+		else
+			puts "#{row_number} - creating #{contact_data[:email]}"
+			contact = Contact.create(contact_data)
+		end
+
+		# add to contact list
+		if !contact_list.contacts.include?(contact)
+			puts "#{row_number} - added to contact list"
+			contact_list.contacts << contact
+		else
+			puts "#{row_number} - already in contact list"
+		end
+	end
+	row_number += 1
+end
