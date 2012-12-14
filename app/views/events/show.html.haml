@@ -52,7 +52,7 @@
 				= @event.director.full_name
 				@
 				%span.event_director_phone
-					= @event.director.phone
+					= @event.director.work_phone
 				or
 				%span.event_director_email
 					%a{:href => "mailto:#{@event.director.email}"}= @event.director.email

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
 	# Setup accessible (or protected) attributes for your model
 	attr_accessor :delete_profile_image
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :about_us_type, :about_us_weight, :delete_profile_image, :email_list, :contact_attributes, :first_name, :last_name, :title
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :home_phone, :work_phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :about_us_type, :about_us_weight, :delete_profile_image, :email_list, :contact_attributes, :first_name, :last_name, :title
 
 	belongs_to :chapter
 	belongs_to :person_type
@@ -72,9 +72,15 @@ class User < ActiveRecord::Base
 		ln
 	end
 
-	def phone=(p)
+	def home_phone=(p)
 		c = self.mandatory_contact
-		c.phone = p
+		c.home_phone = p
+		p
+	end
+
+	def work_phone=(p)
+		c = self.mandatory_contact
+		c.work_phone = p
 		p
 	end
 
@@ -96,8 +102,12 @@ class User < ActiveRecord::Base
 		self.contact.title rescue nil
 	end
 
-	def phone
-		self.contact.phone rescue nil
+	def home_phone
+		self.contact.home_phone rescue nil
+	end
+
+	def work_phone
+		self.contact.work_phone rescue nil
 	end
 
 	def thoughts

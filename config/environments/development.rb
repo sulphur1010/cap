@@ -41,4 +41,4 @@ CappUsa::Application.configure do
 		:enable_starttls_auto => true
 	}
 end
-Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
+Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development? rescue nil

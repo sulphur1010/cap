@@ -20,7 +20,7 @@
 			= f.input :city
 			= f.input :state, :wrapper_html => { :class => 'half_width float' }, :as => :select, :collection => Contact::US_STATES
 			= f.input :zip_code, :wrapper_html => { :class => 'half_width float' }
-			= f.input :phone
+			= f.input :home_phone
 			= f.input :note
 			= f.actions do
 				= f.action :submit, :as => :input, :label => "Sign Up"
