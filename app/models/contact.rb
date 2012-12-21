@@ -1,6 +1,6 @@
 class Contact < ActiveRecord::Base
 
-	has_one :user, :foreign_key => :email, :primary_key => :email
+	belongs_to :user, :foreign_key => :email, :primary_key => :email
 
 	validates :email, :presence => true, 
 						:length => { :minimum => 3, :maximum => 254 },

@@ -2,6 +2,9 @@ class StaticContactListsController < ApplicationController
 
 	before_filter :load_contact_lists
 	layout "mail"
+	
+	def index
+	end
 
 	def show
 		@contact_list = ContactList.find(params[:id])
@@ -47,5 +50,11 @@ class StaticContactListsController < ApplicationController
 		@contact_list.contacts.delete(@contact)
 		@contacts = @contact_list.contacts
 		render :'show', :layout => false
+	end
+
+	def destroy
+		@contact_list = ContactList.find(params[:id])
+		@contact_list.destroy
+		redirect_to static_contact_lists_path
 	end
 end

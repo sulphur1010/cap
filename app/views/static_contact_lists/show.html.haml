@@ -1,3 +1,4 @@
+= link_to "Delete", static_contact_list_path(@contact_list), :method => :delete, :class => "right", :confirm => "Are you sure?"
 = link_to "Edit Contact List Name", edit_static_contact_list_path(@contact_list)
 %div
 	= link_to "Add Contacts", "#", :class => "add_contacts_button"
