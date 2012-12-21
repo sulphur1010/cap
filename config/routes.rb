@@ -104,6 +104,9 @@ CappUsa::Application.routes.draw do
 	match 'encyclicals/:id/chapter/:chapter/references' => 'encyclicals#chapter_references'
 	match 'encyclicals/popup' => 'encyclicals#popup'
 
+	match 'profile' => "users#edit", :via => :get
+	match 'profile' => "users#update", :via => :put
+
 	post 'paypal_ipn', :to => 'paypal_ipn#index', :as => 'paypal_ipn'
 
 	match '*url' => 'pages#view'

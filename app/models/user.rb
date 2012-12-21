@@ -4,13 +4,35 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable,
 				 :recoverable, :rememberable, :trackable, :validatable
 
-	def self.about_us_types
-		[ "National Board", "Staff", "Chapter President" ]
+	def self.affiliation_types
+		[
+			[ "National Board", "national_board" ],
+			[ "Staff", "staff" ],
+			[ "Chapter President", "chapter_president" ],
+			[ "Advisor", "advisor_" ],
+			[ "Ecces. Advisor", "ecces_advisor" ],
+			[ "Council", "council" ],
+			[ "Chaplain", "chaplain" ],
+			[ "Chapter FC", "chapter_fc" ],
+			[ "Chapter NK", "chapter_nk" ],
+			[ "Chapter DC", "chapter_dc" ],
+			[ "Member", "member" ]
+		]
+	end
+
+	def self.roles
+		[
+			["Admin", "admin"],
+			["Speaker", "speaker"],
+			["Celebrant", "celebrant"],
+			["Thought Creator", "thought_creator"],
+			["Account Holder", "user" ]
+		]
 	end
 
 	# Setup accessible (or protected) attributes for your model
 	attr_accessor :delete_profile_image
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :home_phone, :work_phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :about_us_type, :about_us_weight, :delete_profile_image, :email_list, :contact_attributes, :first_name, :last_name, :title
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :home_phone, :work_phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :affiliations, :about_us_weight, :delete_profile_image, :email_list, :contact_attributes, :first_name, :last_name, :title
 
 	belongs_to :chapter
 	belongs_to :person_type
@@ -29,8 +51,10 @@ class User < ActiveRecord::Base
 	has_many :static_contact_lists
 
 	after_initialize :load_roles
+	after_initialize :load_affiliations
 	before_save :set_title
 	before_save :convert_roles
+	before_save :convert_affiliations
 	before_save :set_speaker
 	before_save :set_celebrant
 	before_create :add_user_role
@@ -41,9 +65,17 @@ class User < ActiveRecord::Base
 		profile_image.clear if delete_profile_image == '1'
 	end
 
-	scope :national_board_members, where(:about_us_type => 'National Board').order(:about_us_weight)
-	scope :staff, where(:about_us_type => 'Staff').order(:about_us_weight)
-	scope :chapter_presidents, where(:about_us_type => 'Chapter President').order(:about_us_weight)
+	scope :national_board_members, where("affiliation_list LIKE '%national_board%'")
+	scope :staff, where("affiliation_list LIKE '%staff%'")
+	scope :chapter_presidents, where("affiliation_list LIKE '%chapter_president%'")
+	scope :advisors, where("affiliation_list LIKE '%advisor_%'")
+	scope :ecces_advisors, where("affiliation_list LIKE '%ecces_advisor%'")
+	scope :council, where("affiliation_list LIKE '%council%'")
+	scope :chaplains, where("affiliation_list LIKE '%chaplain%'")
+	scope :chapter_fc_account_holders, where("affiliation_list LIKE '%chapter_fc%'")
+	scope :chapter_nk_account_holders, where("affiliation_list LIKE '%chapter_nk%'")
+	scope :chapter_dc_account_holders, where("affiliation_list LIKE '%chapter_dc%'")
+	scope :members, where("affiliation_list LIKE '%member%'")
 
 	scope :admins, where("role_list LIKE '%admin%'")
 	scope :speakers, where("role_list LIKE '%speaker%'")
@@ -149,6 +181,24 @@ class User < ActiveRecord::Base
 		@roles
 	end
 
+	def affiliations=(r)
+		if r.class == Array
+			@affiliations = r.map { |r| r.to_s }
+		else
+			@affiliations = [r.to_s] unless r.to_s.blank?
+		end
+		normalize_affiliations
+		@affiliations
+	end
+
+	def affiliations
+		unless @affiliations
+			@affiliations = self.affiliation_list.split(/,/).map { |r| r.strip } rescue []
+		end
+		normalize_affiliations
+		@affiliations
+	end
+
 	def full_name
 		if self.first_name.blank? && self.last_name.blank?
 			self.email
@@ -185,6 +235,10 @@ class User < ActiveRecord::Base
 		@roles = @roles.map { |r| r.to_s }.delete_if { |c| c == "" }.compact
 	end
 
+	def normalize_affiliations
+		@affiliations = @affiliations.map { |r| r.to_s }.delete_if { |c| c == "" }.compact
+	end
+
 	def load_roles
 		@roles = self.role_list.split(/,/).map { |r| r.strip } rescue []
 		unless @roles
@@ -192,8 +246,19 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def load_affiliations
+		@affiliations = self.affiliation_list.split(/,/).map { |r| r.strip } rescue []
+		unless @affiliations
+			@affiliations = []
+		end
+	end
+
 	def convert_roles
 		self.role_list = @roles.map { |r| r.to_s }.join(',')
+	end
+
+	def convert_affiliations
+		self.affiliation_list = @affiliations.map { |r| r.to_s }.join(',')
 	end
 
 	def set_speaker

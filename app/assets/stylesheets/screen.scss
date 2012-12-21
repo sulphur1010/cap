@@ -133,7 +133,6 @@ select {
 
 .user_name {
 	margin-right: 10px;
-	color: #777;
 }
 
 /*--Header*/
@@ -363,6 +362,11 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 .formtastic li.boolean label {
 	float: none;
 	margin-left: 120px;
+}
+
+.formtastic li.left_aligned.boolean label {
+	margin-left: 0;
+	font-weight: normal;
 }
 
 .formtastic .choices-group {
@@ -1522,4 +1526,24 @@ ul.accordion_list {
 .directions {
 	font-size: 11px;
 	color: #999;
+}
+
+#home_signup_button {
+	box-shadow: 0 0 1px #FFFFFF inset;
+	display: inline-block;
+	font-weight: bold;
+	vertical-align: middle;
+	margin: 5px 0 10px;
+	text-decoration: none;
+	border: 3px solid #FFFFFF;
+	border-radius: 8px 8px 8px 8px;
+	box-shadow: 0 1px 2px #AAAAAA;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 16px;
+	text-align: center;
+	text-shadow: 1px 1px 1px #558708;
+	min-width: 170px;
+	padding: 5px 10px;
+	background: #81b800;
 }

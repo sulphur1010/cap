@@ -1,18 +1,28 @@
 = semantic_form_for [:admin, @user] do |f|
 	= f.semantic_fields_for :contact do |contact_f|
+		= f.buttons
+		= contact_f.input :prefix, :as => :select, :collection => Contact::NAME_PREFIXES
 		= contact_f.input :first_name
 		= contact_f.input :last_name
+		= contact_f.input :suffix, :as => :select, :collection => Contact::NAME_SUFFIXES
 		= f.input :password
 		= f.input :password_confirmation, :label => 'Password', :required => true
 		= f.input :email
 		= contact_f.input :title
-		= f.input :about_us_type, :collection => User.about_us_types
+		= f.input :affiliations, :as => :check_boxes, :collection => User.affiliation_types, :label => "CAPP Affiliation"
 		= f.input :about_us_weight
 		= f.input :about, :input_html => { :class => 'js_editor' }
 		= contact_f.input :home_phone
-		= f.input :roles, :as => :check_boxes, :collection => [ "admin", "speaker", "celebrant", "thought_creator", "user" ]
-		= f.input :person_type, :collection => PersonType.order(:published => true).order(:weight).collect { |c| [c.name, c.id] }
-		= f.input :chapter, :collection => Chapter.order(:name).collect { |c| [c.name, c.id] }
+		= contact_f.input :address
+		= contact_f.input :address_2
+		= contact_f.input :address_3
+		= contact_f.input :state, :as => :select, :collection => Contact::US_STATES
+		= contact_f.input :country
+		= contact_f.input :zip_code
+
+		= f.input :roles, :as => :check_boxes, :collection => User.roles
+		= f.input :person_type, :collection => PersonType.order(:published => true).order(:weight).collect { |c| [c.name, c.id] }, :label => "About me:"
+		/= f.input :chapter, :collection => Chapter.order(:name).collect { |c| [c.name, c.id] }
 		= f.input :contemporary_issues, :collection => ContemporaryIssue.published.order(:title).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
 		= f.input :profile_image
 		- if @user.profile_image_file_name?

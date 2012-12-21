@@ -14,7 +14,7 @@ gem 'mysql2', '0.3.11'
 gem 'less', '~> 2.0.8'
 gem 'tinymce-rails', '3.5.8'
 gem 'will_paginate', '3.0.3'
-
+gem 'country_select', '1.0.1'
 
 # Use unicorn as the web server
 gem 'unicorn'
@@ -41,7 +41,7 @@ gem 'sunspot_solr', '1.3.3'
 gem 'sunspot_rails', '1.3.3'
 gem 'hpricot', '0.8.6'
 
-gem 'roadie'
+gem 'roadie', '2.3.4'
 
 group :assets do
 	gem 'sass-rails'

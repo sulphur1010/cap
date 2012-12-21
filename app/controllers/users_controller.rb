@@ -5,4 +5,18 @@ class UsersController < ApplicationController
 	def show
 		respond_with(@user = User.find(params[:id]))
 	end
+
+	def edit
+		@user = current_user
+		respond_with(@user)
+	end
+
+	def update
+		data = params[:user]
+		if data[:password] && data[:password].empty?
+			data.delete(:password)
+			data.delete(:password_confirmation)
+		end
+		respond_with(@user = User.update(current_user.id, data), :location => profile_url)
+	end
 end

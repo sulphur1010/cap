@@ -5,6 +5,11 @@ table.left_menu_container {
 		li a {
 			font-weight: normal;
 			padding: 3px;
+			color: #61849d;
+		}
+
+		li a:hover {
+			background: #dce7ef;
 		}
 	}
 }

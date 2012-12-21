@@ -30,7 +30,7 @@
 	<div id='header'>
 		<div id="user_login">
 			<% if user_signed_in? %>
-				<span class="user_name"><%= current_user.full_name %></span>
+				<%= link_to current_user.full_name, profile_url, :class => "user_name" %>
 				<%= link_to 'Logout', destroy_user_session_url, :method => :delete, :class => 'logout_link' %>
 			<% else %>
 				<%= link_to "Sign Up", new_registration_path(User), :class => 'register_link' %>

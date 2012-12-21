@@ -1,4 +1,7 @@
 class Contact < ActiveRecord::Base
+
+	has_one :user, :foreign_key => :email, :primary_key => :email
+
 	validates :email, :presence => true, 
 						:length => { :minimum => 3, :maximum => 254 },
 						:uniqueness => true,
@@ -23,7 +26,9 @@ class Contact < ActiveRecord::Base
 							"Mr",
 							"Master",
 							"Rev",
+							"Sr",
 							"Fr",
+							"Msgr",
 							"Dr",
 							"Atty",
 							"Prof",
@@ -32,6 +37,16 @@ class Contact < ActiveRecord::Base
 							"Gov",
 							"Coach",
 							"Ofc" ] unless const_defined?("NAME_PREFIXES")
+
+	NAME_SUFFIXES = [
+							"PhD",
+							"III",
+							"Jr.",
+							"Sr",
+							"MD",
+							"DC",
+							"DDS"
+							] unless const_defined?("NAME_SUFFIXES")
 
 	def full_name
 		if self.first_name.blank? && self.last_name.blank?

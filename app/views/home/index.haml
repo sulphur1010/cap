@@ -55,13 +55,16 @@
 			%td.thoughts_block.col_two_three{:colspan => 2}= render :partial => 'shared/home_thoughts_block'
 			%td.newscourse_block.col_three
 				.newsletter_capture
-					%h4 Sign Up
-					.arial.size11.cgrey Sign up to receive relevant CAPP related news and information.
+					%h4 Get our Newsletter
+					.arial.size11.cgrey and receive the latest CAPP-related news and information.
 					= form_for Contact.new do |f|
 						%table
 							%tr
 								%td= f.text_field :email, { :class => 'email_box', :id => 'js_email_address', :'data-label' => 'Add Your Email' }
 								%td= f.submit :class => 'submit_btn', :value=> 'Submit'
+				%h3.center OR
+				%a#home_signup_button{:href => user_registration_path} Sign up for a CAPP-USA.org account
+				.arial.size11.cgrey A CAPP-USA account gives you access to sponsored Events, Courses and more.
 				= render :partial => 'shared/home_upcoming_course'
 				= render :partial => 'shared/home_upcoming_event'
 				.news_block= render :partial => 'shared/home_news_block'

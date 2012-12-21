@@ -9,12 +9,14 @@ class ContactList < ActiveRecord::Base
 			SpeakerContactList.new,
 			ThoughtCreatorContactList.new,
 			CelebrantContactList.new,
-			NationalBoardMemberContactList.new,
-			StaffContactList.new,
-			ChapterPresidentContactList.new
+			LeadsContactList.new,
+			AccountHoldersContactList.new
 		]
-		Chapter.all.each do |chapter|
-			list << ChapterContactList.new(:chapter => chapter)
+		User.affiliation_types.each do |affiliate_type|
+			list << AffiliateContactList.new(:sub_type => affiliate_type[1])
+		end
+		PersonType.all.each do |person_type|
+			list << PersonTypeContactList.new(:sub_type => person_type)
 		end
 		list
 	end
@@ -29,5 +31,9 @@ class ContactList < ActiveRecord::Base
 
 	def value_name
 		self.display_name.gsub(/ /, '').underscore.gsub(/,/, '')
+	end
+
+	def sub_type
+		nil
 	end
 end

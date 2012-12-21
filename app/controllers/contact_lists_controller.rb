@@ -8,7 +8,12 @@ class ContactListsController < ApplicationController
 		type = params[:type]
 		klass = type.constantize
 		return render :text => "Error", :status => 404 if klass.table_name != "contact_lists"
-		@contact_list = klass.new
+		sub_type = params[:sub_type]
+		if sub_type
+			@contact_list = klass.new(:sub_type => sub_type)
+		else
+			@contact_list = klass.new
+		end
 		render :show
 	end
 

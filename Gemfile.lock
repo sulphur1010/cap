@@ -41,6 +41,7 @@ GEM
       net-ssh-gateway (>= 1.1.0)
     cocaine (0.4.2)
     commonjs (0.2.6)
+    country_select (1.0.1)
     css_parser (1.2.6)
       addressable
       rdoc
@@ -208,6 +209,7 @@ PLATFORMS
 DEPENDENCIES
   active_record_query_trace (= 1.1)
   capistrano
+  country_select (= 1.0.1)
   daemons (= 1.1.9)
   delayed_job (= 3.0.3)
   delayed_job_active_record (= 0.3.2)
@@ -224,7 +226,7 @@ DEPENDENCIES
   paperclip (= 2.6.0)
   progress_bar (= 0.4.0)
   rails (= 3.2.3)
-  roadie
+  roadie (= 2.3.4)
   rsolr (= 1.0.7)
   rspec-rails (~> 2.6)
   sass (= 3.2.3)

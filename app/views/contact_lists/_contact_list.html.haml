@@ -1,4 +1,4 @@
-%h2= @contact_list.display_name
+%h2= "#{@contact_list.display_name} (#{@contact_list.contacts.count})"
 %table.data_table
 	%thead
 		%tr

@@ -1,0 +1,28 @@
+= semantic_form_for @user, :url => profile_url do |f|
+	= f.semantic_fields_for :contact do |contact_f|
+		.right
+			= f.actions do
+				= f.action :submit, :label => "Save"
+		= f.input :email
+		= f.input :password
+		= f.input :password_confirmation, :label => 'Password', :required => true
+		= contact_f.input :prefix, :as => :select, :collection => Contact::NAME_PREFIXES, :required => true
+		= contact_f.input :first_name, :required => true
+		= contact_f.input :last_name, :required => true
+		= contact_f.input :suffix, :as => :select, :collection => Contact::NAME_SUFFIXES, :required => true
+		%br
+		%hr
+		%br
+		%h3 Optional
+		= contact_f.input :home_phone
+		= contact_f.input :address
+		= contact_f.input :address_2
+		= contact_f.input :address_3
+		= contact_f.input :state, :as => :select, :collection => Contact::US_STATES
+		= contact_f.input :country
+		= contact_f.input :zip_code
+		= f.input :person_type, :collection => PersonType.order(:published => true).order(:weight).collect { |c| [c.name, c.id] }, :label => "About me:"
+		= f.input :contemporary_issues, :collection => ContemporaryIssue.published.order(:title).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }, :label => "I am interested in:"
+		= f.input :email_list, :label => "Yes, I would like to receive occasional updates from CAPP about new features and special offers.", :wrapper_html => { :class => "left_aligned" }
+		= f.actions do
+			= f.action :submit, :label => "Save"
