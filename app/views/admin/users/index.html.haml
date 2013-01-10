@@ -3,7 +3,7 @@
 		= form_for(User.new, :url => search_admin_users_path) do |f|
 			= text_field_tag :q, (@q rescue ''), :placeholder => "Search Users"
 			= f.submit 'Search'
-	%h2 All Users
+	%h2 All Account Holders
 	- table(@users, ['name', 'email', 'roles', '']) do |user, klass|
 		%tr{:class => klass}
 			%td= link_to user.full_name, admin_user_path(user)

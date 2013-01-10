@@ -2,7 +2,7 @@
 	%table.right_col
 		%tr
 			%td.padding_in10
-				%h5 User Menu
+				%h5 Admin Menu
 				%ul#user_menu
 					%li
 						- is_thought_creator? do
@@ -36,16 +36,9 @@
 						%li
 							Mailer
 							%ul
-								%li= link_to "Send Mail", new_sent_email_message_path
+								%li= link_to "Compose Mail", new_sent_email_message_path
 								%li= link_to "Sent", sent_email_messages_path
-								%li Contact Lists
-								%li
-									%ul
-										- ContactList.all_contact_lists.each do |list|
-											%li
-												%a{:href => contact_list_href(list)}= list.display_name
-								%li= link_to "New Contact List", new_static_contact_list_path
-									
+								%li= link_to "Contact Lists", static_contact_lists_path
 						%li= link_to 'Menu Items', admin_menu_items_url
 						%li= link_to 'Account Holders', admin_users_url
 						%li= link_to 'Contacts', admin_contacts_url

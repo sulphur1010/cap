@@ -140,6 +140,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def load_contact_lists
-		@contact_lists = ContactList.all_contact_lists
+		@dynamic_contact_lists = ContactList.dynamic_contact_lists
+		@static_contact_lists = ContactList.static_contact_lists
 	end
 end

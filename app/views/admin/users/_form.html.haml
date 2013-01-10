@@ -1,6 +1,7 @@
 = semantic_form_for [:admin, @user] do |f|
 	= f.semantic_fields_for :contact do |contact_f|
-		= f.buttons
+		= f.buttons do
+			= f.commit_button "Update Account Holder"
 		= contact_f.input :prefix, :as => :select, :collection => Contact::NAME_PREFIXES
 		= contact_f.input :first_name
 		= contact_f.input :last_name
@@ -27,4 +28,5 @@
 		= f.input :profile_image
 		- if @user.profile_image_file_name?
 			= f.input :delete_profile_image, :as => :boolean, :label => "Remove profile image?"
-		= f.buttons
+		= f.buttons do
+			= f.commit_button "Update Account Holder"

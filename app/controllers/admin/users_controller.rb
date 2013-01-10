@@ -37,16 +37,22 @@ class Admin::UsersController < ApplicationController
 	end
 
 	def edit
+		session[:return_url] = params[:return_url] if params[:return_url]
 		respond_with(@user = User.find(params[:id]))
 	end
 
 	def update
+		location = admin_users_url
+		if session[:return_url]
+			location = session[:return_url]
+			session.delete(:return_url)
+		end
 		data = params[:user]
 		if data[:password] && data[:password].empty?
 			data.delete(:password)
 			data.delete(:password_confirmation)
 		end
-		respond_with(@user = User.update(params[:id], data), :location => admin_users_url)
+		respond_with(@user = User.update(params[:id], data), :location => location)
 	end
 
 	def destroy

@@ -63,4 +63,12 @@ class Contact < ActiveRecord::Base
 			scoped
 		end
 	end
+
+	def account_holder?
+		!self.user.nil?
+	end
+
+	def contact
+		self
+	end
 end

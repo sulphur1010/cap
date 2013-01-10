@@ -21,8 +21,12 @@ class ContactList < ActiveRecord::Base
 		list
 	end
 
+	def self.static_contact_lists
+		StaticContactList.includes(:contacts)
+	end
+
 	def self.all_contact_lists
-		ContactList.dynamic_contact_lists + StaticContactList.includes(:contacts)
+		ContactList.dynamic_contact_lists + ContactList.static_contact_lists
 	end
 
 	def display_name

@@ -13,7 +13,7 @@
 		<div class= "inline required">*</div>
 		<div class="inline directions">enter a valid email address</div>
 		<br />
-		<%= f.email_field :email %></div>
+		<%= f.email_field :email, :value => (params[:email] || '') %></div>
 
 		<div><%= f.label :password %>
 		<div class= "inline required">*</div>

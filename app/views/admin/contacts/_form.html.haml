@@ -1,0 +1,18 @@
+= semantic_form_for [:admin, @contact] do |f|
+	= f.buttons do
+		= f.commit_button "Update Lead"
+	= f.input :prefix, :as => :select, :collection => Contact::NAME_PREFIXES
+	= f.input :first_name
+	= f.input :last_name
+	= f.input :suffix, :as => :select, :collection => Contact::NAME_SUFFIXES
+	= f.input :email
+	= f.input :title
+	= f.input :home_phone
+	= f.input :address
+	= f.input :address_2
+	= f.input :address_3
+	= f.input :state, :as => :select, :collection => Contact::US_STATES
+	= f.input :country
+	= f.input :zip_code
+	= f.buttons do
+		= f.commit_button "Update Lead"

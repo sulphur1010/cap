@@ -211,6 +211,14 @@ class User < ActiveRecord::Base
 		content_fragments.published.of_type("Encyclical")
 	end
 
+	def account_holder?
+		true
+	end
+
+	def user
+		self
+	end
+
 	private
 
 	def save_contact_if_dirty!
