@@ -1,14 +1,75 @@
+= link_to 'Delete Selected', remove_contact_static_contact_list_path(@contact_list), :method => :delete, :id => "js_delete_selected_contacts", :class => "btn_edit disabled", :confirm => "Are you sure?", :remote => true
 %h2= @contact_list.display_name
 %table.data_table
 	%thead
 		%tr
-			%th &nbsp;
+			%th= check_box_tag :blah, 1, false, :class => "js_all_contacts"
 			%th Email
 			%th Name
 	- @contact_list.contacts.each do |contact|
 		%tr{:class => cycle("odd", "even")}
-			%td
-				%a.remove_contact{:href => "#", :'data-id' => contact.id, :title => "Remove Contact"}
-					%img{:src => "/assets/remove.png"}
+			%td= check_box_tag :contact_ids, contact.id, false, :class => "js_contact_id"
 			%td= contact.email
-			%td= contact.full_name
+			%td
+				- if contact.account_holder?
+					= link_to contact.full_name, edit_admin_user_path(contact.user, :return_url => request.url)
+				- else
+					= link_to contact.full_name, edit_admin_contact_path(contact.contact, :return_url => request.url)
+:javascript
+	$(document).ready(function() {
+		$("#js_delete_selected_contacts").click(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			var checked = $(".js_contact_id:checked");
+			var all = $(".js_contact_id");
+
+			var ids = [];
+			checked.each (function() {
+				ids.push($(this).val());
+			});
+
+			if (confirm($(this).attr('data-confirm'))) {
+				if (ids.length != 0) {
+					if (checked.length == all.length) {
+						if (!confirm("Are you sure you want to delete all of the contacts from this list?")) {
+							return;
+						}
+					}
+					$.post("#{remove_contact_static_contact_list_path(@contact_list)}", { contact_ids: ids.join(",") }, null, "script");
+				}
+			}
+		});
+
+		$(".js_contact_id").change(function() {
+			if ($(".js_contact_id:checked").length == 0) {
+				$("#js_delete_selected_contacts").addClass("disabled");
+				$(".js_all_contacts").attr('checked', false);
+			} else {
+				$("#js_delete_selected_contacts").removeClass("disabled");
+				$(".js_all_contacts").attr('checked', true);
+			}
+		});
+
+		$(".js_all_contacts").change(function() {
+			var checked = $(".js_contact_id:checked");
+			var all = $(".js_contact_id");
+			var t = $(this);
+
+			if (t.is(":checked")) {
+				if (checked.length == 0) {
+					all.attr('checked', true);
+					$("#js_delete_selected_contacts").removeClass("disabled");
+					$(".js_all_contacts").attr('checked', true);
+				} else {
+					all.attr('checked', false);
+					$("#js_delete_selected_contacts").addClass("disabled");
+					$(".js_all_contacts").attr('checked', false);
+				}
+			} else {
+				all.attr('checked', false);
+				$("#js_delete_selected_contacts").addClass("disabled");
+				$(".js_all_contacts").attr('checked', false);
+			}
+		});
+	});

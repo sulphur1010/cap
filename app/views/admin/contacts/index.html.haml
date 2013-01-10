@@ -2,8 +2,8 @@
 	%h2
 		All Contacts
 		= link_to "(raw emails)", raw_admin_contacts_path
-	= link_to 'Delete Selected', admin_contact_path(0), :method => :delete, :id => "js_delete_selected_contacts", :class => "btn_edit disabled"
-	- table(@contacts, ['', 'email', 'first name', 'last name', 'home phone', 'note', '']) do |contact, klass|
+	= link_to 'Delete Selected', admin_contact_path(0), :method => :delete, :id => "js_delete_selected_contacts", :class => "btn_edit disabled", :confirm => "Are you sure?"
+	- table(@contacts, [check_box_tag(:blah, 1, false, :class => 'js_all_contacts'), 'email', 'first name', 'last name', 'home phone', 'note', '']) do |contact, klass|
 		%tr{:class => klass}
 			%td= check_box_tag :contact_ids, contact.id, false, :class => "js_contact_id"
 			%td= contact.email
@@ -18,8 +18,11 @@
 		$(document).ready(function() {
 			$("#js_delete_selected_contacts").click(function(e) {
 
+				var checked = $(".js_contact_id:checked");
+				var all = $(".js_contact_id");
+
 				var ids = [];
-				$(".js_contact_id:checked").each (function() {
+				checked.each (function() {
 					ids.push($(this).val());
 				});
 
@@ -27,15 +30,47 @@
 					e.preventDefault();
 					e.stopPropagation();
 				} else {
+					if (checked.length == all.length) {
+						if (!confirm("Are you sure you want to delete all of the contacts?")) {
+							e.preventDefault();
+							e.stopPropagation();
+							return;
+						}
+					}
 					$(this).attr('href', $(this).attr('href') + "?ids=" + ids.join(','));
 				}
+				
 			});
 
 			$(".js_contact_id").change(function() {
 				if ($(".js_contact_id:checked").length == 0) {
 					$("#js_delete_selected_contacts").addClass("disabled");
+					$(".js_all_contacts").attr('checked', false);
 				} else {
 					$("#js_delete_selected_contacts").removeClass("disabled");
+					$(".js_all_contacts").attr('checked', true);
+				}
+			});
+
+			$(".js_all_contacts").change(function() {
+				var checked = $(".js_contact_id:checked");
+				var all = $(".js_contact_id");
+				var t = $(this);
+
+				if (t.is(":checked")) {
+					if (checked.length == 0) {
+						all.attr('checked', true);
+						$("#js_delete_selected_contacts").removeClass("disabled");
+						$(".js_all_contacts").attr('checked', true);
+					} else {
+						all.attr('checked', false);
+						$("#js_delete_selected_contacts").addClass("disabled");
+						$(".js_all_contacts").attr('checked', false);
+					}
+				} else {
+					all.attr('checked', false);
+					$("#js_delete_selected_contacts").addClass("disabled");
+					$(".js_all_contacts").attr('checked', false);
 				}
 			});
 		});

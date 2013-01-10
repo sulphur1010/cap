@@ -33,12 +33,7 @@
 								%li= link_to 'Chapters', admin_chapters_url
 								%li= link_to 'Events', admin_events_url
 								%li= link_to 'Locations', admin_locations_url
-						%li
-							Mailer
-							%ul
-								%li= link_to "Compose Mail", new_sent_email_message_path
-								%li= link_to "Sent", sent_email_messages_path
-								%li= link_to "Contact Lists", static_contact_lists_path
+						%li= link_to "Mailer", static_contact_lists_path
 						%li= link_to 'Menu Items', admin_menu_items_url
 						%li= link_to 'Account Holders', admin_users_url
 						%li= link_to 'Contacts', admin_contacts_url

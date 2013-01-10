@@ -18,9 +18,4 @@
 			var t = $(this);
 			$.post("#{add_contact_static_contact_list_path(@contact_list)}", { contact_id: t.attr('data-id') }, null, "script");
 		});
-		$("#contact_list_container a.remove_contact").live("click", function(e) {
-			e.preventDefault();
-			var t = $(this);
-			$.post("#{remove_contact_static_contact_list_path(@contact_list)}", { contact_id: t.attr('data-id') }, null, "script");
-		});
 	});

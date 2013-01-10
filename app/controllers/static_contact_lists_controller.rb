@@ -46,8 +46,11 @@ class StaticContactListsController < ApplicationController
 
 	def remove_contact
 		@contact_list = StaticContactList.find(params[:id])
-		@contact = Contact.find(params[:contact_id])
-		@contact_list.contacts.delete(@contact)
+		contact_ids = params[:contact_ids]
+		contact_ids.split(",").each do |contact_id|
+			contact = Contact.find(contact_id)
+			@contact_list.contacts.delete(contact)
+		end
 		@contacts = @contact_list.contacts
 		render :'show', :layout => false
 	end

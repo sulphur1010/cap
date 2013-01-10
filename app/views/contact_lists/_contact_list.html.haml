@@ -6,9 +6,9 @@
 			%th Name
 	- @contact_list.contacts.each do |contact|
 		%tr{:class => cycle("odd", "even")}
+			%td= contact.email
 			%td
 				- if contact.account_holder?
-					= link_to contact.email, edit_admin_user_path(contact.user, :return_url => request.url)
+					= link_to contact.full_name, edit_admin_user_path(contact.user, :return_url => request.url)
 				- else
-					= link_to contact.email, edit_admin_contact_path(contact.contact, :return_url => request.url)
-			%td= contact.full_name
+					= link_to contact.full_name, edit_admin_contact_path(contact.contact, :return_url => request.url)

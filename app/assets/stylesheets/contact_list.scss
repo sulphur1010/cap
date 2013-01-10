@@ -17,3 +17,18 @@ table.left_menu_container {
 table.mail_left_menu_container td.mail_content_container {
 	background: transparent;
 }
+
+table.mail_left_menu_container .button_group {
+	padding: 10px;
+
+	.plain_link {
+		margin-top: 5px;
+		font-weight: normal;
+		color: #61849D;
+		display: inline;
+	}
+	
+	.plain_link:hover {
+		text-decoration: underline;
+	}
+}
