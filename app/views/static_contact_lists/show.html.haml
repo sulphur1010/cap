@@ -1,10 +1,12 @@
-= link_to "Delete", static_contact_list_path(@contact_list), :method => :delete, :class => "right", :confirm => "Are you sure?"
-= link_to "Edit Contact List Name", edit_static_contact_list_path(@contact_list)
-%div
-	= link_to "Add Contacts", "#", :class => "add_contacts_button"
+.page.button_group
+	= link_to "Delete", static_contact_list_path(@contact_list), :method => :delete, :class => "btn_edit", :confirm => "Are you sure you want to delete this list?"
+	= link_to "Edit Name", edit_static_contact_list_path(@contact_list), :class => "btn_edit"
+	= link_to "Add Contacts", "#", :class => "add_contacts_button btn_edit"
 #contact_list_container
 	= render :partial => "contact_list"
-= link_to "Add Contacts", "#", :class => "add_contacts_button"
+.page.button_group
+	= link_to "Add Contacts", "#", :class => "add_contacts_button btn_edit"
+	.clear
 #contact_popup{:style => "display: none"}
 :javascript
 	$(document).ready(function() {

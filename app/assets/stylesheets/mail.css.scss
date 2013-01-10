@@ -1,3 +1,8 @@
 // Place all the styles related to the mail controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cft_container h4.cft_name:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}

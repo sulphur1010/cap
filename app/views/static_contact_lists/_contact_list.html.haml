@@ -1,5 +1,7 @@
-= link_to 'Delete Selected', remove_contact_static_contact_list_path(@contact_list), :method => :delete, :id => "js_delete_selected_contacts", :class => "btn_edit disabled", :confirm => "Are you sure?", :remote => true
-%h2= @contact_list.display_name
+.page
+	%h2= @contact_list.display_name
+.clear
+= link_to 'Delete Selected', remove_contact_static_contact_list_path(@contact_list), :method => :delete, :id => "js_delete_selected_contacts", :class => "delete_selected_contacts btn_edit left disabled", :confirm => "Are you sure?", :remote => true
 %table.data_table
 	%thead
 		%tr

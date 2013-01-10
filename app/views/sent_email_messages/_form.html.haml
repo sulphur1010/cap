@@ -1,12 +1,16 @@
 = semantic_form_for @sent_email_message do |f|
-	= text_field_tag 'sent_email_message[to_addr_str]', '', :hidden => true
-	= select_tag :to_select, options_from_collection_for_select(ContactList.all_contact_lists, :value_name, :display_name), { :class => 'multiselect', :multiple => true }
-	.edit_button_container
-		.edit_button.submit_btn_no_float
-			= link_to 'Edit Individual Emails', '#'
+	%li.select.input.optional
+		%label.label{:for => "to"} To
+		= text_field_tag 'sent_email_message[to_addr_str]', '', :hidden => true
+		= select_tag :to_select, options_from_collection_for_select(ContactList.all_contact_lists, :value_name, :display_name), { :class => 'multiselect', :multiple => true }
+		.page
+			= link_to 'Edit Individual Emails', '#', :class => "btn_edit edit_button"
+		.clear
 	= f.input :subject
-	= f.input :body
-	= text_field_tag 'sent_email_message[content_fragment_ids]', '', :hidden => false
+	= f.input :body, :input_html => { :cols => 45 }
+	= text_field_tag 'sent_email_message[content_fragment_ids]', '', :hidden => true
+	%hr
+	%h3 Add Content to Email
 	- @content_fragment_types.each do |cft|
 		.cft_container
 			%h4.cft_name{:'data-type' => cft }= cft.titleize.pluralize
