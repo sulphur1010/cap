@@ -5,7 +5,7 @@
 			.page
 				%h1 What's New @ CAPP
 				.body.message
-					= @body
+					= simple_format(@body)
 				- if @content_fragments.count > 0
 					.content_fragments
 						- @content_fragments.group_by { |cf| cf.class.to_s }.each do |cft, cfs|
