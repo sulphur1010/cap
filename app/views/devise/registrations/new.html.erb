@@ -8,11 +8,15 @@
 		<% end %>
 		<hr class="thin">
 
+
 		<h4>Required *</h4>
 		<div><%= f.label :email %>
 		<div class= "inline required">*</div>
 		<div class="inline directions">enter a valid email address</div>
 		<br />
+		<div class="right account_notification_box">
+			If you are affiliated with CAPP, or have been a featured guest of CAPP-USA, an account might have already been created for your email. <a href="/users/password/new">Click Forgot Password?</a> and check your email for a message with a sign-up link.
+		</div>
 		<%= f.email_field :email, :value => (params[:email] || '') %></div>
 
 		<div><%= f.label :password %>
