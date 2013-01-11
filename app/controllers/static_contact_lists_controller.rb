@@ -1,5 +1,6 @@
 class StaticContactListsController < ApplicationController
 
+	before_filter :require_admin!
 	before_filter :load_contact_lists
 	layout "mail"
 	
