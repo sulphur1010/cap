@@ -16,7 +16,8 @@
 					%tr{:class => "#{cycle('odd', 'even')} #{sem.status}"}
 						%td= sem.id
 						%td= sem.user.email rescue nil
-						%td
+						%td= "#{sem.to_addresses.count} email addresses"
+						/
 							%table.to_lists
 								- sem.contact_lists.map(&:display_name).each do |cl|
 									%tr
