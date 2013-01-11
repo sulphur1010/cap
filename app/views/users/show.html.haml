@@ -2,6 +2,7 @@
 	.page
 		- if is_admin?
 			= link_to 'Edit', edit_admin_user_url(@user), :class => 'btn_edit'
+			= link_to 'Send Activation', activate_admin_user_path(@user), :class => 'btn_edit clear', :method => :post, :style => "margin-top: 8px", :confirm => "Are you sure you want to email this account holder an activation email?"
 		%table.profile_table
 			%tr
 				%td
