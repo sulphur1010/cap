@@ -17,11 +17,6 @@
 						%td= sem.id
 						%td= sem.user.email rescue nil
 						%td= "#{sem.to_addresses.count} email addresses"
-						/
-							%table.to_lists
-								- sem.contact_lists.map(&:display_name).each do |cl|
-									%tr
-										%td= cl
 						%td= sem.subject
 						%td= sem.status.titleize
 						%td= sem.updated_at.strftime("%F %T")
