@@ -6,10 +6,10 @@
 		= f.input :email
 		= f.input :password
 		= f.input :password_confirmation, :label => 'Password', :required => true
-		= contact_f.input :prefix, :as => :select, :collection => Contact::NAME_PREFIXES, :required => true
+		= contact_f.input :prefix, :as => :select, :collection => Contact::NAME_PREFIXES
 		= contact_f.input :first_name, :required => true
 		= contact_f.input :last_name, :required => true
-		= contact_f.input :suffix, :as => :select, :collection => Contact::NAME_SUFFIXES, :required => true
+		= contact_f.input :suffix, :as => :select, :collection => Contact::NAME_SUFFIXES
 		%br
 		%hr
 		%br

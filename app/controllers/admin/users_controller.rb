@@ -55,6 +55,12 @@ class Admin::UsersController < ApplicationController
 		respond_with(@user = User.update(params[:id], data), :location => location)
 	end
 
+	def activate
+		@user = User.find(params[:id])
+		UserMailer.activate_user(@user).deliver
+		redirect_to admin_user_url(@user)
+	end
+
 	def destroy
 		respond_with(@user = User.delete(params[:id]), :location => admin_users_url)
 	end

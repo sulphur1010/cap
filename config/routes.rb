@@ -1,5 +1,6 @@
 CappUsa::Application.routes.draw do
 	devise_for :users, :path_names => { :sign_in => 'login' }
+	match 'users/activate' => "users#activate", :via => :get
 
 	resources :sent_email_messages, :path => "mail" do
 		member do
@@ -44,6 +45,9 @@ CappUsa::Application.routes.draw do
 		resources :users do
 			collection do
 				post 'search'
+			end
+			member do
+				post 'activate'
 			end
 		end
 		resources :questions

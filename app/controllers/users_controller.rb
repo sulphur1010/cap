@@ -19,4 +19,7 @@ class UsersController < ApplicationController
 		end
 		respond_with(@user = User.update(current_user.id, data), :location => profile_url)
 	end
+
+	def activate
+	end
 end

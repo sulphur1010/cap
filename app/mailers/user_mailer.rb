@@ -44,4 +44,12 @@ class UserMailer < ActionMailer::Base
 		@content_fragments = sem.content_fragments
 		mail(:to => @to, :from => "website-notifications@capp-usa.org", :subject => @subject, :css => :email)
 	end
+
+	def activate_user(user)
+		@user = user
+		@user.reset_password_token = User.reset_password_token
+		@user.reset_password_sent_at = Time.now
+		@user.save!
+		mail(:to => user.email, :from => "website-notifications@capp-usa.org", :subject => "A CAPP-USA.org Admin has created an account for you")
+	end
 end
