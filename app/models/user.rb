@@ -30,6 +30,14 @@ class User < ActiveRecord::Base
 		]
 	end
 
+	def self.roles_map
+		map = {}
+		User.roles.each do |data|
+			map[data[1]] = data[0]
+		end
+		map
+	end
+
 	# Setup accessible (or protected) attributes for your model
 	attr_accessor :delete_profile_image
 	attr_accessible :email, :password, :password_confirmation, :remember_me, :home_phone, :work_phone, :chapter_id, :roles, :person_type_id, :contemporary_issue_ids, :profile_image, :about, :affiliations, :about_us_weight, :delete_profile_image, :email_list, :contact_attributes, :first_name, :last_name, :title
@@ -120,6 +128,13 @@ class User < ActiveRecord::Base
 		c = self.mandatory_contact
 		c.title = t
 		t
+	end
+
+	def roles_display
+		map = User.roles_map
+		self.roles.collect { |c|
+			map[c]
+		}
 	end
 
 	def mandatory_contact

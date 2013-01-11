@@ -6,7 +6,9 @@
 		%tr
 			%td.left_menu.mail_left_menu
 				.left_menu_item.button_group
-					= link_to "Compose", new_sent_email_message_path, :class => "btn_edit left"
+					- type = @contact_list.type rescue nil
+					- type = nil if type == "StaticContactList"
+					= link_to "Compose", new_sent_email_message_path(:contact_list_id => (@contact_list.id rescue nil), :type => type), :class => "btn_edit left"
 					= link_to "Sent", sent_email_messages_path, :class => "plain_link"
 				.left_menu_item
 					%strong Static Contact Lists
