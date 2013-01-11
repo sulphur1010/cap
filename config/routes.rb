@@ -60,6 +60,9 @@ CappUsa::Application.routes.draw do
 			collection do
 				get 'raw'
 			end
+			member do
+				post 'upgrade'
+			end
 		end
 	end
 

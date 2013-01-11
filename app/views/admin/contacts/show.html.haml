@@ -1,4 +1,6 @@
 .page.contact_page
+	- unless @contact.user
+		= link_to "Upgrade", upgrade_admin_contact_path(@contact), :method => :post, :class => "btn_edit"
 	.separator
 		%strong Email:
 		= @contact.email

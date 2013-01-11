@@ -52,4 +52,9 @@ class UserMailer < ActionMailer::Base
 		@user.save!
 		mail(:to => user.email, :from => "website-notifications@capp-usa.org", :subject => "A CAPP-USA.org Admin has created an account for you")
 	end
+
+	def upgrade_contact(contact)
+		@contact = contact
+		mail(:to => contact.email, :from => "website-notifications@capp-usa.org", :subject => "You are invited to create a CAPP-USA.org Account.")
+	end
 end

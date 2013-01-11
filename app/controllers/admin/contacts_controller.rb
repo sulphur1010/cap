@@ -38,4 +38,10 @@ class Admin::ContactsController < ApplicationController
 		end
 		respond_with(@contact = Contact.update(params[:id], params[:contact]), :location => location)
 	end
+
+	def upgrade
+		@contact = Contact.find(params[:id])
+		UserMailer.upgrade_contact(@contact).deliver
+		redirect_to admin_contact_path(@contact)
+	end
 end

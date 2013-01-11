@@ -12,6 +12,7 @@
 			%td= contact.home_phone
 			%td= !contact.note.empty? ? 'yes' : 'no' rescue 'no'
 			%td.controls
+				= link_to 'View', admin_contact_path(contact)
 				= link_to 'Edit', edit_admin_contact_path(contact)
 				= link_to 'Delete', admin_contact_path(contact), :method => :delete, :confirm => "Are you sure?"
 	:javascript
