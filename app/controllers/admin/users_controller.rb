@@ -16,9 +16,9 @@ class Admin::UsersController < ApplicationController
 			return
 		end
 		users = User.arel_table
-		@users = User.where(users[:first_name].matches("%#{@q}%")).all
-		@users += User.where(users[:last_name].matches("%#{@q}%")).all
-		@users += User.where(users[:email].matches("%#{@q}%")).all
+		#@users = User.where(users[:first_name].matches("%#{@q}%")).all
+		#@users += User.where(users[:last_name].matches("%#{@q}%")).all
+		@users = User.where(users[:email].matches("%#{@q}%")).all
 		@users += User.where(users[:role_list].matches("%#{@q}%")).all
 		@users = @users.flatten.compact.uniq.sort_by(&:last_name)
 		render :action => :index
@@ -52,7 +52,18 @@ class Admin::UsersController < ApplicationController
 			data.delete(:password)
 			data.delete(:password_confirmation)
 		end
-		respond_with(@user = User.update(params[:id], data), :location => location)
+		data[:contact_attributes][:email] = data[:email] if data[:contact_attributes]
+		@user = User.update(params[:id], data)
+		if !@user.errors.empty? && @user.errors[:email]
+			@user.email = @user.email_change[0]
+			@user.reload
+		end
+
+		if @user.errors.empty? && current_user == @user
+			sign_in(@user, :bypass => true)
+		end
+
+		respond_with(@user, :location => location)
 	end
 
 	def activate
