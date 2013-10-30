@@ -89,6 +89,7 @@ $(function() {
 	$('textarea.js_editor').tinymce({ 
 		theme: 'advanced',
 		plugins: "accordion,encyclical",
+		theme_advanced_disable : "styleselect",
 		theme_advanced_buttons3_add: "accordion,encyclical"
 	});
 });
