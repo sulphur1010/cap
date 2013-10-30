@@ -17,7 +17,18 @@ class UsersController < ApplicationController
 			data.delete(:password)
 			data.delete(:password_confirmation)
 		end
-		respond_with(@user = User.update(current_user.id, data), :location => profile_url)
+		data[:contact_attributes][:email] = data[:email] if data[:contact_attributes]
+		@user = User.update(current_user.id, data)
+		if !@user.errors.empty? && @user.errors[:email]
+			@user.email = @user.email_change[0]
+			@user.reload
+		end
+
+		if @user.errors.empty?
+			sign_in(@user, :bypass => true)
+		end
+
+		respond_with(@user, :location => profile_url)
 	end
 
 	def activate

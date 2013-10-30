@@ -65,6 +65,7 @@ class User < ActiveRecord::Base
 	before_save :convert_affiliations
 	before_save :set_speaker
 	before_save :set_celebrant
+	before_save :update_contact_email
 	before_create :add_user_role
 	before_validation :check_clear_attachments
 	after_create :send_welcome_email
@@ -234,6 +235,17 @@ class User < ActiveRecord::Base
 		self
 	end
 
+	# we need to ensure we update the correct contact if the email changes
+	def contact_attributes=(attributes)
+		c = self.contact
+		if self.email_changed?
+			c = Contact.where(:email => self.email_change[0]).first
+		end
+		if c
+			c.update_attributes(attributes)
+		end
+	end
+
 	private
 
 	def save_contact_if_dirty!
@@ -244,6 +256,15 @@ class User < ActiveRecord::Base
 
 	def set_title
 		self.title = "" if self.title.nil? && !self.contact.nil?
+	end
+
+	def update_contact_email
+		return unless self.email_changed?
+		contact = Contact.where(:email => self.email_change[0]).first
+		if contact
+			contact.email = self.email_change[1]
+			contact.save!
+		end
 	end
 
 	def add_user_role
