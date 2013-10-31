@@ -16,10 +16,19 @@ class Admin::UsersController < ApplicationController
 			return
 		end
 		users = User.arel_table
+		contacts = Contact.arel_table
+
 		#@users = User.where(users[:first_name].matches("%#{@q}%")).all
 		#@users += User.where(users[:last_name].matches("%#{@q}%")).all
+
 		@users = User.where(users[:email].matches("%#{@q}%")).all
 		@users += User.where(users[:role_list].matches("%#{@q}%")).all
+
+		@contacts = Contact.where(contacts[:first_name].matches("%#{@q}%")).all
+		@contacts += Contact.where(contacts[:last_name].matches("%#{@q}%")).all
+
+		@contacts.each{|contact| @users.push(contact.user)}
+
 		@users = @users.flatten.compact.uniq.sort_by(&:last_name)
 		render :action => :index
 	end
