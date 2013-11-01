@@ -23,7 +23,7 @@ class SentEmailMessagesController < ApplicationController
 	def new
 		@sent_email_message = SentEmailMessage.draft.where(:user_id => current_user.id).first
 		unless @sent_email_message
-			@sent_email_message = SentEmailMessage.new(:user_id => current_user.id)
+			@sent_email_message = SentEmailMessage.new(:user_id => current_user.id, :header => "What's New @ CAPP")
 			@sent_email_message.save
 		end
 		@content_fragment_types = ContentFragment.types.select { |cft| !@@not_included_types.include?(cft) }

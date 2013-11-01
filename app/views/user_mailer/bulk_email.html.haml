@@ -3,7 +3,8 @@
 		.wrapper
 			%img{:src => "/images/capp-logo.png"}
 			.page
-				%h1 What's New @ CAPP
+				/ %h1 What's New @ CAPP
+				%h1= @header
 				.body.message
 					= simple_format(@body)
 				- if @content_fragments.count > 0

@@ -7,6 +7,7 @@
 			= link_to 'Edit Individual Emails', '#', :class => "btn_edit edit_button"
 		.clear
 	= f.input :subject
+	= f.input :header
 	= f.input :body, :input_html => { :cols => 45 }
 	= text_field_tag 'sent_email_message[content_fragment_ids]', '', :hidden => true
 	%hr
