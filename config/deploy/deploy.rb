@@ -1,5 +1,5 @@
 set :application, "cappwww"
-set :repository,  "git.darmasoft.net:/git/#{application}"
+set :repository,  "git@swifthorse.trueinteraction.com:/git/#{application}"
 
 set :deploy_to, "/var/www/cappwww"
 
