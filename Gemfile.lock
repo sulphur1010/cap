@@ -225,7 +225,7 @@ DEPENDENCIES
   less (~> 2.0.8)
   machinist (= 2.0)
   mysql2 (= 0.3.11)
-  paperclip
+  paperclip (= 3.2.1)
   progress_bar (= 0.4.0)
   rails (= 3.2.3)
   roadie (= 2.3.4)
