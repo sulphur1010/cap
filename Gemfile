@@ -20,7 +20,7 @@ gem 'country_select', '1.0.1'
 # Use unicorn as the web server
 gem 'unicorn'
 gem 'jquery-rails', '2.1.4'
-gem 'paperclip', '3.1.4'
+gem 'paperclip', '3.2.1'
 gem 'feedzirra', '0.0.24'
 gem 'delayed_job', '3.0.3'
 gem 'delayed_job_active_record', '0.3.2'
