@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'rmagick'
 gem 'rails', '3.2.3'
 gem 'devise', '2.0'
 gem 'haml', '3.1.4'
