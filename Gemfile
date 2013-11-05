@@ -5,7 +5,7 @@ gem 'devise', '2.0'
 gem 'haml', '3.1.4'
 gem 'sass', '3.2.3'
 gem 'formtastic', '2.1.0.rc'
-gem 'cocaine', '0.3.2'
+gem 'cocaine', '0.5.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
