@@ -595,21 +595,21 @@ a.jp-repeat2-off:hover {
 	background: url("jplayer.blue.monday.jpg") -90px -290px no-repeat;
 }
 
-a.jp-shuffle2{ {
+a.jp-shuffle2 {
 	background: url("jplayer.blue.monday.jpg") 0 -270px no-repeat;
 	margin-left: 5px;
 }
 
-a.jp-shuffle2{:hover {
+a.jp-shuffle2:hover {
 	background: url("jplayer.blue.monday.jpg") -30px -270px no-repeat;
 }
 
-a.jp-shuffle2{-off {
+a.jp-shuffle2-off {
 	background: url("jplayer.blue.monday.jpg") -60px -270px no-repeat;
 	margin-left: 5px;
 }
 
-a.jp-shuffle2{-off:hover {
+a.jp-shuffle2-off:hover {
 	background: url("jplayer.blue.monday.jpg") -90px -270px no-repeat;
 }
 
