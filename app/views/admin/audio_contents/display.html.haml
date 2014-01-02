@@ -1,0 +1,266 @@
+.page  
+  #jp_container_1.jp-video.jp-video-270p
+    .jp-type-playlist
+      #jquery_jplayer_1.jp-jplayer
+      .jp-gui
+        .jp-interface
+          .jp-progress
+            .jp-seek-bar
+              .jp-play-bar
+          .jp-current-time
+          .jp-duration
+          .jp-title
+            %ul
+              %li
+          .jp-controls-holder
+            %ul.jp-controls
+              %li
+                %a.jp-previous{:href => "javascript:;", :tabindex => "1"} previous
+              %li
+                %a.jp-play{:href => "javascript:;", :tabindex => "1"} play
+              %li
+                %a.jp-pause{:href => "javascript:;", :tabindex => "1"} pause
+              %li
+                %a.jp-next{:href => "javascript:;", :tabindex => "1"} next
+              %li
+                %a.jp-stop{:href => "javascript:;", :tabindex => "1"} stop
+              %li
+                %a.jp-mute{:href => "javascript:;", :tabindex => "1", :title => "mute"} mute
+              %li
+                %a.jp-unmute{:href => "javascript:;", :tabindex => "1", :title => "unmute"} unmute
+              %li
+                %a.jp-volume-max{:href => "javascript:;", :tabindex => "1", :title => "max volume"} max volume
+            .jp-volume-bar
+              .jp-volume-bar-value
+            %ul.jp-toggles
+              %li
+                %a.jp-full-screen{:href => "javascript:;", :tabindex => "1", :title => "full screen"} full screen
+              %li
+                %a.jp-restore-screen{:href => "javascript:;", :tabindex => "1", :title => "restore screen"} restore screen
+              %li
+                %a.jp-shuffle{:href => "javascript:;", :tabindex => "1", :title => "shuffle"} shuffle
+              %li
+                %a.jp-shuffle-off{:href => "javascript:;", :tabindex => "1", :title => "shuffle off"} shuffle off
+              %li
+                %a.jp-repeat{:href => "javascript:;", :tabindex => "1", :title => "repeat"} repeat
+              %li
+                %a.jp-repeat-off{:href => "javascript:;", :tabindex => "1", :title => "repeat off"} repeat off
+      .jp-playlist
+        %ul
+          / The method Playlist.displayPlaylist() uses this unordered list
+          %li
+      .jp-no-solution
+        %span Update Required
+        To play the media you will need to either update your browser to a recent version or update your
+        = succeed "." do
+          %a{:href => "http://get.adobe.com/flashplayer/", :target => "_blank"} Flash plugin
+
+  :javascript
+    $(document).ready(function(){
+
+      var myPlaylist = new jPlayerPlaylist({
+        jPlayer: "#jquery_jplayer_1",
+        cssSelectorAncestor: "#jp_container_1"
+      }, [
+        //Playlist is created when the page loads
+      ], 
+      {
+        playlistOptions: {
+          enableRemoveControls: false
+        },
+        swfPath: "../../js/Jplayer.swf",
+        solution:"flash,html",
+        supplied: "oga,mp3",
+      });
+      $.getJSON( "audio_contents.json", function( data ) {
+        $.each( data, function( key, val ) {
+          mp3url="audio_contents/" + val.audioMp3_file_name;
+          myPlaylist.add({
+            title: val.title,
+            mp3: mp3url,
+          });
+        });
+      });
+
+      // Click handlers for jPlayerPlaylist method demo
+
+    // The remove commands
+
+      //$("#playlist-remove").click(function() {
+      //  myPlaylist.remove();
+      //});
+
+      //$("#playlist-remove--2").click(function() {
+      //  myPlaylist.remove(-2);
+      //});
+      //$("#playlist-remove--1").click(function() {
+      //  myPlaylist.remove(-1);
+      //});
+      //$("#playlist-remove-0").click(function() {
+      //  myPlaylist.remove(0);
+      //});
+      //$("#playlist-remove-1").click(function() {
+      //  myPlaylist.remove(1);
+      //});
+      //$("#playlist-remove-2").click(function() {
+      //  myPlaylist.remove(2);
+      //});
+
+      // The shuffle commands
+
+      $("#playlist-shuffle").click(function() {
+        myPlaylist.shuffle();
+      });
+
+      $("#playlist-shuffle-false").click(function() {
+        myPlaylist.shuffle(false);
+      });
+      $("#playlist-shuffle-true").click(function() {
+        myPlaylist.shuffle(true);
+      });
+
+      // The select commands
+
+      $("#playlist-select--2").click(function() {
+        myPlaylist.select(-2);
+      });
+      $("#playlist-select--1").click(function() {
+        myPlaylist.select(-1);
+      });
+      $("#playlist-select-0").click(function() {
+        myPlaylist.select(0);
+      });
+      $("#playlist-select-1").click(function() {
+        myPlaylist.select(1);
+      });
+      $("#playlist-select-2").click(function() {
+        myPlaylist.select(2);
+      });
+
+      // The next/previous commands
+
+      $("#playlist-next").click(function() {
+        myPlaylist.next();
+      });
+      $("#playlist-previous").click(function() {
+        myPlaylist.previous();
+      });
+
+      // The play commands
+
+      $("#playlist-play").click(function() {
+        myPlaylist.play();
+      });
+
+      $("#playlist-play--2").click(function() {
+        myPlaylist.play(-2);
+      });
+      $("#playlist-play--1").click(function() {
+        myPlaylist.play(-1);
+      });
+      $("#playlist-play-0").click(function() {
+        myPlaylist.play(0);
+      });
+      $("#playlist-play-1").click(function() {
+        myPlaylist.play(1);
+      });
+      $("#playlist-play-2").click(function() {
+        myPlaylist.play(2);
+      });
+
+      // The pause command
+
+      $("#playlist-pause").click(function() {
+        myPlaylist.pause();
+      });
+
+
+      // Changing the playlist options
+
+      // Option: autoPlay
+
+      $("#playlist-option-autoPlay-true").click(function() {
+        myPlaylist.option("autoPlay", true);
+      });
+      $("#playlist-option-autoPlay-false").click(function() {
+        myPlaylist.option("autoPlay", false);
+      });
+
+      // Option: enableRemoveControls
+
+      $("#playlist-option-enableRemoveControls-true").click(function() {
+        myPlaylist.option("enableRemoveControls", true);
+      });
+      $("#playlist-option-enableRemoveControls-false").click(function() {
+        myPlaylist.option("enableRemoveControls", false);
+      });
+
+      // Option: displayTime
+
+      $("#playlist-option-displayTime-0").click(function() {
+        myPlaylist.option("displayTime", 0);
+      });
+      $("#playlist-option-displayTime-fast").click(function() {
+        myPlaylist.option("displayTime", "fast");
+      });
+      $("#playlist-option-displayTime-slow").click(function() {
+        myPlaylist.option("displayTime", "slow");
+      });
+      $("#playlist-option-displayTime-2000").click(function() {
+        myPlaylist.option("displayTime", 2000);
+      });
+
+      // Option: addTime
+
+      $("#playlist-option-addTime-0").click(function() {
+        myPlaylist.option("addTime", 0);
+      });
+      $("#playlist-option-addTime-fast").click(function() {
+        myPlaylist.option("addTime", "fast");
+      });
+      $("#playlist-option-addTime-slow").click(function() {
+        myPlaylist.option("addTime", "slow");
+      });
+      $("#playlist-option-addTime-2000").click(function() {
+        myPlaylist.option("addTime", 2000);
+      });
+
+      // Option: removeTime
+
+      $("#playlist-option-removeTime-0").click(function() {
+        myPlaylist.option("removeTime", 0);
+      });
+      $("#playlist-option-removeTime-fast").click(function() {
+        myPlaylist.option("removeTime", "fast");
+      });
+      $("#playlist-option-removeTime-slow").click(function() {
+        myPlaylist.option("removeTime", "slow");
+      });
+      $("#playlist-option-removeTime-2000").click(function() {
+        myPlaylist.option("removeTime", 2000);
+      });
+
+      // Option: shuffleTime
+
+      $("#playlist-option-shuffleTime-0").click(function() {
+        myPlaylist.option("shuffleTime", 0);
+      });
+      $("#playlist-option-shuffleTime-fast").click(function() {
+        myPlaylist.option("shuffleTime", "fast");
+      });
+      $("#playlist-option-shuffleTime-slow").click(function() {
+        myPlaylist.option("shuffleTime", "slow");
+      });
+      $("#playlist-option-shuffleTime-2000").click(function() {
+        myPlaylist.option("shuffleTime", 2000);
+      });
+
+
+
+      // AVOID COMMANDS
+
+      $("#playlist-avoid-1").click(function() {
+        myPlaylist.remove(2); // Removes the 3rd item
+        myPlaylist.remove(3); // Ignored unless removeTime=0: Where it removes the 4th item, which was originally the 5th item.
+      });
+    });

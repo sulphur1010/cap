@@ -29,7 +29,7 @@ class Admin::ContemporaryIssuesController < ApplicationController
 	end
 
 	def update
-		respond_with(@contemporary_issue = ContemporaryIssue.update(params[:id], params[:contemporary_issue]), :location => admin_contemporary_issues_url)
+		respond_with(@contemporary_issue = ContemporaryIssue.update(params[:id], params[:contemporary_issue]), :location => contemporary_issue_path(@contemporary_issue))
 	end
 
 	def destroy

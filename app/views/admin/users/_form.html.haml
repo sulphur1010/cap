@@ -30,3 +30,31 @@
 			= f.input :delete_profile_image, :as => :boolean, :label => "Remove profile image?"
 		= f.buttons do
 			= f.commit_button "Update Account Holder"
+
+:javascript
+	$(document).ready(function(){
+		var isFirefox = typeof InstallTrigger !== 'undefined';
+
+		$('#user_profile_image').change(function(){
+			validate_image($(this));
+		});
+
+		function validate_image(img) {
+			var isJPEG= new RegExp("\.jpeg");
+			var isJPG= new RegExp("\.jpg");
+			var isPNG= new RegExp("\.png");
+			if(isJPEG.test(img.val())==false){
+				if(isJPG.test(img.val())==false){
+					if(isPNG.test(img.val())==false){
+						alert("Only \"jpeg\" and \"png\" files");
+						var field = $(this);
+						if(isFirefox)
+							img.val("");
+						else
+							img.replaceWith(field = img.clone( true ) );
+					}
+				}
+			}
+		}
+		
+	});

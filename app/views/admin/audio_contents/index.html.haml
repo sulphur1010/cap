@@ -1,0 +1,22 @@
+.page
+  %h2 All Audios
+  - table(@audio_contents, ['Title','Content Fragment','Audio file name','' ]) do |audio_content, klass|
+    %tr{:class => klass}
+      %td= link_to audio_content.title, admin_audio_content_path(audio_content)
+      - if ContentFragment.find_by_id(audio_content.content_fragment_id) == nil
+        %td= ""
+      -else
+        %td= ContentFragment.find_by_id(audio_content.content_fragment_id).title
+      %td 
+        -table(@audio_mp3s, []) do |audio_mp3, klass2|
+          -if(audio_mp3.audio_content_id==audio_content.id)
+            %tr{:class => klass2}
+              %td= link_to audio_mp3.audio_mp3_file_name, admin_audio_mp3_path(audio_mp3)
+              %td.controls
+                = link_to 'Edit', edit_admin_audio_mp3_path(audio_mp3)
+                = link_to 'Delete', admin_audio_mp3_path(audio_mp3), :method => :delete, :confirm => "Are you sure?"
+      %td.controls
+        = link_to 'Edit', edit_admin_audio_content_path(audio_content)
+        = link_to 'Delete', admin_audio_content_path(audio_content), :method => :delete, :confirm => "Are you sure?"
+  .link
+    = link_to 'New Audio', new_admin_audio_content_url, :class => 'btn_edit left'

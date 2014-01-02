@@ -3,75 +3,78 @@
 		All Contacts
 		= link_to "(raw emails)", raw_admin_contacts_path
 	= link_to 'Delete Selected', admin_contact_path(0), :method => :delete, :id => "js_delete_selected_contacts", :class => "btn_edit disabled", :confirm => "Are you sure?"
-	- table(@contacts, [check_box_tag(:blah, 1, false, :class => 'js_all_contacts'), 'email', 'first name', 'last name', 'home phone', 'note', '']) do |contact, klass|
-		%tr{:class => klass}
-			%td= check_box_tag :contact_ids, contact.id, false, :class => "js_contact_id"
-			%td= contact.email
-			%td= contact.first_name
-			%td= contact.last_name
-			%td= contact.home_phone
-			%td= !contact.note.empty? ? 'yes' : 'no' rescue 'no'
-			%td.controls
-				= link_to 'View', admin_contact_path(contact)
-				= link_to 'Edit', edit_admin_contact_path(contact)
-				= link_to 'Delete', admin_contact_path(contact), :method => :delete, :confirm => "Are you sure?"
-	:javascript
-		$(document).ready(function() {
-			$("#js_delete_selected_contacts").click(function(e) {
+	.table_contacts
+		- table(@contacts, [check_box_tag(:blah, 1, false, :class => 'js_all_contacts'), 'email', 'first name', 'last name', 'home phone', 'note', '']) do |contact, klass|
+			%tr{:class => klass}
+				%td= check_box_tag :contact_ids, contact.id, false, :class => "js_contact_id"
+				%td= contact.email
+				%td= contact.first_name
+				%td= contact.last_name
+				%td= contact.home_phone
+				%td= !contact.note.empty? ? 'yes' : 'no' rescue 'no'
+				%td.controls
+					= link_to 'View', admin_contact_path(contact)
+					= link_to 'Edit', edit_admin_contact_path(contact)
+					= link_to 'Delete', admin_contact_path(contact), :method => :delete, :confirm => "Are you sure?"
+	= will_paginate @contacts
 
-				var checked = $(".js_contact_id:checked");
-				var all = $(".js_contact_id");
+:javascript
+	$(document).ready(function() {
+		$("#js_delete_selected_contacts").click(function(e) {
 
-				var ids = [];
-				checked.each (function() {
-					ids.push($(this).val());
-				});
+			var checked = $(".js_contact_id:checked");
+			var all = $(".js_contact_id");
 
-				if (ids.length == 0) {
-					e.preventDefault();
-					e.stopPropagation();
-				} else {
-					if (checked.length == all.length) {
-						if (!confirm("Are you sure you want to delete all of the contacts?")) {
-							e.preventDefault();
-							e.stopPropagation();
-							return;
-						}
-					}
-					$(this).attr('href', $(this).attr('href') + "?ids=" + ids.join(','));
-				}
-				
+			var ids = [];
+			checked.each (function() {
+				ids.push($(this).val());
 			});
 
-			$(".js_contact_id").change(function() {
-				if ($(".js_contact_id:checked").length == 0) {
-					$("#js_delete_selected_contacts").addClass("disabled");
-					$(".js_all_contacts").attr('checked', false);
-				} else {
+			if (ids.length == 0) {
+				e.preventDefault();
+				e.stopPropagation();
+			} else {
+				if (checked.length == all.length) {
+					if (!confirm("Are you sure you want to delete all of the contacts?")) {
+						e.preventDefault();
+						e.stopPropagation();
+						return;
+					}
+				}
+				$(this).attr('href', $(this).attr('href') + "?ids=" + ids.join(','));
+			}
+			
+		});
+
+		$(".js_contact_id").change(function() {
+			if ($(".js_contact_id:checked").length == 0) {
+				$("#js_delete_selected_contacts").addClass("disabled");
+				$(".js_all_contacts").attr('checked', false);
+			} else {
+				$("#js_delete_selected_contacts").removeClass("disabled");
+				$(".js_all_contacts").attr('checked', true);
+			}
+		});
+
+		$(".js_all_contacts").change(function() {
+			var checked = $(".js_contact_id:checked");
+			var all = $(".js_contact_id");
+			var t = $(this);
+
+			if (t.is(":checked")) {
+				if (checked.length == 0) {
+					all.attr('checked', true);
 					$("#js_delete_selected_contacts").removeClass("disabled");
 					$(".js_all_contacts").attr('checked', true);
-				}
-			});
-
-			$(".js_all_contacts").change(function() {
-				var checked = $(".js_contact_id:checked");
-				var all = $(".js_contact_id");
-				var t = $(this);
-
-				if (t.is(":checked")) {
-					if (checked.length == 0) {
-						all.attr('checked', true);
-						$("#js_delete_selected_contacts").removeClass("disabled");
-						$(".js_all_contacts").attr('checked', true);
-					} else {
-						all.attr('checked', false);
-						$("#js_delete_selected_contacts").addClass("disabled");
-						$(".js_all_contacts").attr('checked', false);
-					}
 				} else {
 					all.attr('checked', false);
 					$("#js_delete_selected_contacts").addClass("disabled");
 					$(".js_all_contacts").attr('checked', false);
 				}
-			});
+			} else {
+				all.attr('checked', false);
+				$("#js_delete_selected_contacts").addClass("disabled");
+				$(".js_all_contacts").attr('checked', false);
+			}
 		});
+	});

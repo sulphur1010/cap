@@ -13,7 +13,8 @@ gem 'cocaine', '0.3.2'
 
 #gem 'mysql2', '0.2.6'
 gem 'mysql2', '0.3.11'
-gem 'less', '~> 2.0.8'
+#gem 'less', '~> 2.0.8'
+gem 'less', '~> 2.2.1'
 gem 'tinymce-rails', '3.5.8'
 gem 'will_paginate', '3.0.3'
 gem 'country_select', '1.0.1'
@@ -26,6 +27,8 @@ gem 'feedzirra', '0.0.24'
 gem 'delayed_job', '3.0.3'
 gem 'delayed_job_active_record', '0.3.2'
 gem 'daemons', '1.1.9'
+
+gem 'therubyracer', '0.12.0'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
@@ -44,6 +47,7 @@ gem 'sunspot_rails', '1.3.3'
 gem 'hpricot', '0.8.6'
 
 gem 'roadie', '2.3.4'
+
 
 group :assets do
 	gem 'sass-rails'

@@ -1,19 +1,82 @@
+%ul
+
+- @audio_content.errors.full_messages.each do |error|
+	%il= error
 = semantic_form_for [:admin, @thought] do |f|
 	= f.input :name
 	= f.input :title
 	- is_admin? do
-		= f.input :users, :collection => User.by_last_name.collect { |c| [c.full_name, c.id] }, :label => "Authors", :input_html => { :class => 'js_multiselect' }
-	= f.input :teaser, :input_html => { :class => 'js_editor' }, :label => 'Quote'
+		= f.input :users, :collection => User.by_last_name.collect { |c| [c.full_name_last_name_first, c.id] }.sort_by() { |c| c[0].downcase}, :label => "Authors", :input_html => { :class => 'js_multiselect' }
+	= f.input :teaser, :input_html => { :class => 'js_editor'}, :label => 'Quote'
 	= f.input :body, :input_html => { :class => 'js_editor' }
 	= f.input :published
 	= f.input :published_at, :as => :string, :input_html => { :class => 'js_start_date' }
 	= f.input :feature_on_homepage
 	= f.input :contemporary_issues, :collection => ContemporaryIssue.published.order(:title).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
-	= f.input :person_types, :collection => PersonType.published.collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
+	= f.input :person_types, :collection => PersonType.published.collect { |c| [c.name, c.id] }.sort_by() { |c| c[0]}, :input_html => { :class => 'js_multiselect' }
 	= f.input :encyclicals, :collection => Encyclical.published.collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
 	= f.input :thumbnail
 	= remove_thumbnail_tag(f, @thought)
 	= f.input :image 
 	= remove_image_tag(f, @thought)
-	= f.buttons do
-		= f.submit :value => (@thought.new_record? ? 'Create Article' : 'Update Article')
+	%p
+	%h3 Audio files
+	.mp3
+		= semantic_form_for [:admin, @audio_content], :html => { :multipart => true} do |f|
+			= f.fields_for :audio_mp3s do |audio_mp3_fields|
+				%p
+				- if audio_mp3_fields.object.new_record?
+					%label Add
+					= audio_mp3_fields.file_field :audio_mp3, :class =>'mp3_field'
+				- else				
+					%label Delete 
+					= audio_mp3_fields.object.audio_mp3.original_filename()
+					= audio_mp3_fields.check_box :_destroy
+			%p
+			= f.buttons do
+				= f.submit :value => (@thought.new_record? ? 'Create Article' : 'Update Article'), :class => 'btn_edit left'
+:javascript
+	$(document).ready(function(){
+		var isFirefox = typeof InstallTrigger !== 'undefined';
+
+		$('.mp3_field').change(function(){
+			var isMp3 = new RegExp("\.mp3");
+			if(isMp3.test($(this).val())==false){
+				alert("Only MP3 files");
+				var field = $(this);
+				if(isFirefox)
+					$(this).val("");
+				else
+					$(this).replaceWith(field = $(this).clone( true ) );
+
+			}
+		});
+
+		$('#thought_thumbnail').change(function(){
+			validate_image($(this));
+		});
+
+		$('#thought_image').change(function(){
+			validate_image($(this));
+		});
+
+
+		function validate_image(img) {
+			var isJPEG= new RegExp("\.jpeg");
+			var isJPG= new RegExp("\.jpg");
+			var isPNG= new RegExp("\.png");
+			if(isJPEG.test(img.val())==false){
+				if(isJPG.test(img.val())==false){
+					if(isPNG.test(img.val())==false){
+						alert("Only \"jpeg\" and \"png\" files");
+						var field = $(this);
+						if(isFirefox)
+							img.val("");
+						else
+							img.replaceWith(field = img.clone( true ) );
+					}
+				}
+			}
+		}
+		
+	});

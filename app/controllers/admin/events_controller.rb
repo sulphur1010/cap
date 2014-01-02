@@ -50,7 +50,7 @@ class Admin::EventsController < ApplicationController
 	end
 
 	def update
-		respond_with(@event = Event.update(params[:id], params[:event]), :location => admin_events_url)
+		respond_with(@event = Event.update(params[:id], params[:event]), :location => event_path(@event))
 	end
 
 	def destroy

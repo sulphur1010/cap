@@ -56,6 +56,14 @@ class Contact < ActiveRecord::Base
 		end
 	end
 
+	def full_name_last_name_first
+		if self.first_name.blank? && self.last_name.blank?
+			self.email
+		else
+			"#{self.last_name}, #{self.first_name}"
+		end
+	end
+
 	def self.search(search)
 		if search
 			where('first_name LIKE ? OR last_name LIKE ? OR email LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")

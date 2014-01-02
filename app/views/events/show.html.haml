@@ -84,11 +84,11 @@
 		- else
 			.pending
 				= "Your registration is currently pending."
-	- if @teaser_event
+	- if @teaser_events.size >0
 		%hr
 		.page
 			%h4 Related Event:
-			= render :partial => 'teaser', :object => @teaser_event
+			= render :partial => 'teaser', :object => @teaser_events
 	%hr
 	.page
 		%b.inline
@@ -135,7 +135,7 @@
 						%th Total
 						%th Payment Type
 						%th
-					- @event.attendees_events.sort { |a,b| (a.last_name rescue '') <=> (b.last_name rescue '') }.each do |attendee_event|
+					- @event.attendees_events.sort { |a,b| (a.last_name.to_s rescue '') <=> (b.last_name.to_s rescue '') }.each do |attendee_event|
 						%tr
 							%td= attendee_event.last_name
 							%td= attendee_event.first_name

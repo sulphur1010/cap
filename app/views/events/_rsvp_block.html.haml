@@ -48,6 +48,11 @@
 				/= link_to @event.other_payment_type_text, rsvp_event_url(@event), :id => 'js_other_payment', :class => 'payment_link', :method => :post
 				%p
 					.instructions= @event.other_payment_type_instructions
+			- if (@event.allow_paypal && @event.allow_3rd_party_payment) || (@event.allow_other_payment_type && @event.allow_3rd_party_payment)
+				.payment_separator
+			- if @event.allow_3rd_party_payment
+				%input#3rd_party_payment.rsvp_form_element.js_payment_method{:type => 'radio', :name => 'payment_method', :value => '3rd_party', :checked => true}= @event.allow_3rd_party_payment_type_instructions
+				/= link_to @event.allow_3rd_party_payment_url, rsvp_event_url(@event), :id => 'js_3rd_party_payment', :class => 'payment_link', :method => :post
 			.user_event_info{:style => "display: #{paypal_payment ? "none" : ""}"}
 				.friendly
 					%hr.thin
@@ -104,3 +109,21 @@
 			$(".user_event_info").show();
 		}
 	});
+
+	$("#rsvp_button").click(function(){
+		
+		var party_payment = "#{@event.
+		allow_3rd_party_payment}"
+		var v = "true";
+		if (party_payment == v){
+			var url = "#{@event.allow_3rd_party_payment_url}"
+			if (!/^(f|ht)tps?:\/\//i.test(url)) {
+				url = "http://" + url;
+			}
+			window.open(url, "", "fullscreen=yes");
+		}
+	});
+
+
+
+	

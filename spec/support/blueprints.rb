@@ -150,3 +150,19 @@ end
 SendEmailMessage.blueprint do
   # Attributes here
 end
+
+AudioContent.blueprint do
+  # Attributes here
+end
+
+AudioMp3.blueprint do
+  # Attributes here
+end
+
+RelatedEvents.blueprint do
+  # Attributes here
+end
+
+RelatedEvent.blueprint do
+  # Attributes here
+end

@@ -27,7 +27,7 @@ class Admin::EncyclicalsController < ApplicationController
 
 	def update
 		@encyclical = Encyclical.update(params[:id], params[:encyclical])
-		respond_with(@encyclical, :location => admin_encyclicals_url)
+		respond_with(@encyclical, :location => encyclical_path(@encyclical))
 	end
 
 	def destroy

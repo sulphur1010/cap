@@ -1,0 +1,5 @@
+= semantic_form_for [:admin, @audio_mp3] do |f|
+  = f.file_field :audio_mp3
+  - if !f.object.new_record?
+    = @audio_mp3.audio_mp3_file_name
+  = f.buttons

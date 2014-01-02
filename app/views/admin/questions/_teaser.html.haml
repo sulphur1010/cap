@@ -1,0 +1,10 @@
+%tr{:class => cycle("odd", "even")}
+	%td= teaser.content_fragment.class.to_s
+	- if teaser.content_fragment.class.to_s == "Page"
+		%td= link_to teaser.content_fragment.title, teaser.content_fragment.url
+	- else
+		%td= link_to teaser.content_fragment.title, teaser.content_fragment
+	%td= strip_tags(teaser.summary)
+	%td.controls
+		= link_to 'Edit', edit_admin_question_path(teaser)
+		= link_to 'Delete', admin_question_path(teaser), :method => :delete, :confirm => "Are you sure?"

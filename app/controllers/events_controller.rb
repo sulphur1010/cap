@@ -16,8 +16,10 @@ class EventsController < ApplicationController
 		@thanks = params.has_key?(:thanks) && params[:thanks] == '1'
 		flash[:notice] = 'Thank you for registering for this event.' if @thanks
 		session[:return_url] = request.url unless current_user
-		@teaser_event = Event.where("id != ?", params[:id]).order("updated_at desc").first
-		respond_with(@event = Event.find(params[:id]))
+		@event = Event.find(params[:id])
+		sql ="SELECT * FROM events WHERE id IN (SELECT related_event_id FROM relateds_events WHERE event_id="+@event.id.to_s+")"
+		@teaser_events = Event.find_by_sql sql
+		respond_with(@event)
 	end
 
 	def thanks
@@ -50,7 +52,7 @@ class EventsController < ApplicationController
 			@price_title = @event.discounted_text if @price == @event.discounted_cost
 		end
 
-		if !["other", "paypal"].include?(@payment_method)
+		if !["other", "paypal", "3rd_party"].include?(@payment_method)
 			redirect_to event_url(@event), :notice => 'Payment method not acceptible.'
 			return
 		end
@@ -67,6 +69,7 @@ class EventsController < ApplicationController
 
 		other_rsvp_payment if @payment_method == "other"
 		paypal_rsvp_payment if @payment_method == "paypal"
+		rd_party_rsvp_payment if @payment_method == "3rd_party"
 	end
 
 	def unrsvp
@@ -192,5 +195,19 @@ class EventsController < ApplicationController
 			redirect_to event_path(@event), :alert => "Error redirecting to paypal for payment."
 			return
 		end
+	end
+
+	def rd_party_rsvp_payment
+		if !@event.allow_3rd_party_payment
+			redirect_to event_url(@event), :alert => 'That payment method is not accepted for this event.'
+			return
+		end
+
+		redirect_to event_path(@event)
+		return
+		#
+		#
+		#
+		#
 	end
 end

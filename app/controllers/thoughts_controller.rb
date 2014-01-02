@@ -29,14 +29,23 @@ class ThoughtsController < ApplicationController
 			@thoughts = @thoughts.sort_by(&:published_at).reverse
 			render :action => 'ajax_list', :layout => false
 			return
+		else
+			if params[:contemporary_issue]
+				@contemporary_issue_id = params[:contemporary_issue]
+				#Rails.logger.info "ppppp = #{@id}"
+			end
 		end
 		respond_with(@thoughts = Thought.published.has_body.order("published_at desc"))
 	end
 
 	def show
 		@thought = Thought.find(params[:id])
-		unless @thought.published
-			not_found
+		if !is_admin?
+			unless @thought.published
+				not_found
+			else
+				respond_with(@thought)
+			end
 		else
 			respond_with(@thought)
 		end

@@ -19,4 +19,8 @@
 		= image_tag @story.image.url(:normal), :class => 'content_fragment_header_image'
 .page
 	= @story.body.html_safe rescue ''
+	- if user_signed_in?
+		= render :partial => 'audio_contents/display', :object =>@story, :locals => { :id => @story.id	 }
+	- else
+		= render :partial => 'audio_contents/no_display', :object =>@story, :locals => { :id => @story.id}
 

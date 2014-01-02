@@ -1,0 +1,33 @@
+<h1>Listing audio_mp3s</h1>
+
+<table>
+  <tr>
+    <th>Audio mp3 file name</th>
+    <th>Audio mp3 content type</th>
+    <th>Audio mp3 file size</th>
+    <th>Audio mp3 updated at</th>
+    <th>Audio content</th>
+    <th>Audio title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @audio_mp3s.each do |audio_mp3| %>
+  <tr>
+    <td><%= audio_mp3.audio_mp3_file_name %></td>
+    <td><%= audio_mp3.audio_mp3_content_type %></td>
+    <td><%= audio_mp3.audio_Mp3_file_size %></td>
+    <td><%= audio_mp3.audio_mp3_updated_at %></td>
+    <td><%= audio_mp3.audio_content_id %></td>
+    <td><%= audio_mp3.audio_title %></td>
+    <td><%= link_to 'Show', audio_mp3 %></td>
+    <td><%= link_to 'Edit', edit_audio_mp3_path(audio_mp3) %></td>
+    <td><%= link_to 'Destroy', audio_mp3, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Audio mp3', new_audio_mp3_path %>

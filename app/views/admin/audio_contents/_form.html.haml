@@ -1,0 +1,12 @@
+= semantic_form_for [:admin, @audio_content], :html => { :multipart => true } do |f|
+	= f.input :content_fragment, :collection => ContentFragment.where(:type => ['Thought','Story','Page']), :include_blank => false, :member_label => :title
+	= f.fields_for :audio_mp3s do |audio_mp3_fields|
+		%p
+		- if audio_mp3_fields.object.new_record?
+			= audio_mp3_fields.file_field :audio_mp3
+			
+		- else				
+			%h2 Delete 
+			= audio_mp3_fields.object.audio_mp3.original_filename()
+			= audio_mp3_fields.check_box :_destroy
+	= f.buttons

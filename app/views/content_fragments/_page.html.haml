@@ -15,6 +15,11 @@
 - if page.image?
 	= image_tag page.image.url(:normal), :class => 'content_fragment_header_image'
 = parse_references(page.parsed_body).html_safe rescue ""
+-if !page.class == Page
+	- if user_signed_in?
+		= render :partial => 'audio_contents/display', :object =>@page, :locals => { :id => @page.id	 }
+	- else
+		= render :partial => 'audio_contents/no_display', :object =>@page, :locals => { :id => @page.id}
 - if !page.questions.empty?
 	= render :partial => 'questions/question', :collection => page.questions
 - if is_admin?

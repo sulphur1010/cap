@@ -607,7 +607,7 @@ ul.contemporary_issues_list li {
 
 .thought_quote {
 	font-family: georgia;
-	font-size: 16px; 
+	font-size: 14px; 
 	color: #777;
 	line-height: 1.6em;
 	margin-top: 10px;
@@ -1419,7 +1419,7 @@ ul.accordion_list {
 
 	> li {
 		display: block;
-		padding: 10px 12px;
+		padding: 10px 25px;
 		margin: 3px;
 		margin-top: 0;
 		margin-left: 0;
@@ -1546,4 +1546,79 @@ ul.accordion_list {
 	min-width: 170px;
 	padding: 5px 10px;
 	background: #81b800;
+}
+
+.pagination2{
+	padding:0px 180px;
+}
+
+.mp3{
+	padding:0px 20px;
+}
+
+.other_payment {
+	display: none;
+	padding:0px 120px;
+}
+.other_payment_3rd_party{
+	display: none;
+	padding:0px 120px;
+}
+
+.other_payment label {
+	width: 200px;
+	padding:0px 20px;
+}
+.other_payment_3rd_party label {
+	width: 200px;
+	padding:0px 20px;
+}
+.allow_discount label{
+	display: block;
+}
+
+.table_contacts table.data_table{
+	table-layout:fixed;
+	overflow:hidden;
+	word-wrap:break-word;
+}
+
+.table_contacts table.data_table th:first-child, .table_contacts table.data_table tr td:first-child{
+	width: 25px;
+}
+
+.table_contacts table.data_table th:last-child, .table_contacts table.data_table tr td:last-child{
+	width: 41px;
+}
+
+.table_contacts table.data_table th:nth-child(6), .table_contacts table.data_table tr td:nth-child(6){
+	width: 36px;
+}
+
+.mceEditor, .js_editor{
+	width: 550px;
+	height: 300px
+}
+
+.thought_quote a{
+	font-size: 12px;	
+}
+.hr_thought{
+	border-top: 1px solid rgb(221, 221, 221);
+	border-bottom: 1px solid rgb(238, 238, 238);
+	width: 150px;
+}
+
+.random_thought{
+	display: inline-block;
+	vertical-align:top;
+	padding: 0px 5px;
+}
+.random_thought .thought_quote, .random_thought .thought_author_container{
+	width: 220px;
+	vertical-align:top;
+}
+
+#audio_content_content_fragment_id{
+	width: 300px;
 }

@@ -24,6 +24,8 @@ class ContentFragment < ActiveRecord::Base
 	has_many :encyclical_references
 	has_many :encyclicals, :through => :encyclical_references
 	has_many :questions
+	#has_many :audio_contents
+	#accepts_nested_attributes_for :audio_contents, :allow_destroy => true
 
 	alias :authors :users
 

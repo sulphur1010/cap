@@ -5,7 +5,9 @@ class Admin::ContactsController < ApplicationController
 	respond_to :html
 
 	def index
-		respond_with(@contacts = Contact.order("created_at desc"))
+		@contacts = Contact.order("created_at desc")
+		@contacts = @contacts.paginate(:per_page => 50, :page => params[:page])
+		respond_with(@contacts)
 	end
 
 	def raw

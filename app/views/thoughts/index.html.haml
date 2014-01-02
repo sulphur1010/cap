@@ -7,7 +7,10 @@
 				%strong Contemporary Issues:
 				- ContemporaryIssue.published.order(:title).each do |type|
 					.element{:'data-category' => 'contemporary_issue', :'data-value' => type.id}
-						= check_box_tag :whatever
+						- if @contemporary_issue_id.to_s == type.id.to_s
+							= check_box_tag :whatever, "", true
+						- else
+							= check_box_tag :whatever
 						= type.title
 			.left_menu_item
 				%strong For:
@@ -25,6 +28,12 @@
 						.story_teaser_list_item
 							= render :partial => 'teaser', :object => thought
 :javascript
+
+	$(document).ready(function() {
+		var ps = collect_params();
+		$('#js_thought_list').load('/social_thought?' + ps);
+	});
+
 	$('.element input').click(function() {
 		var ps = collect_params();
 		$('#js_thought_list').load('/social_thought?' + ps);

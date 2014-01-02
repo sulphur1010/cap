@@ -19,6 +19,8 @@
 					- @stories.each do |story|
 						.story_teaser_list_item
 							= render :partial => 'teaser', :object => story
+.pagination2
+	= will_paginate @stories
 :javascript
 	$('.element input').click(function() {
 		var ps = collect_params();

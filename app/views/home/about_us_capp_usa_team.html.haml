@@ -7,10 +7,10 @@
 	%h2 CAPP-USA Team
 .page.national_board_member_content
 	%h3 National Board Members
-	= render :partial => 'users/board_member', :collection => User.national_board_members
+	= render :partial => 'users/board_member', :collection => User.national_board_members.order(:about_us_weight)
 .page.national_board_member_content
 	%h3 Staff
-	= render :partial => 'users/board_member', :collection => User.staff
+	= render :partial => 'users/board_member', :collection => User.staff.order(:about_us_weight)
 .page.national_board_member_content
 	%h3 Chapter Presidents
-	= render :partial => 'users/board_member', :collection => User.chapter_presidents
+	= render :partial => 'users/board_member', :collection => User.chapter_presidents.order(:about_us_weight)

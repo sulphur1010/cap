@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
 
+	before_save :check_free_event
 	after_create :create_reminders!
 
 	def helpers
@@ -8,7 +9,7 @@ class Event < ActiveRecord::Base
 
 	Event.inheritance_column = :event_type_not_used
 
-	scope :past, where("end_date < ?", (Time.now - 1.day)).order(:start_date)
+	scope :past, where("end_date < ?", (Time.now - 1.day)).order(:start_date).reverse_order
 	scope :upcoming, where("end_date >= ?", (Time.now - 1.day)).order(:start_date)
 	scope :course_types, where(:type => "Course").order(:start_date)
 	scope :event_types, where("type <> 'Course'").order(:start_date)
@@ -57,13 +58,15 @@ class Event < ActiveRecord::Base
 	has_and_belongs_to_many :person_types
 	has_and_belongs_to_many :speakers, :class_name => 'User', :association_foreign_key => 'user_id', :join_table => 'events_speakers'
 	has_and_belongs_to_many :celebrants, :class_name => 'User', :association_foreign_key => 'user_id', :join_table => 'celebrants_events'
+	has_and_belongs_to_many :related_events, :class_name => 'Event', :association_foreign_key => 'related_event_id', :join_table => 'relateds_events'
 	has_many :attendees_events, :include => [ :attendee, :payment_confirmation ]
 	has_many :attendees, :through => :attendees_events, :include => [ :payment_confirmations ]
 
 	validates :type, :inclusion => { :in => Event.types }
 	validates :event_region, :inclusion => { :in => Event.event_regions }
 	validates :title, :presence => true
-	validates :end_date, :end_date => true
+	validates :end_date, :presence => true
+	validates :start_date, :presence => true
 
 	def create_reminders!
 		Event.reminder_durations.each do |d|
@@ -78,7 +81,7 @@ class Event < ActiveRecord::Base
 
 	def cost
 		cst = self.read_attribute(:cost)
-		return 0 if self.free_event
+		#return 0 if self.free_event
 		cst
 	end
 
@@ -113,5 +116,18 @@ class Event < ActiveRecord::Base
 	def aggregate_attendees_list(duration=1.day)
 		start_time = Time.now - duration
 		self.attendees_events.select { |c| c.created_at >= start_time }
+	end
+
+	def check_free_event
+		if self.cost == ""
+			self.cost = 0.0
+		end
+		if self.cost == 0.0 || self.cost == 0
+			if allow_3rd_party_payment == true || allow_other_payment_type == true || allow_paypal == true
+				self.free_event = false
+			else
+				self.free_event = true
+			end
+		end
 	end
 end

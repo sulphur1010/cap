@@ -1,16 +1,52 @@
 .page
 	%h2 All Questions
-	- table(@questions, ['type', 'title', 'summary', '']) do |question, klass|
-		%tr{:class => klass}
-			%td= question.content_fragment.class.to_s
-			- if question.content_fragment.class.to_s == "Page"
-				%td= link_to question.content_fragment.title, question.content_fragment.url
-			- else
-				%td= link_to question.content_fragment.title, question.content_fragment
-			%td= strip_tags(question.summary)
-			%td.controls
-				= link_to 'Edit', edit_admin_question_path(question)
-				= link_to 'Delete', admin_question_path(question), :method => :delete, :confirm => "Are you sure?"
+	.inline
+		= form_for User.new, :url => "/admin/questions/search", :method => :get, :html => { :class => "search_page_form js_page_search_form" } do |f|
+			%input.search_input#js_search_input{:name => "eq", :size => "30", :type => "text", :value => (@eq rescue '')}
+			%input#js_search_submit{:type => "submit", :value => "Search"}
+	- table(@questions, [(link_to 'type', type_admin_questions_path(:eq => @eq)), (link_to 'title', title_admin_questions_path(:eq => @eq)), 'summary' , '']) do |question, klass|
+		#js_questions_list
+			%tr{:class => klass}
+				%td= question.content_fragment.class.to_s
+				- if question.content_fragment.class.to_s == "Page"
+					%td= link_to question.content_fragment.title, question.content_fragment.url
+				- else
+					%td= link_to question.content_fragment.title, question.content_fragment
+				%td= strip_tags(question.summary)
+				%td.controls
+					= link_to 'Edit', edit_admin_question_path(question)
+					= link_to 'Delete', admin_question_path(question), :method => :delete, :confirm => "Are you sure?"
 	.link
 		= link_to 'New Question', new_admin_question_path, :class => 'btn_edit left'
 
+:javascript
+
+	$(document).ready(function() {
+		if ($("#js_search_input").val() != "") {
+			//$("#js_search_submit").click();
+		}
+	});
+
+	$('.element input').click(function() {
+		question_search();
+	});
+
+	$(".js_page_search_form").submit(function() {
+		question_search();
+		return false;
+	});
+
+	function question_search() {
+		var ps = collect_params();
+		var path = "/questions?"
+		$('.data_table').load(path + ps);
+	}
+
+	function collect_params() {
+		var param_string = [];
+		retrutn(param_string.push(collect_text_query()));
+	}
+
+	function collect_text_query() {
+		return "eq=" + $("#js_search_input").val();
+	}

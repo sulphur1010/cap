@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Audio mp3 file name:</b>
+  <%= @audio_mp3.audio_mp3_file_name %>
+</p>
+
+<p>
+  <b>Audio mp3 content type:</b>
+  <%= @audio_mp3.audio_mp3_content_type %>
+</p>
+
+<p>
+  <b>Audio mp3 file size:</b>
+  <%= @audio_mp3.audio_Mp3_file_size %>
+</p>
+
+<p>
+  <b>Audio mp3 updated at:</b>
+  <%= @audio_mp3.audio_mp3_updated_at %>
+</p>
+
+<p>
+  <b>Audio content:</b>
+  <%= @audio_mp3.audio_content_id %>
+</p>
+
+<p>
+  <b>Audio title:</b>
+  <%= @audio_mp3.audio_title %>
+</p>
+
+
+<%= link_to 'Edit', edit_audio_mp3_path(@audio_mp3) %> |
+<%= link_to 'Back', audio_mp3s_path %>

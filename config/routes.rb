@@ -1,6 +1,10 @@
 CappUsa::Application.routes.draw do
-	devise_for :users, :path_names => { :sign_in => 'login' }
-	match 'users/activate' => "users#activate", :via => :get
+  
+  resources :audio_mp3s
+  resources :audio_contents
+
+	devise_for :users,:controllers => {:registrations => "registrations"}, :path_names => { :sign_in => 'login' }
+	match 'users/activate' => "users#activate", :via => :GET
 
 	resources :sent_email_messages, :path => "mail" do
 		member do
@@ -32,6 +36,8 @@ CappUsa::Application.routes.draw do
 			resources :attendees_events
 		end
 		resources :locations
+		resources :audio_contents
+		resources :audio_mp3s
 		resources :menu_items
 		resources :pages
 		resources :person_types
@@ -50,7 +56,18 @@ CappUsa::Application.routes.draw do
 				post 'activate'
 			end
 		end
-		resources :questions
+		resources :questions do
+		collection do
+			get 'title'
+			get 'type'
+			get 'summary'
+			get 'search'
+			post 'search'
+		end
+		member do
+			get 'reference'
+		end
+	end
 		resources :content_fragments do
 			collection do
 				get 'type_options/:content_fragment_type', :action => 'type_options'
@@ -104,6 +121,8 @@ CappUsa::Application.routes.draw do
 	resources :contacts
 	resources :users
 
+	match 'display' => 'audio_contents#display'
+
 	match 'what_is_cst' => 'home#what_is_cst'
 	match 'study_center' => 'home#study_center'
 	match 'about_us/capp_usa_team' => 'home#about_us_capp_usa_team'
@@ -119,6 +138,8 @@ CappUsa::Application.routes.draw do
 	match '*url' => 'pages#view'
 
 	root :to => 'home#index'
+
+
 
 	# See how all your routes lay out with "rake routes"
 

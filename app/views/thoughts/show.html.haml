@@ -1,6 +1,11 @@
 = render :partial => 'shared/share'
 .page
 	= render :partial => 'content_fragments/page', :object => @thought
+	- if user_signed_in?
+		= render :partial => 'audio_contents/display', :object =>@thought, :locals => { :id => @thought.id	 }
+	- else
+		= render :partial => 'audio_contents/no_display', :object =>@thought, :locals => { :id => @thought.id}
+
 	- if !@thought.users.empty?
 		%h4 Written by:
 		= render :partial => 'users/list', :object => @thought.users

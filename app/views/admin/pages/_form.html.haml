@@ -12,4 +12,65 @@
 		= remove_thumbnail_tag(f, @page)
 		= f.input :image 
 		= remove_image_tag(f, @page)
-	= f.buttons
+
+	%p
+	%h3 Audio files
+	.mp3
+		= semantic_form_for [:admin, @audio_content], :html => { :multipart => true } do |f|
+			= f.fields_for :audio_mp3s do |audio_mp3_fields|
+				%p
+				- if audio_mp3_fields.object.new_record?
+					= audio_mp3_fields.file_field :audio_mp3
+				- else				
+					%span Delete 
+					= audio_mp3_fields.object.audio_mp3.original_filename()
+					= audio_mp3_fields.check_box :_destroy
+		%p
+		= f.buttons do
+			= f.submit :value => (@page.new_record? ? 'Create News Story' : 'Update News Story'), :class => 'btn_edit left'
+:javascript
+	$(document).ready(function(){
+		var isFirefox = typeof InstallTrigger !== 'undefined';
+
+		//audio_content_audio_mp3s_attributes_0__destroy
+		$('.mp3_field').change(function(){
+			var isMp3 = new RegExp("\.mp3");
+			if(isMp3.test($(this).val())==false){
+				alert("Only MP3 files");
+				var field = $(this);
+				if(isFirefox)
+					$(this).val("");
+				else
+					$(this).replaceWith(field = $(this).clone( true ) );
+
+			}
+		});
+
+		$('#page_thumbnail').change(function(){
+			validate_image($(this));
+		});
+
+		$('#page_image').change(function(){
+			validate_image($(this));
+		});
+
+
+		function validate_image(img) {
+			var isJPEG= new RegExp("\.jpeg");
+			var isJPG= new RegExp("\.jpg");
+			var isPNG= new RegExp("\.png");
+			if(isJPEG.test(img.val())==false){
+				if(isJPG.test(img.val())==false){
+					if(isPNG.test(img.val())==false){
+						alert("Only \"jpeg\" and \"png\" files");
+						var field = $(this);
+						if(isFirefox)
+							img.val("");
+						else
+							img.replaceWith(field = img.clone( true ) );
+					}
+				}
+			}
+		}
+		
+	});

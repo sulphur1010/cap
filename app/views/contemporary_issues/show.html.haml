@@ -18,22 +18,57 @@
 		= render :partial => 'questions/question', :collection => @contemporary_issue.questions
 	- if is_admin?
 		= link_to 'Add Question', new_admin_question_path(:id => @contemporary_issue.id), :class => 'btn_edit left'
-- thought = @contemporary_issue.random_thought
-- if thought
-	%hr
-	.page
-		%h3
-			Related Thoughts on
-			%span.contemporary_issue_title= @contemporary_issue.title
-		.thought_quote
-			= strip_tags(thought.teaser)
-			= link_to 'Read more', thought_path(thought)
-		.thought_author_container
-			- if !thought.users.empty?
-				by:
-				- thought.users.each do |user|
-					.thought_author= link_to user.full_name, user_path(user)
-					.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 24, :height => 24, :class => 'user_image'), user_path(user)
+
+%hr
+.page
+	%h3
+		Related Thoughts on
+		%span.contemporary_issue_title= @contemporary_issue.title
+	.random_thought
+		- thought1 = @contemporary_issue.random_thought
+		- if thought1
+			.thought_quote
+				= strip_tags(thought1.teaser)
+				= "Taken from "
+				= link_to '"' + thought1.title+"\"", thought_path(thought1)
+			.thought_author_container
+				- if !thought1.users.empty?
+					by:
+					- thought1.users.each do |user|
+						.thought_author= link_to user.full_name, user_path(user)
+						.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 24, :height => 24, :class => 'user_image'), user_path(user)
+	.random_thought
+		- thought2 = @contemporary_issue.random_thought
+		- if Thought.all.count > 2
+			- while thought2 == thought1
+				- thought2 = @contemporary_issue.random_thought
+		- if thought2
+			.thought_quote
+				= strip_tags(thought2.teaser)
+				= "Taken from "
+				= link_to '"' + thought2.title+"\"", thought_path(thought2)
+			.thought_author_container
+				- if !thought2.users.empty?
+					by:
+					- thought2.users.each do |user|
+						.thought_author= link_to user.full_name, user_path(user)
+						.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 24, :height => 24, :class => 'user_image'), user_path(user)
+		- thought3 = @contemporary_issue.random_thought
+		- if Thought.all.count > 3
+			- while (thought3 == thought1) || (thought3 == thought2)
+				- thought3 = @contemporary_issue.random_thought
+	.random_thought
+		- if thought3
+			.thought_quote
+				= strip_tags(thought3.teaser)
+				= "Taken from "
+				= link_to '"' + thought3.title+"\"", thought_path(thought3)
+			.thought_author_container
+				- if !thought3.users.empty?
+					by:
+					- thought3.users.each do |user|
+						.thought_author= link_to user.full_name, user_path(user)
+						.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 24, :height => 24, :class => 'user_image'), user_path(user)
 - if !@contemporary_issue.events.upcoming.empty?
 	%hr
 	.page

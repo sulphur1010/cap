@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
 	before_save :update_contact_email
 	before_create :add_user_role
 	before_validation :check_clear_attachments
-	after_create :send_welcome_email
+	#after_create :send_welcome_email
 
 	def check_clear_attachments
 		profile_image.clear if delete_profile_image == '1'
@@ -222,6 +222,15 @@ class User < ActiveRecord::Base
 			"#{self.first_name} #{self.last_name}"
 		end
 	end
+
+	def full_name_last_name_first
+		if self.first_name.blank? && self.last_name.blank?
+			self.email
+		else
+			"#{self.last_name}, #{self.first_name}"
+		end
+	end
+	
 
 	def encyclicals
 		content_fragments.published.of_type("Encyclical")

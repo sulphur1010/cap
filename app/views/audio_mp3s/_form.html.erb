@@ -1,0 +1,14 @@
+<%= semantic_form_for @audio_mp3 do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :audio_mp3_file_name %>
+    <%= f.input :audio_mp3_content_type %>
+    <%= f.input :audio_Mp3_file_size %>
+    <%= f.input :audio_mp3_updated_at %>
+    <%= f.input :audio_content_id %>
+    <%= f.input :audio_title %>
+  <% end %>
+
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end %>
+<% end %>

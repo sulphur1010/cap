@@ -55,7 +55,13 @@
 :javascript
 	$('.element input').click(function() {
 		var ps = collect_params();
-		$('#js_event_list').load('/events?' + ps);
+		if ($('.event_header_navigation').children("span").text() == "past")
+		{
+			$('#js_event_list').load('/events/past?' + ps);
+		}
+		else{
+			$('#js_event_list').load('/events?' + ps);
+		}
 	});
 
 	function collect_params() {

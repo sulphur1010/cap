@@ -8,7 +8,7 @@
 		.clear
 	= f.input :subject
 	= f.input :header
-	= f.input :body, :input_html => { :cols => 45 }
+	= f.input :body, :input_html => { :class => 'js_editor' }
 	= text_field_tag 'sent_email_message[content_fragment_ids]', '', :hidden => true
 	%hr
 	%h3 Add Content to Email

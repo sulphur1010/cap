@@ -1,5 +1,6 @@
 class StoriesController < ApplicationController
 
+	require 'will_paginate/array'
 	respond_to :html
 
 	def index
@@ -27,6 +28,7 @@ class StoriesController < ApplicationController
 		@stories = Story.published
 		@stories += FeedEntry.all
 		@stories = @stories.sort_by(&:published_at).reverse
+		@stories = @stories.paginate(:per_page => 15, :page => params[:page])
 		respond_with(@stories)
 	end
 

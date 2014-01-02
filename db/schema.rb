@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131101144632) do
+ActiveRecord::Schema.define(:version => 20131226184235) do
 
   create_table "attendees_events", :force => true do |t|
     t.integer  "attendee_id"
@@ -28,13 +28,33 @@ ActiveRecord::Schema.define(:version => 20131101144632) do
   add_index "attendees_events", ["attendee_id"], :name => "index_attendees_events_on_attendee_id"
   add_index "attendees_events", ["event_id"], :name => "index_attendees_events_on_event_id"
 
+  create_table "audio_contents", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.integer  "content_fragment_id"
+    t.string   "audioMp3_file_name"
+    t.string   "audioMp3_content_type"
+    t.integer  "audioMp3_file_size"
+    t.datetime "audioMp3_updated_at"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  create_table "audio_mp3s", :force => true do |t|
+    t.string   "audio_mp3_file_name"
+    t.string   "audio_mp3_content_type"
+    t.integer  "audio_Mp3_file_size"
+    t.datetime "audio_mp3_updated_at"
+    t.integer  "audio_content_id"
+    t.string   "audio_title"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
   create_table "celebrants_events", :id => false, :force => true do |t|
     t.integer "user_id"
     t.integer "event_id"
   end
-
-  add_index "celebrants_events", ["event_id"], :name => "index_celebrant_events_on_event_id"
-  add_index "celebrants_events", ["user_id"], :name => "index_celebrant_events_on_user_id"
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -214,7 +234,7 @@ ActiveRecord::Schema.define(:version => 20131101144632) do
     t.text     "body"
     t.integer  "director_id"
     t.integer  "spots_available"
-    t.decimal  "cost",                            :precision => 8, :scale => 2
+    t.decimal  "cost",                                      :precision => 8, :scale => 2
     t.integer  "chapter_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -228,8 +248,12 @@ ActiveRecord::Schema.define(:version => 20131101144632) do
     t.text     "other_payment_type_instructions"
     t.boolean  "allow_discount"
     t.string   "discounted_text"
-    t.decimal  "discounted_cost",                 :precision => 8, :scale => 2
+    t.decimal  "discounted_cost",                           :precision => 8, :scale => 2
     t.boolean  "free_event"
+    t.boolean  "allow_3rd_party_payment"
+    t.string   "allow_3rd_party_payment_url"
+    t.string   "allow_3rd_party_payment_text"
+    t.text     "allow_3rd_party_payment_type_instructions"
   end
 
   add_index "events", ["chapter_id"], :name => "index_events_on_chapter_id"
@@ -372,6 +396,14 @@ ActiveRecord::Schema.define(:version => 20131101144632) do
 
   add_index "questions", ["content_fragment_id"], :name => "index_questions_on_content_fragment_id"
   add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
+
+  create_table "relateds_events", :id => false, :force => true do |t|
+    t.integer "event_id"
+    t.integer "related_event_id"
+  end
+
+  add_index "relateds_events", ["event_id"], :name => "index_related_events_on_event_id"
+  add_index "relateds_events", ["related_event_id"], :name => "index_related_events_events_on_related_event_id"
 
   create_table "sent_email_messages", :force => true do |t|
     t.string   "subject"

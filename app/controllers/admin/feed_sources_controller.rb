@@ -25,7 +25,8 @@ class Admin::FeedSourcesController < ApplicationController
 	end
 
 	def update
-		respond_with(@feed_source = FeedSource.update(params[:id], params[:feed_source]), :location => admin_feed_sources_url)
+		@feed_source = FeedSource.update(params[:id], params[:feed_source])
+		respond_with(@feed_source , :location => admin_feed_source_path(@feed_source))
 	end
 
 	def destroy

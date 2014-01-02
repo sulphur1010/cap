@@ -1,0 +1,7 @@
+.page
+  %h2 All Audios
+  - table(@audio_contents, ['Title','Content Fragment','Audio file name','' ]) do |audio_content, klass|
+    %tr{:class => klass}
+      %td= link_to audio_content.title,audio_content_path(audio_content)
+      %td= audio_content.content_fragment_id
+      %td= audio_content.audioMp3_file_name

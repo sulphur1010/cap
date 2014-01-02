@@ -1,28 +1,140 @@
 = semantic_form_for [:admin, @event] do |f|
 	= f.input :type, :collection => Event.types
 	= f.input :featured
-	= f.input :event_region, :collection => Event.event_regions
+	= f.input :event_region, :collection => Event.event_regions, :include_blank => false, :selected => "USA"
 	= f.input :title
 	= f.input :body, :input_html => { :class => 'js_editor' }
 	= f.input :teaser, :input_html => { :class => 'js_editor' }
 	= f.input :chapter, :collection => Chapter.all.collect { |c| [c.name, c.id] }
 	= f.input :location, :collection => Location.all.collect { |c| [c.name, c.id] }
-	= f.input :speakers, :collection => User.where(:speaker => true).collect { |c| [c.full_name, c.id] }, :input_html => { :class => 'js_multiselect' }, :label => 'Speaker / Panelist'
-	= f.input :celebrants, :collection => User.where(:celebrant => true).collect { |c| [c.full_name, c.id] }, :input_html => { :class => 'js_multiselect' }, :label => 'Celebrants'
-	= f.input :director, :collection => User.all.collect { |c| [c.full_name, c.id] }, :label => "Program Contact"
+	- @speakers =User.where(:speaker => true).collect { |c| [c.full_name, c.id] }.sort_by() { |c| c[0]}
+	= f.input :speakers, :collection => @speakers, :input_html => { :class => 'js_multiselect' }, :label => 'Speaker / Panelist'
+	- @celebrants =User.where(:celebrant => true).collect { |c| [c.full_name, c.id] }.sort_by() { |c| c[0]}
+	= f.input :celebrants, :collection => @celebrants, :input_html => { :class => 'js_multiselect' }, :label => 'Celebrants'
+	= f.input :director, :collection => User.all.collect { |c| [c.full_name, c.id] }.sort_by {|c| c[0]}, :label => "Program Contact"
+	= f.input :related_events, :collection => Event.find(:all, :order => "title") , :input_html => { :class => 'js_multiselect' }, :label => "Related Events"
 	= f.input :spots_available
 	= f.input :start_date, :as => :string, :input_html => { :class => 'js_start_date' }
 	= f.input :end_date, :as => :string, :input_html => { :class => 'js_end_date' }
 	= f.input :contemporary_issues, :collection => ContemporaryIssue.published.order(:title).collect { |c| [c.title, c.id] }, :input_html => { :class => 'js_multiselect' }
-	= f.input :person_types, :collection => PersonType.published.collect { |c| [c.name, c.id] }, :input_html => { :class => 'js_multiselect' }
+	= f.input :person_types, :collection => PersonType.published.collect { |c| [c.name, c.id] }.sort_by() { |c| c[0]}, :input_html => { :class => 'js_multiselect' }
 	= f.inputs :name => 'Pricing' do
-		= f.input :allow_paypal
-		= f.input :allow_other_payment_type
-		= f.input :other_payment_type_text
-		= f.input :other_payment_type_instructions
-		= f.input :allow_discount
-		= f.input :discounted_text
-		= f.input :discounted_cost
-		= f.input :cost
 		= f.input :free_event
+		= f.input :allow_paypal
+		= f.input :allow_other_payment_type, :label => "Allow other CAPP payment type (ex. by check)"
+		.other_payment
+			= f.input :other_payment_type_text, :label=>"Other CAPP payment type text (ex. \"Pay by check\")"
+			= f.input :other_payment_type_instructions, :label=>"Other Other payment type instructions (ex. add address and who to make the check out to)"
+		= f.input :allow_3rd_party_payment, :label => "Allow 3rd party Payment gateway"
+		.other_payment_3rd_party
+			= f.input :allow_3rd_party_payment_url, :label=>"3rd Party Payment Link (ex. \"www.fordham.edu\")"
+			= f.input :allow_3rd_party_payment_type_instructions, :label=>"3rd Party Payment Link text (ex. \"Register and Pay at Fordham University Online\")"
+		.allow_discount
+			= f.input :allow_discount
+			= f.input :discounted_text
+			= f.input :discounted_cost
+		- if @event.cost == nil
+			- @event.cost = 0 
+		= f.input :cost, :input_html => { :value => @event.cost} 
+		
 	= f.buttons
+
+:javascript
+	$(document).ready(function() {
+		var message_other_payment="\"Allow 3rd party Payment gateway\" does not support other types of payments";
+		initialize_values();
+
+		function initialize_values(){
+			if($("#event_allow_other_payment_type").is(":checked"))
+				$(".other_payment").show();
+			else
+				$(".other_payment").hide();
+
+			if($("#event_allow_3rd_party_payment").is(":checked"))
+				$(".other_payment_3rd_party").show();
+			else
+				$(".other_payment_3rd_party").hide();
+
+			check_free_event();
+		}
+
+		function check_free_event(){
+			if($("#event_free_event").is(":checked")){
+				$('#event_allow_paypal').attr("disabled", true);
+				$('#event_allow_paypal').attr("checked", false);
+
+
+				$('#event_allow_other_payment_type').attr("disabled", true);
+				$('#event_allow_other_payment_type').attr("checked", false);
+				$(".other_payment").hide();
+
+
+				$('#event_allow_3rd_party_payment').attr("disabled", true);
+				$('#event_allow_3rd_party_payment').attr("checked", false);
+				$(".other_payment_3rd_party").hide();
+
+
+				$('#event_allow_discount').attr("disabled", true);
+				$('#event_allow_discount').attr("checked", false);
+				$('#event_discounted_cost').attr("disabled", true);
+				$('#event_discounted_cost').val("");
+				$('#event_discounted_text').attr("disabled", true);
+				$('#event_discounted_text').val("");
+
+
+				$('#event_cost').attr("disabled", true);
+				$('#event_cost').val("0.0");
+				
+				
+
+			}else{
+				$('#event_allow_paypal').attr("disabled", false)
+				$('#event_allow_other_payment_type').attr("disabled", false)
+				$('#event_allow_3rd_party_payment').attr("disabled", false)
+				$('#event_cost').attr("disabled", false);
+				$('#event_discounted_cost').attr("disabled", false);
+				$('#event_discounted_text').attr("disabled", false);
+				$('#event_allow_discount').attr("disabled", false);
+			}
+
+
+		}
+		
+		$("#event_free_event").click(function(){
+			check_free_event();
+		});
+
+		$("#event_allow_paypal").click(function(){
+			if($("#event_allow_3rd_party_payment").is(":checked")){
+				$('#event_allow_paypal').attr("checked", false);
+				alert(message_other_payment);
+			}
+		});
+
+		$("#event_allow_other_payment_type").click(function(){
+			if($("#event_allow_3rd_party_payment").is(":checked")){
+				$('#event_allow_other_payment_type').attr("checked", false);
+				alert(message_other_payment);
+			}else{
+				if($("#event_allow_other_payment_type").is(":checked"))
+					$(".other_payment").show();
+				else
+					$(".other_payment").hide();
+			}
+		});
+
+		$("#event_allow_3rd_party_payment").click(function(){
+			if($("#event_allow_other_payment_type").is(":checked") || $("#event_allow_paypal").is(":checked")){
+				$('#event_allow_3rd_party_payment').attr("checked", false);
+				alert(message_other_payment);
+			}else{
+				if($("#event_allow_3rd_party_payment").is(":checked"))
+					$(".other_payment_3rd_party").show();
+				else
+					$(".other_payment_3rd_party").hide();
+			}
+		});
+
+
+		
+	});
