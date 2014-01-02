@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'rake', '10.1.1'
 gem 'rmagick'
 gem 'rails', '3.2.3'
 gem 'devise', '2.0'
