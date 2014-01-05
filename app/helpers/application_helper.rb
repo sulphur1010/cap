@@ -31,8 +31,10 @@ module ApplicationHelper
 		if parent && parent.parent_id
 			output += render_parent_breadcrumb(parent)
 		end
-		output += link_to parent.name, parent.url
-		output += "<span class='breadcrumb_seperator'>&gt;</span>";
+		if parent
+			output += link_to parent.name, parent.url
+			output += "<span class='breadcrumb_seperator'>&gt;</span>";
+		end
 		return output.html_safe
 	end
 

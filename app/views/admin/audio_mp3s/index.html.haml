@@ -18,8 +18,8 @@
       %td= audio_mp3.audio_mp3_updated_at
       %td= audio_mp3.audio_content_id
       %td= audio_mp3.audio_title
-      %td= link_to 'Show', audio_mp3
-      %td= link_to 'Edit', edit_audio_mp3_path(audio_mp3)
-      %td= link_to 'Destroy', audio_mp3, confirm: 'Are you sure?', method: :delete
+      %td= link_to 'Show', admin_audio_mp3(admin_mp3)
+      %td= link_to 'Edit', edit_admin_audio_mp3_path(audio_mp3)
+      %td= link_to 'Destroy', admin_audio_mp3(admin_mp3), confirm: 'Are you sure?', method: :delete
 %br/
-= link_to 'New Audio mp3', new_audio_mp3_path, class="btn_edit left"
+= link_to 'New Audio mp3', new_admin_audio_mp3_path, class="btn_edit left"
