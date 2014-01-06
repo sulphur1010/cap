@@ -75,7 +75,7 @@
       $.getJSON( #{@audio_mp3.id}+".json", function( data ) {
         $.each( data, function( key, val ) {
           if(key=="audio_mp3_file_name"){
-            mp3url="../../audio_mp3s/"+#{@audio_mp3.id} +"/"+val;
+            mp3url="/system/audio_mp3s/"+#{@audio_mp3.id} +"/"+val;
             //oggurl="audio_contents/" + val.audioOgg_file_name;
             myPlaylist.add({
               title: "#{@audio_mp3.audio_mp3_file_name}",
