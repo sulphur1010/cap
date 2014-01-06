@@ -9,6 +9,7 @@ tmp/
 .sass-cache/
 *.swp
 public/system
+public/audio_mp3s
 solr/data
 solr
 *.pid
