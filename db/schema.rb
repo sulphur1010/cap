@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131226184235) do
+ActiveRecord::Schema.define(:version => 20131219175352) do
 
   create_table "attendees_events", :force => true do |t|
     t.integer  "attendee_id"
@@ -55,6 +55,9 @@ ActiveRecord::Schema.define(:version => 20131226184235) do
     t.integer "user_id"
     t.integer "event_id"
   end
+
+  add_index "celebrants_events", ["event_id"], :name => "index_celebrant_events_on_event_id"
+  add_index "celebrants_events", ["user_id"], :name => "index_celebrant_events_on_user_id"
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -252,7 +255,6 @@ ActiveRecord::Schema.define(:version => 20131226184235) do
     t.boolean  "free_event"
     t.boolean  "allow_3rd_party_payment"
     t.string   "allow_3rd_party_payment_url"
-    t.string   "allow_3rd_party_payment_text"
     t.text     "allow_3rd_party_payment_type_instructions"
   end
 

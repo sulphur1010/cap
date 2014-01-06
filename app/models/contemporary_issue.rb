@@ -12,4 +12,8 @@ class ContemporaryIssue < ContentFragment
 		thoughts[rand(thoughts.count)]
 	end
 
+	def related_thoughts_count
+		self.content_fragments.published.where(:type => 'Thought').all.count
+	end
+
 end
