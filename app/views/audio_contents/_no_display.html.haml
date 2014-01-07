@@ -85,7 +85,7 @@
             $.getJSON("../audio_mp3s.json", function( data ) {
               $.each( data, function( key2, val2 ) {  
                 if(val.id==val2.audio_content_id){
-                  mp3url="../audio_mp3s/" + val2.id + "/" + val2.audio_mp3_file_name;
+                  mp3url="/system/audio_mp3s/" + val2.id + "/" + val2.audio_mp3_file_name;
                   hide=false;
                   $("#jp_container_1").show();
                   myPlaylist.add({
