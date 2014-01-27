@@ -154,6 +154,10 @@ a.top_nav.active{background:url(/images/top_nav_bg_hover.gif) repeat-x center;}
 .search_box{width:214px;height:24px;border:none;padding:0 3px;vertical-align:top;color:#676767;}
 .search_btn{background:url(/images/search_btn.png);vertical-align:top; width:26px;height:23px;border:none;}
 
+.top_nav_home a.top_nav {
+	padding: 0px 20px;
+}
+
 /*Main Part*/
 #main{background:#fff;border:none;width:980px;height:auto;margin:20px 0 0 0; position: relative;border:1px solid #ddd; padding: 0 0 0px 0;}
 .left_column{width:180px;}
@@ -530,7 +534,7 @@ table.left_menu_container .left_menu_sub_item a:hover {
 
 table.left_menu_container .content_with_left_menu {
 	min-height: 400px;
-	display: block;
+	display: inline-block;
 	border-bottom: 1px solid #eee;
 	margin-bottom: -1px;
 }
@@ -562,7 +566,7 @@ ul.contemporary_issues_list li {
 .encyclical_list li a,
 .user_list li {
 	display: inline-block;
-	width: 200px;
+	width: 190px;
 	padding: 4px;
 	text-decoration: none;
 	
@@ -573,11 +577,12 @@ ul.contemporary_issues_list li {
 
 .contemporary_issues_list li a {
 	display: inline-block;
-	padding: 4px;
+	padding: 4px 10px;
 	text-decoration: none;
 	border: 1px solid #eee;
 	margin-bottom: 10px;
 	margin-right: 10px;
+	border-radius: 20px;
 }
 
 .encyclical_list li a {
@@ -618,12 +623,14 @@ ul.contemporary_issues_list li {
 .thought_quote {
 	font-family: georgia;
 	font-size: 18px; 
-	color: #777;
+	color: black;
 	line-height: 1.6em;
 	margin-top: 10px;
 	margin-bottom: 15px;
-	padding: 20px 20px 0px 20px;
+	padding: 20px 20px 20px 20px;
 	font-style: italic;
+	background: #f2f3e9;
+	margin-left: -40px;
 }
 
 .page {
@@ -648,8 +655,7 @@ ul.contemporary_issues_list li {
 }
 
 .thought {
-	margin: 10px 0 10px 0;
-	border-top: 1px dotted #aaa;
+	margin: 15px 0 25px 0;
 	padding: 10px 0 0 0;
 }
 
@@ -657,7 +663,6 @@ ul.contemporary_issues_list li {
 	text-align: left;
 	padding: 0 0 0 0px;
 	width: 70px;
-	padding: 0px 20px 20px 20px;
 }
 
 .thought_image {
@@ -668,6 +673,7 @@ ul.contemporary_issues_list li {
 .thought_image img {
 	max-width: 60px;
 	max-height: 60px;
+	border-radius: 30px;
 }
 
 .thought .thought_teaser {
@@ -719,6 +725,7 @@ ul.contemporary_issues_list li {
 
 .thought_author_container {
 	padding-top: 5px;
+	padding-left: 20px;
 	color: #777;
 	font-family: arial;
 	display: inline;
@@ -1088,7 +1095,7 @@ a:hover {
 
 .study_center_blocks select {
 	margin-top: 8px;
-	width: 350px;
+	max-width: 350px;
 }
 
 .study_center_blocks tr td {
@@ -1301,6 +1308,7 @@ a:hover {
 .content_fragment_header_image {
 	padding-top: 5px;
 	padding-bottom: 10px;
+	max-width: 678px;
 }
 
 .search_result_title {
@@ -1456,7 +1464,6 @@ ul.accordion_list {
 	> li {
 		display: block;
 		padding: 10px 25px;
-		margin: 3px;
 		margin-top: 0;
 		margin-left: 0;
 		font-weight: bold;
