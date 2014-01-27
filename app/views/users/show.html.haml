@@ -19,12 +19,10 @@
 							|
 							= @user.chapter.name
 					= @user.about.html_safe rescue ''
-	- if !@user.contemporary_issues.published.empty?
-		%hr
-		.page
-			%h4 Interested In:
-			- @user.contemporary_issues.published.each do |issue|
-				= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'
+					- if !@user.contemporary_issues.published.empty?
+						%h4 Interested In:
+						- @user.contemporary_issues.published.each do |issue|
+							= link_to issue.title, contemporary_issue_path(issue), :class => 'contemporary_issue_link'
 	- if !@user.events.empty?
 		%hr
 		.page

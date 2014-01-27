@@ -1092,6 +1092,12 @@ a:hover {
 .profile_table tr td{
 }
 
+.profile_table {
+	h4 {
+		display: inline-block;
+	}
+}
+
 .about_td {
 	width: 600px;
 	padding-left: 10px;
@@ -1100,6 +1106,11 @@ a:hover {
 .formtastic .profile_image {
 	padding-top: 10px;
 	padding-left: 125px;
+	border-radius: 40px;
+}
+
+.user_image {
+	border-radius: 40px;
 }
 
 .study_center_blocks {
@@ -1372,8 +1383,6 @@ a:hover {
 	padding: 1px 8px;
 	border: 1px solid;
 	font-size: 11px;
-	position: relative;
-	top: -2px;
 }
 
 .search_result_highlight {

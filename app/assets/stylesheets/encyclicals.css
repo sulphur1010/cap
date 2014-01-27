@@ -139,10 +139,46 @@ table.encyclical_teaser_list tr.encyclical_results_facets td {
 	background: url('/assets/book.png') no-repeat;
 }
 
-.chapter_reference_content {
-	border: 1px solid #777;
-	padding: 5px;
+.chapter {
+	border: 1px solid #ccc;
+	padding: 30px;
+	box-shadow: 0px 1px 3px #ccc;
+	margin-bottom: 20px;
 }
+
+.page p.chapter {
+	font-size: 14px;
+	line-height: 1.4em;
+	font-family: monospace;
+}
+
+.encyclical_image {
+	max-width: 100%;
+}
+
+.chapter_reference_content {
+	padding: 30px 20px 30px 30px;
+	border: 1px solid #ccc;
+	margin-bottom: -1px;
+	background: aliceblue;
+}
+
+.chapter_reference_content	ul.encyclical_chapter_results {
+	margin-left: 0px;
+}
+
+.chapter_reference_content	ul.encyclical_chapter_results li {
+	border: 1px solid #ccc;
+	box-shadow: 0px 1px 3px #ccc;
+	padding: 10px;
+	width: 170px;
+	display: inline-block;
+	margin-right: 10px;
+	background: #fff;
+	margin-top: 20px;
+	float: left;
+}
+
 
 ul.encyclical_chapter_results li {
 	list-style-type: none;
@@ -150,7 +186,12 @@ ul.encyclical_chapter_results li {
 
 ul.encyclical_chapter_results .search_result_type {
 	float: none;
-	display: inline;
+	display: inline-block;
+	background: #ddd;
+	padding: 0px 8px;
+	font-size: 11px;
+	border-radius: 2px;
+	border: none;
 	color: #777;
 }
 

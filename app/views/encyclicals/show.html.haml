@@ -5,6 +5,7 @@
 		$("#top_nav_study_center").addClass("active");
 	});
 .page
+	= render :partial => 'users/list', :object => @encyclical.users
 	= render :partial => 'content_fragments/page', :object => @encyclical
 :javascript
 	$(document).ready(function() {

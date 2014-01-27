@@ -23,8 +23,8 @@ class Encyclical < ContentFragment
 			Rails.logger.debug "refs - #{refs.inspect}"
 			ref_count_class = refs.count == 0 ? "encyclical_without_reference" : "encyclical_with_reference"
 			ref_link_text = reference_link_text(refs)
-			ret = "<div id='chapter_#{number}_reference_container' class='chapter_reference_container' style='display: none'></div>"
-			ret += "<a class='encyclical_chapter_link #{ref_count_class}' data-id='#{id}' data-chapter='#{number}' data-encyclical='#{reference_keyword}' data-name='chapter_#{number}'>#{ref_link_text}</a>"
+			ret = "<a class='encyclical_chapter_link #{ref_count_class}' data-id='#{id}' data-chapter='#{number}' data-encyclical='#{reference_keyword}' data-name='chapter_#{number}'>#{ref_link_text}</a>"
+			ret += "<div id='chapter_#{number}_reference_container' class='chapter_reference_container' style='display: none'></div>"
 			ret += "<p class='chapter' id='chapter_#{number}' data-id='#{number}'>#{chapter}</p>"
 			ret
 		}.join("")

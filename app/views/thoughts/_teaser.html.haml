@@ -2,6 +2,9 @@
 	%tr
 		%td
 			%h5.thought_title= link_to teaser.title, thought_path(teaser)
+			- if teaser.image?
+				= link_to image_tag(teaser.image.url(:normal), :class => 'contemporary_issue_random_thought_image'), thought_path(teaser)
+
 			.thought_teaser= strip_tags(teaser.teaser) rescue ""
 			- if !teaser.users.empty?
 				- teaser.users.each do |user|

@@ -4,5 +4,9 @@
 		%ul.encyclical_chapter_results
 			- @references.each do |reference|
 				%li
+					- if reference.content_fragment.image?
+						= link_to image_tag(reference.content_fragment.image.url(:normal), :class => 'encyclical_image'), object_url(reference.content_fragment)
+
 					%a{:href => object_url(reference.content_fragment)}= reference.content_fragment.title
 					.search_result_type{:class => "search_type_#{reference.content_fragment.type.underscore}"}= content_fragment_type_mapper(reference.content_fragment.type)
+			.clear
