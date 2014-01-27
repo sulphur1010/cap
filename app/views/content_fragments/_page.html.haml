@@ -2,8 +2,10 @@
 	= render :partial => "content_fragments/breadcrumb", :locals => { :page => page }
 - if is_admin?
 	= link_to 'Edit', content_fragment_edit_url(page), :class => 'btn_edit'
+- if page.image?
+	= image_tag page.image.url(:normal), :class => 'content_fragment_header_image'
 - if page.class == Thought
-	.thought_quote= strip_tags(@thought.teaser) rescue ''
+	.page_thought_quote= strip_tags(@thought.teaser) rescue ''
 - if page.class == Encyclical
 	- if page.published_at
 		.published_date= page.published_at.strftime("%a %b %e %Y")
@@ -12,8 +14,6 @@
 			by:
 			- page.authors.each do |author|
 				.author= author.full_name
-- if page.image?
-	= image_tag page.image.url(:normal), :class => 'content_fragment_header_image'
 = parse_references(page.parsed_body).html_safe rescue ""
 -if !page.class == Page
 	- if user_signed_in?

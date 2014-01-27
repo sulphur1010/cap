@@ -18,6 +18,8 @@
 					.element{:'data-category' => 'person_type', :'data-value' => type.id}
 						= check_box_tag :whatever
 						= type.name
+
+
 		%td.content_with_left_menu
 			#js_thought_list
 				- if @thoughts.empty?

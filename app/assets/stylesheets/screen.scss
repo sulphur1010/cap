@@ -31,7 +31,7 @@ h1 {font-size:24px;font-weight:bold;line-height:140%;margin:0;font-family:arial;
 h2 {font-size:18px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
 h3 {font-size:15px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
 h4 {font-size:14px;font-weight:bold;line-height:130%;margin:5px 0 6px 0;font-family:arial;color:#777; }
-h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0;font-family:arial;color:#232323;}/*left bar title CAP*/
+h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0 0 10px 0;font-family:arial;color:#232323;}/*left bar title CAP*/
 
 /*Special font definitions*/
 .event_page h2 {padding: 5px 0; font-size: 22px; display: inline-block;}
@@ -597,22 +597,30 @@ ul.contemporary_issues_list li {
 }
 
 .user_list li {
-	width: 335px;
+	width: 320px;
 	padding: 0;
 		margin-right: 10px;
 		margin-bottom: 10px;
+		margin-top: 10px;
 		background: #fff; 
 		display: inline-block;
+		height: 80px;
 }
 
 .user_list li .user_info {
 	font-size: 10px;
-	padding: 4px 0 4px 4px;
+	padding: 4px 0 4px 8px;
 	color: #555;
 	display: inline-block;
 	vertical-align: top;
-	width: 230px;
+	width: 220px;
 	line-height: 1.4em;
+	 
+	a {
+		font-size: 13px;
+		font-family: 'Fauna One', serif;
+		margin-top: 15px;
+	}
 }
 
 .user_list li img {
@@ -620,33 +628,40 @@ ul.contemporary_issues_list li {
 	padding-right: 0px;
 }
 
-.thought_quote {
-	font-family: georgia;
-	font-size: 18px; 
-	color: black;
-	line-height: 1.6em;
-	margin-top: 10px;
-	margin-bottom: 15px;
-	padding: 20px 20px 20px 20px;
-	font-style: italic;
-	background: #f2f3e9;
-	margin-left: -40px;
-}
-
-.page {
+.right_column {
 	.thought_quote {
-		font-family: avenir;
+		font-family: georgia;
 		font-size: 18px; 
-		color: #777;
+		color: black;
 		line-height: 1.6em;
 		margin-top: 10px;
 		margin-bottom: 15px;
-		padding: 20px 20px 0px 20px;
+		padding: 20px 20px 20px 20px;
 		font-style: italic;
-		font-weight: bold;
+}
+}
+
+.page {
+	.page_thought_quote {
+		font-size: 18px; 
+		color: black;
+		line-height: 1.6em;
+		margin-top: 10px;
+		margin-bottom: 15px;
+		margin-left: -40px;
+		margin-right: 20px;
+		padding: 30px;
+		font-style: italic;
+		background: #f2f3e9;
+		color: #333;
 		width: 300px;
 		float: left;
+		font-family: 'Open Sans Condensed', sans-serif;
 	}
+}
+
+.random_thought .thought_quote, {
+	padding: 0px;
 }
 
 .thought .thought_image {
@@ -694,7 +709,7 @@ ul.contemporary_issues_list li {
 	color: #777;
 }
 
-.thought_quote p {margin: 0px; padding: 0px; font-family: arial !important;}
+.thought_quote p {margin: 0px; font-family: arial !important;}
 .page .thought_author_container {margin: 0px; padding: 0px;}
 
 .thought_block {
@@ -725,7 +740,6 @@ ul.contemporary_issues_list li {
 
 .thought_author_container {
 	padding-top: 5px;
-	padding-left: 20px;
 	color: #777;
 	font-family: arial;
 	display: inline;
@@ -1436,6 +1450,10 @@ input {
 		.board_member_image {
 			float: left;
 			padding-right: 15px;
+			
+			img {
+				border-radius: 40px;
+			}
 		}
 
 		.user_info {
@@ -1497,10 +1515,12 @@ ul.accordion_list {
 .breadcrumbs {
 	line-height: 24px;
 	font-weight: bold;
-	padding-bottom: 10px;
+	padding-bottom: 30px;
 	font-size: 18px;
 	width: 90%;
 	display: inline-block;
+	font-weight: bold;
+	font-size: 16px;
 
 	a {
 		display: inline-block;
@@ -1657,11 +1677,14 @@ ul.accordion_list {
 .random_thought{
 	display: inline-block;
 	vertical-align:top;
-	padding: 0px 5px;
+	padding: 0px 5px 0px 0px;
 }
 .random_thought .thought_quote, .random_thought .thought_author_container{
 	width: 220px;
-	vertical-align:top;
+	vertical-align: middle;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+	line-height: 1.5em;
 }
 
 #audio_content_content_fragment_id{

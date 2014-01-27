@@ -8,6 +8,8 @@
 					.thought_author_container.inline
 						by:
 						= link_to user.full_name, user_path(user)
+						.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 24, :height => 24, :class => 'user_image'), user_path(user)
+
 			.published_at
 				posted on:
 				= teaser.formatted_published_at

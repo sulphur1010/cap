@@ -7,7 +7,7 @@
 		= render :partial => 'audio_contents/no_display', :object =>@thought, :locals => { :id => @thought.id}
 
 	- if !@thought.users.empty?
-		%h4 Written by:
+		%h5 AUTHOR(S)
 		= render :partial => 'users/list', :object => @thought.users
 	= render :partial => 'contemporary_issues/list', :object => @thought
 :javascript
