@@ -26,6 +26,8 @@
 		%span.contemporary_issue_title= @contemporary_issue.title
 	.random_thought
 		- thought1 = @contemporary_issue.random_thought
+		- if thought1.image?
+			= link_to image_tag(thought1.image.url(:normal), :class => 'contemporary_issue_random_thought_image'), thought_path(thought1)
 		- if thought1
 			.thought_quote
 				= strip_tags(thought1.teaser)
@@ -40,6 +42,8 @@
 	.random_thought
 		- if @contemporary_issue.related_thoughts_count >= 2
 			- thought2 = @contemporary_issue.random_thought
+			- if thought2.image?
+				= link_to image_tag(thought2.image.url(:normal), :class => 'contemporary_issue_random_thought_image'), thought_path(thought2)
 			- while thought2 == thought1
 				- thought2 = @contemporary_issue.random_thought
 			- if thought2
@@ -56,6 +60,8 @@
 	.random_thought
 		- if @contemporary_issue.related_thoughts_count >= 3
 			- thought3 = @contemporary_issue.random_thought
+			- if thought3.image?
+				= link_to image_tag(thought3.image.url(:normal), :class => 'contemporary_issue_random_thought_image'), thought_path(thought3)
 			- while (thought3 == thought1) || (thought3 == thought2)
 				- thought3 = @contemporary_issue.random_thought
 			- if thought3

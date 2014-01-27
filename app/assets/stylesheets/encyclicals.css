@@ -30,6 +30,23 @@ table.encyclical_teaser_list .encyclical_title {
 	display: inline-block;
 }
 
+table.encyclical_teaser_list .encyclical_published_year {
+	font-size: 18px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	display: inline-block;
+	color: #aaa;
+	margin-left: 5px; 
+	float: right;
+}
+
+table.encyclical_teaser_list .encyclical_published_at {
+	font-size: 12px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #aaa;
+	display: inline-block;
+	float: right;
+}
+
 table.encyclical_teaser_list .encyclical_translated_title {
 	color: #777;
 	font-size: 13px;
@@ -59,14 +76,6 @@ td.encyclical_author {
 
 .encyclical_author {
 		display: inline-block;
-}
-
-table.encyclical_teaser_list .encyclical_published_at {
-	width: 150px;
-	float: right;
-	text-align: right;
-	font-size: 11px;
-	color: #aaa;
 }
 
 .page .chapter.found {

@@ -3,8 +3,9 @@
 		- teaser.authors.each do |author|
 			.encyclical_author_image= link_to image_tag(author.profile_image(:small), :class => 'profile_image', :width => 60, :height => 60, :class => 'user_image'), user_path(author), :title => author.full_name
 	%td
-		.encyclical_published_at= teaser.published_at.strftime("%B %d, %Y") rescue ''
 		.encyclical_title= link_to teaser.title, encyclical_path(teaser)
+		.encyclical_published_year= teaser.published_at.strftime("%Y") rescue ''
+		.encyclical_published_at= teaser.published_at.strftime("%B %d") rescue ''
 		%br
 		.encyclical_translated_title= teaser.translated_title
 		%br

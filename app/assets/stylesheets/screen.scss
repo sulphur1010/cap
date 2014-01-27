@@ -1710,7 +1710,8 @@ background: #81b800;
 }
 
 .thought_quote a{
-	font-size: 12px;	
+	font-size: 15px;
+	text-decoration: underline;	
 }
 .hr_thought{
 	border-top: 1px solid rgb(221, 221, 221);
@@ -1723,12 +1724,19 @@ background: #81b800;
 	vertical-align:top;
 	padding: 0px 5px 0px 0px;
 }
+
+.contemporary_issue_random_thought_image { 
+	max-width: 200px;
+}
+
 .random_thought .thought_quote, .random_thought .thought_author_container{
-	width: 220px;
-	vertical-align: middle;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 18px;
-	line-height: 1.5em;
+width: 200px;
+vertical-align: middle;
+font-family: 'Open Sans Condensed', sans-serif;
+font-size: 16px;
+line-height: 1.5em;
+margin-right: 19px;
+color: #777;
 }
 
 #audio_content_content_fragment_id{
