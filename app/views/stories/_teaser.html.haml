@@ -2,15 +2,16 @@
 	%tr
 		%td
 			- if teaser.is_a?(Story)
+				.category= teaser.category
 				%h5.story_title= link_to teaser.title, story_path(teaser)
 				.source CAPP-USA
 				.published_at= teaser.formatted_published_at
-				.category= teaser.category
 				.teaser= teaser.teaser.html_safe
 			- else
 				.rss_feed_icon
-				%h5.story_title= link_to teaser.title, teaser.url, :target => '_blank'
+				.category
+					= teaser.feed_source.category
 				.source= teaser.feed_source.title
-				.published_at= teaser.formatted_published_at
-				.category= teaser.feed_source.category
+				.right.published_at= teaser.formatted_published_at
+				%h5.story_title= link_to teaser.title, teaser.url, :target => '_blank'
 				.teaser= teaser.teaser.html_safe

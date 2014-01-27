@@ -8,6 +8,9 @@
 				.view_all= link_to 'view all', stories_path
 		- stories.each do |story|
 			.thought
-				.thought_title= link_to story.title, story_path(story)
+				.story_teaser
+					.rss_feed_icon
+					.category= story.category
+					.thought_title= link_to story.title, story_path(story)
+
 		.view_all.btm_link= link_to 'Read More News', stories_path
-		

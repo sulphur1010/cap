@@ -62,9 +62,10 @@
 							%tr
 								%td= f.text_field :email, { :class => 'email_box', :id => 'js_email_address', :'data-label' => 'Add Your Email' }
 								%td= f.submit :class => 'submit_btn', :value=> 'Submit'
-				%h3.center OR
-				%a#home_signup_button{:href => new_registration_path(User)} Sign up for a CAPP-USA.org account
-				.arial.size11.cgrey A CAPP-USA account gives you access to sponsored Events, Courses and more.
+				.newsletter_capture
+					%h4 Create an Account
+					.arial.size11.cgrey A CAPP-USA account gives you access to sponsored Events, Courses and more.
+					%a#home_signup_button{:href => new_registration_path(User)} Sign up
 				= render :partial => 'shared/home_upcoming_course'
 				= render :partial => 'shared/home_upcoming_event'
 				.news_block= render :partial => 'shared/home_news_block'
