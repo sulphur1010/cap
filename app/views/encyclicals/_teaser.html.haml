@@ -1,7 +1,14 @@
 %tr{:class => cycle("odd", "even")}
-	%td.encyclical_title= link_to teaser.title, encyclical_path(teaser)
-	%td.encyclical_translated_title= teaser.translated_title
-	%td.encyclical_author
+	%td
 		- teaser.authors.each do |author|
-			.author= author.full_name rescue ''
-	%td.encyclical_published_at= teaser.published_at.strftime("%h %d, %Y") rescue ''
+			.encyclical_author_image= link_to image_tag(author.profile_image(:small), :class => 'profile_image', :width => 60, :height => 60, :class => 'user_image'), user_path(author), :title => author.full_name
+	%td
+		.encyclical_published_at= teaser.published_at.strftime("%B %d, %Y") rescue ''
+		.encyclical_title= link_to teaser.title, encyclical_path(teaser)
+		%br
+		.encyclical_translated_title= teaser.translated_title
+		%br
+		- teaser.authors.each do |author|
+			.encyclical_author
+				by
+				= author.full_name rescue ''

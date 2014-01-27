@@ -1427,6 +1427,30 @@ table.full {
 	}
 }
 
+label.input {
+	display: block;
+}
+
+label.input span {
+	position: absolute;
+	padding: 5px;
+	margin-left: 3px;
+	color: #999;
+	z-index: 1;
+	cursor: text;
+}
+
+label.input input {
+	z-index: 0;
+	padding: 6px;
+	margin: 0;
+	font: inherit;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	label.input input { padding: 4px; }
+}
+
 input {
 	font-size: 14px;
 	padding: 4px;

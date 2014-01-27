@@ -5,14 +5,19 @@
 
 table.encyclical_left_menu_container td.content_with_left_menu {
 	padding: 0;
+	width: 567px;
 }
 
 table.encyclical_left_menu_container .content_with_left_menu {
 	background-image: none;
 }
 
+table.encyclical_teaser_list {
+	width: 100%;
+}
+
 table.encyclical_teaser_list tr td {
-	padding: 8px 5px;
+	padding: 18px 18px 18px 0px;
 }
 
 table.encyclical_teaser_list tr.even {
@@ -20,21 +25,48 @@ table.encyclical_teaser_list tr.even {
 }
 
 table.encyclical_teaser_list .encyclical_title {
-	width: 150px;
+	font-size: 24px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	display: inline-block;
 }
 
 table.encyclical_teaser_list .encyclical_translated_title {
-	width: 150px;
+	color: #777;
+	font-size: 13px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	display: inline-block;
 }
 
 table.encyclical_teaser_list .encyclical_author {
-	width: 150px;
-	font-weight: bold;
-	color: #555;
+	color: #777;
+	font-size: 11px;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+td.encyclical_author {
+}
+
+.encyclical_author_image {
+	display: inline-block;
+}
+
+.encyclical_author_image 
+	img {
+	 	border-radius: 40px;
+		display: inline-block;
+		margin-left: 18px;
+}
+
+.encyclical_author {
+		display: inline-block;
 }
 
 table.encyclical_teaser_list .encyclical_published_at {
-	width: 85px;
+	width: 150px;
+	float: right;
+	text-align: right;
+	font-size: 11px;
+	color: #aaa;
 }
 
 .page .chapter.found {
