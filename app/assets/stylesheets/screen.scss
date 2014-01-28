@@ -763,15 +763,15 @@ ul.contemporary_issues_list li {
 	line-height: 1.6em;
 }
 
+.thought_block {
 .thought_author_container {
-	padding-top: 5px;
 	color: #777;
 	font-family: arial;
-	display: inline;
-}
+	display: block;
+	margin-left: 20px;
+}}
 
 .thought_author_container {
-	display: block;
 }
 
 .thought_author {
