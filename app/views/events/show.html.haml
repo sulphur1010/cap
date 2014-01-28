@@ -3,59 +3,49 @@
 		/= render :partial => 'shared/share'
 		- if is_admin?
 			= link_to 'Edit', edit_admin_event_url(@event), :class => 'btn_edit'
+		- if @event.type
+			.event_type{ :class => "event_type_#{@event.type.to_s.downcase.gsub(" ", "_")}"}= @event.type
+		%div{itemscope: "", itemtype: "http://schema.org/Event"}
+		%h1{itemprop: "name"}= @event.title
+	
 		%h2
-			= @event.title
-		.event_header
-			%table.full
-				%tr
-					%th Event Type
-					%th Starts
-					%th Ends
-					%th Duration
-
-				%tr
-					%td
-						- if @event.type
-							/.event_type{ :class => "event_type_#{@event.type.to_s.downcase.gsub(" ", "_")}"}
-							= @event.type									
-					%td
-						- if @event.start_date
-							%span.event_start= "#{@event.formatted_start}"					
-					%td
-						- if @event.end_date
-							%span.event_end= "#{@event.formatted_end}"
-					%td
-						- if @event.start_date && @event.end_date
-							%span.event_duration= @event.duration_in_words
-	.page
-		.event_body= @event.body.html_safe rescue ""
-
-	.page
-		- if @event.location
-			.location_box
-				.event_location
-					Main Location: 
-				.event_location_name
-					= @event.location.name
-				.event_location_address
-					= @event.location.address
-		- if @event.chapter
-			.host_box
-				.event_chapter
-					Hosted by:
-				.event_chapter_name
-					= @event.chapter.name 
-		- if @event.director
-			.director_box
-				.event_director
-					%b Program Contact: 
-				= @event.director.full_name
-				@
-				%span.event_director_phone
-					= @event.director.work_phone
-				or
-				%span.event_director_email
-					%a{:href => "mailto:#{@event.director.email}"}= @event.director.email
+			- if @event.start_date
+				%span.event_start{itemprop: "startDate"}= "#{@event.formatted_start}"
+			="-"	
+			- if @event.end_date
+				%span.event_end{itemprop: "endDate"}= "#{@event.formatted_end}"
+			- if @event.start_date && @event.end_date
+				%span.event_duration{itemprop: "duration"}= @event.duration_in_words								
+		%table
+			%tr
+				%td
+					.event_body= @event.body.html_safe rescue ""
+				%td
+					- if @event.location
+						.location_box
+							.event_location
+								Main Location: 
+							.event_location_name
+								= @event.location.name
+							.event_location_address
+								= @event.location.address
+					- if @event.chapter
+						.host_box
+							.event_chapter
+								Hosted by:
+							.event_chapter_name
+								= @event.chapter.name 
+					- if @event.director
+						.director_box
+							.event_director
+								%b Program Contact: 
+							= @event.director.full_name
+							@
+							%span.event_director_phone
+								= @event.director.work_phone
+							or
+							%span.event_director_email
+								%a{:href => "mailto:#{@event.director.email}"}= @event.director.email
 		- unless @thanks
 			- if @event.attendees.include?(current_user)
 				- ae = AttendeesEvent.where(:attendee_id => current_user.id).where(:event_id => @event.id).first
@@ -89,13 +79,14 @@
 		.page
 			%h4 Related Event:
 			= render :partial => 'teaser', :object => @teaser_events
-	%hr
-	.page
-		%b.inline
-			%h4 Ideal for the:
-		- @event.person_types.each do |person_type|
-			-#= link_to person_type.name, person_type_path(person_type), :class => 'person_type_link'
-			%span.person_type_link= person_type.name
+	- if !@event.person_types.empty?
+		%hr
+		.page
+			%b.inline
+				%h4 Ideal for the:
+			- @event.person_types.each do |person_type|
+				-#= link_to person_type.name, person_type_path(person_type), :class => 'person_type_link'
+				%span.person_type_link= person_type.name
 	- if !@event.contemporary_issues.empty?
 		%hr
 		.page

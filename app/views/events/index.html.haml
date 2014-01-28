@@ -1,6 +1,6 @@
 .page
-	%h2 Events
-	Find a Conference, Course, Lecture or Retreat near you.
+	%h1.inline Events
+	.inline.description - Find a Conference, Course, Lecture or Retreat near you.
 .event_header_navigation
 	- if controller.action_name == 'past'
 		= link_to 'upcoming', events_path

@@ -8,7 +8,7 @@
 		%td.buttons
 			.answer_button{:'data-id' => question.id}
 				%span= "ANSWER"
-				%span.arrow= image_tag('answer_arrow.png')
+				%span.question_arrow= image_tag('answer_arrow.png')
 .answer_popup{:'data-id' => question.id, :style => 'display: none;'}
 	.title_bar
 		.answer_question= question.body.html_safe

@@ -1,10 +1,10 @@
 
 .question {
 	width: 100%;
-	padding: 6px 0px;
-	border: 1px solid #ddd;
+	padding: 10px 0px 0px;
+	border-top: 1px solid #ddd;
 	margin: 0 0 10px 0;
-	border-radius: 4px;
+
 
 	.question_body {
 		font-weight: bold;
@@ -36,7 +36,7 @@
 			background: -moz-linear-gradient(center top , white, #EFEFEF) repeat scroll 0 0 #F6F6F6;
 		
 
-			.arrow {
+			.question_arrow {
 				margin-left: 18px;
 				position: relative;
 				top: 4px;

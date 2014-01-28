@@ -27,7 +27,7 @@ html {font-size:100.01%;}
 body {font-size:75%;color:#333;background: url("/images/background.jpg") #ECEDE7;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
 
 /*Typography definition*/
-h1 {font-size:24px;font-weight:bold;line-height:140%;margin:0;font-family:arial;color:#232323;}
+h1 {font-size:24px;font-weight:bold;line-height:140%;margin:0;font-family:arial;color:#232323; font-family: 'Open Sans Condensed', sans-serif; color: #6a5f99;} 
 h2 {font-size:18px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
 h3 {font-size:15px;font-weight:bold;line-height:130%;margin:0;font-family:arial;color:#232323;}
 h4 {font-size:14px;font-weight:bold;line-height:130%;margin:5px 0 6px 0;font-family:arial;color:#333; }
@@ -47,6 +47,7 @@ h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0 0 10px 0;font-fami
 .strong {font-weight: bold; display: inline-block; color: #333;}
 .emergency {background: red; color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 13px;}
 .warning {font-size: 16px;}
+.description {color: #777;}
  
 /*---General Define P TAG*/
 .arial{font-family:arial;}
@@ -75,9 +76,24 @@ hr.thin {border-top: 1px solid #ddd; border-bottom: 2px solid #eee; margin-botto
 a {color: #61849D; text-decoration: none;}
 a:hover {text-decoration: underline;}
 p {line-height: 1.8em; color: #555; }
-.page ul li {font-size: 13px; line-height: 1.6em; color: #333;}
 .page p {
-	margin-bottom: 15px; font-size: 15px;
+	margin-bottom: 15px; 
+	font-size: 15px;
+	
+	strong {
+		color: #333;
+	}
+}
+
+.page ul li {
+	margin-bottom: 0px; 
+	font-size: 15px;
+	line-height: 1.8em; 
+	color: #555; 
+	
+	strong {
+		color: #333;
+	}
 }
 .inline {display: inline-block;}
 ul {margin: 0 0 0 10px;}
@@ -98,17 +114,20 @@ select {
 
 /*alerts and notices */
 .notice {
-	box-shadow: 0 0 1px #75BB55 inset; 
-	background: #75BB55;
+		box-shadow: 0 0 1px #75BB55 inset;
+		background: #75BB55;
 		text-shadow: 0 0 0 transparent, 0 -1px 0 #599e3a;
 		color: #fff;
 		padding: 0px 20px;
-		right: 0px;
-	font-size: 13px;
-	padding: 4px 0;
-	width: 980px;
-	font-weight: bold;
-	text-align: center;
+		right: 400px;
+		font-size: 12px;
+		padding: 3px 0;
+		width: 300px;
+		font-weight: bold;
+		text-align: center;
+		position: fixed;
+		top: 0px;
+		border-radius: 0px 0px 3px 3px;
 	}
 .no_results {
 	padding: 3px;
@@ -396,12 +415,21 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 }
 
 #user_menu li a {
-	padding: 2px;
+	padding: 0px;
 	display: block; 
+	font-size: 11px;
 }
 
 #user_menu li a:hover {
 	background: #dce7ef;
+}
+
+#user_menu {
+	h5 {
+		margin: 7px 0 0 0;
+		text-transform: uppercase;
+		font-size: 11px;
+	}
 }
 
 .nav_main ul.sub_menu {
@@ -849,23 +877,21 @@ td.controls {
 }
 
 .event_page .rsvp, .event_page .unrsvp {
-	margin-top: 10px;
+		margin-top: 10px;
 		font-size: 20px;
 		font-weight: bold;
 		color: #555555;
-	text-align: center;
-		
+		text-align: center;
 		background: -moz-linear-gradient(center top , #FFFFFF, #EFEFEF) repeat scroll 0 0 #F6F6F6;
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#efefef));
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef');
-	
-	text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
+		background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#efefef));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef');
+		text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
 		box-shadow: 0 0 1px #FFFFFF inset;
 		border: 1px solid #ddd;
 		border-radius: 3px 3px 3px 3px;
 		cursor: pointer;
 		padding: 8px 20px;
-	display: inline-block;
+		display: inline-block;
 }
 
 .rsvp:hover {
@@ -926,15 +952,38 @@ td.controls {
 }
 
 .event_page, .content_with_left_menu {
-	background: url('/images/blue_background.png') top left repeat-x;
 	min-height: 550px;
 }
 
-.event_page .event_body {
+.event_page {
+	h1 {
+		color: #6a5f99;
+		margin: 10px 0px;
+		font-size: 25px;
+	}
+	h2 {
+		color: #6a5f99;
+		font-weight: lighter;
+		font-size: 20px;
+	}
+	.event_duration {
+		color: #aaa;
+	}
+	
+	p {
+		font-size: 13px;
+		line-height: 1.6em;
+	}
 }
 
+
 .location_box, .host_box, .director_box {
-	padding: 4px 6px; margin: 0 0 10px 0; background: #ffc; border: 1px solid #dde;
+	padding: 8px;
+	margin: 0 0 10px 0;
+	background: #ffc;
+	border: 1px solid #dde;
+	min-width: 180px;
+	margin-left: 20px;
 }
 
 .event_page .event_location,
@@ -998,6 +1047,8 @@ td.controls {
 .thought_teaser_list {
 	border: 0px solid #eee;
 	border-bottom: 0;
+	background: #eee;
+	display: inline-block;
 }
 
 .event_teaser_list_item,
@@ -1376,13 +1427,6 @@ a:hover {
 	padding-bottom: 8px;
 	margin-bottom: 8px;
 	border-bottom: 1px dotted #aaa;
-}
-
-.search_result_type {
-	float: left;
-	padding: 1px 8px;
-	border: 1px solid;
-	font-size: 11px;
 }
 
 .search_result_highlight {

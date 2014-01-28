@@ -6,41 +6,43 @@
 				%ul#user_menu
 					%li
 						- is_thought_creator? do
-							Content
+							%h5 Content
 							%ul
-								- is_admin? do
-									%li= link_to 'Blocks', admin_blocks_url
-									%li= link_to 'Social Encyclicals', admin_encyclicals_url
-									%li= link_to 'Pages', admin_pages_url
-									%li= link_to 'News Stories', admin_stories_url
-									%li= link_to 'Questions', admin_questions_url
-									%li= link_to 'Feed Sources', admin_feed_sources_url
-									%li= link_to 'Audios', admin_audio_contents_url
 								- is_thought_creator? do
 									%li= link_to 'Articles', admin_thoughts_url
+								- is_admin? do
+									%li= link_to 'News Stories', admin_stories_url
+									%li= link_to 'Questions', admin_questions_url
+									%li= link_to 'Audio Files', admin_audio_contents_url
+									%li= link_to 'RSS Feeds', admin_feed_sources_url
+									%li= link_to 'Papal Addresses', admin_papal_addresses_url
+									%li= link_to 'Pages', admin_pages_url
 					- is_admin? do
 						%li
-							Taxonomy
+							%h5 CORE PAGES
 							%ul
+								%li= link_to 'Social Encyclicals', admin_encyclicals_url
 								%li= link_to 'Contemporary Issues', admin_contemporary_issues_url
 								%li= link_to 'Person Types', admin_person_types_url
 								%li= link_to 'Prism Types', admin_prism_types_url
 								%li= link_to 'Role Types', admin_role_types_url
 								%li= link_to 'Principles', admin_principles_url
-								%li= link_to 'Papal Addresses', admin_papal_addresses_url
+								%li= link_to 'Blocks', admin_blocks_url
 						%li
-							Events
+							%h5 Events
 							%ul
 								%li= link_to 'Chapters', admin_chapters_url
 								%li= link_to 'Events', admin_events_url
 								%li= link_to 'Locations', admin_locations_url
-						%li= link_to "Mailer", static_contact_lists_path
-						%li= link_to 'Menu Items', admin_menu_items_url
-						%li= link_to 'Account Holders', admin_users_url
-						%li= link_to 'Contacts', admin_contacts_url
+						%li
+							%h5 Accounts & Contacts
+							%ul
+								%li= link_to "Mailer", static_contact_lists_path
+								%li= link_to 'Menu Items', admin_menu_items_url
+								%li= link_to 'Account Holders', admin_users_url
+								%li= link_to 'Contacts', admin_contacts_url
 					- if user_signed_in?
-						%li &nbsp;
-						%li= link_to 'logout', destroy_user_session_url, :method => :delete
+						= link_to 'logout', destroy_user_session_url, :method => :delete, :class => "btn_edit"
 					- else
 						%li= link_to 'login', new_user_session_url
 
