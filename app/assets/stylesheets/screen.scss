@@ -713,7 +713,7 @@ ul.contemporary_issues_list li {
 }
 
 img.sidebar_thought_image {
-	max-width: 180px;
+	max-width: 160px;
 	margin-bottom: -20px;
 	margin-left: 20px;
 }
@@ -1802,6 +1802,11 @@ background: #81b800;
 }
 
 .contemporary_issue_random_thought_image { 
+	max-width: 200px;
+	border-radius: 3px;
+}
+
+.teaser_thought_image { 
 	max-width: 480px;
 }
 

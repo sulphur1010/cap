@@ -13,9 +13,10 @@
 		= render :partial => 'questions/question', :collection => @contemporary_issue.questions
 	- if is_admin?
 		= link_to 'Add Question', new_admin_question_path(:id => @contemporary_issue.id), :class => 'btn_edit left'
-%hr
-.page
-	- if !@contemporary_issue.encyclicals.empty?
+
+- if !@contemporary_issue.encyclicals.empty?
+	%hr
+	.page
 		%h3 Related Encyclicals
 		= render :partial => 'encyclicals/list', :object => @contemporary_issue
 		%div{:style => 'clear: both'}
