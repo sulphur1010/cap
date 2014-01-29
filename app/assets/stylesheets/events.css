@@ -97,3 +97,9 @@ table.event_attendees_table td {
 .link {
 	padding: 4px;
 }
+
+.event_short_start {
+	font-weight: bold;
+	text-align: center;
+	font-size: 13px;
+}

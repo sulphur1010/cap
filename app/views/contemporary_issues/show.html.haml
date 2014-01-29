@@ -9,15 +9,16 @@
 		%br
 		= image_tag @contemporary_issue.image.url(:normal), :class => 'content_fragment_header_image'
 	= parse_references(@contemporary_issue.parsed_body).html_safe rescue ""
-	- if !@contemporary_issue.encyclicals.empty?
-		Related Encyclicals:
-		= render :partial => 'encyclicals/list', :object => @contemporary_issue
-		%div{:style => 'clear: both'}
-.page
 	- if !@contemporary_issue.questions.empty?
 		= render :partial => 'questions/question', :collection => @contemporary_issue.questions
 	- if is_admin?
 		= link_to 'Add Question', new_admin_question_path(:id => @contemporary_issue.id), :class => 'btn_edit left'
+%hr
+.page
+	- if !@contemporary_issue.encyclicals.empty?
+		%h3 Related Encyclicals
+		= render :partial => 'encyclicals/list', :object => @contemporary_issue
+		%div{:style => 'clear: both'}
 
 %hr
 .page

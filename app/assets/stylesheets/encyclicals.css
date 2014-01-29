@@ -10,6 +10,7 @@ table.encyclical_left_menu_container td.content_with_left_menu {
 
 table.encyclical_left_menu_container .content_with_left_menu {
 	background-image: none;
+	background: #ccc;
 }
 
 table.encyclical_teaser_list {
@@ -18,6 +19,10 @@ table.encyclical_teaser_list {
 
 table.encyclical_teaser_list tr td {
 	padding: 18px 18px 18px 0px;
+}
+
+table.encyclical_teaser_list tr.odd {
+	background-color: #fff;
 }
 
 table.encyclical_teaser_list tr.even {

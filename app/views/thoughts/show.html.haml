@@ -9,7 +9,10 @@
 	- if !@thought.users.empty?
 		%h5 AUTHOR(S)
 		= render :partial => 'users/list', :object => @thought.users
+%hr
+.page
 	= render :partial => 'contemporary_issues/list', :object => @thought
+	
 :javascript
 	$(function() {
 		$(".top_nav").removeClass("active");

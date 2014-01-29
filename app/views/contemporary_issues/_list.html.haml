@@ -1,10 +1,23 @@
 - if !list.contemporary_issues.empty?
 	%h5.contemporary_issues_list_header RELATED CONTEMPORARY ISSUES
 
-%ul.contemporary_issues_list
+.contemporary_issues_list
 	- list.contemporary_issues.sort_by(&:title).each do |contemporary_issue|
-		%li
+		.menu_item_box
 			- if list.class.to_s == "PersonType"
-				= link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue, :q => list.id)
+				.image
+					- if contemporary_issue.image
+						= link_to image_tag(contemporary_issue.image), contemporary_issue_path(contemporary_issue, :q => list.id)
+					- else
+						= link_to image_tag('capp_logo.jpg', :size => '100x100'), contemporary_issue_path(contemporary_issue, :q => list.id)
+				.bottom
+					%span.name= link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue, :q => list.id)
 			- else
-				= link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue)
+				.image
+					- if contemporary_issue.image
+						= link_to image_tag(contemporary_issue.image), contemporary_issue_path(contemporary_issue)
+					- else
+						= link_to image_tag('capp_logo.jpg', :size => '100x100'), contemporary_issue_path(contemporary_issue)
+				.bottom
+					%span.name= link_to contemporary_issue.title, contemporary_issue_path(contemporary_issue)
+	.clear

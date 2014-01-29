@@ -4,7 +4,7 @@
 		$("#top_nav_study_center").addClass("active");
 	});
 .page
-	%h2.inline Encyclicals
+	%h1.inline Encyclicals
 	.inline
 		= form_for User.new, :url => "/encyclicals/search", :method => :get, :html => { :class => "search_page_form js_page_search_form" } do |f|
 			%input.search_input#js_search_input{:name => "eq", :size => "30", :type => "text", :value => (@eq rescue '')}

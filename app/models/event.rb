@@ -87,7 +87,12 @@ class Event < ActiveRecord::Base
 
 	def short_start
 		return unless self.start_date
-		self.start_date.strftime("%h %d, %Y")
+		self.start_date.strftime("%a")
+	end
+	
+	def full_start
+		return unless self.start_date
+		self.start_date.strftime("%A, %B %d, %Y at %l:%M%P")
 	end
 
 	def formatted_start

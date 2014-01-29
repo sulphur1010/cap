@@ -6,6 +6,8 @@
 	});
 .page
 	= render :partial => 'users/list', :object => @encyclical.users
+%hr
+.page	
 	= render :partial => 'content_fragments/page', :object => @encyclical
 :javascript
 	$(document).ready(function() {
