@@ -7,7 +7,7 @@
 			- if list.class.to_s == "PersonType"
 				.image
 					- if contemporary_issue.image
-						= link_to image_tag(contemporary_issue.image), contemporary_issue_path(contemporary_issue, :q => list.id)
+						= link_to image_tag(contemporary_issue.thumbnail), contemporary_issue_path(contemporary_issue, :q => list.id)
 					- else
 						= link_to image_tag('capp_logo.jpg', :size => '100x100'), contemporary_issue_path(contemporary_issue, :q => list.id)
 				.bottom
@@ -15,7 +15,7 @@
 			- else
 				.image
 					- if contemporary_issue.image
-						= link_to image_tag(contemporary_issue.image), contemporary_issue_path(contemporary_issue)
+						= link_to image_tag(contemporary_issue.thumbnail), contemporary_issue_path(contemporary_issue)
 					- else
 						= link_to image_tag('capp_logo.jpg', :size => '100x100'), contemporary_issue_path(contemporary_issue)
 				.bottom

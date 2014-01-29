@@ -3,7 +3,7 @@
 		%td
 			%h5.thought_title= link_to teaser.title, thought_path(teaser)
 			- if teaser.image?
-				= link_to image_tag(teaser.image.url(:normal), :class => 'contemporary_issue_random_thought_image'), thought_path(teaser)
+				= link_to image_tag(teaser.image.url(:normal), :class => 'teaser_thought_image'), thought_path(teaser)
 
 			.thought_teaser= strip_tags(teaser.teaser) rescue ""
 			- if !teaser.users.empty?
@@ -11,7 +11,7 @@
 					.thought_author_container.inline
 						by:
 						= link_to user.full_name, user_path(user)
-						.teaser_thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 24, :height => 24, :class => 'user_image'), user_path(user)
+						.thought_image= link_to image_tag(user.profile_image(:small), :class => 'profile_image', :width => 24, :height => 24, :class => 'user_image'), user_path(user)
 
 			.published_at
 				posted on:
