@@ -5,7 +5,7 @@
 			%td.padding_in10
 				%h5 Just a Thought
 				- if thought.image?
-					= link_to image_tag(thought.image(:normal), :class => 'contemporary_issue_random_thought_image'), thought_path(thought)
+					= link_to image_tag(thought.image(:normal), :class => 'sidebar_thought_image'), thought_path(thought)
 				.thought_quote
 					= strip_tags(thought.teaser) rescue ""
 					= link_to "Read more", thought_path(thought)

@@ -44,6 +44,7 @@
 				.event_about_time= teaser.duration_in_words
 			%td{:style => 'width: 450px'}
 				%h5.event_title.inline= link_to teaser.title, event_path(teaser)
+				%br
 				.inline.strong When:
 				.inline= teaser.full_start
 				%br
@@ -56,11 +57,11 @@
 					.event_users
 						- if teaser.celebrants.count > 0
 							.event_celebrants
-								Celebrants:
+								.strong Celebrants:
 								= teaser.celebrants.by_last_name.collect { |c| link_to c.full_name, user_path(c) }.join(", ").html_safe
 						- if teaser.speakers.count > 0
 							.event_speakers
-								Speakers:
+								.strong Speakers:
 								= teaser.speakers.by_last_name.collect { |c| link_to c.full_name, user_path(c) }.join(", ").html_safe
 							
 
