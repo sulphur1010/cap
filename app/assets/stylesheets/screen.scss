@@ -199,7 +199,7 @@ a.top_nav.active{background: #b19bcf;}
 .left_column{width:180px;}
 .left_content{width:760px; border:0px solid #ddd; border-right: 0;}
 .no_right_column {width:980px; border-right: 0px solid #ddd;}
-.left_content .page {padding: 40px;}
+.left_content .page {padding: 40px 40px 40px 40px;}
 .no_right_column .page {padding: 0px; position: relative;}
 
 .black {background: black;}
@@ -593,7 +593,6 @@ table.left_menu_container .left_menu_sub_item a:hover {
 }
 
 table.left_menu_container .content_with_left_menu {
-	min-height: 400px;
 	display: inline-block;
 }
 
@@ -1013,7 +1012,6 @@ td.controls {
 }
 
 .event_page, .content_with_left_menu {
-	min-height: 550px;
 }
 
 .event_page {
@@ -1516,11 +1514,12 @@ a:hover {
 	margin-left: 0;
 
 	.search_input {
-		padding: 4px;
+		padding: 8px;
 		margin-left: 0;
 		border: 1px solid #eee;
 		color: #444;
 		font-size: 1.2em;
+		width: 600px;
 	}
 }
 

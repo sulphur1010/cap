@@ -1,26 +1,19 @@
 .page
-	%pre
-		<span class='st_sharethis_hcount' displayText='ShareThis'></span>
-		<span class='st_facebook_hcount' displayText='Facebook'></span>
-		<span class='st_twitter_hcount' displayText='Tweet'></span>
-		<span class='st_linkedin_hcount' displayText='LinkedIn'></span>
-		<span class='st_email_hcount' displayText='Email'></span>
-		<script type="text/javascript">var switchTo5x=false;</script>
-		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-		<script type="text/javascript">stLight.options({publisher: "c864260f-7ef2-4a5c-957d-806cdac5dbcf"}); </script>			
-	%h2= @story.title
+	= render :partial => 'shared/share'	
 	- if is_admin?
-		= link_to 'Edit', content_fragment_edit_url(@story)
+		= link_to 'Edit', content_fragment_edit_url(@story), :class => "btn_edit"	
+	%h2= @story.title
 	.published_at
 		Published at
 		= @story.formatted_published_at
 	- if @story.image?
 		%br
 		= image_tag @story.image.url(:normal), :class => 'content_fragment_header_image'
-.page
 	= @story.body.html_safe rescue ''
 	- if user_signed_in?
 		= render :partial => 'audio_contents/display', :object =>@story, :locals => { :id => @story.id	 }
 	- else
 		= render :partial => 'audio_contents/no_display', :object =>@story, :locals => { :id => @story.id}
-
+%hr
+	.page
+		#disqus_thread

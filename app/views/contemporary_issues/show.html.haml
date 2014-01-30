@@ -13,7 +13,9 @@
 		= render :partial => 'questions/question', :collection => @contemporary_issue.questions
 	- if is_admin?
 		= link_to 'Add Question', new_admin_question_path(:id => @contemporary_issue.id), :class => 'btn_edit left'
-
+%hr
+	.page
+		#disqus_thread
 - if !@contemporary_issue.encyclicals.empty?
 	%hr
 	.page

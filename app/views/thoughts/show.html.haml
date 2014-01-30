@@ -5,10 +5,12 @@
 		= render :partial => 'audio_contents/display', :object =>@thought, :locals => { :id => @thought.id	 }
 	- else
 		= render :partial => 'audio_contents/no_display', :object =>@thought, :locals => { :id => @thought.id}
-
 	- if !@thought.users.empty?
 		%h5 AUTHOR(S)
 		= render :partial => 'users/list', :object => @thought.users
+%hr
+	.page
+		#disqus_thread
 
 = render :partial => 'contemporary_issues/list', :object => @thought
 	
