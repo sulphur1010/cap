@@ -9,9 +9,8 @@
 	- if !@thought.users.empty?
 		%h5 AUTHOR(S)
 		= render :partial => 'users/list', :object => @thought.users
-%hr
-.page
-	= render :partial => 'contemporary_issues/list', :object => @thought
+
+= render :partial => 'contemporary_issues/list', :object => @thought
 	
 :javascript
 	$(function() {

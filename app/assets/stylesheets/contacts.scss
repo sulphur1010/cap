@@ -16,6 +16,94 @@
 	background: #ffc;
 }
 
+.contact_popup_voice {
+	position: absolute;
+	right: 230px;
+	top: 10px;
+	z-index: 999;
+	border-radius: 4px;
+	font-size: 1.4em;
+	background: #00c7fc;
+	padding: 20px;
+	width: 300px;
+	color: #fff;
+	
+	p {
+		font-size: 12px;
+		color: #fff;
+		display: block;
+	}
+
+	.title_bar {
+		font-weight: bold;
+		padding: 0 0 10px 0;
+		display: block;
+
+		.title {
+			font-weight: bold;
+		}
+	}
+	
+	ul {
+		margin: 0px;
+	
+		li {
+			margin: 0px;
+		}
+	}
+	
+	label {
+		font-size: 12px;
+		margin-bottom: 1px;
+	}
+	.input {
+		input {
+			border: 0px;
+			border-radius: 3px;
+			width: 280px;
+			font-size: 14px;
+			padding: 5px 3px;
+		}
+	}
+	
+	.required {
+		color: #fff;
+	}
+	
+	.input_action {
+		input {
+			padding: 6px 20px 6px 0px;
+			border-radius: 3px;
+			display: inline-block;
+			color: #fff;
+			margin: 5px 0px;
+			border: 0px;
+			cursor: pointer;
+			background: #00c7fc;
+			font-size: 16px;
+		}
+		input:hover {
+			text-decoration: underline;
+		}
+	}
+	
+	textarea {
+		border: 0px;
+		border-radius: 3px;
+		width: 280px;
+		background: #fff;	
+		font-size: 14px;
+		height: 100px;
+		padding: 5px 3px;
+	}
+	.close_button {
+		float: right;
+		font-size: 11px;
+		font-weight: lighter;
+		cursor: pointer;
+	}
+}
+
 div.contact_popup {
 
 	width: 500px;
@@ -49,7 +137,8 @@ div.contact_popup {
 			input, textarea {
 				border: 1px solid #ccc;
 				padding: 5px;
-				width: 435px;
+				width: 440px;
+				border-radius: 3px;
 			}
 
 			textarea {
@@ -81,10 +170,8 @@ div.contact_popup {
 			}
 
 			.half_width {
-				width: 220px;
 
 				input {
-					width: 209px;
 				}
 
 				select {

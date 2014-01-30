@@ -24,6 +24,7 @@
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
 	</script>
+	<script type="text/javascript"><% if flash[:notice] %> $(document).ready(function() {$("#notice").slideDown('slow').delay(3000).slideUp('slow');});<% end %></script>
 </head>
 <body>
 
@@ -60,10 +61,10 @@
 	
 	<div id='main'>
 		<% if notice %>
-			<p class="notice"><%= notice %></p>
+			<p id="notice" class="notice"><%= notice %></p>
 		<% end %>
 		<% if alert %>
-			<p class="alert"><%= alert %></p>
+			<p id="notice" class="alert"><%= alert %></p>
 		<% end %>
 		<table><tr>
 			<td class='left_content<%= @show_right_side_bar ? ' ' : ' no_right_column' %>'>
