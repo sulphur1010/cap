@@ -174,13 +174,13 @@ select {
 /*----logo*/
 
 /*----Top Navigation & Search Box*/
-#top_nav_bar{display:block;width:980px;height:40px;background: #8977B3; border-radius: 3px;}
+#top_nav_bar{display:block;width:980px;height:39px;background: #8977B3; border-radius: 3px;}
 
 table.nav_main{display:inline;border:none;border-collapse:collapse;}
 table.nav_main tr{margin:0 5px;line-height:40px;border:none;border-collapse:collapse;}
 table.nav_main tr td{border:none;border-collapse:collapse;}
 
-a.top_nav{font-size:14px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:40px;padding:0 8px;display:block;}
+a.top_nav{font-size:13px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:39px;padding:0 10px;display:block;}
 a.top_nav:hover{background: #b19bcf;}
 a.top_nav.active{background: #b19bcf;}
 
@@ -367,7 +367,7 @@ table#home_bottom_blocks {width: 100%; }
 
 /*right_column*/
 table.right_col{border:none;border-collapse:collapse;}
-td.right_column{border-left: 1px solid #eee; width: 240px;}
+td.right_column{border-left: 1px solid #eee; width: 220px;}
 table.right_col tr{margin:0 5px;border-collapse:collapse;}
 .right_column table tr td{border-collapse:collapse;width:240px}
 table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
@@ -473,7 +473,7 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 .nav_main ul.sub_menu {
 	position: absolute;
 	display: none;
-	top: 130px;
+	top: 129px;
 	list-style-type: none;
 	margin: 0;
 	background-color: #fff;
@@ -1407,8 +1407,10 @@ a:hover {
 .event_type {
 	font-size: 11px;
 	padding: 0px 6px;
-	border: 1px solid #aaa;
+	background: #ddd;
 	display: table-cell;
+	position: absolute;
+	top: 0px;
 	}
 
 .event_time {

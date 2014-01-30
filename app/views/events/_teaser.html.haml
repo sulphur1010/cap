@@ -3,6 +3,9 @@
 		%table.event_teaser
 			%tr
 				%td{:style => 'width: 450px'}
+					- if teaser.type
+						%span.event_type{ :class => "event_type_#{teaser.type.downcase.gsub(" ", "_")}"}
+							= teaser.type				
 					%h5.event_title
 						= link_to teaser.title, event_path(teaser)
 					.event.teaser= strip_tags(teaser.teaser) rescue ""
@@ -17,10 +20,6 @@
 									Speakers:
 									= teaser.speakers.by_last_name.collect { |c| link_to c.full_name, user_path(c) }.join(", ").html_safe
 				%td.event_time{:style => 'width: 100px'}
-					- if teaser.type
-						%span.event_type{ :class => "event_type_#{teaser.type.downcase.gsub(" ", "_")}"}
-							= teaser.type
-					%br
 					= teaser.short_start
 					%br
 					.event_about_time
@@ -43,6 +42,8 @@
 				.event_short_start= teaser.short_start
 				.event_about_time= teaser.duration_in_words
 			%td{:style => 'width: 450px'}
+				- if teaser.type
+					%span.event_type.inline{:class => "event_type_#{teaser.type.downcase.gsub(" ", "_")}"}= teaser.type
 				%h5.event_title.inline= link_to teaser.title, event_path(teaser)
 				%br
 				.inline.strong When:
@@ -50,8 +51,6 @@
 				%br
 				.inline.strong Where:
 				.inline= teaser.location.name
-				- if teaser.type
-					%span.event_type.inline{:class => "event_type_#{teaser.type.downcase.gsub(" ", "_")}"}= teaser.type
 				.event.teaser= strip_tags(teaser.teaser) rescue ""
 				- if teaser.celebrants.count > 0 || teaser.speakers.count > 0
 					.event_users
