@@ -1,0 +1,11 @@
+- stories = Story.order(:published_at).published.limit(3).reverse()
+- if stories
+	#home_news
+		.side_news_block
+			%h5 Latest News
+			- stories.each do |story|
+				.news_item
+					.news_teaser
+						.rss_feed_icon
+						.category= story.category
+						.news_title= link_to story.title, story_path(story)

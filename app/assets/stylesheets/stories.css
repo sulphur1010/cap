@@ -3,7 +3,7 @@
   They will automatically be included in application.css.
 */
 
-.story_teaser .rss_feed_icon {
+.story_teaser .rss_feed_icon, .news_teaser .rss_feed_icon {
 	float: left;
 	width: 16px;
 	height: 16px;
@@ -22,7 +22,7 @@
 	margin-left: 5px;
 }
 
-.story_teaser .category {
+.story_teaser .category, .news_teaser .category {
 padding: 0 10px;
 background: orange;
 float: left;

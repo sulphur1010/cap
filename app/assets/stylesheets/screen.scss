@@ -595,7 +595,6 @@ table.left_menu_container .left_menu_sub_item a:hover {
 table.left_menu_container .content_with_left_menu {
 	min-height: 400px;
 	display: inline-block;
-	margin-bottom: -1px;
 }
 
 .content_with_left_menu {
@@ -696,8 +695,7 @@ ul.contemporary_issues_list li {
 		color: black;
 		line-height: 1.6em;
 		margin-top: 10px;
-		margin-bottom: 15px;
-		padding: 20px 20px 20px 20px;
+		padding: 20px 20px 10px 20px;
 		font-style: italic;
 }
 }
@@ -747,7 +745,7 @@ ul.contemporary_issues_list li {
 }
 
 img.sidebar_thought_image {
-	max-width: 180px;
+	max-width: 160px;
 	margin-bottom: -20px;
 	margin-left: 20px;
 	border-radius: 3px;
@@ -791,6 +789,21 @@ img.sidebar_thought_image {
 	}
 }
 
+.side_news_block {
+	padding: 30px;
+	border-top: 1px solid #ddd;
+	margin-top: 20px;
+	
+	h5 {
+		margin-bottom: 30px;
+	}
+	
+	.news_item {
+		margin-bottom: 20px;
+		font-size: 11px;
+		display: block;
+	}
+}
 
 .share_pad {
 	padding: 0 0 0 40px;
