@@ -17,7 +17,6 @@
 												= quote.teaser.html_safe
 											%h2
 												= quote.users.first.full_name rescue ''
-	= render :partial => 'shared/home_upcoming_featured'
 	.about_cst 
 		.strong 
 			Catholic Social Teaching
@@ -25,6 +24,7 @@
 		%br
 		“How, then, shall we live our life?”
 		%a.button_home{:href => "/what_is_cst"} Learn More
+	/= render :partial => 'shared/home_upcoming_featured'
 	%hr
 	%table
 		%tr
@@ -47,6 +47,9 @@
 								.principle.menu_item_box_home
 									%img{:src => principle.thumbnail, :width => 120, :height => 70}
 									.bottom= principle.name
+	%hr
+	= render :partial => 'shared/episode'
+
 
 %hr
 - if @page

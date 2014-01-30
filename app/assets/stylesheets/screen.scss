@@ -451,6 +451,7 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 }
 
 
+
 .formtastic textarea {
 }
 
@@ -1055,6 +1056,22 @@ td.controls {
 	}
 }
 
+.homepage_episode_box {
+	margin: 20px 20px 40px 20px;
+	
+	.episode_video {
+	}
+	
+	.episode_about {
+		padding-left: 30px; 
+		
+		h3 {}
+		
+		.large {font-size: 14px; color: #777;}
+		
+		a {font-size: 16px; margin-top: 20px; display: block;}
+	}
+}
 
 .location_box, .host_box, .director_box {
 	padding: 8px;
