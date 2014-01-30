@@ -1,18 +1,22 @@
-%h2 All Contacts
-= link_to "(raw emails)", raw_admin_contacts_path
-= link_to 'Delete Selected', admin_contact_path(0), :method => :delete, :id => "js_delete_selected_contacts", :class => "btn_edit disabled", :confirm => "Are you sure?"
+.buffer
+	= link_to 'Delete Selected', admin_contact_path(0), :method => :delete, :id => "js_delete_selected_contacts", :class => "btn_edit disabled", :confirm => "Are you sure?"
+	%h1.inline Leads
+	.inline= link_to "(raw emails)", raw_admin_contacts_path
+%hr
+.buffer
+	= will_paginate @contacts
+
 .table_contacts
-	- table(@contacts, [check_box_tag(:blah, 1, false, :class => 'js_all_contacts'), 'email', 'first name', 'last name', 'home phone', 'note', 'posted', '']) do |contact, klass|
+	- table(@contacts, [check_box_tag(:blah, 1, false, :class => 'js_all_contacts'), 'email', 'note', 'name', 'home phone', 'posted', '']) do |contact, klass|
 		%tr{:class => klass}
-			%td= check_box_tag :contact_ids, contact.id, false, :class => "js_contact_id"
-			%td= contact.email
-			%td.contact_note= contact.note
-			%td= contact.first_name
-			%td= contact.last_name
-			%td= contact.home_phone
-			%td= contact.created_at
-			/%td= !contact.note.empty? ? 'yes' : 'no' rescue 'no'
-			%td.controls
+			%td.td-1= check_box_tag :contact_ids, contact.id, false, :class => "js_contact_id"
+			%td.td-2= contact.email
+			%td.td-3= contact.note
+			%td.td-2= contact.first_name
+			%td.td-1= contact.home_phone
+			%td.td-1= contact.created_at
+			/%td.td-2= !contact.note.empty? ? 'yes' : 'no' rescue 'no'
+			%td.td-2.controls
 				= link_to 'View', admin_contact_path(contact)
 				= link_to 'Edit', edit_admin_contact_path(contact)
 				= link_to 'Delete', admin_contact_path(contact), :method => :delete, :confirm => "Are you sure?"

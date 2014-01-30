@@ -4,8 +4,15 @@
 			%td.padding_in10
 				%h5 Admin Menu
 				%ul#user_menu
-					%li
-						- is_thought_creator? do
+					- is_admin? do
+						%li
+							%h5 Accounts & Contacts
+							%ul
+								%li= link_to 'Leads', admin_contacts_url
+								%li= link_to 'Account Holders', admin_users_url
+								%li= link_to "Mailer", static_contact_lists_path
+					- is_thought_creator? do
+						%li
 							%h5 DYNAMIC CONTENT
 							%ul
 								- is_thought_creator? do
@@ -38,12 +45,6 @@
 								%li= link_to 'Chapters', admin_chapters_url
 								%li= link_to 'Events', admin_events_url
 								%li= link_to 'Locations', admin_locations_url
-						%li
-							%h5 Accounts & Contacts
-							%ul
-								%li= link_to "Mailer", static_contact_lists_path
-								%li= link_to 'Account Holders', admin_users_url
-								%li= link_to 'Contacts', admin_contacts_url
 					/
 						- if user_signed_in?
 							= link_to 'logout', destroy_user_session_url, :method => :delete, :class => "btn_edit"

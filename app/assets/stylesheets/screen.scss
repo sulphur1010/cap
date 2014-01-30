@@ -64,6 +64,10 @@ h5 {font-size:12px;font-weight:bold;line-height:150%;margin:0 0 10px 0;font-fami
 /*---Special Group*/
 p.italyGeogia{font-style:italic; font-family:arial; }
 em {font-style: italic;}
+.buffer {
+	display: block;
+	margin: 10px 0;
+}
 
 /*Basic Structure*/
 body{line-height: 1.6em;}
@@ -410,7 +414,7 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 .formtastic label {
 	width: 120px;
 	font-weight: bold;
-	float: left;
+	display: block;
 }
 
 .formtastic .choices-group label {
@@ -430,6 +434,22 @@ table.events_block tr td {border-style: 0px; border-width: 0px; border: 0px;}
 .formtastic .choices-group {
 	margin-left: 120px;
 }
+
+.formtastic .stringish label {
+}
+
+.formtastic .stringish input {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	width: 500px;
+	margin-bottom: 10px;
+	padding: 6px;
+}
+
+.formtastic .buttons ol {
+	margin-left: 0px;
+}
+
 
 .formtastic textarea {
 }

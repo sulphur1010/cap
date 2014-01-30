@@ -19,6 +19,17 @@
 		</div>
 		<%= f.email_field :email, :value => (params[:email] || '') %></div>
 
+		<div><%= f.label :first_name %>
+		<div class= "inline required">*</div>
+		<br />
+		<%= f.text_field :first_name %></div>
+
+		<div><%= f.label :last_name %>
+		<div class= "inline required">*</div>
+		<br />
+		<%= f.text_field :last_name %></div>
+
+
 		<div><%= f.label :password %>
 		<div class= "inline required">*</div>
 		<div class="inline directions">minimum is 6 characters</div>
@@ -31,15 +42,7 @@
 		<br />
 		<%= f.password_field :password_confirmation %></div>
 
-		<div><%= f.label :first_name %>
-		<div class= "inline required">*</div>
-		<br />
-		<%= f.text_field :first_name %></div>
 
-		<div><%= f.label :last_name %>
-		<div class= "inline required">*</div>
-		<br />
-		<%= f.text_field :last_name %></div>
 
 		<hr class="thin">
 

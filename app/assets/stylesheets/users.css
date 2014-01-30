@@ -4,8 +4,9 @@
 */
 
 .account_notification_box {
-	float: right;
 	width: 250px;
 	background-color: #ffc;
 	padding: 20px;
+	position: absolute;
+	left: 300px;
 }
