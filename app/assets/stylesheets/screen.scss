@@ -173,6 +173,10 @@ select {
 	margin-right: 10px;
 }
 
+.event_body {
+	width: 430px;
+}
+
 /*--Header*/
 #header{width:980px;clear:both;position:relative;}
 /*----logo*/
@@ -184,7 +188,7 @@ table.nav_main{display:inline;border:none;border-collapse:collapse;}
 table.nav_main tr{margin:0 5px;line-height:40px;border:none;border-collapse:collapse;}
 table.nav_main tr td{border:none;border-collapse:collapse;}
 
-a.top_nav{font-size:13px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:39px;padding:0 10px;display:block;}
+a.top_nav{font-size:13px;font-weight:bold;color:#fff;text-decoration:none;font-family:arial;line-height:40px;height:39px;padding:0 9px;display:block;}
 a.top_nav:hover{background: #b19bcf;}
 a.top_nav.active{background: #b19bcf;}
 
