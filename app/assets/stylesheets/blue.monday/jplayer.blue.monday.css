@@ -23,12 +23,11 @@ div.jp-video {
 	 */
 
 	font-size:1.25em; /* 1.25em for testing in site pages */ /* No parent CSS that can effect the size in the demos ZIP */
-
-	font-family:Verdana, Arial, sans-serif;
 	line-height:1.6;
 	color: #666;
-	border:1px solid #009be3;
 	background-color:#eee;
+	margin-bottom: 30px;
+	margin-top: 20px;
 }
 div.jp-audio {
 	width:420px;
@@ -37,7 +36,7 @@ div.jp-audio-stream {
 	width:182px;
 }
 div.jp-video-270p {
-	width:480px;
+	width:670px;
 }
 div.jp-video-360p {
 	width:640px;
@@ -75,12 +74,14 @@ div.jp-video-full div.jp-interface {
 	position: absolute !important; position: relative; /* Rules for IE6 (full-screen) */
 	bottom: 0;
 	left: 0;
+	border: 3px;
 }
 
 div.jp-interface {
 	position: relative;
 	background-color:#eee;
 	width:100%;
+	border: 3px;
 }
 
 div.jp-audio div.jp-type-single div.jp-interface {
@@ -95,7 +96,6 @@ div.jp-audio-stream div.jp-type-single div.jp-interface {
 }
 
 div.jp-video div.jp-interface {
-	border-top:1px solid #009be3;
 }
 
 /* @group CONTROLS */
@@ -386,8 +386,7 @@ div.jp-title {
 div.jp-title,
 div.jp-playlist {
 	width:100%;
-	background-color:#ccc;
-	border-top:1px solid #009be3;
+	background-color:#fff;
 }
 div.jp-type-single div.jp-title,
 div.jp-type-playlist div.jp-title,
@@ -425,10 +424,13 @@ div.jp-type-playlist div.jp-playlist li.jp-playlist-current {
 	list-style-type:square;
 	list-style-position:inside;
 	padding-left:7px;
+	border-bottom: 1px dotted #ccc;
 }
+
 div.jp-type-playlist div.jp-playlist a {
 	color: #333;
 	text-decoration: none;
+	font-size: 10px;
 }
 div.jp-type-playlist div.jp-playlist a:hover {
 	color:#0d88c1;
