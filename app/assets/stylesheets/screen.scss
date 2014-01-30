@@ -307,7 +307,7 @@ table#home_bottom_blocks {width: 100%; }
 .upcoming_course_block, .upcoming_event_block, .featured
 	{padding: 10px; background: #ffc; margin-bottom: 10px; border: 1px solid #eed; color: #333;}
 .featured
-	{padding: 5px; background: #ffc; margin-bottom: 0px; color: #333;}
+	{padding: 5px; background: #ffc; margin-top: 5px; margin-bottom: 0px; color: #333;}
 	
 .email_address_block 
 	{width: 310px; padding: 10px; margin: 5px;}
@@ -320,7 +320,7 @@ table#home_bottom_blocks {width: 100%; }
 }
 #home_upcoming_course .view_all {display: inline;}
 #home_upcoming_course h4 {display: inline;}
-#home_upcoming_course .event_title a{font-weight: bold;}
+#home_upcoming_course .event_title a{}
 #home_upcoming_course .event_start {size: 10px; color: #777;}
 #home_upcoming_course .event_teaser {border: 0px; margin: 0px; padding: 0px; color: #777; line-height: 1.6em;}
 #home_thoughts .view_all {display: inline;}
@@ -696,7 +696,7 @@ ul.contemporary_issues_list li {
 
 .thought {
 	margin: 15px 0 25px 0;
-	padding: 10px 0 0 0;
+	padding: 10px 50px 0 0;
 }
 
 .thought .thought_author_container {
@@ -1502,7 +1502,7 @@ table.full {
 		font-size: 0.9em;
 		width: 180px;
 		border: 0px;
-		border-radius: 15px;
+		border-radius: 2px;
 	}
 }
 
