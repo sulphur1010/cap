@@ -1203,14 +1203,20 @@ pre {
 	height: 40px;
 }
 .st_sharethis_hcount, .st_facebook_hcount, .st_twitter_hcount, .st_linkedin_hcount, .st_email_hcount  {
- display: inline-block; float: left; position: absolute; margin-top: 20px; top: 0px; 
+ display: inline-block; float: left; position: absolute; margin-top: 20px; top: 0px;
+}
+
+.share_pad {
+	margin-bottom: 20px;
 }
 
 .st_sharethis_hcount {}
-.st_facebook_hcount {left: 180px;}
-.st_twitter_hcount {left: 280px;}
-.st_linkedin_hcount {left: 380px;}
-.st_email_hcount {left: 480px;}
+.st_facebook_hcount {left: 150px;}
+.st_twitter_hcount {left: 250px;}
+.st_linkedin_hcount {left: 350px;}
+.st_email_hcount {left: 450px;}
+
+#chapter_0, .encyclical_without_reference {display: none !important;}
 
 a.contemporary_issue_link {
 	padding: 0px 8px;

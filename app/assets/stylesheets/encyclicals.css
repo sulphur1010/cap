@@ -141,7 +141,7 @@ table.encyclical_teaser_list tr.encyclical_results_facets td {
 	width: auto;
 	padding-left: 20px;
 	cursor: pointer;
-	background: url('/assets/book.png') no-repeat;
+	background: url('/assets/ribbon.png') no-repeat;
 }
 
 .chapter {

@@ -1,3 +1,18 @@
+= render :partial => 'shared/share'
+- if page.class == Encyclical
+	- if !page.authors.empty?
+		%ul.user_list
+			- page.authors.each do |author|
+				%li
+					= image_tag(author.profile_image(:small), :class => 'profile_image', :width => 80, :height => 80, :class => 'user_image')
+					.user_info
+						= link_to author.full_name
+						%br
+						= author.title
+			- if page.published_at
+				.right.inline.published_date= page.published_at.strftime("%a %b %e %Y")
+		%div{:style => 'clear:both'}
+		.buffer
 - if !page.hide_header
 	= render :partial => "content_fragments/breadcrumb", :locals => { :page => page }
 - if is_admin?
@@ -6,18 +21,10 @@
 	= image_tag page.image.url(:normal), :class => 'content_fragment_header_image'
 - if page.class == Thought
 	.page_thought_quote= strip_tags(@thought.teaser) rescue ''
-- if page.class == Encyclical
-	- if page.published_at
-		.published_date= page.published_at.strftime("%a %b %e %Y")
-	- if !page.authors.empty?
-		.authors
-			by:
-			- page.authors.each do |author|
-				.author= author.full_name
 = parse_references(page.parsed_body).html_safe rescue ""
 -if !page.class == Page
 	- if user_signed_in?
-		= render :partial => 'audio_contents/display', :object =>@page, :locals => { :id => @page.id	 }
+		= render :partial => 'audio_contents/display', :object =>@page, :locals => { :id => @page.id}
 	- else
 		= render :partial => 'audio_contents/no_display', :object =>@page, :locals => { :id => @page.id}
 - if !page.questions.empty?
