@@ -63,7 +63,10 @@
 					= form_for Contact.new do |f|
 						%table
 							%tr
-								%td= f.text_field :email, { :class => 'email_box', :id => 'js_email_address', :'data-label' => 'Add Your Email' }
+								%td
+									= f.text_field :email, { :class => 'email_box', :id => 'js_email_address', :'data-label' => 'Add Your Email' }
+									= f.text_field :first_name, { :style => 'display: none' }
+									= f.text_field :last_name, { :style => 'display: none', :value => ' ' }
 								%td= f.submit :class => 'submit_btn', :value=> 'Submit'
 				.newsletter_capture
 					%h4 Create an Account
