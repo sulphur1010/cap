@@ -9,8 +9,8 @@ class Event < ActiveRecord::Base
 
 	Event.inheritance_column = :event_type_not_used
 
-	scope :past, where("end_date < ?", (Time.now - 1.day)).order(:start_date).reverse_order
-	scope :upcoming, where("end_date >= ?", (Time.now - 1.day)).order(:start_date)
+	scope :past, proc { where("end_date < ?", (Time.now - 1.day)).order(:start_date).reverse_order }
+	scope :upcoming, proc { where("end_date >= ?", (Time.now - 1.day)).order(:start_date) }
 	scope :course_types, where(:type => "Course").order(:start_date)
 	scope :event_types, where("type <> 'Course'").order(:start_date)
 
