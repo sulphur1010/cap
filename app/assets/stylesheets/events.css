@@ -103,3 +103,7 @@ table.event_attendees_table td {
 	text-align: center;
 	font-size: 13px;
 }
+
+.advanced_payment_form .paperclip_image {
+	display: none;
+}

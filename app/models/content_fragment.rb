@@ -36,8 +36,8 @@ class ContentFragment < ActiveRecord::Base
 
 	def check_clear_attachments
 		thumbnail.clear if delete_thumbnail == '1'
-		 image.clear if delete_image == '1'
-		 homepage_image.clear if delete_homepage_image == '1'
+		image.clear if delete_image == '1'
+		homepage_image.clear if delete_homepage_image == '1'
 	end
 
 	def reference_name

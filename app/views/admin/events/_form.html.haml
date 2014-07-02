@@ -36,6 +36,11 @@
 		- if @event.cost == nil
 			- @event.cost = 0 
 		= f.input :cost, :input_html => { :value => @event.cost} 
+		= f.input :display_advanced_payment_options, :label => "Display Advanced Payment Options?"
+		.advanced_payment_form
+			= f.input :advanced_payment_form
+			- if @event.advanced_payment_form_file_name?
+				= f.input :delete_advanced_payment_form, :as => :boolean, :label => "Remove form?"
 		
 	= f.buttons
 

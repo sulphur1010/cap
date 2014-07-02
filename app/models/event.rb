@@ -3,6 +3,13 @@ class Event < ActiveRecord::Base
 	before_save :check_free_event
 	after_create :create_reminders!
 
+	attr_accessor :delete_advanced_payment_form
+	before_validation :check_clear_attachments
+
+	def check_clear_attachments
+		advanced_payment_form.clear if delete_advanced_payment_form == '1'
+	end
+
 	def helpers
 		ActionController::Base.helpers
 	end
@@ -61,6 +68,7 @@ class Event < ActiveRecord::Base
 	has_and_belongs_to_many :related_events, :class_name => 'Event', :association_foreign_key => 'related_event_id', :join_table => 'relateds_events'
 	has_many :attendees_events, :include => [ :attendee, :payment_confirmation ]
 	has_many :attendees, :through => :attendees_events, :include => [ :payment_confirmations ]
+	has_attached_file :advanced_payment_form
 
 	validates :type, :inclusion => { :in => Event.types }
 	validates :event_region, :inclusion => { :in => Event.event_regions }
