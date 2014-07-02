@@ -62,12 +62,12 @@ class AttendeesEvent < ActiveRecord::Base
 		return ca
 	end
 
-	def payment_method
-		return "other" unless self.payment_confirmation
-		"paypal"
-	end
+	#def payment_method
+	#	return "other" unless self.payment_confirmation
+	#	"paypal"
+	#end
 
 	def local_fields?
-		payment_method == "other" && self.attendee.nil?
+		self.attendee.nil?
 	end
 end

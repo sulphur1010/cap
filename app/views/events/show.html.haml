@@ -110,22 +110,31 @@
 	- if is_admin?
 		.page
 			.attendee_list
-				%h4 Add User
-				= semantic_form_for [:admin, @event, AttendeesEvent.new] do |f|
-					- users = User.by_last_name.all.delete_if { |c| @event.attendees.include?(c) }
-					= f.input :attendee, :collection => users
-					= f.input :count
-					= f.input :total_cost
-					= f.actions
-				%hr
+				- if !@event.display_advanced_payment_options
+					%h4 Add User
+					= semantic_form_for [:admin, @event, AttendeesEvent.new] do |f|
+						- users = User.by_last_name.all.delete_if { |c| @event.attendees.include?(c) }
+						= f.input :attendee, :collection => users
+						= f.input :count
+						= f.input :total_cost
+						= f.actions
+					%hr
 				.right.link= link_to "Download Attendee List Spreadsheet", user_list_admin_event_path(@event)
 				%h4 Attendees
 				%table.event_attendees_table
 					%tr
 						%th Last Name
 						%th First Name
+						%th Occupation
+						%th Address
+						%th City
+						%th Zip
 						%th Email
+						%th Tel
+						%th Fax
+						%th Mobile
 						%th Spots
+						%th Guest Name
 						%th Total
 						%th Payment Type
 						%th
@@ -133,8 +142,16 @@
 						%tr
 							%td= attendee_event.last_name
 							%td= attendee_event.first_name
+							%td= attendee_event.occupation
+							%td= attendee_event.address
+							%td= attendee_event.city
+							%td= attendee_event.zip
 							%td= attendee_event.email
+							%td= attendee_event.telephone
+							%td= attendee_event.fax
+							%td= attendee_event.mobile
 							%td= attendee_event.count
+							%td= attendee_event.guest_name
 							%td= number_to_currency(attendee_event.total_cost)
 							%td= attendee_event.payment_method
 							%td= link_to "remove", admin_event_attendees_event_path(@event, attendee_event), :method => :delete, :confirm => "Are you sure?"

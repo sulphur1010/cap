@@ -26,6 +26,60 @@ class EventsController < ApplicationController
 		respond_with(@event = Event.find(params[:id]))
 	end
 
+	def advanced_rsvp
+		@event = Event.find(params[:id])
+
+		@payment_method = params[:payment_method]
+		@total_price = 395
+		@dinners = params[:dinner].to_i
+		@guest = params.has_key?("guest")
+		@count = 1
+		if @guest
+			@count = 2
+			@total_price += 125
+		end
+		@total_price += (@dinners * 190)
+
+		if (@event.spots_left - @count) < 0
+			redirect_to event_url(@event), :alert => 'There are no spots available for that event.'
+			return
+		end
+
+		if @payment_method == "paypal"
+			payment_confirmation = PaymentConfirmation.new
+			payment_confirmation.event = @event
+			if user_signed_in?
+				payment_confirmation.user = current_user
+			end
+			if payment_confirmation.save
+				item_name = "#{@event.title} (#{@price_title})"
+				invoice_id = payment_confirmation.id
+				redirect_to "#{paypal_url(@event, invoice_id, 0)}&quantity_1=#{@count}&amount_1=#{@price}&item_name_1=" + URI.encode(item_name)
+				return
+			else
+				redirect_to event_path(@event), :alert => "Error redirecting to paypal for payment."
+				return
+			end
+		else
+			@attendee_event = AttendeesEvent.new(params[:attendees_event])
+			@attendee_event.event = @event
+			@attendee_event.count = @count
+			@attendee_event.total_cost = @total_price
+			@attendee_event.created_at = Time.now
+			@attendee_event.updated_at = Time.now
+			@attendee_event.payment_method = @payment_method
+			@attendee_event.guest_name = params[:guest_name]
+
+			if @attendee_event.save
+				UserMailer.event_registered_user(@event, @attendee_event).deliver
+				UserMailer.event_registered_admin(@event, @attendee_event, nil).deliver
+				redirect_to @event, :notice => 'You have registered to attend the event.'
+			else
+				render :action => "show"
+			end
+		end
+	end
+
 	def rsvp
 		@event = Event.find(params[:id])
 
@@ -169,7 +223,7 @@ class EventsController < ApplicationController
 
 		if @attendee_event.save
 			UserMailer.event_registered_user(@event, @attendee_event).deliver
-			UserMailer.event_registered_admin(@event, @attendee_event, "other").deliver
+			UserMailer.event_registered_admin(@event, @attendee_event, nil).deliver
 			redirect_to @event, :notice => 'You have registered to attend the event.'
 		else
 			render :action => "show"

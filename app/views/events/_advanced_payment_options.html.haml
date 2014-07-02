@@ -1,5 +1,6 @@
 - @attendee_event = AttendeesEvent.new unless @attendee_event
-= semantic_form_for @attendee_event, :url => rsvp_event_path(@event), :method => :post, :html => { :id => "rsvp_form" } do |f|
+= semantic_form_for @attendee_event, :url => advanced_rsvp_event_path(@event), :method => :post, :html => { :id => "rsvp_form" } do |f|
+	%input{:type => "hidden", :name => "advanced_payment_options", :value => "1"}
 	.rsvp_block
 		%h1 Pricing & Configuration:
 		%h4 REGISTRATION FEES (in U.S. dollars)

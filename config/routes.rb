@@ -101,6 +101,7 @@ CappUsa::Application.routes.draw do
 	end
 	resources :events do
 		member do
+			post 'advanced_rsvp'
 			post 'rsvp'
 			post 'unrsvp'
 			get 'thanks'
