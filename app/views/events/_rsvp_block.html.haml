@@ -53,12 +53,6 @@
 			- if @event.allow_3rd_party_payment
 				%input#3rd_party_payment.rsvp_form_element.js_payment_method{:type => 'radio', :name => 'payment_method', :value => '3rd_party', :checked => true}= @event.allow_3rd_party_payment_type_instructions
 				/= link_to @event.allow_3rd_party_payment_url, rsvp_event_url(@event), :id => 'js_3rd_party_payment', :class => 'payment_link', :method => :post
-			- if @event.display_advanced_payment_options
-				.payment_separator
-				%input#test.rsvp_form_element.js_payment_method{:type => 'radio', :name => 'payment_method', :value => 'test', :checked => false} something
-				.payment_separator
-				- if @event.advanced_payment_form_file_name?
-					= link_to "Download Form", @event.advanced_payment_form.url
 			.user_event_info{:style => "display: #{paypal_payment ? "none" : ""}"}
 				.friendly
 					%hr.thin

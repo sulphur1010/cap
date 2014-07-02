@@ -11,11 +11,20 @@
 		%b Attendee Info
 	%p= "Email: #{@attendee_event.email}"
 	%p= "Name: #{@attendee_event.first_name} #{@attendee_event.last_name}"
+	%p= "Occupation: #{@attendee_event.occupation}"
+	%p= "Address: #{@attendee_event.address}"
+	%p= "City: #{@attendee_event.city}"
+	%p= "Zip: #{@attendee_event.zip}"
+	%p= "Telephone: #{@attendee_event.telephone}"
+	%p= "Fax: #{@attendee_event.fax}"
+	%p= "Mobile: #{@attendee_event.mobile}"
+	%p= "Guest Name: #{@attendee_event.guest_name}"
 	%p= "Attendee Count: #{@attendee_event.count}"
 	%p= "Total: #{number_to_currency(@attendee_event.total_cost)}"
 	%p= "Payment Method: #{@payment_method}"
-	%br
-	%p
-		%b Payment Info
-	- @other.to_hash.each do |k, v|
-		%p= "#{k}: #{v}"
+	- if @other
+		%br
+		%p
+			%b Payment Info
+		- @other.to_hash.each do |k, v|
+			%p= "#{k}: #{v}"

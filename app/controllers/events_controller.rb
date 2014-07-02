@@ -206,9 +206,5 @@ class EventsController < ApplicationController
 
 		redirect_to event_path(@event)
 		return
-		#
-		#
-		#
-		#
 	end
 end

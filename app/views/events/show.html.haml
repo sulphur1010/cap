@@ -15,7 +15,7 @@
 			- if @event.end_date
 				%span.event_end{itemprop: "endDate"}= "#{@event.formatted_end}"
 			- if @event.start_date && @event.end_date
-				%span.event_duration{itemprop: "duration"}= @event.duration_in_words								
+				%span.event_duration{itemprop: "duration"}= @event.duration_in_words
 		%table
 			%tr
 				%td
@@ -70,7 +70,10 @@
 							.rsvp_block
 								.unrsvp= link_to "Create an Account on Capp-usa.org to Register for Events", new_user_registration_url
 								.sign_in= link_to "Already signed up to capp-usa.org?  Login.", new_user_session_url
-					= render :partial => 'rsvp_block'
+					- if @event.display_advanced_payment_options
+						= render :partial => "advanced_payment_options"
+					- else
+						= render :partial => 'rsvp_block'
 		- else
 			.pending
 				= "Your registration is currently pending."

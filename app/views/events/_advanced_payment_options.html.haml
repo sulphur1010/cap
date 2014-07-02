@@ -1,0 +1,233 @@
+- @attendee_event = AttendeesEvent.new unless @attendee_event
+= semantic_form_for @attendee_event, :url => rsvp_event_path(@event), :method => :post, :html => { :id => "rsvp_form" } do |f|
+	.rsvp_block
+		%h1 Pricing & Configuration:
+		%h4 REGISTRATION FEES (in U.S. dollars)
+		%table
+			%tr
+				%td
+					%u
+						%b PARTICIPANT
+				%td
+					%b $ 395.00
+			%tr
+				%td{:style => "width: 300px"}
+					%b The fee covers:
+				%td
+					conference and conference kit
+					%br
+					n. 3 coffee breaks
+					%br
+					n. 1 buffet lunch
+			%tr
+				%td
+					%u
+						%b ACCOMPANYING PERSON
+				%td
+					%b $ 125.00
+			%tr
+				%td &nbsp;
+				%td (each participant limited to 1 guest at discounted rate)
+			%tr
+				%td
+					%u
+						%b DINNER EVENT
+				%td
+					%b $ 190.00
+		%br
+		%b
+			N.B Because of a ceiling on the number of participants for the Dinner Event, applications will be 
+			%u processed according to date of reception.
+		%br
+		%br
+		%hr
+		%br
+
+		%input#guest.js_rsvp_form_element.js_cost_affector.js_guest_checkbox{:type => "checkbox", :name => "guest", :checked => false}
+		I will bring a guest
+		.guest_name_container{:style => "display: none"}
+			%b
+				%u I WILL BE ACCOMPANIED BY:
+			%input#guest_name.js_rsvp_form_element.js_guest_name{:name => "guest_name"}
+		%br
+		%br
+		%input#no_dinner.js_rsvp_form_element.js_cost_affector{:type => "radio", :name => "dinner", :value => "0", :checked => false}
+		I will not be attending the dinner event
+		%br
+		%input#dinner.js_rsvp_form_element.js_cost_affector{:type => "radio", :name => "dinner", :value => "1", :checked => false}
+		I will attend the dinner event
+		%br
+		.guest_dinner_container{:style => "display: none"}
+			%input#dinner_with_guest.js_rsvp_form_element.js_cost_affector{:type => "radio", :name => "dinner", :value => "2", :checked => false}
+			My guest and I will both attend the dinner event
+
+
+
+	%br
+	.rsvp_block
+		%h1
+			Total:
+			%span.js_computed_total
+
+
+
+	%br
+	.rsvp_block
+		%h1 How To Pay:
+		%input#method_paypal.js_rsvp_form_element.js_payment_method{:type => "radio", :name => "payment_method", :value => "paypal"}
+		By credit card in advance of conference
+		%br
+		%input.js_rsvp_form_element.js_payment_method{:type => "radio", :name => "payment_method", :value => "bank_transfer"}
+		Bank transfer* to Centesimus Annus Pro Pontifice Inc CAPP-USA
+		%br
+		%input.js_rsvp_form_element.js_payment_method{:type => "radio", :name => "payment_method", :value => "check"}
+		Check via Mail
+		%br
+		%input.js_rsvp_form_element.js_payment_method{:type => "radio", :name => "payment_method", :value => "on_site"}
+		On site, before the conference starts: cash only
+		%br
+		%input.js_rsvp_form_element.js_payment_method{:type => "radio", :name => "payment_method", :value => "form"}
+		Download Form and Pay Later
+		%br
+
+
+
+	.personal_information_container{:style => "display: none"}
+		%br
+		.rsvp_block
+			%h1 Personal Information:
+			= f.input :first_name
+			= f.input :last_name
+			= f.input :occupation
+			= f.input :address
+			= f.input :city
+			= f.input :zip
+			= f.input :email
+			= f.input :telephone
+			= f.input :fax
+			= f.input :mobile
+
+
+
+	%br
+	.rsvp_block.js_method_block.js_method_block_bank_transfer{:style => "display: none"}
+		%h1 Bank Transfer
+	.rsvp_block.js_method_block.js_method_block_check{:style => "display: none"}
+		%h1 Check
+	.rsvp_block.js_method_block.js_method_block_on_site{:style => "display: none"}
+		%h1 On Site
+	.rsvp_block.js_method_block.js_method_block_form{:style => "display: none"}
+		%h1 Form
+
+
+
+	%br
+	.rsvp_block
+		%input.rsvp.disabled#rsvp_button{:type => "submit", :value => "Register", :disabled => "disabled"}
+
+
+:javascript
+	function rsvpFormOptions() {
+		var rsvp_data = {};
+		jQuery.each($("#rsvp_form").serializeArray(), function(i, field) {
+			rsvp_data[field.name] = field.value;
+		});
+		return rsvp_data;
+	}
+
+	function calculateTotal() {
+		var total = 395;
+		var guest = false;
+		if ($(".js_guest_checkbox").is(":checked")) {
+			guest = true;
+			total += 125;
+		}
+		if ($("#dinner").is(":checked")) {
+			total += 190;
+		} else if ($("#dinner_with_guest").is(":checked")) {
+			total += 190;
+			total += 190;
+		}
+
+		$(".js_computed_total").html("$" + total);
+		return total;
+	}
+
+	function unlockRsvpButton() {
+		$("#rsvp_button").removeClass("disabled");
+		$("#rsvp_button").removeAttr("disabled");
+	}
+
+	function lockRsvpButton() {
+		$("#rsvp_button").addClass("disabled");
+		$("#rsvp_button").attr("disabled", "disabled");
+	}
+
+	function checkRsvpButton() {
+		var data = rsvpFormOptions();
+		if (data["dinner"] != undefined && data["payment_method"] != undefined) {
+			unlockRsvpButton();
+			return;
+		}
+		lockRsvpButton();
+	}
+
+	$(document).ready(function() {
+
+		calculateTotal();
+
+		$(".js_guest_checkbox").change(function() {
+			if ($(this).is(":checked")) {
+				$(".guest_name_container").show();
+				$(".guest_dinner_container").show();
+			} else {
+				$(".guest_name_container").hide();
+				$(".guest_dinner_container").hide();
+				if ($("#dinner_with_guest").is(":checked")) {
+					$("#dinner").attr("checked", "checked");
+					$("#dinner_with_guest").removeAttr("checked");
+					calculateTotal();
+				}
+			}
+		});
+
+		$(".js_rsvp_form_element").change(function() {
+			calculateTotal();
+
+			checkRsvpButton();
+		});
+
+		$(".js_payment_method").click(function() {
+			var t = $(this);
+
+			$(".js_method_block").hide();
+			$(".js_method_block_" + t.val()).show();
+
+			if (t.val() == "paypal") {
+				$(".personal_information_container").hide();
+			} else {
+				$(".personal_information_container").show();
+			}
+		});
+
+		$("#rsvp_button").click(function() {
+			var data = rsvpFormOptions();
+
+			if (data["guest"] == "on" && data["guest_name"] == "") {
+				alert("Required information not provided.");
+				$("#guest_name").focus();
+				return false;
+			}
+
+			if (data["payment_method"] == "paypal") {
+				return true;
+			}
+			var fields = $('.personal_information_container li.required input:input[value=""]');
+			if (fields.length == 0) {
+				return true;
+			}
+			alert("Required information not provided.");
+			fields[0].focus();
+			return false;
+		});
+	});
