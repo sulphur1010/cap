@@ -23,6 +23,7 @@ class EventsController < ApplicationController
 	end
 
 	def thanks
+		@payment_method = params[:payment_method] rescue nil
 		respond_with(@event = Event.find(params[:id]))
 	end
 
@@ -69,11 +70,12 @@ class EventsController < ApplicationController
 			@attendee_event.updated_at = Time.now
 			@attendee_event.payment_method = @payment_method
 			@attendee_event.guest_name = params[:guest_name]
+			@attendee_event.dinner_count = @dinners
 
 			if @attendee_event.save
 				UserMailer.event_registered_user(@event, @attendee_event).deliver
 				UserMailer.event_registered_admin(@event, @attendee_event, nil).deliver
-				redirect_to @event, :notice => 'You have registered to attend the event.'
+				redirect_to thanks_event_path(@event, :payment_method => @attendee_event.payment_method), :notice => 'You have registered to attend the event.'
 			else
 				render :action => "show"
 			end

@@ -13,18 +13,24 @@ class Admin::EventsController < ApplicationController
 	def user_list
 		@event = Event.find(params[:id])
 		csv_data = CSV.generate do |csv|
-			csv << ["Last Name","First Name","Email","Attendee Count","Amount Paid","Payment Method","Person Type","Chapter","Roles"]
+			csv << ["Last Name","First Name","Occupation","Address","City","Zip","Email","Telephone","Fax","Mobile","Attendee Count","Attendee Dinner Count","Guest Name","Amount Paid","Payment Method"]
 			@event.attendees_events.includes(:attendee).each do |attendee_event|
 				csv << [
 					attendee_event.last_name,
 					attendee_event.first_name,
+					attendee_event.occupation,
+					attendee_event.address,
+					attendee_event.city,
+					attendee_event.zip,
 					attendee_event.email,
+					attendee_event.telephone,
+					attendee_event.fax,
+					attendee_event.mobile,
 					attendee_event.count,
+					attendee_event.dinner_count,
+					attendee_event.guest_name,
 					ActionController::Base.helpers.number_to_currency(attendee_event.total_cost),
-					attendee_event.payment_method,
-					(attendee_event.attendee.person_type.name rescue ''),
-					(attendee_event.attendee.chapter.name rescue ''),
-					(attendee_event.attendee.roles.join(", ") rescue '')
+					attendee_event.payment_method
 				]
 			end
 		end

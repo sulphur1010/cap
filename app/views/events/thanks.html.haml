@@ -1,3 +1,7 @@
 .event_page
 	.page
 		%h2 Thank you for registering for this event.
+
+		- if @event.display_advanced_payment_options && @payment_method
+			- if ["bank_transfer", "on_site", "check", "form"].include?(@payment_method)
+				= render :partial => "method_#{@payment_method}"

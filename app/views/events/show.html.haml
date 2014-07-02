@@ -134,6 +134,7 @@
 						%th Fax
 						%th Mobile
 						%th Spots
+						%th Dinner Spots
 						%th Guest Name
 						%th Total
 						%th Payment Type
@@ -151,6 +152,7 @@
 							%td= attendee_event.fax
 							%td= attendee_event.mobile
 							%td= attendee_event.count
+							%td= attendee_event.dinner_count
 							%td= attendee_event.guest_name
 							%td= number_to_currency(attendee_event.total_cost)
 							%td= attendee_event.payment_method

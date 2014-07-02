@@ -112,13 +112,14 @@
 
 	%br
 	.rsvp_block.js_method_block.js_method_block_bank_transfer{:style => "display: none"}
-		%h1 Bank Transfer
+		= render :partial => "method_bank_transfer"
 	.rsvp_block.js_method_block.js_method_block_check{:style => "display: none"}
-		%h1 Check
+		= render :partial => "method_check"
 	.rsvp_block.js_method_block.js_method_block_on_site{:style => "display: none"}
-		%h1 On Site
+		= render :partial => "method_on_site"
 	.rsvp_block.js_method_block.js_method_block_form{:style => "display: none"}
-		%h1 Form
+		= render :partial => "method_form"
+
 
 
 

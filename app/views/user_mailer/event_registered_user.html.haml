@@ -8,6 +8,10 @@
 		on
 		= "#{@event.formatted_start}. "
 	We look forward to seeing you there.
+- if @event.display_advanced_payment_options
+	%p
+		%b Payment Information
+	= render :partial => "events/method_#{@attendee_event.payment_method}"
 - if @director
 	%p
 		Should there be any changes or important news regarding this event, we will contact you accordingly. If you have any questions regarding this event, the Program Contact is:

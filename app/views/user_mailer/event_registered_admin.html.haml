@@ -20,6 +20,7 @@
 	%p= "Mobile: #{@attendee_event.mobile}"
 	%p= "Guest Name: #{@attendee_event.guest_name}"
 	%p= "Attendee Count: #{@attendee_event.count}"
+	%p= "Attendee Dinner Count: #{@attendee_event.dinner_count}"
 	%p= "Total: #{number_to_currency(@attendee_event.total_cost)}"
 	%p= "Payment Method: #{@payment_method}"
 	- if @other
