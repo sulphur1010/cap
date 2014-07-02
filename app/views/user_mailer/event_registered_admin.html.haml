@@ -1,0 +1,21 @@
+%p
+	Someone has registered for an event:
+	%br
+	%p
+		%b Event Info
+	%p= "Title: #{@event.title}"
+	%p= "Location: #{@event.location.name}"
+	%p= "At: #{@event.formatted_start}"
+	%br
+	%p
+		%b Attendee Info
+	%p= "Email: #{@attendee_event.email}"
+	%p= "Name: #{@attendee_event.first_name} #{@attendee_event.last_name}"
+	%p= "Attendee Count: #{@attendee_event.count}"
+	%p= "Total: #{number_to_currency(@attendee_event.total_cost)}"
+	%p= "Payment Method: #{@payment_method}"
+	%br
+	%p
+		%b Payment Info
+	- @other.to_hash.each do |k, v|
+		%p= "#{k}: #{v}"

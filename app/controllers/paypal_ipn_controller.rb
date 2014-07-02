@@ -17,6 +17,7 @@ class PaypalIpnController < ApplicationController
 		end
 
 		UserMailer.event_registered_user(pc.event, pc.attendees_event).deliver
+		UserMailer.event_registered_admin(pc.event, pc.attendee_event, "paypal", pc).deliver
 		render :nothing => true
 	end
 end

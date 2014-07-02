@@ -169,6 +169,7 @@ class EventsController < ApplicationController
 
 		if @attendee_event.save
 			UserMailer.event_registered_user(@event, @attendee_event).deliver
+			UserMailer.event_registered_admin(@event, @attendee_event, "other").deliver
 			redirect_to @event, :notice => 'You have registered to attend the event.'
 		else
 			render :action => "show"

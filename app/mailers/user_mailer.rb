@@ -16,6 +16,15 @@ class UserMailer < ActionMailer::Base
 		mail(:to => attendee_event.email, :from => "drkwright@capp-usa.org", :subject => "You have registered for a CAPP-USA event!")
 	end
 
+	def event_registered_admin(event, attendee_event, payment_method, other)
+		@event = event
+		@attendee_event = attendee_event
+		@payment_method = payment_method
+		@other = other
+		admins = User.where(:role_list => "admin").collect { |u| u.email }
+		mail(:to => admins, :from => "website-notifications@capp-usa.org", :subject => "Someone registered for a CAPP-USA event!")
+	end
+
 	def event_daily_summary(event, attendees_events)
 		@event = event
 		@attendees_events = attendees_events.sort { |a, b| a.attendee.last_name <=> b.attendee.last_name }
