@@ -14,7 +14,7 @@
 	%p
 		= number_to_currency(@attendee_event.total_cost)
 	%p
-		%b Payment Information
+		%b Payment Method
 	= render :partial => "events/method_#{@attendee_event.payment_method}"
 - if @director
 	%p
