@@ -2,8 +2,8 @@
 	%table.index_scroller_table
 		%tr
 			%td.scroller_column
-				- num = 1
-				= render :partial => "event_34"
+				- num = 0
+				/= render :partial => "event_34"
 				- Thought.no_body.published.where(:feature_on_homepage => true).order("updated_at desc").each do |quote|
 					- num += 1
 					.black
