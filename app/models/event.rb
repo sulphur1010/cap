@@ -1,5 +1,9 @@
 class Event < ActiveRecord::Base
 
+	EVENT_34_PRICE = 395
+	EVENT_34_GUEST_PRICE = 125
+	EVENT_34_DINNER_PRICE = 190
+
 	before_save :check_free_event
 	after_create :create_reminders!
 
@@ -142,5 +146,6 @@ class Event < ActiveRecord::Base
 				self.free_event = true
 			end
 		end
+		true
 	end
 end

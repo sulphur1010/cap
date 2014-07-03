@@ -19,6 +19,8 @@ class PaypalIpnController < ApplicationController
 		pc.attendee_event.address = pc.address_street
 		pc.attendee_event.city = pc.address_city
 		pc.attendee_event.zip = pc.address_zip
+		pc.attendee_event.guest_name = session[:guest_name]
+		session[:guest_name] = nil
 		pc.attendee_event.save
 		unless pc.save
 			puts pc.errors

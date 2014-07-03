@@ -31,15 +31,15 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 
 		@payment_method = params[:payment_method]
-		@total_price = 395
+		@total_price = Event::EVENT_34_PRICE
 		@dinners = params[:dinner].to_i
 		@guest = params.has_key?("guest")
 		@count = 1
 		if @guest
 			@count = 2
-			@total_price += 125
+			@total_price += Event::EVENT_34_GUEST_PRICE
 		end
-		@total_price += (@dinners * 190)
+		@total_price += (@dinners * Event::EVENT_34_DINNER_PRICE)
 
 		if (@event.spots_left - @count) < 0
 			redirect_to event_url(@event), :alert => 'There are no spots available for that event.'
@@ -55,7 +55,25 @@ class EventsController < ApplicationController
 			if payment_confirmation.save
 				item_name = "#{@event.title} (#{@price_title})"
 				invoice_id = payment_confirmation.id
-				redirect_to "#{paypal_url(@event, invoice_id, 0)}&quantity_1=#{@count}&amount_1=#{@price}&item_name_1=" + URI.encode(item_name)
+
+				data = {
+					"quanitity_1" => "1",
+					"amount_1" => Event::EVENT_34_PRICE,
+					"item_name_1" => "Registration Fee",
+					"quantity_3" => @dinners,
+					"amount_3" => Event::EVENT_34_DINNER_PRICE,
+					"item_name_3" => "Dinner Fee"
+				}
+
+				if @guest
+					data["quantity_2"] = "1"
+					data["amount_2"] = Event::EVENT_34_GUEST_PRICE
+					data["item_name_2"] = "Guest Registration Fee"
+				end
+
+				session[:guest_name] = params[:guest_name]
+
+				redirect_to "#{paypal_url(@event, invoice_id, 0)}&#{data.to_query}"
 				return
 			else
 				redirect_to event_path(@event), :alert => "Error redirecting to paypal for payment."
