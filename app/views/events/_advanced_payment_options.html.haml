@@ -11,7 +11,7 @@
 					%u
 						%b PARTICIPANT
 				%td
-					%b= "$ #{Event.EVENT_34_PRICE}.00"
+					%b $395.00 ($445.00 after 12 Sept, 2014)
 			%tr
 				%td{:style => "width: 300px"}
 					%b The fee covers:
@@ -26,7 +26,7 @@
 					%u
 						%b ACCOMPANYING PERSON
 				%td
-					%b= "$ #{Event.EVENT_34_GUEST_PRICE}.00"
+					%b $125.00 ($175.00 after 12 Sept, 2014)
 			%tr
 				%td &nbsp;
 				%td (each participant limited to 1 guest at discounted rate)
@@ -35,7 +35,7 @@
 					%u
 						%b DINNER EVENT
 				%td
-					%b= "$ #{Event.EVENT_34_DINNER_PRICE}.00"
+					%b= "$#{Event.EVENT_34_DINNER_PRICE}.00"
 		%br
 		%b
 			N.B Because of a ceiling on the number of participants for the Dinner Event, applications will be 
@@ -118,8 +118,6 @@
 		= render :partial => "method_check"
 	.rsvp_block.js_method_block.js_method_block_on_site{:style => "display: none"}
 		= render :partial => "method_on_site"
-	.rsvp_block.js_method_block.js_method_block_form{:style => "display: none"}
-		= render :partial => "method_form"
 
 
 
@@ -183,6 +181,7 @@
 			if ($(this).is(":checked")) {
 				$(".guest_name_container").show();
 				$(".guest_dinner_container").show();
+				$("#guest_name").focus();
 			} else {
 				$(".guest_name_container").hide();
 				$(".guest_dinner_container").hide();

@@ -93,7 +93,7 @@ class EventsController < ApplicationController
 			if @attendee_event.save
 				UserMailer.event_registered_user(@event, @attendee_event).deliver
 				UserMailer.event_registered_admin(@event, @attendee_event, nil).deliver
-				redirect_to thanks_event_path(@event, :payment_method => @attendee_event.payment_method), :notice => 'You have registered to attend the event.'
+				redirect_to thanks_event_path(@event, :payment_method => @attendee_event.payment_method, :amount => @total_price), :notice => 'You have registered to attend the event.'
 			else
 				render :action => "show"
 			end

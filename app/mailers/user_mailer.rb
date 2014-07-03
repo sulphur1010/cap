@@ -21,7 +21,7 @@ class UserMailer < ActionMailer::Base
 		@attendee_event = attendee_event
 		@payment_method = attendee_event.payment_method
 		@other = other
-		admins = User.where(:role_list => "admin").collect { |u| u.email }
+		admins = User.where("role_list like ?", "%admin%").collect { |u| u.email }
 		mail(:to => admins, :from => "website-notifications@capp-usa.org", :subject => "Someone registered for a CAPP-USA event!")
 	end
 

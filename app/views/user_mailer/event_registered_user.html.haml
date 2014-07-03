@@ -10,6 +10,10 @@
 	We look forward to seeing you there.
 - if @event.display_advanced_payment_options
 	%p
+		%b Total Price
+	%p
+		= number_to_currency(@attendee_event.total_cost)
+	%p
 		%b Payment Information
 	= render :partial => "events/method_#{@attendee_event.payment_method}"
 - if @director
