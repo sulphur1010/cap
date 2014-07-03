@@ -1,8 +1,24 @@
 class Event < ActiveRecord::Base
 
-	EVENT_34_PRICE = 395
-	EVENT_34_GUEST_PRICE = 125
-	EVENT_34_DINNER_PRICE = 190
+	EVENT_34_PRICE_CHANGE_DATE = Date.parse("12/9/2014")
+
+	def self.EVENT_34_PRICE
+		if Time.now > EVENT_34_PRICE_CHANGE_DATE
+			return 445
+		end
+		return 395
+	end
+
+	def self.EVENT_34_GUEST_PRICE
+		if Time.now > EVENT_34_PRICE_CHANGE_DATE
+			return 175
+		end
+		125
+	end
+
+	def self.EVENT_34_DINNER_PRICE
+		190
+	end
 
 	before_save :check_free_event
 	after_create :create_reminders!

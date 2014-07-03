@@ -10,7 +10,7 @@
 					%u
 						%b PARTICIPANT
 				%td
-					%b= "$ #{Event::EVENT_34_PRICE}.00"
+					%b= "$ #{Event.EVENT_34_PRICE}.00"
 			%tr
 				%td{:style => "width: 300px"}
 					%b The fee covers:
@@ -25,7 +25,7 @@
 					%u
 						%b ACCOMPANYING PERSON
 				%td
-					%b= "$ #{Event::EVENT_34_GUEST_PRICE}.00"
+					%b= "$ #{Event.EVENT_34_GUEST_PRICE}.00"
 			%tr
 				%td &nbsp;
 				%td (each participant limited to 1 guest at discounted rate)
@@ -34,7 +34,7 @@
 					%u
 						%b DINNER EVENT
 				%td
-					%b= "$ #{Event::EVENT_34_DINNER_PRICE}.00"
+					%b= "$ #{Event.EVENT_34_DINNER_PRICE}.00"
 		%br
 		%b
 			N.B Because of a ceiling on the number of participants for the Dinner Event, applications will be 
@@ -138,17 +138,17 @@
 	}
 
 	function calculateTotal() {
-		var total = #{Event::EVENT_34_PRICE};
+		var total = #{Event.EVENT_34_PRICE};
 		var guest = false;
 		if ($(".js_guest_checkbox").is(":checked")) {
 			guest = true;
-			total += #{Event::EVENT_34_GUEST_PRICE};
+			total += #{Event.EVENT_34_GUEST_PRICE};
 		}
 		if ($("#dinner").is(":checked")) {
-			total += #{Event::EVENT_34_DINNER_PRICE};
+			total += #{Event.EVENT_34_DINNER_PRICE};
 		} else if ($("#dinner_with_guest").is(":checked")) {
-			total += #{Event::EVENT_34_DINNER_PRICE};
-			total += #{Event::EVENT_34_DINNER_PRICE};
+			total += #{Event.EVENT_34_DINNER_PRICE};
+			total += #{Event.EVENT_34_DINNER_PRICE};
 		}
 
 		$(".js_computed_total").html("$" + total);
