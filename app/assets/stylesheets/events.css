@@ -107,3 +107,19 @@ table.event_attendees_table td {
 .advanced_payment_form .paperclip_image {
 	display: none;
 }
+
+.event_34_homepage_link {
+	position: relative;
+	top: 350px;
+	left: 512px;
+	width: 200px;
+	color: white;
+	border-radius: 3px;
+	background-color: #7cdd8b;
+	font-size: 18px;
+	padding: 10px 30px;
+}
+
+.event_34_homepage_link:hover {
+	text-decoration: none;
+}

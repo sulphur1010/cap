@@ -1,4 +1,5 @@
 - @attendee_event = AttendeesEvent.new unless @attendee_event
+%a{:name => "registration_form"}
 = semantic_form_for @attendee_event, :url => advanced_rsvp_event_path(@event), :method => :post, :html => { :id => "rsvp_form" } do |f|
 	%input{:type => "hidden", :name => "advanced_payment_options", :value => "1"}
 	.rsvp_block
