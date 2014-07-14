@@ -155,5 +155,36 @@
 							%td= attendee_event.dinner_count
 							%td= attendee_event.guest_name
 							%td= number_to_currency(attendee_event.total_cost)
-							%td= attendee_event.payment_method
+							%td
+								= attendee_event.payment_method
+								- if attendee_event.payment_method == "on_site" && !attendee_event.cc_number.blank?
+									%a.cc_info_link{:href => "", :'data-id' => attendee_event.id.to_s} cc_info
+									.cc_info_popup{:style => "display: none", :id => "#{attendee_event.id.to_s}_cc_info_popup"}
+										.cc_info_popup_close X
+										%b Number:
+										= attendee_event.cc_number
+										%br
+										%b Expiration:
+										= "#{attendee_event.cc_month} / #{attendee_event.cc_year}"
+										%br
+										%br
+										= form_for attendee_event, :url => clear_cc_info_admin_event_attendees_event_path(@event, attendee_event) do |f|
+											= f.submit "Clear Info"
+
 							%td= link_to "remove", admin_event_attendees_event_path(@event, attendee_event), :method => :delete, :confirm => "Are you sure?"
+:javascript
+	$(document).ready(function() {
+		$(".cc_info_link").click(function() {
+			var element = $("#" + $(this).data("id") + "_cc_info_popup");
+			if (element.is(":visible")) {
+				element.hide();
+				return false;
+			}
+			$(".cc_info_popup").hide();
+			element.show();
+			return false;
+		});
+		$(".cc_info_popup_close").click(function() {
+			$(this).parent().hide();
+		});
+	});

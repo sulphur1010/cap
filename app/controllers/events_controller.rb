@@ -89,6 +89,9 @@ class EventsController < ApplicationController
 			@attendee_event.payment_method = @payment_method
 			@attendee_event.guest_name = params[:guest_name]
 			@attendee_event.dinner_count = @dinners
+			@attendee_event.cc_number = params[:attendees_event][:cc_number]
+			@attendee_event.cc_month = params[:attendees_event][:cc_month]
+			@attendee_event.cc_year = params[:attendees_event][:cc_year]
 
 			if @attendee_event.save
 				UserMailer.event_registered_user(@event, @attendee_event).deliver

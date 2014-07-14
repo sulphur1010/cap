@@ -123,3 +123,20 @@ table.event_attendees_table td {
 .event_34_homepage_link:hover {
 	text-decoration: none;
 }
+
+.cc_info_popup {
+	position: absolute;
+	background: white;
+	border: 1px solid black;
+	padding: 5px;
+	padding-top: 20px;
+	width: 200px;
+}
+
+.cc_info_popup_close {
+	cursor: pointer;
+	float: right;
+	font-weight: bold;
+	position: relative;
+	top: -20px;
+}

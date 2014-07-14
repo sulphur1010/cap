@@ -1,7 +1,7 @@
 CappUsa::Application.routes.draw do
-  
-  resources :audio_mp3s
-  resources :audio_contents
+	
+	resources :audio_mp3s
+	resources :audio_contents
 
 	devise_for :users,:controllers => {:registrations => "registrations"}, :path_names => { :sign_in => 'login' }
 	match 'users/activate' => "users#activate", :via => :GET
@@ -33,7 +33,11 @@ CappUsa::Application.routes.draw do
 				get 'user_list'
 			end
 
-			resources :attendees_events
+			resources :attendees_events do
+				member do
+					put "clear_cc_info"
+				end
+			end
 		end
 		resources :locations
 		resources :audio_contents

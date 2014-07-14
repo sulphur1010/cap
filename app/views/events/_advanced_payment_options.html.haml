@@ -117,10 +117,10 @@
 	.rsvp_block.js_method_block.js_method_block_check{:style => "display: none"}
 		= render :partial => "method_check"
 	.rsvp_block.js_method_block.js_method_block_on_site{:style => "display: none"}
+		= f.input :cc_number, :label => "VISA / MASTERCARD / DISCOVER Number", :input_html => { :maxlength => 16 }
+		= f.input :cc_month, :as => :select, :collection => 1.upto(12).to_a, :label => "Expiration Month"
+		= f.input :cc_year, :as => :select, :collection => 2014.upto(2030).to_a, :label => "Expiration Year"
 		= render :partial => "method_on_site"
-
-
-
 
 	%br
 	.rsvp_block
@@ -152,6 +152,31 @@
 
 		$(".js_computed_total").html("$" + total);
 		return total;
+	}
+
+	function validateCardNumber() {
+		var number = $("#attendees_event_cc_number").val();
+		var regex = new RegExp("^[0-9]{16}$");
+		if (!regex.test(number)) {
+			return false;
+		}
+
+		return luhnCheck(number);
+	}
+
+	function luhnCheck(val) {
+		var sum = 0;
+		for (var i = 0; i < val.length; i++) {
+			var intVal = parseInt(val.substr(i, 1));
+			if (i % 2 == 0) {
+				intVal *= 2;
+				if (intVal > 9) {
+					intVal = 1 + (intVal % 10);
+				}
+			}
+			sum += intVal;
+		}
+		return (sum % 10) == 0;
 	}
 
 	function unlockRsvpButton() {
@@ -219,6 +244,25 @@
 				alert("Required information not provided.");
 				$("#guest_name").focus();
 				return false;
+			}
+
+			if (data["payment_method"] == "on_site") {
+				if (!validateCardNumber()) {
+					alert("Not a valid card number.");
+					$("#attendees_event_cc_number").focus();
+					return false;
+				}
+
+				if ($("#attendees_event_cc_month").val() == "") {
+					alert("Required information not provided.");
+					$("#attendees_event_cc_month").focus();
+					return false;
+				}
+				if ($("#attendees_event_cc_year").val() == "") {
+					alert("Required information not provided.");
+					$("#attendees_event_cc_year").focus();
+					return false;
+				}
 			}
 
 			if (data["payment_method"] == "paypal") {
