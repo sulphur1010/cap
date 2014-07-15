@@ -117,7 +117,8 @@
 	.rsvp_block.js_method_block.js_method_block_check{:style => "display: none"}
 		= render :partial => "method_check"
 	.rsvp_block.js_method_block.js_method_block_on_site{:style => "display: none"}
-		= f.input :cc_number, :label => "VISA / MASTERCARD / DISCOVER Number", :input_html => { :maxlength => 16 }
+		%p This option requires a credit card number as a deposit.  No-shows will be debited 50% of the event fee.
+		= f.input :cc_number, :label => "VISA / MASTERCARD / DISCOVER<br /> Number", :input_html => { :maxlength => 16 }
 		= f.input :cc_month, :as => :select, :collection => 1.upto(12).to_a, :label => "Expiration Month"
 		= f.input :cc_year, :as => :select, :collection => 2014.upto(2030).to_a, :label => "Expiration Year"
 		= render :partial => "method_on_site"
