@@ -43,7 +43,7 @@
 							.event_director
 								%b Program Contact: 
 							= @event.director.full_name
-							@
+							at
 							- unless @event.director.work_phone.blank?
 								%span.event_director_phone
 									= @event.director.work_phone
