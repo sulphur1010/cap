@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
 
+	attr_accessor :delete_image
+
 	EVENT_34_PRICE_CHANGE_DATE = Date.parse("12/9/2014")
 
 	def self.EVENT_34_PRICE
@@ -20,6 +22,8 @@ class Event < ActiveRecord::Base
 		190
 	end
 
+	has_attached_file :image, :styles => { :normal => "720x405" }
+
 	before_save :check_free_event
 	after_create :create_reminders!
 
@@ -28,6 +32,7 @@ class Event < ActiveRecord::Base
 
 	def check_clear_attachments
 		advanced_payment_form.clear if delete_advanced_payment_form == '1'
+		image.clear if delete_image == '1'
 	end
 
 	def helpers

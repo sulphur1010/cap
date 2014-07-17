@@ -3,6 +3,8 @@
 	= f.input :featured
 	= f.input :event_region, :collection => Event.event_regions, :include_blank => false, :selected => "USA"
 	= f.input :title
+	= f.input :image 
+	= remove_image_tag(f, @event)
 	= f.input :body, :input_html => { :class => 'js_editor' }
 	= f.input :teaser, :input_html => { :class => 'js_editor' }
 	= f.input :chapter, :collection => Chapter.all.collect { |c| [c.name, c.id] }

@@ -7,6 +7,9 @@
 			.event_type{ :class => "event_type_#{@event.type.to_s.downcase.gsub(" ", "_")}"}= @event.type
 		%div{itemscope: "", itemtype: "http://schema.org/Event"}
 		%h1{itemprop: "name"}= @event.title
+		- if @event.image?
+			%br
+			= image_tag @event.image.url(:normal), :class => 'event_header_image'
 	
 		%h2
 			- if @event.start_date
@@ -41,9 +44,10 @@
 								%b Program Contact: 
 							= @event.director.full_name
 							@
-							%span.event_director_phone
-								= @event.director.work_phone
-							or
+							- unless @event.director.work_phone.blank?
+								%span.event_director_phone
+									= @event.director.work_phone
+								or
 							%span.event_director_email
 								%a{:href => "mailto:#{@event.director.email}"}= @event.director.email
 		- unless @thanks

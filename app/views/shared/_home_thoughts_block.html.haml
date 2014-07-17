@@ -2,7 +2,7 @@
 #home_thoughts
 	.section_header
 		.hp
-			%h4	Social Thoughts
+			%h4	Articles
 			.view_all= link_to 'view all', thoughts_path
 	- thoughts.each do |thought|
 		.thought
@@ -21,4 +21,4 @@
 								= link_to "Read more", thought_path(thought)
 						
 					/			
-	.view_all.btm_link= link_to 'Read More Social Thoughts', thoughts_path
+	.view_all.btm_link= link_to 'Read More Articles', thoughts_path

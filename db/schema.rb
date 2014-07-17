@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140714213545) do
+ActiveRecord::Schema.define(:version => 20140717141254) do
 
   create_table "attendees_events", :force => true do |t|
     t.integer  "attendee_id"
@@ -274,6 +274,10 @@ ActiveRecord::Schema.define(:version => 20140714213545) do
     t.string   "advanced_payment_form_content_type"
     t.integer  "advanced_payment_form_file_size"
     t.datetime "advanced_payment_form_updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "events", ["chapter_id"], :name => "index_events_on_chapter_id"
