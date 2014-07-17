@@ -81,12 +81,6 @@
 		- else
 			.pending
 				= "Your registration is currently pending."
-	/
-		- if @teaser_events.size >0
-			%hr
-			.page
-				%h4 Related Event:
-				= render :partial => 'teaser', :object => @teaser_events
 	- if !@event.person_types.empty?
 		%hr
 		.page
