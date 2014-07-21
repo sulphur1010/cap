@@ -1,4 +1,4 @@
-- stories = Story.order(:published_at).published.limit(3).reverse()
+- stories = Story.order("published_at desc").published.limit(3)
 - if stories
 	#home_news
 		.side_news_block
