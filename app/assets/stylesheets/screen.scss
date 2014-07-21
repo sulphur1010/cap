@@ -990,6 +990,11 @@ td.controls {
 
 .rsvp.disabled {
 	color: #ccc;
+	background: #fff;
+}
+
+.rsvp.disabled:hover {
+	background: #fff;
 }
 
 .event_teaser .rsvp, .event_teaser .unrsvp, .submit_btn, .update {
