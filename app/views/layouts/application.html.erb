@@ -46,19 +46,7 @@
 		<div id="user_login">
 			<% if user_signed_in? %>
 				<%= link_to current_user.full_name, profile_url, :class => "user_name" %>
-				<%= form_for current_user, :url => destroy_user_session_url, :html => { :id => "logout_form", :style => "display: none" }, :method => :post do |f| %>
-					<input type="hidden" name="_method" value="delete">
-					<input type="submit" name="blah" value="logout">
-				<% end %>
-				<%= link_to 'Logout', "#", :class => 'logout_link' %>
-				<script type="text/javascript">
-					$(document).ready(function() {
-						$(".logout_link").click(function() {
-							$("#logout_form").submit();
-							return false;
-						});
-					});
-				</script>
+				<%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => 'logout_link' %>
 			<% else %>
 				<%= link_to "Sign Up", new_registration_path(User), :class => 'register_link' %>
 				<%= link_to 'Login', new_user_session_url, :class => 'login_link' %>
