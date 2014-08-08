@@ -64,7 +64,7 @@ class EventsController < ApplicationController
 
 				if @dinners > 0
 					data["quantity_2"] = @dinners
-					data["amount_2]" = Event.EVENT_34_DINNER_PRICE
+					data["amount_2"] = Event.EVENT_34_DINNER_PRICE
 					data["item_name_2"] = "Dinner Fee"
 				end
 
