@@ -59,16 +59,25 @@ class EventsController < ApplicationController
 				data = {
 					"quanitity_1" => "1",
 					"amount_1" => Event.EVENT_34_PRICE,
-					"item_name_1" => "Registration Fee",
-					"quantity_3" => @dinners,
-					"amount_3" => Event.EVENT_34_DINNER_PRICE,
-					"item_name_3" => "Dinner Fee"
+					"item_name_1" => "Registration Fee"
 				}
 
-				if @guest
+				if @dinners > 0
+					data["quantity_2"] = @dinners
+					data["amount_2]" = Event.EVENT_34_DINNER_PRICE
+					data["item_name_2"] = "Dinner Fee"
+				end
+
+				if @guest && @dinners == 0
 					data["quantity_2"] = "1"
 					data["amount_2"] = Event.EVENT_34_GUEST_PRICE
 					data["item_name_2"] = "Guest Registration Fee"
+				end
+
+				if @guest && @dinners > 0
+					data["quantity_3"] = "1"
+					data["amount_3"] = Event.EVENT_34_GUEST_PRICE
+					data["item_name_3"] = "Guest Registration Fee"
 				end
 
 				session[:guest_name] = params[:guest_name]
