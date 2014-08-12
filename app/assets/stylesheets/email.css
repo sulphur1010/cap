@@ -5,6 +5,7 @@
 	font-size: 15px;
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   	background: url("/images/top_nav_bg.gif");
+		background-color: rgb(137, 119, 179);
   	color: #fff;
   	padding: 4px 7px;
 }
