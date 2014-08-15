@@ -15,12 +15,14 @@ CappUsa::Application.routes.draw do
 		collection do
 			get :by_type
 			get :popup
+			get :user_list
 		end
 	end
 	resources :static_contact_lists do
 		member do
 			post :add_contact
 			post :remove_contact
+			get :user_list
 		end
 	end
 	namespace :admin do

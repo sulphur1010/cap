@@ -16,7 +16,7 @@ class Admin::EventsController < ApplicationController
 			csv << ["Last Name","First Name","Occupation","Address","City","Zip","Email","Telephone","Fax","Mobile","Attendee Count","Attendee Dinner Count","Guest Name","Amount Paid","Payment Method"]
 			@event.attendees_events.includes(:attendee).each do |attendee_event|
 				csv << [
-					attendee_event.last_name,
+					contact.last_name,
 					attendee_event.first_name,
 					attendee_event.occupation,
 					attendee_event.address,

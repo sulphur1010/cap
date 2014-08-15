@@ -1,3 +1,5 @@
+require 'csv'
+
 class StaticContactListsController < ApplicationController
 
 	before_filter :require_admin!
@@ -9,6 +11,22 @@ class StaticContactListsController < ApplicationController
 
 	def show
 		@contact_list = ContactList.find(params[:id])
+	end
+
+	def user_list
+		@contact_list = ContactList.find(params[:id])
+		csv_data = CSV.generate do |csv|
+			csv << ["Email", "Name"]
+			@contact_list.contacts.each do |contact|
+				csv << [
+					contact.full_name,
+					contact.email
+				]
+			end
+		end
+		send_data csv_data,
+			:type => 'text/csv; charset=iso-8859-1; header=present',
+			:disposition => "attachment; filename=#{@contact_list.value_name}_user_list.csv"
 	end
 
 	def new
