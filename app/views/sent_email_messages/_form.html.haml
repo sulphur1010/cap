@@ -8,7 +8,7 @@
 		.clear
 	= f.input :subject
 	= f.input :header
-	= f.input :body, :input_html => { :class => 'js_editor' }
+	= f.input :body, :input_html => { :class => 'js_mail_editor' }
 	= text_field_tag 'sent_email_message[content_fragment_ids]', '', :hidden => true
 	%hr
 	%h3 Add Content to Email
@@ -193,4 +193,12 @@
 	$(function() {
 		$('.cft_content').hide();
 		$('.multiselect').multiSelect();
+	});
+
+	$('textarea.js_mail_editor').tinymce({ 
+		theme: 'advanced',
+		plugins: "accordion,encyclical",
+		theme_advanced_disable : "styleselect",
+		theme_advanced_buttons3_add: "accordion,encyclical",
+		relative_urls: false
 	});
