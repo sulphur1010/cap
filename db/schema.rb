@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140717141254) do
+ActiveRecord::Schema.define(:version => 20140829152120) do
 
   create_table "attendees_events", :force => true do |t|
     t.integer  "attendee_id"
@@ -407,6 +407,20 @@ ActiveRecord::Schema.define(:version => 20140717141254) do
     t.string   "item_mpn1"
     t.string   "item_model_number1"
     t.string   "receipt_id"
+    t.integer  "item_number2"
+    t.float    "mc_handling2"
+    t.float    "mc_shipping2"
+    t.float    "tax2"
+    t.string   "item_name2"
+    t.integer  "quantity2"
+    t.float    "mc_gross_2"
+    t.integer  "item_number3"
+    t.float    "mc_handling3"
+    t.float    "mc_shipping3"
+    t.float    "tax3"
+    t.string   "item_name3"
+    t.integer  "quantity3"
+    t.float    "mc_gross_3"
   end
 
   create_table "questions", :force => true do |t|

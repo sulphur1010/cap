@@ -29,12 +29,12 @@ class UserMailer < ActionMailer::Base
 		@event = event
 		@attendees_events = attendees_events.sort { |a, b| a.attendee.last_name <=> b.attendee.last_name }
 		@director = @event.director
-		@program_contact = "drkwright@capp-usa.org"
+		@program_contact = "frederickfak@gmail.com"
 		cc = nil
 		if @director && @director.email != @program_contact
 			cc = @director.email
 		end
-		mail(:to => @program_contact, :from => "drkwright@capp-usa.org", :cc => cc, :subject => "#{@event.title} - Contact List (Daily Summary)")
+		mail(:to => [@program_contact, "rnalewajek@capp-usa.org"], :from => "website-notifications@capp-usa.org", :cc => cc, :subject => "#{@event.title} - Contact List (Daily Summary)")
 	end
 
 	def event_reminder_user(event, user)

@@ -40,10 +40,19 @@ class AttendeesEvent < ActiveRecord::Base
 	def count
 		cnt = read_attribute(:count)
 		if self.payment_confirmation
-			cnt = self.payment_confirmation.quantity1
+			cnt = self.payment_confirmation.count
 		end
 		return 1 unless cnt
 		return 1 if cnt == 0
+		cnt
+	end
+
+	def dinner_count
+		cnt = read_attribute(:dinner_count)
+		if self.payment_confirmation
+			cnt = self.payment_confirmation.dinner_count
+		end
+		return 0 unless cnt
 		cnt
 	end
 
