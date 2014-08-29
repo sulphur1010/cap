@@ -19,7 +19,10 @@ class PaymentConfirmation < ActiveRecord::Base
 	end
 
 	def dinner_count
-		return 1 if item_name2 == "Dinner Fee"
+		if item_name2 == "Dinner Fee"
+			return 0 unless quantity2
+			return quantity2
+		end
 		return 0
 	end
 
