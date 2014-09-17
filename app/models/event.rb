@@ -2,19 +2,15 @@ class Event < ActiveRecord::Base
 
 	attr_accessor :delete_image
 
-	EVENT_34_PRICE_CHANGE_DATE = Date.parse("12/9/2014")
-
 	def self.EVENT_34_PRICE
-		if Time.now > EVENT_34_PRICE_CHANGE_DATE
-			return 445
-		end
 		return 395
 	end
 
+	def self.EVENT_34_OTHER_PRICE
+		125
+	end
+
 	def self.EVENT_34_GUEST_PRICE
-		if Time.now > EVENT_34_PRICE_CHANGE_DATE
-			return 175
-		end
 		125
 	end
 
@@ -66,6 +62,10 @@ class Event < ActiveRecord::Base
 
 	def self.types
 		["Conference", "Course", "Lecture", "Retreat", "Communion Breakfast", "Gala"]
+	end
+
+	def self.attendee_types
+		["regular", "clergy", "young_business", "student"]
 	end
 
 	def self.event_regions

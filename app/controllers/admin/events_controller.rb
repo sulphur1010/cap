@@ -13,10 +13,10 @@ class Admin::EventsController < ApplicationController
 	def user_list
 		@event = Event.find(params[:id])
 		csv_data = CSV.generate do |csv|
-			csv << ["Last Name","First Name","Occupation","Address","City","Zip","Email","Telephone","Fax","Mobile","Attendee Count","Attendee Dinner Count","Guest Name","Amount Paid","Payment Method"]
+			csv << ["Last Name","First Name","Occupation","Address","City","Zip","Email","Telephone","Fax","Mobile","Attendee Type","Attendee Count","Attendee Dinner Count","Guest Name","Amount Paid","Payment Method"]
 			@event.attendees_events.includes(:attendee).each do |attendee_event|
 				csv << [
-					contact.last_name,
+					attendee_event.last_name,
 					attendee_event.first_name,
 					attendee_event.occupation,
 					attendee_event.address,
@@ -26,6 +26,7 @@ class Admin::EventsController < ApplicationController
 					attendee_event.telephone,
 					attendee_event.fax,
 					attendee_event.mobile,
+					attendee_event.attendee_type,
 					attendee_event.count,
 					attendee_event.dinner_count,
 					attendee_event.guest_name,

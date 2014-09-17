@@ -31,7 +31,12 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 
 		@payment_method = params[:payment_method]
+		@attendee_type = params[:attendee_type]
+		@attendee_type = "regular" unless Event.attendee_types.include?(@attendee_type)
 		@total_price = Event.EVENT_34_PRICE
+		if @attendee_type != "regular"
+			@total_price = Event.EVENT_34_OTHER_PRICE
+		end
 		@dinners = params[:dinner].to_i
 		@guest = params.has_key?("guest")
 		@count = 1
@@ -55,10 +60,14 @@ class EventsController < ApplicationController
 			if payment_confirmation.save
 				item_name = "#{@event.title} (#{@price_title})"
 				invoice_id = payment_confirmation.id
+				price = Event.EVENT_34_PRICE
+				if @attendee_type != "regular"
+					price = Event.EVENT_34_OTHER_PRICE
+				end
 
 				data = {
 					"quanitity_1" => "1",
-					"amount_1" => Event.EVENT_34_PRICE,
+					"amount_1" => price,
 					"item_name_1" => "Registration Fee"
 				}
 
@@ -81,6 +90,7 @@ class EventsController < ApplicationController
 				end
 
 				session[:guest_name] = params[:guest_name]
+				session[:attendee_type] = params[:attendee_type]
 
 				redirect_to "#{paypal_url(@event, invoice_id, 0)}&#{data.to_query}"
 				return
@@ -90,6 +100,7 @@ class EventsController < ApplicationController
 			end
 		else
 			@attendee_event = AttendeesEvent.new(params[:attendees_event])
+			@attendee_event.attendee_type = @attendee_type
 			@attendee_event.event = @event
 			@attendee_event.count = @count
 			@attendee_event.total_cost = @total_price
