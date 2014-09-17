@@ -11,9 +11,20 @@
 					%u
 						%b PARTICIPANT
 				%td
-					%b $395.00 ($445.00 after 12 Sept, 2014)
+				%td
 			%tr
-				%td{:style => "width: 300px"}
+				%td
+				%td Regular
+				%td
+					%b $395.00
+			%tr
+				%td
+				%td
+					Clergy / Young Business Professional / Student&nbsp;
+				%td
+					%b $125.00
+			%tr
+				%td{:style => "width: 300px", :colspan => 2}
 					%b The fee covers:
 				%td
 					conference and conference kit
@@ -22,25 +33,46 @@
 					%br
 					n. 1 buffet lunch
 			%tr
-				%td
+				%td{:colspan => 2}
 					%u
 						%b ACCOMPANYING PERSON
 				%td
-					%b $125.00 ($175.00 after 12 Sept, 2014)
+					%b $125.00
 			%tr
-				%td &nbsp;
+				%td{:colspan => 2} &nbsp;
 				%td (each participant limited to 1 guest at discounted rate)
 			%tr
-				%td
+				%td{:colspan => 2}
 					%u
 						%b DINNER EVENT
 				%td
 					%b= "$#{Event.EVENT_34_DINNER_PRICE}.00"
 		%br
 		%b
-			N.B Because of a ceiling on the number of participants for the Dinner Event, applications will be 
+			N.B. Because of a ceiling on the number of participants for the Dinner Event, applications will be 
 			%u processed according to date of reception.
 		%br
+
+
+
+	%br
+	.rsvp_block
+		%h1 Attendee Type
+		%input#attendee_type_regular.js_rsvp_form_element.js_cost_affector.js_attendee_type{:type => "radio", :name => "attendee_type", :value => "regular", :checked => true}
+		Regular -
+		%b $395.00
+		%br
+		%input#attendee_type_clergy.js_rsvp_form_element.js_cost_affector.js_attendee_type{:type => "radio", :name => "attendee_type", :value => "clergy", :checked => false}
+		Clergy -
+		%b $125.00
+		%br
+		%input#attendee_type_young_business.js_rsvp_form_element.js_cost_affector.js_attendee_type{:type => "radio", :name => "attendee_type", :value => "young_business", :checked => false}
+		Young Business Professional -
+		%b $125.00
+		%br
+		%input#attendee_type_student.js_rsvp_form_element.js_cost_affector.js_attendee_type{:type => "radio", :name => "attendee_type", :value => "student", :checked => false}
+		Student -
+		%b $125.00
 
 	%br
 	.rsvp_block
@@ -139,6 +171,9 @@
 
 	function calculateTotal() {
 		var total = #{Event.EVENT_34_PRICE};
+		if (!$("#attendee_type_regular").is(":checked")) {
+			total = #{Event.EVENT_34_OTHER_PRICE};
+		}
 		var guest = false;
 		if ($(".js_guest_checkbox").is(":checked")) {
 			guest = true;
