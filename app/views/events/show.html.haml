@@ -74,10 +74,11 @@
 							.rsvp_block
 								.unrsvp= link_to "Create an Account on Capp-usa.org to Register for Events", new_user_registration_url
 								.sign_in= link_to "Already signed up to capp-usa.org?  Login.", new_user_session_url
-					- if @event.display_advanced_payment_options
-						= render :partial => "advanced_payment_options"
-					- else
-						= render :partial => 'rsvp_block'
+					- if !@event.is_past?
+						- if @event.display_advanced_payment_options
+							= render :partial => "advanced_payment_options"
+						- else
+							= render :partial => 'rsvp_block'
 		- else
 			.pending
 				= "Your registration is currently pending."
@@ -139,7 +140,7 @@
 						%th Total
 						%th Payment Type
 						%th
-					- @event.attendees_events.sort { |a,b| (a.created_at) <=> (b.created_at) }.each do |attendee_event|
+					- @event.attendees_events.sort { |a,b| (a.updated_at) <=> (b.updated_at) }.each do |attendee_event|
 						%tr
 							%td= attendee_event.last_name
 							%td= attendee_event.first_name

@@ -169,4 +169,8 @@ class Event < ActiveRecord::Base
 		end
 		true
 	end
+
+	def is_past?
+		self.end_date < Time.now
+	end
 end
