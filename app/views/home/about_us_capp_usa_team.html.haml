@@ -12,5 +12,5 @@
 	%h3 Staff
 	= render :partial => 'users/board_member', :collection => User.staff.order(:about_us_weight)
 .page.national_board_member_content
-	%h3 Chapter Presidents
+	%h3 Chapter Covernours
 	= render :partial => 'users/board_member', :collection => User.chapter_presidents.order(:about_us_weight)

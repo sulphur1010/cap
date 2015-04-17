@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 		[
 			[ "National Board", "national_board" ],
 			[ "Staff", "staff" ],
-			[ "Chapter President", "chapter_president" ],
+			[ "Chapter Covernors", "chapter_covernors" ],
 			[ "Advisor", "advisor_" ],
 			[ "Ecces. Advisor", "ecces_advisor" ],
 			[ "Council", "council" ],

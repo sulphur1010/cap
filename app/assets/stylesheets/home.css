@@ -2,3 +2,37 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.exhortation {
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	vertical-align: top;
+	margin-bottom: 10px;
+}
+
+.pope {
+}
+
+.pope_img {
+	display: inline;
+}
+
+.pope_img img {
+	width: 50px;
+	border-radius: 25px;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.link {
+	text-decoration: underline;
+}
+
+.pdf {
+	display: inline;
+}
+
+.pdf img {
+	vertical-align: middle;
+}
