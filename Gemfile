@@ -13,7 +13,7 @@ gem 'cocaine', '0.3.2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'mysql2', '0.2.6'
-gem 'mysql2', '0.3.16'
+gem 'mysql2', '0.3.11'
 #gem 'less', '~> 2.0.8'
 gem 'less', '~> 2.2.1'
 gem 'tinymce-rails', '3.5.8'
