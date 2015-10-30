@@ -49,8 +49,9 @@
 				.inline.strong When:
 				.inline= teaser.full_start
 				%br
-				.inline.strong Where:
-				.inline= teaser.location.name
+				- if teaser.location
+					.inline.strong Where:
+					.inline= teaser.location.name
 				.event.teaser= strip_tags(teaser.teaser) rescue ""
 				- if teaser.celebrants.count > 0 || teaser.speakers.count > 0
 					.event_users
