@@ -67,4 +67,15 @@ class UserMailer < ActionMailer::Base
 		@contact = contact
 		mail(:to => contact.email, :from => "website-notifications@capp-usa.org", :subject => "You are invited to create a CAPP-USA.org Account.")
 	end
+	
+	def signup_confirm(signup)
+		@signup = signup
+		recipients = "jakec43@gmail.com" #["nancy5638@msn.com", "frederickfak@gmail.com"]
+		mail(:to => recipients, :from => "website-notifications@capp-usa.org", :subject => "#{@signup.name} registered for the 2016 conference")
+	end
+	
+	def signup_user_confirm(signup)
+		@signup = signup
+		mail(:to => @signup.email, :from => "website-notifications@capp-usa.org", :subject => "Confirmation of registration for the 2016 conference")
+	end
 end

@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
+ruby "2.1.5"
 
 gem 'rake', '10.1.1'
 gem 'rmagick'
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.19'
 gem 'devise', '2.0'
 gem 'haml', '3.1.4'
 gem 'sass', '3.2.3'
@@ -19,6 +20,7 @@ gem 'less', '~> 2.2.1'
 gem 'tinymce-rails', '3.5.8'
 gem 'will_paginate', '3.0.3'
 gem 'country_select', '1.0.1'
+gem 'paypal-sdk-rest'
 
 # Use unicorn as the web server
 gem 'unicorn'

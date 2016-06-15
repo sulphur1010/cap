@@ -1,0 +1,48 @@
+.event_page
+	.page
+		%h1 2016 CAPP-USA and Fordham University Conference
+	
+		%h2
+			Poverty and Development: A Catholic Perspective
+		%h2
+			New York City, September 2016
+		.rsvp_block.signup_block
+			= semantic_form_for @signup, :method => :post do |f|
+				%h3 Attendee information
+				%div
+					=f.input :first_name
+					=f.input :last_name
+					=f.input :email, :label => "Email (will be used to send confirmation)"
+					=f.input :occupation
+					=f.input :street, :label => "Street Address"
+					=f.input :city
+					=f.input :zip, :label => "Zip code"
+					=f.input :tel
+					=f.input :fax
+					=f.input :mobile
+				%hr.thin
+				-if Time.now.to_i < 1473048000
+					%h3 Note: a late registration fee will apply after September 5. A $50 fee will apply to participants, and $25 fee will apply to guests and clergy
+				%div
+					=f.input :attendee_type, :as => :radio, :collection => {"Participant ($#{Signup.participant_fee})" => "participant", "Clergy, Religious, Academics and Teachers ($#{Signup.clergy_fee})" => "clergy", "Student ($#{Signup.student_fee})" => "student"}
+				%hr.thin
+				%div
+					=f.input :accompanied, :label => "Guest (limit one per attendee, $#{Signup.guest_fee} fee)"
+				%div
+					=f.input :accompanied_by, :label => "Guest name"
+				%h3{:style => "text-transform:none;"} Will you (and your guest, if you are bringing one) attend the dinner? ($#{Signup.dinner_fee} fee per person)
+				%div
+					=f.input :dinner, :label => "I (we) will attend the dinner"
+				%hr.thin
+				%h3 Credit Card Information (for one time payment, will not be stored)
+				= semantic_fields_for CreditCard.new do |cc|
+					= cc.input :first_name
+					= cc.input :last_name
+					= cc.input :number
+					= cc.input :expire_month, :input_html => {:maxlength => 2}
+					= cc.input :expire_year, :input_html => {:maxlength => 4}
+					= cc.input :cvv2, :label => "Security Code", :input_html => {:maxlength => 3}
+					= cc.input :type, :as => :radio, :collection => {"Visa" => "visa", "Mastercard" => "mastercard", "American Express" => "amex", "Discover" => "discover"}
+				%hr.thin
+				%div
+					=f.submit :label => "submit"

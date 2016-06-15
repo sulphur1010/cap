@@ -1914,6 +1914,42 @@ margin-right: 19px;
 color: #777;
 }
 
-#audio_content_content_fragment_id{
+#audio_content_content_fragment_id {
 	width: 300px;
+}
+
+.signup_block .formtastic label {
+	width: 100%;
+}
+
+.signup_block .formtastic .choices-group {
+	margin: 0px;
+}
+
+.signup_block .formtastic li.boolean label {
+	margin: 0px;
+}
+
+.signup_block .required {
+	color: #232323;
+}
+
+.signup_block .required abbr {
+	display: none;
+}
+
+.signup_block #credit_card_expire_month {
+	width: 32px;
+}
+
+.signup_block #credit_card_expire_year {
+	width: 32px;
+}
+
+.signup_block #credit_card_cvv2 {
+	width: 32px;
+}
+
+.signup_block h3 {
+	text-transform: none;
 }

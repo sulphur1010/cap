@@ -6,6 +6,12 @@ CappUsa::Application.routes.draw do
 	devise_for :users,:controllers => {:registrations => "registrations"}, :path_names => { :sign_in => 'login' }
 	match 'users/activate' => "users#activate", :via => :GET
 
+	resources :signups, :except => [:new, :edit, :destroy] do
+		collection do 
+			get :confirm
+		end
+	end
+
 	resources :sent_email_messages, :path => "mail" do
 		member do
 			post :send

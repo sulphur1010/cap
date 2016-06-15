@@ -1,0 +1,11 @@
+%p #{@signup.name} registered for the 2016 conference as a #{@signup.attendee_type}
+- if @signup.accompanied
+	%p They will be accompanied by #{@signup.accompanied_by}
+- if @signup.dinner
+	%p They will also be attending the dinner
+%p
+	%div Occupation: #{@signup.occupation ? @signup.occupation : "not specified"}
+	%div Address: #{@signup.address}, #{@signup.city}, #{@signup.zip}
+	%div Tel: #{@signup.tel ? @signup.tel : "not provided"}
+	%div Fax: #{@signup.fax ? @signup.fax : "not provided"}
+	%div Mobile: #{@signup.mobile ? @signup.mobile : "not provided"}
