@@ -56,9 +56,6 @@ group :assets do
 	gem 'uglifier'
 end
 
-gem 'i18n', '0.6.8'
-gem 'multi_json', '1.8.2'
-
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
