@@ -11,5 +11,6 @@ development:
   <<: *default
 
 production:
-  <<: *default
+  client_id: AUs4Itt0VUMKEeg9t-J_z2cL5JMa6G0xMUgXVeMIIdZL0jivXwUmx_ZaKqGz6I2eeScchdqTxr5ZRdfK
+  client_secret: EI11DIedXQ7ycUeAhvLqpD_eJSDHY85NhYCeGKisegU3O7-tBnStBdU_gCopElHEjKV07xiCThGvE4TK
   mode: live

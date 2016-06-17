@@ -36,7 +36,7 @@ CappUsa::Application.configure do
 		:port                 => 587,
 		:domain               => 'trueinteraction.com',
 		:user_name            => 'developer@trueinteraction.com',
-		:password             => 'tideveloper',
+		:password             => 'TIP@ssw0rd',
 		:authentication       => 'plain',
 		:enable_starttls_auto => true
 	}

@@ -2,13 +2,7 @@
 %p Thank you for registering for the 2016 CAPP-USA and Fordham University Conference on Poverty and Development!
 %p You are registered to attend the conference as a #{@signup.attendee_type_v}
 - if @signup.accompanied
-	%p They will be accompanied by #{@signup.accompanied_by}
+	%p A slot has also been reserved for your guest #{@signup.accompanied_by}
 - if @signup.dinner
-	%p They will also be attending the dinner
-%p
-	%div Occupation: #{@signup.occupation ? @signup.occupation : "not specified"}
-	%div Address: #{@signup.address}, #{@signup.city}, #{@signup.zip}
-	%div Tel: #{@signup.tel ? @signup.tel : "not provided"}
-	%div Fax: #{@signup.fax ? @signup.fax : "not provided"}
-	%div Mobile: #{@signup.mobile ? @signup.mobile : "not provided"}
+	%p You are also registered to attend the dinner
 

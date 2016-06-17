@@ -5,7 +5,8 @@
 	%p They will also be attending the dinner
 %p
 	%div Occupation: #{@signup.occupation ? @signup.occupation : "not specified"}
-	%div Address: #{@signup.address}, #{@signup.city}, #{@signup.zip}
+	%div Address: #{@signup.street}, #{@signup.city}, #{@signup.zip}
 	%div Tel: #{@signup.tel ? @signup.tel : "not provided"}
 	%div Fax: #{@signup.fax ? @signup.fax : "not provided"}
 	%div Mobile: #{@signup.mobile ? @signup.mobile : "not provided"}
+	%div Paypal payment id: #{@signup.paypal_id}

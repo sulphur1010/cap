@@ -70,7 +70,7 @@ class UserMailer < ActionMailer::Base
 	
 	def signup_confirm(signup)
 		@signup = signup
-		recipients = "jakec43@gmail.com" #["nancy5638@msn.com", "frederickfak@gmail.com"]
+		recipients = ["nancy5638@msn.com", "frederickfak@gmail.com"]
 		mail(:to => recipients, :from => "website-notifications@capp-usa.org", :subject => "#{@signup.name} registered for the 2016 conference")
 	end
 	

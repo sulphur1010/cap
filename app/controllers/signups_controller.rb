@@ -17,4 +17,7 @@ class SignupsController < ApplicationController
 			render :text => "something went wrong: #{id.to_s}"
 		end
 	end
+	
+	def confirm
+	end
 end

@@ -6,7 +6,8 @@ CappUsa::Application.routes.draw do
 	devise_for :users,:controllers => {:registrations => "registrations"}, :path_names => { :sign_in => 'login' }
 	match 'users/activate' => "users#activate", :via => :GET
 
-	resources :signups, :except => [:new, :edit, :destroy] do
+	match '/2016-conference-signup', :to => "signups#index", :via => :get
+	resources :signups, :except => [:new, :edit, :destroy, :update] do
 		collection do 
 			get :confirm
 		end
