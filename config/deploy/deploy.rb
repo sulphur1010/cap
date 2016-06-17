@@ -1,3 +1,5 @@
+require 'bundler/capistrano'
+
 set :application, "cappwww"
 set :repository,  "git@swifthorse.trueinteraction.com:#{application}"
 
