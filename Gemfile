@@ -27,7 +27,7 @@ gem 'jquery-rails', '2.1.4'
 gem 'paperclip', '3.2.1'
 gem 'feedzirra', '0.0.24'
 gem 'delayed_job', '4.1.0'
-gem 'delayed_job_active_record'
+gem 'delayed_job_active_record', '4.1.0'
 gem 'daemons', '1.1.9'
 
 gem 'therubyracer', '0.12.0'
