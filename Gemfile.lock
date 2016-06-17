@@ -53,8 +53,8 @@ GEM
       addressable
     curb (0.9.3)
     daemons (1.1.9)
-    delayed_job (4.0.0)
-      activesupport (>= 3.0, < 4.1)
+    delayed_job (4.1.0)
+      activesupport (>= 3.0, < 5.0)
     delayed_job_active_record (4.1.1)
       activerecord (>= 3.0, < 5.1)
       delayed_job (>= 3.0, < 5)
@@ -230,7 +230,7 @@ DEPENDENCIES
   cocaine (= 0.3.2)
   country_select (= 1.0.1)
   daemons (= 1.1.9)
-  delayed_job (= 4.0.0)
+  delayed_job (= 4.1.0)
   delayed_job_active_record
   devise (= 2.0)
   faker (= 1.0.1)
