@@ -19,6 +19,13 @@ set :use_sudo, false
 
 set :rails_env, 'production'
 
+set :rbenv_type, :user # or :system, depends on your rbenv setup
+set :rbenv_ruby, '2.1.5'
+
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_roles, :all # default value
+
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
 # these http://github.com/rails/irs_process_scripts
