@@ -61,8 +61,8 @@ end
 # and rake tasks are available in development mode:
 group :development, :test do
 	# Deploy with Capistrano
-	gem 'capistrano', '~> 3.1'
-	gem 'capistrano-rbenv', '~> 2.0'
+	gem 'capistrano', '2.13.5'
+	gem 'capistrano-rbenv'
 	gem 'rspec-rails', '~> 2.6'
 	gem 'machinist', '2.0'
 	gem 'faker', '1.0.1'
