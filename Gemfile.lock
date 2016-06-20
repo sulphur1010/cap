@@ -211,8 +211,9 @@ GEM
     tzinfo (0.3.50)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
-    unicorn (5.1.0)
+    unicorn (4.4.0)
       kgio (~> 2.6)
+      rack
       raindrops (~> 0.7)
     uuidtools (2.1.5)
     warden (1.2.6)
@@ -260,5 +261,5 @@ DEPENDENCIES
   therubyracer (= 0.12.0)
   tinymce-rails (= 3.5.8)
   uglifier
-  unicorn
+  unicorn (= 4.4.0)
   will_paginate (= 3.0.3)

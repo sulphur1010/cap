@@ -22,7 +22,7 @@ gem 'country_select', '1.0.1'
 gem 'paypal-sdk-rest'
 
 # Use unicorn as the web server
-gem 'unicorn'
+gem 'unicorn', '4.4.0'
 gem 'jquery-rails', '2.1.4'
 gem 'paperclip', '3.2.1'
 gem 'feedzirra', '0.0.24'
