@@ -20,4 +20,13 @@ class SignupsController < ApplicationController
 	
 	def confirm
 	end
+	
+	def error
+		@hash = JSON.parse(@signup.paypal_id)
+		if @hash[:name] == "CREDIT_CARD_REFUSED"
+			@error = "Your credit card was declined. Please check the details you entered and try again. We apologize for the inconvenience."
+		else
+			@error = "An unknown error occured while attempting to process your credit card. Please check the details you entered and try again. We apologize for the inconvenience."
+		end
+	end
 end

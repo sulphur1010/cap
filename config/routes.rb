@@ -10,6 +10,7 @@ CappUsa::Application.routes.draw do
 	resources :signups, :except => [:new, :edit, :destroy, :update] do
 		collection do 
 			get :confirm
+			get :error
 		end
 	end
 
