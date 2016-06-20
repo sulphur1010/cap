@@ -6,12 +6,12 @@ CappUsa::Application.routes.draw do
 	devise_for :users,:controllers => {:registrations => "registrations"}, :path_names => { :sign_in => 'login' }
 	match 'users/activate' => "users#activate", :via => :GET
 
-	#match '/2016-conference-signup', :to => "signups#index", :via => :get
-	#resources :signups, :except => [:new, :edit, :destroy, :update] do
-	#collection do 
-	#		get :confirm
-	#	end
-	#end
+	match '/2016-conference-signup', :to => "signups#index", :via => :get
+	resources :signups, :except => [:new, :edit, :destroy, :update] do
+		collection do 
+			get :confirm
+		end
+	end
 
 	resources :sent_email_messages, :path => "mail" do
 		member do
@@ -137,7 +137,7 @@ CappUsa::Application.routes.draw do
 
 	match 'display' => 'audio_contents#display'
 
-	match 'what_isRAILS_ENV=production bundle exec rake routes _cst' => 'home#what_is_cst'
+	match 'what_is_cst' => 'home#what_is_cst'
 	match 'study_center' => 'home#study_center'
 	match 'about_us/capp_usa_team' => 'home#about_us_capp_usa_team'
 	match 'search' => 'search#index'
@@ -149,7 +149,7 @@ CappUsa::Application.routes.draw do
 
 	post 'paypal_ipn', :to => 'paypal_ipn#index', :as => 'paypal_ipn'
 
-	#match '*url' => 'pages#view'
+	match '*url' => 'pages#view'
 
 	root :to => 'home#index'
 
