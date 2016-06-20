@@ -51,6 +51,7 @@ class Signup < ActiveRecord::Base
 				total = total + fees[:dinner]
 			end
 		end
+		return total
 	end
 	
 	def self.client

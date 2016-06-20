@@ -14,7 +14,7 @@ class SignupsController < ApplicationController
 			UserMailer.signup_user_confirm(@signup).deliver
 			redirect_to confirm_signups_path 
 		else
-			render :text => "something went wrong: #{id.to_s}"
+			raise "Something went wrong"
 		end
 	end
 	
