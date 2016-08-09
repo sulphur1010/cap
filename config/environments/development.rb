@@ -34,7 +34,7 @@ CappUsa::Application.configure do
 	config.action_mailer.smtp_settings = {
 		:address              => "smtp.gmail.com",
 		:port                 => 587,
-		:domain               => 'trueinteraction.com',
+		:domain               => 'smtp.gmail.com',
 		:user_name            => 'developer@trueinteraction.com',
 		:password             => 'TIP@ssw0rd',
 		:authentication       => 'plain',

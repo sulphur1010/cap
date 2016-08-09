@@ -15,6 +15,8 @@ module CappUsa
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+		config.log_tags = [ lambda {|r| DateTime.now } ]
+
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 

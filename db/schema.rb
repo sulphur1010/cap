@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
   create_table "attendees_events", :force => true do |t|
     t.integer  "attendee_id"
     t.integer  "event_id"
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "count"
     t.decimal  "total_cost",     :precision => 8, :scale => 2
     t.string   "email"
@@ -75,16 +75,16 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contact_lists", :force => true do |t|
     t.string   "name"
     t.string   "type"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contacts", :force => true do |t|
@@ -98,8 +98,8 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
     t.string   "state"
     t.string   "zip_code"
     t.string   "work_phone"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text     "note"
     t.string   "title"
     t.string   "work_phone_ext"
@@ -114,8 +114,8 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
   create_table "contacts_static_contact_lists", :id => false, :force => true do |t|
     t.integer  "static_contact_list_id"
     t.integer  "contact_id"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contemporary_issues_content_fragments", :id => false, :force => true do |t|
@@ -141,8 +141,8 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
     t.datetime "published_at"
     t.text     "teaser"
     t.string   "type"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "url"
     t.integer  "weight"
     t.string   "name"
@@ -176,8 +176,8 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
   create_table "content_fragments_users", :id => false, :force => true do |t|
     t.integer  "user_id"
     t.integer  "content_fragment_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "content_fragments_users", ["content_fragment_id"], :name => "index_content_fragments_users_on_content_fragment_id"
@@ -193,24 +193,24 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
     t.datetime "failed_at"
     t.string   "locked_by"
     t.string   "queue"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "email_addresses", :force => true do |t|
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "encyclical_chapters", :force => true do |t|
     t.integer  "encyclical_id"
     t.integer  "chapter_num"
     t.text     "chapter_body"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "encyclical_chapters", ["chapter_num"], :name => "index_encyclical_chapters_on_chapter_num"
@@ -219,8 +219,8 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
   create_table "encyclical_references", :force => true do |t|
     t.integer  "content_fragment_id"
     t.integer  "encyclical_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "chapter_number"
     t.string   "content_fragment_type"
   end
@@ -233,8 +233,8 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
     t.integer  "duration"
     t.boolean  "sent"
     t.datetime "sent_at"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "event_reminders", ["event_id"], :name => "index_event_reminders_on_event_id"
@@ -253,8 +253,8 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
     t.integer  "spots_available"
     t.decimal  "cost",                                      :precision => 8, :scale => 2
     t.integer  "chapter_id"
-    t.datetime "created_at",                                                              :null => false
-    t.datetime "updated_at",                                                              :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text     "teaser"
     t.string   "event_type"
     t.string   "event_region"
@@ -303,8 +303,8 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
     t.text     "summary"
     t.datetime "published_at"
     t.integer  "feed_source_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "feed_sources", :force => true do |t|
@@ -312,24 +312,24 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
     t.string   "url"
     t.text     "description"
     t.string   "link"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "category"
   end
 
   create_table "locations", :force => true do |t|
     t.string   "address"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "menu_items", :force => true do |t|
     t.integer  "parent_id"
     t.string   "name"
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "weight"
     t.string   "menu"
     t.string   "menu_type"
@@ -385,8 +385,8 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
     t.string   "txn_id"
     t.string   "txn_type"
     t.string   "verify_sign"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "quantity"
     t.string   "pending_reason"
     t.float    "shipping"
@@ -428,8 +428,8 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
     t.integer  "user_id"
     t.integer  "content_fragment_id"
     t.text     "body"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text     "answer_body"
   end
 
@@ -450,8 +450,8 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
     t.text     "body"
     t.string   "status"
     t.integer  "user_id"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "content_fragment_ids"
     t.string   "header"
   end
@@ -487,15 +487,15 @@ ActiveRecord::Schema.define(:version => 20160614173959) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "person_type_id"
     t.boolean  "speaker"
     t.string   "role_list"
     t.integer  "chapter_id"
-    t.string   "profile_image_file_name"
     t.string   "profile_image_content_type"
     t.integer  "profile_image_file_size"
+    t.string   "profile_image_file_name"
     t.datetime "profile_image_updated_at"
     t.text     "about"
     t.boolean  "celebrant",                  :default => false

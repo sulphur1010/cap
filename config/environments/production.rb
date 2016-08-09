@@ -2,6 +2,9 @@ CappUsa::Application.configure do
 
   # Settings specified here will take precedence over those in config/application.rb
 
+	config.filter_parameters += [:cvv2]
+	config.filter_parameters += [:number]
+
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -66,7 +69,8 @@ CappUsa::Application.configure do
 	config.action_mailer.smtp_settings = {
 		:address              => "smtp.gmail.com",
 		:port                 => 587,
-		:domain               => 'capp-usa.org',
+		#:domain               => 'capp-usa.org',
+		:domain               => 'smtp.gmail.com',
 		:user_name            => 'website-notifications@capp-usa.org',
 		:password             => 'webadmincapp2012',
 		:authentication       => 'plain',

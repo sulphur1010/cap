@@ -41,7 +41,7 @@
 					= cc.input :number
 					= cc.input :expire_month, :input_html => {:maxlength => 2}
 					= cc.input :expire_year, :input_html => {:maxlength => 4}
-					= cc.input :cvv2, :label => "Security Code", :input_html => {:maxlength => 3}
+					= cc.input :cvv2, :label => "Security Code", :input_html => {:maxlength => 4}
 					= cc.input :type, :as => :radio, :collection => {"Visa" => "visa", "Mastercard" => "mastercard", "American Express" => "amex", "Discover" => "discover"}
 				%hr.thin
 				%div
