@@ -10,7 +10,7 @@ preload_app true
 
 timeout 30
 
-socket_path = '/var/www/capp-usa/tmp/sockest'
+socket_path = '/var/www/capp-usa/tmp/sockets'
 pid_path = '/var/www/capp-usa/tmp/pids'
 app_root = '/var/www/capp-usa'
 eval(File.new('config/paths.rb').read)
