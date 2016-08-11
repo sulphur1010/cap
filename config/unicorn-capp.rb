@@ -13,7 +13,6 @@ timeout 30
 socket_path = '/var/www/capp-usa/tmp/sockets'
 pid_path = '/var/www/capp-usa/tmp/pids'
 app_root = '/var/www/capp-usa'
-eval(File.new('config/paths.rb').read)
 
 listen socket_path, :backlog => 2048
 pid pid_path

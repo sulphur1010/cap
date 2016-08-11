@@ -25,3 +25,6 @@ bundle exec rake sunspot:solr:start RAILS_ENV=$RAILS_ENV
 
 echo "** Starting Unicorn **"
 bundle exec unicorn_rails -c $WEBDIR/$REPO/config/unicorn-capp.rb -E $RAILS_ENV -D
+
+echo "** Starting Delayed Job **"
+bundle exec bin/delayed_job start RAILS_ENV=$RAILS_ENV
