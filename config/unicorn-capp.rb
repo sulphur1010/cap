@@ -10,8 +10,8 @@ preload_app true
 
 timeout 30
 
-socket_path = '/var/www/capp-usa/tmp/sockets'
-pid_path = '/var/www/capp-usa/tmp/pids'
+socket_path = '/var/www/capp-usa/tmp/sockets/unicorn.sock'
+pid_path = '/var/www/capp-usa/tmp/pids/unicorn.pid'
 app_root = '/var/www/capp-usa'
 
 listen socket_path, :backlog => 2048
