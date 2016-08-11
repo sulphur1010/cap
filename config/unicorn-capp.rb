@@ -10,9 +10,9 @@ preload_app true
 
 timeout 30
 
-socket_path = ''
-pid_path = ''
-app_root = ''
+socket_path = '/var/www/capp-usa/tmp/sockest'
+pid_path = '/var/www/capp-usa/tmp/pids'
+app_root = '/var/www/capp-usa'
 eval(File.new('config/paths.rb').read)
 
 listen socket_path, :backlog => 2048
