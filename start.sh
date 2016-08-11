@@ -31,4 +31,4 @@ echo "** Starting Unicorn **"
 bundle exec unicorn_rails -c $WEBDIR/$REPO/config/unicorn-capp.rb -E $RAILS_ENV -D
 
 echo "** Starting Delayed Job **"
-bundle exec rake jobs:work RAILS_ENV=$RAILS_ENV
+RAILS_ENV=production bundle exec script/delayed_job start
