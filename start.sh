@@ -20,8 +20,9 @@ echo "** Database migrations **"
 bundle exec rake db:migrate RAILS_ENV=$RAILS_ENV
 bundle exec rake db:seed RAILS_ENV=$RAILS_ENV
 
-echo "** Starting solr **"
+echo "** Starting and reindexing solr **"
 bundle exec rake sunspot:solr:start RAILS_ENV=$RAILS_ENV
+bundle exec rake sunspot:reindex RAILS_ENV=$RAILS_ENV
 
 echo "** Compiling assets **"
 bundle exec rake assets:clean
