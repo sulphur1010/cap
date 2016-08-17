@@ -69,10 +69,9 @@ CappUsa::Application.configure do
 	config.action_mailer.smtp_settings = {
 		:address              => "smtp.gmail.com",
 		:port                 => 587,
-		#:domain               => 'capp-usa.org',
-		:domain               => 'smtp.gmail.com',
+		:domain               => 'gmail.com',
 		:user_name            => 'website-notifications@capp-usa.org',
-		:password             => 'webadmincapp2012',
+		:password             => 'webnote2016',
 		:authentication       => 'plain',
 		:enable_starttls_auto => true
 	}
