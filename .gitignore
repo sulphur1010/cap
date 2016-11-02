@@ -2,9 +2,7 @@ public/assets
 public/assets.tgz
 .bundle
 db/*.sqlite3
-log/*.log
-log/*_log
-log/*.lck
+log/
 tmp/
 .sass-cache/
 *.swp

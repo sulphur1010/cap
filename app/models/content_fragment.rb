@@ -44,7 +44,9 @@ class ContentFragment < ActiveRecord::Base
 		nil
 	end
 
-	validates :url, :uniqueness => true
+	# NOTE disabled to allow thought/article creation
+	# TODO allow for page createion, disable for thought/aritcle
+	#validates :url, :uniqueness => true
 
 	scope :of_type, lambda {|t| where("type = ?", t) }
 	scope :thoughts, of_type('Thought')
