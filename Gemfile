@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-
+gem 'bundler', '1.17.1' 
 gem 'rake', '10.1.1'
 gem 'rmagick'
 gem 'rails', '3.2.19'
@@ -7,19 +7,29 @@ gem 'devise', '2.0'
 gem 'haml', '3.1.4'
 gem 'sass', '3.2.3'
 gem 'formtastic', '2.1.0.rc'
+# Use postgresql as the database for Active Record
+gem 'pg', '~> 0.18'
+
 gem 'cocaine', '0.3.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'mysql2', '0.2.6'
-gem 'mysql2', '0.3.11'
+#gem 'mysql2', '0.3.11'
 #gem 'less', '~> 2.0.8'
 gem 'less', '~> 2.2.1'
 gem 'tinymce-rails', '3.5.8'
 gem 'will_paginate', '3.0.3'
 gem 'country_select', '1.0.1'
 gem 'paypal-sdk-rest'
+
+
+
+gem 'json', github: 'flori/json', branch: 'v1.8'
+
+
+
 
 # Use unicorn as the web server
 gem 'unicorn', '4.4.0'
