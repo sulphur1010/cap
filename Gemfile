@@ -1,12 +1,21 @@
 source 'http://rubygems.org'
-gem 'bundler', '1.17.1' 
+#gem 'bundler', '1.17.1' 
+#gem 'bundler', '2.1.4' 
 gem 'rake', '10.1.1'
 gem 'rmagick'
-gem 'rails', '3.2.19'
+
+
+#gem 'rails', '5.2'
+
+
+#gem 'actionpack', '~> 5.2'
+#gem 'rails', '3.2.19'
 gem 'devise', '2.0'
 gem 'haml', '3.1.4'
 gem 'sass', '3.2.3'
-gem 'formtastic', '2.1.0.rc'
+
+
+#gem 'formtastic', '2.1.0.rc'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 
