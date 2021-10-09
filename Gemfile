@@ -14,7 +14,7 @@ gem 'cocaine', '0.3.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'rollbar'
 #gem 'mysql2', '0.2.6'
 #gem 'mysql2', '0.3.11'
 #gem 'less', '~> 2.0.8'

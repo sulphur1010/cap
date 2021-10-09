@@ -172,6 +172,7 @@ GEM
       css_parser
       nokogiri (>= 1.4.4)
       sprockets
+    rollbar (3.2.0)
     rsolr (1.0.7)
       builder (>= 2.1.2)
     rspec-collection_matchers (1.2.0)
@@ -262,6 +263,7 @@ DEPENDENCIES
   rake (= 10.1.1)
   rmagick
   roadie (= 2.3.4)
+  rollbar
   rsolr (= 1.0.7)
   rspec-rails (~> 2.6)
   sass (= 3.2.3)
