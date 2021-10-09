@@ -10,6 +10,12 @@ gem 'rmagick'
 
 #gem 'actionpack', '~> 5.2'
 #gem 'rails', '3.2.19'
+
+
+ruby '2.4.1'
+
+
+
 gem 'devise', '2.0'
 gem 'haml', '3.1.4'
 gem 'sass', '3.2.3'
