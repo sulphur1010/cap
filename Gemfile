@@ -27,7 +27,8 @@ gem 'paypal-sdk-rest'
 
 
 
-gem 'json', github: 'flori/json', branch: 'v1.8'
+
+gem 'json'
 
 
 
