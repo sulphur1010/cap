@@ -27,7 +27,7 @@ gem 'paypal-sdk-rest'
 
 group :production do
   #gem 'rails_12factor'
-  gem 'rake', '10.1.1'
+  #gem 'rake', '10.1.1'
 end
 
 
