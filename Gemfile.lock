@@ -233,7 +233,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_record_query_trace (= 1.1)
-  bundler (= 1.17.3)
   capistrano (= 2.13.5)
   capistrano-rbenv
   cocaine (= 0.3.2)
@@ -274,4 +273,5 @@ DEPENDENCIES
   uglifier
   unicorn (= 4.4.0)
   will_paginate (= 3.0.3)
+
 
