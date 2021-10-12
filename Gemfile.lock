@@ -275,5 +275,3 @@ DEPENDENCIES
   unicorn (= 4.4.0)
   will_paginate (= 3.0.3)
 
-BUNDLED WITH
-   1.17.3
