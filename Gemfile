@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby '2.3.3'
 gem 'bundler', '1.17.3' 
 gem 'rake', '10.1.1'
 gem 'rmagick'
