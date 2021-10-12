@@ -25,6 +25,10 @@ gem 'will_paginate', '3.0.3'
 gem 'country_select', '1.0.1'
 gem 'paypal-sdk-rest'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 
 
 
