@@ -45,10 +45,10 @@ test:
   <<: *default
   database: cappusa_test
 
-# production:
-#     <<: *default
-#     database: cappusa_production
-#     host: /var/run/postgresql
+production:
+    <<: *default
+    database: cappusa_production
+    host: /var/run/postgresql
 
 
 # test:
@@ -63,12 +63,12 @@ test:
 #   pool: 8
 #   port: 3306
 
-production:
-  adapter: mysql2
-  host: 127.0.0.1
-  database: cappusa
-  username: cappusa
-  password: 234Shrt7
-  encoding: utf8
-  pool: 8
-  port: 3306
+# production:
+#   adapter: mysql2
+#   host: 127.0.0.1
+#   database: cappusa
+#   username: cappusa
+#   password: 234Shrt7
+#   encoding: utf8
+#   pool: 8
+#   port: 3306
