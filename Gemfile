@@ -63,10 +63,10 @@ gem 'hpricot', '0.8.6'
 gem 'roadie', '2.3.4'
 
 
-group :assets do
-	gem 'sass-rails'
-	gem 'uglifier'
-end
+
+gem 'sass-rails'
+gem 'uglifier'
+
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
