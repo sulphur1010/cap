@@ -77,17 +77,17 @@ end
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-group :development, :test do
-	# Deploy with Capistrano
-	gem 'capistrano', '2.13.5'
-	gem 'capistrano-rbenv'
-	gem 'rspec-rails', '~> 2.6'
-	gem 'machinist', '2.0'
-	gem 'faker', '1.0.1'
-	gem 'syntax', '1.0.0'
-	gem 'progress_bar', '0.4.0'
-end
 
-group :development do
-	gem 'active_record_query_trace', '1.1'
-end
+	# Deploy with Capistrano
+gem 'capistrano', '2.13.5'
+gem 'capistrano-rbenv'
+gem 'rspec-rails', '~> 2.6'
+gem 'machinist', '2.0'
+gem 'faker', '1.0.1'
+gem 'syntax', '1.0.0'
+gem 'progress_bar', '0.4.0'
+
+
+
+gem 'active_record_query_trace', '1.1'
+
