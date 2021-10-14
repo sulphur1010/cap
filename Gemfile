@@ -31,6 +31,8 @@ gem 'will_paginate', '3.0.3'
 gem 'country_select', '1.0.1'
 gem 'paypal-sdk-rest'
 
+gem 'bigdecimal', '1.3.5'
+
 group :production do
 	gem 'activesupport'
 	gem 'actionpack'
