@@ -24,6 +24,9 @@ CappUsa::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+
+  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 

@@ -9,7 +9,9 @@ gem 'haml', '3.1.4'
 gem 'sass', '3.2.3'
 gem 'formtastic', '2.1.0.rc'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+#gem 'pg', '~> 0.18'
+
+gem 'pg', '~> 0.11'
 
 gem 'cocaine', '0.3.2'
 gem 'test-unit'
