@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 #gem 'bundler', '1.17.3' 
 #gem 'bundler', '2.1.4' 
-gem 'rake', '10.1.1'
+#gem 'rake', '10.1.1'
 gem 'rmagick'
 gem 'rails', '3.2.19'
 gem 'devise', '2.0'
@@ -9,9 +9,7 @@ gem 'haml', '3.1.4'
 gem 'sass', '3.2.3'
 gem 'formtastic', '2.1.0.rc'
 # Use postgresql as the database for Active Record
-#gem 'pg', '~> 0.18'
-
-gem 'pg', '~> 0.11'
+gem 'pg', '~> 0.18'
 
 gem 'cocaine', '0.3.2'
 gem 'test-unit'
@@ -27,6 +25,19 @@ gem 'tinymce-rails', '3.5.8'
 gem 'will_paginate', '3.0.3'
 gem 'country_select', '1.0.1'
 gem 'paypal-sdk-rest'
+
+group :production do
+	gem 'activesupport'
+	gem 'actionpack'
+	gem 'activerecord'
+	gem 'railties'
+	gem 'rake', '10.1.1'
+
+
+  #gem 'rails_12factor'
+  #gem 'rake', '10.1.1'
+end
+
 
 
 
@@ -65,25 +76,25 @@ gem 'hpricot', '0.8.6'
 gem 'roadie', '2.3.4'
 
 
-
-gem 'sass-rails'
-gem 'uglifier'
-
+group :assets do
+	gem 'sass-rails'
+	gem 'uglifier'
+end
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-
+group :development, :test do
 	# Deploy with Capistrano
-gem 'capistrano', '2.13.5'
-gem 'capistrano-rbenv'
-gem 'rspec-rails', '~> 2.6'
-gem 'machinist', '2.0'
-gem 'faker', '1.0.1'
-gem 'syntax', '1.0.0'
-gem 'progress_bar', '0.4.0'
+	gem 'capistrano', '2.13.5'
+	gem 'capistrano-rbenv'
+	gem 'rspec-rails', '~> 2.6'
+	gem 'machinist', '2.0'
+	gem 'faker', '1.0.1'
+	gem 'syntax', '1.0.0'
+	gem 'progress_bar', '0.4.0'
+end
 
-
-
-gem 'active_record_query_trace', '1.1'
-
+group :development do
+	gem 'active_record_query_trace', '1.1'
+end

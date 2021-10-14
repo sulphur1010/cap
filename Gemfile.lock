@@ -232,7 +232,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack
   active_record_query_trace (= 1.1)
+  activerecord
+  activesupport
   capistrano (= 2.13.5)
   capistrano-rbenv
   cocaine (= 0.3.2)
@@ -252,9 +255,10 @@ DEPENDENCIES
   machinist (= 2.0)
   paperclip (= 3.2.1)
   paypal-sdk-rest
-  pg (~> 0.11)
+  pg (~> 0.18)
   progress_bar (= 0.4.0)
   rails (= 3.2.19)
+  railties
   rake (= 10.1.1)
   rmagick
   roadie (= 2.3.4)
