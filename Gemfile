@@ -37,6 +37,7 @@ group :production do
 	gem 'activerecord'
 	gem 'railties'
 	gem 'rake'
+	gem 'bundler', '>= 1.2.2' 
 
 
   #gem 'rails_12factor'
