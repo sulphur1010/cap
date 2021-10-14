@@ -63,7 +63,7 @@ gem 'delayed_job', '4.1.0'
 gem 'delayed_job_active_record', '4.1.0'
 gem 'daemons', '1.1.9'
 
-gem 'therubyracer', '0.12.0'
+gem 'therubyracer', '0.12.3'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
