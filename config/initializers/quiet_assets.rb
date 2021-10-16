@@ -8,8 +8,8 @@ Rails::Rack::Logger.class_eval do
     #call_without_quiet_assets(env).tap do
 
 
-      Rails.logger.level = previous_level
-    end
+      #Rails.logger.level = previous_level
+    #end
   end
   alias_method_chain :call, :quiet_assets
 end
