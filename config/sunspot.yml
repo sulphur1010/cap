@@ -1,5 +1,8 @@
 production:
-
+  solr:
+    hostname: 127.0.0.1
+    port: 8983
+    log_level: WARNING
 
 development:
   solr:
