@@ -1,7 +1,9 @@
 source 'http://rubygems.org'
+
 #gem 'bundler', '1.17.3' 
 #gem 'bundler', '2.1.4' 
 #gem 'rake', '10.1.1'
+
 gem 'rmagick'
 
 
