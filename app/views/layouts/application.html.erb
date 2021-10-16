@@ -48,8 +48,11 @@
 				<%= link_to current_user.full_name, profile_url, :class => "user_name" %>
 				<%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => 'logout_link' %>
 			<% else %>
-				<%= link_to "Sign Up", new_registration_path(User), :class => 'register_link' %>
-				<%= link_to 'Login', new_user_session_url, :class => 'login_link' %>
+
+
+
+
+
 			<% end %>
 			<br>
 			<span class="fcapp">Visit <a target="_blank" href="http://centesimusannus.org/">Our Vatican Home > </a></span>
