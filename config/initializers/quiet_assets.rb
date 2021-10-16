@@ -5,9 +5,9 @@ Rails::Rack::Logger.class_eval do
     Rails.logger.level = Logger::ERROR if env['PATH_INFO'].index("/assets/") == 0
 
 
-    call_without_quiet_assets(env).tap do
+    #call_without_quiet_assets(env).tap do
 
-      
+
       Rails.logger.level = previous_level
     end
   end
